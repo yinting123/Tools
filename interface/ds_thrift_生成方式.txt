@@ -1,0 +1,4 @@
+
+ssh tester@192.168.233.2
+
+cd /home/tianyi/thrift /home/tianyi/thrift/thrift-0.9.3/compiler/cpp/thrift -gen java ./dynamic_search.thrift生成文件在路径下的gen-java下goods-servicecd /home/tianyi/thrift/goods-service/home/tianyi/thrift/thrift-0.9.3/compiler/cpp/thrift -gen java ./cm.thrift生成文件在路径下的gen-java下

@@ -1,0 +1,1067 @@
+package ProductSearchIf;
+
+option cc_generic_services = true;
+
+message RequestPriceRange
+{
+    optional int32 low_price=1;  //筛选规则的低价
+    optional int32 high_price=2;  //筛选规则的高价
+};
+
+message SelectPrice
+{
+    required int32 type=1; //1是对酒店，2是对产品
+    repeated RequestPriceRange request_price_range=2;
+};
+
+message SHotelInvoiceInfo
+{
+    required int64 shotel_id=1;
+	optional int32 type=2; //0:没有维护开发票的信息；1：由艺龙开具发票；2：由酒店开具发票
+};
+
+message SHotelHelpfulTips
+{
+    required int64 shotel_id=1;  //shotel id
+    optional bytes helpful_tips_cn=2; //温馨提示中文
+    optional bytes helpful_tips_en=3; //温馨提示英文
+    optional bytes start_date=4; //温馨提示开始时长
+    optional bytes end_date=5;  //温馨提示结束时间
+};
+
+message GiftInfo
+{
+    optional int64 shotel_id=1;  //s酒店id
+	optional int64 sroom_type_id=2;  //s房型id
+	optional int64 rateplan_id=3;  //rp id
+    optional bytes gift_content_cn=5;  //礼包内容 中文
+    optional bytes gift_content_en=6;  //礼包内容 英文
+    optional int32 way_of_giving=7;  //赠送方式  0:每间房赠送一次 1:每间房每日赠送一次 2:其他
+    optional bytes way_of_giving_other_cn=8;  //其他赠送方式中文描述
+    optional bytes way_of_giving_other_en=9;  //其他赠送方式英文描述
+    optional int32 gift_types=10;  //送礼内容类型，bitmap存储：从第0位到第n位表示：送餐相关、延迟退房等
+    optional int32 status=11;  //礼包状态：1为有效，0为无效
+    optional bytes begin_date=12;  //开始日期
+    optional bytes end_date=13;  //结束日期
+    optional int32 date_type=14;  //日期有效类型: 1：预定日期 2：入住日期 3：在店日期
+    optional int32 bit_sum4_week=15;  //星期几：bitmap存储，第0位表示周日，第1位表示周一，依次类推
+    optional int32 hour_type=16;  //时间有效类型  0:24小时有效; 1：xx小时前; 2:xx小时后
+    optional int32 hour_number=17;  //小时数字，与hour_type一起使用，当然只有hour_type等于2或3时，hour_number才有意义
+    repeated GiftFirstTag gift_first_tag = 18;//礼包一级标签（其中包含二级标签）
+};
+
+message GiftFirstTag {
+    optional int32   bit_number                 = 1;
+    optional int32   priority                   = 2;
+    repeated GiftSecondTag     gift_second_tag  = 3;
+};
+
+message GiftSecondTag {
+    optional int32    sub_bit_number            = 1;
+    optional int32    sub_gift_price            = 2;
+};
+
+message GiftInfoPreview
+{
+    optional bytes gift_preview_string=2;  //按规则拼接的礼包预览字符串
+    optional bool is_next7_days=3;  //是否离店日期后七天之内的礼包
+};
+
+message Gift
+{
+    required int64 gift_id=1;
+	optional GiftInfo gift_info=2;
+	optional GiftInfoPreview gift_info_preview=3;
+};
+
+message SHotelBookingRule
+{
+    required int64 id=1; 
+    required int64 shotel_id=2;  
+    optional bytes cn_description=4;  //预定规则的中文描述(hotel_restrictions表当中的notes1字段)
+    optional bytes en_description=5;  //预定规则的英文描述(hotel_restrictions表当中的notes1_en字段)
+    optional bytes start_date=6;    
+    optional bytes end_date=7;
+    optional int32 booking_date_type=8;  // (写死了是预定日期类型)  1：预定日期 2：入住日期 3：在店日期
+    optional int32 booking_rule_type=9; //1:没有规则；2：客人需要提供国籍;3:预定N间房便需要提供N个客人的名字;4:外宾必须提供英文名字；5:酒店不接受几点到几点的预定;6:需要提供客人手机号
+    optional bytes start_hour=10;
+    optional bytes end_hour=11;
+    optional bytes note2        = 12;   // 标准提示语一
+    optional bytes limit1       = 13;   // 限制一
+    optional bytes limit2       = 14;   // 限制二
+};
+
+message AddValueInfo
+{
+    required int64 id=1;  //增值服务id
+    optional bytes business_code=2;  //业务代码: 01：早餐；02：午餐；03：晚餐；04：宽带上网；05：服务费；06：政府税, 目前主要是01、05、06
+    optional bytes add_value_eng_name=3;  //增值服务英文名称(AddValueInfo表的 AddValueENGName字段)
+    optional bytes add_value_cn_name=4;  //增值服务中文名称(AddValueInfo表的 AddValueCNName字段)
+    optional int32 is_include=5;  //是否包含
+    optional int32 share=6;  //份数
+    optional int32 price_default_option=7; //是按“单价”还是按照“比例”：1表示按照单价；2表示按照比例
+    optional double price=8;  //单价或者比例的数字
+    optional bool is_add=9;  //是否可以单加
+    optional int32 single_price_defaultoption=10;  //单加是按照“单价”还是按照“比例”：1表示按照单价；2表示按照比例
+    optional double single_price=11;  //单价或者比例的数字
+    optional bytes memo=12;  //备注
+    optional int32 is_forbidden=13;  //是否禁用:1表示不禁用，0表示禁用  (AddValueInfo表的IsForbidden字段)
+};
+
+//担保规则数据使用：
+//担保方式： 使用VouchWay字段
+//担保规则的有效日期： 
+//                   日期类型使用 date_type字段， 
+//                   起始结束日期使用start_date和end_date字段
+//担保规则一周的哪几天有效： is_week_effective字段，第0位表示周日、第1位表示周一、第2位表示周二、依次类推
+//担保是到店时间担保还是房量担保：
+//                   is_arrive_time_vouch为true表示到店时间担保，此时使用arrive_start_time 和 arrive_end_time
+//                   is_room_count_vouch为true表示按房量担保，此时使用room_count
+//担保金额：  使用money_type字段
+//变更规则：
+//            rule_type=1:  不允许变更
+//            rule_type=2： 允许变更取消,需要在xx日期xx时间前通知: xx日期使用rule_data_date_time变量，xx时间使用rule_data_date_string变量
+//            rule_type=3： 允许变更/取消,需在最早到店时间前xx小时通知：xx小时使用rule_data_int变量
+//            rule_type=4:  允许变更/取消,需在到店日24点之前xx小时通知: xx小时使用rule_data_int变量
+//举例： 比如担保方式是信用卡担保，担保有效日期是 2014-04-01 到 2014-05-01，入住日期有效，每周的周二、周三、周四有效，是按照到店时间担保，如果是
+//       到店时间在10:00到12:00，则需要担保，担保金额为首晚房费，变更取消规则为：规则3，允许变更取消，需要在最早到店日期前2个小时通知
+//拼凑字符串如下：
+//    在2014-04-01到2014-05-01期间的周二、周三、周四入住，如果您的到店时间在10:00到12:00，则需要使用信用卡担保，担保金额为首晚房费，订单可以取消，
+//    不过需要在您的到店日期前2个小时通知酒店才行，过期不能取消订单
+message VouchInfo
+{
+    required int64 id=1;  //担保id
+    optional int64 rateplan_id=2;
+    optional int32 vouch_way=3;  //担保方式: 1:信用卡担保
+    optional bytes start_date=4;
+    optional bytes end_date=5;
+    optional int32 date_type=6; // 1：预定日期 2：入住日期 3：在店日期
+    repeated int32 is_week_effective=7;  //周有效
+    optional bytes arrive_start_time=8;  //到店日期担保(开始时长
+    optional bytes arrive_end_time=9;  //到店日期担保(结束时间)
+    optional int32 room_count=10; // 担保房量
+    optional int32 money_type=11; //担保金额: 1:首晚房费；2：全额房费
+    optional int32 rule_type=12;  //担保规则: 1：不允许变更取消；2：允许变更取消,需要在约定之日前通知；3:允许变更/取消,需在最早到店时间前小时通知;4:允许变更/取消,需在到店日24点之前小时通知
+    optional int32 rule_data_int=13; //相关担保规则数据(int)  (其实就是HourNum变量) （这个名称写的太含糊了，后面会改掉这个名字）
+    optional bytes rule_data_date_time=14; //相关担保规则数据(DateTime)   （其实就是DayNum变量?（这个名字写得太含糊了，后面会改掉这个名字)
+    optional bytes rule_data_date_string=15; //相关担保规则数据(bytes)   （其实就是TimeNum变量?（这个名字写得太含糊了，后面会改掉这个名字)?
+    optional bytes rule_description_cn=16;  //中文描述   (PolicyBaseInfo表当中的CNDescription字段)
+    optional bytes rule_description_en=17;  //英文描述  (PolicyBaseInfo表当中的ENGDescription字段)
+    optional bool is_arrive_time_vouch=18; //是否要店时间担保
+    optional bool is_room_count_vouch=19;  //是否房量担保
+};
+
+//预付规则数据使用：
+//预付规则的对象：  使用target_type对象(对酒店还是对客人)
+//预付规则的有效日期： 
+//                   使用date_type字段，日期类型只有一种：都是入住日期
+//                   使用start_date 和 end_date字段
+//预付规则一周的哪几天有效：使用is_week_effective字段，第0位表示周日、第1位表示周一、第2位表示周二、依次类推
+//变更规则：
+//           rule_type = 1: 不允许变更/取消
+//           rule_type = 2: 允许变更取消，
+//                          在到店日xx小时前不收取罚金（xx小时使用rule_data_int字段）；
+//                          在xx小时到yy小时(yy小时使用rule_data_second_int变量)之间进行变更取消：是否扣费(使用cut_after_change_time变量),
+//                                扣费是按照比例还是金额(使用cut_type_after字段)，比例或者金额的数字（使用cut_num_after字段);
+//                          yy小时之后不能变更取消
+//           rule_type = 3: 允许变更取消，
+//                          在xx日期（使用rule_data_date_time字段）yy时间（使用rule_data_string字段）之前变更取消不收取罚金；
+//                          在此日期之后变更取消: 是否扣费（使用cut_after_change_time变量），扣费是按照比例还是金额（使用cut_type_after字段）,
+//                          比例或者金额的数字（使用cut_num_after字段）
+//                          xx日期yy小时之后不能够变更取消
+//举例：  比如预付规则是酒店和客人的一致，有效日期是入住日期为 2014-04-01 到 2014-05-01，周有效是周二、周三、周四，
+//        变更取消: rule_type=2, 允许变更取消，在到店日前的22小时变更取消不收取罚金，在到店日前22小时到2小时之间变更取消收取首晚房费作为罚金，
+//                  在到店日前的2小时之后不能变更取消
+//拼凑字符串：
+//        在 2014-04-01到2014-05-01的周二、周三、周四入住，需要进行预付，在到店日期前的22小时之前取消订单不收取罚金，到店日期前的22小时到2小时之间取消
+//        订单收取首晚房费作为罚金，在到店日前的2小时之后不能变更取消订单
+message PrePayInfo
+{
+    required int64 id=1;  //预付id
+    optional int64 rate_plan_id=2;
+    optional int32 target_type=3; //针对对象，对客人，对酒店 (Target变量): 1：对酒店；2：对客人
+    optional bytes start_date=4;
+    optional bytes end_date=5;
+    optional int32 date_type=6;  // 1：预定日期 2：入住日期 3：在店日期
+    optional int32 rule_type=7; //1:不允许变变更;2:允许变更/取消,在到店日24点之前的...个小时可以变更取消;3:允许变更/取消,在指定日期指定时间之前可以变更取消
+    optional bool cut_before_change_time=8;  //在变更时间点前是否扣貿 (DeductFeesBefore变量)
+    optional bool cut_after_change_time=9;  //在变更时间点后是否扣貿  (DeductFeesAfter变量)
+    optional int32 cut_type_before=10;  //扣费类型，首晚，金额，比伿时间点前)  (CashScaleFirstBefore变量): 1:扣费类型：金额；2：扣费类型：比例；3：扣费类型：首晚房费
+    optional int32 cut_type_after=11;  //扣费类型，首晚，金额，比伿时间点后)  (CashScaleFirstAfter变量): 1:扣费类型：金额；2：扣费类型：比例；3：扣费类型：首晚房费
+    optional int32 cut_num_before=12; //金额/比例（时间点前）  (DeductNumBefore变量)
+    optional int32 cut_num_after=13; //金额/比例（时间点后）  (DeductNumAfter变量)
+    optional int32 rule_data_int=14;  //相关预付规则数据(int)(第一阶段提前几小时  (HourNum变量)
+    optional int32 rule_data_second_int=15;  //相关预付规则数据(int)(第二阶段提前几小时  (HourNum2变量)
+    optional bytes rule_data_date_time=16;  //相关预付规则数据(DateTime)(具体取消时间日期部分)  (DateNum变量)
+    optional bytes rule_data_string=17; //相关预付规则数据(bytes)(具体取消时间小时部分) (TimeNum变量)
+    optional bytes rule_description_cn=18; //预付规则中文描述
+    optional bytes rule_description_en=19; //预付规则英文描述
+    repeated int32 is_week_effective=20;  //周有效
+};
+
+message AddBreakfastInfoOfDay
+{
+    optional bool is_include=1;  //是否包含早餐
+    optional int32 share=2;  //包含几份早餐
+    optional int32 price_default_option=3;  //早餐的价格：（是金额还是按照比例（对比原来的早餐））
+    optional double price=4; //单价或者比例的数字
+    optional bytes date=5;  //日期
+    optional int64 policy_id=6;
+};
+
+message AddBreakfasePolicyInfo
+{
+    optional int64 rate_plan_id=1;
+    required int64 policy_id=2;
+    optional int32 sub_policy=3;
+    optional bytes policy_name=4;  //规则中文名称
+    optional bytes policy_name_eng=5;
+    optional int32 is_customer_visible=6;  //是否客户可见
+    optional bytes cn_description=7;  //中文描述
+    optional bytes eng_description=8;  //英文描述
+    optional int32 date_type=9;  //日期类型  （这个日期类型在页面上其实是没有的，我们直接去取数据库PolicyBaseInfo的DateType字段即可)
+    optional bytes start_date=10; //开始日期
+    optional bytes end_date=11;  //结束日期
+    repeated int32 is_week_effective=12; //周有效
+    optional int32 status=13;
+    optional int32 is_include=14;  //是否包含早餐(IsInclude变量)
+    optional int32 share=15; //包含几份早餐  (Share变量)
+    optional bytes currency_code=16; //货币单位(CurrencyCode变量，默认是RMB)
+    optional int32 price_default=17; //单价还是比例 (PriceDefaultOption变量)
+    optional double price=18;  //单价或者比例的数字 (Price变量)
+    optional int32 is_add=19; //是否单加 (IsAdd变量)
+    optional int32 single_price_default_option=20; //单加按照单价还是按照比例 (SinglePriceDefaultOption变量)
+    optional double single_price=21; //单价或者比例的数字 (SinglePrice变量)
+    optional bytes memo=22;  //备注 (Memo变量)
+    optional int64 add_value_id=23; //增值服务id (AddValueID变量)
+};
+
+message HoursRoomInfo {
+    optional bytes earliest_arrival_time=1;
+    optional bytes latest_arrival_time=2;
+    optional bytes stay_time=3;
+};
+
+//addition_id = 11 去哪儿最早最晚到店时间项目
+//addition_id = 10 活动打标
+//addition_id = 9 rp是否隐藏
+//addition_id = 7 是否是集团id
+message RatePlanAddtion {
+    optional int32 addition_id = 1;     //addition_id=8，addition_value=1的情况是酒店开发票
+    optional int32 addition_value = 2;  //其他情况发票模式从SHotelInvoiceInfo取。
+    optional bytes addition_value_str = 3; //string类型的value，目前只有addition_id = 11时使用（qunar最早最晚到店时间项目）
+};
+
+message RPRatePlan
+{
+    required int64 rateplan_id=1;
+    optional int32 booking_channel=2;  //预定渠道
+    optional int32 sell_channel=3;  //分销渠道
+    optional int32 product_type=4; //产品类型
+    optional int32 customer_level=5;  //会员级别
+    optional int32 settlement_type=6;  //支付方式  
+    optional int32 price_model=7;  //定价模式 
+    optional int32 price_type=8;  //客人类型  
+    optional bytes rateplan_name_cn=9;  //rateplan 中文名称
+    optional bytes rateplan_name_en=10;  //rateplan 英文名称
+    optional bytes rateplan_description_cn=11; //中文描述
+    optional bytes rateplan_description_en=12;  //英文描述
+    optional int32 min_advance_booking_days=13;  //最少提前预定天数
+    optional int32 max_advance_booking_days=14;  //最多提前预定天数
+    optional bytes start_date=15;  //rateplan表当中的datetime，只取time字段，不取date字段，并且只有点击尾房销售的时候，这个字段才有意义
+    optional bytes end_date=16;  //rateplan表当中的datetime，只取time字段，不取date字段，并且只有点击尾房销售的时候，这个字段才有意义
+    optional int32 min_stay_days=17; //最少预定天数
+    optional int32 max_stay_days=18; //最大预定天数
+    optional bool is_limit_time_sale=19;  //是否尾房
+    optional int32 min_checkin_rooms=20; //首日最少预定房间数
+    optional int32 inventory_limit=21;  //受限房量  // （rateplan表当中的字段，直接返回即可）
+    optional int32 status=22;  //rateplan的状态
+    optional int32 date_type=23; //预定条件中选中的时间类型// 直接返回
+    optional bytes expected_confirm_time=25; //预定确认时间  （这个需要delong这边计算得出，通过附加时间规则来计算）
+    repeated AddValueInfo add_value_infos=26;  //rateplan 附加增值服务规则
+    repeated VouchInfo vouch_infos=27;  //rateplan 担保规则
+    repeated PrePayInfo prepay_infos=28;  //rateplan 预付规则
+    optional bool is_special_breakfast=29;  //是否有差异化早餐
+    repeated AddBreakfastInfoOfDay add_breakfast_info_of_days=30;  //差异化早餐列表每天包含的早餐信息
+    repeated AddBreakfasePolicyInfo add_breakfast_policy_infos=31;  //差异化早餐规则列表
+    repeated RatePlanAddtion additions = 32;  //发票规则等信息                       
+};
+
+message PromotionDescription
+{
+    required bytes key = 1;
+	required bytes value = 2;
+};
+
+//活动渠道
+message ActivityChannel 
+{
+    optional int32 type = 1; //操作类型. 1, 排除 2, 接受
+    repeated int64 order_from_ids = 2; //渠道ids
+    repeated bytes proxy_ids = 3;      //proxy ids
+    repeated bytes promotion_channel_codes = 4;   //promotion_channel_codes
+};
+
+//红包信息
+message HongbaoRecord                                                                                                  
+{
+    optional int32 record_id = 1; //红包ID
+    optional int32 recharge_type = 2;  //红包类型
+	optional int32 tag = 3;          //专享标签，0是普通红包，
+    optional double face_value = 4; //红包金额
+    optional int64 income_id = 5; //交易ID
+    optional bytes valid_date = 6; //红包有效期 yyyy-MM-dd HH:mm:ss
+    optional int32 activity_id = 7; // 活动ID
+    optional int32 status = 9;     //状态 -1表示红包过期，1可用，2已用
+    optional bytes order_time_from = 11; //预订起始时间HH:mm:ss
+    optional bytes order_time_to = 12; // 预订结束时间HH:mm:ss
+    optional bool is_order_valid = 13; //预订时间是否有效 true为有效 false 无效
+    optional bytes check_in_abs_date_from = 14; // 入住绝对起始时间 yyyy-MM-dd HH:mm:ss
+    optional bytes check_in_abs_date_to = 15; // 入住绝对结束时间 yyyy-MM-dd HH:mm:ss
+    optional bool is_check_in_abs_valid = 16;   //入住绝对时间是否有效 true为有效 false 无效
+    optional int32 order_relative_days_from = 17; //相对预订日期起始偏移
+    optional int32 order_relative_days_to = 18; //相对预订日期结束偏移
+    optional bool is_check_in_relative_valid = 19;  //入住相对日期是否有效 true为有效 false 无效
+    repeated ActivityChannel activity_channel = 20; //活动渠道信息
+};
+
+//具体业务含义还不清楚，在过滤之后，各个字段按照索引接口进行填充
+message MarketingPromotion
+{
+    required int64 id=1;
+    optional int32 promotion_type=2;  //促销的类型，对应平台组的preferentialType:1=coupon,2=point,3=discount,4=gift,5=返现,6=特殊优惠1,7=特殊优惠2,9=立减项目,9999=现金账户
+    optional bytes description=3;  //描述
+    optional double upper_limit=4; //上限
+    optional bytes offer_desc=5; 
+    optional int32 exclusive_type=6; //0:kInclusive; 1:kExclusive
+    optional int32 actiontype=7; //0: send; 1:use
+    optional bytes short_message=8; //
+    optional bytes short_message_eng=9;
+    optional bytes short_message_big5=10;
+    optional int64 pro_hotel_product_id=11;
+    repeated PromotionDescription promotion_description = 12;
+    optional bool has_inv_limit=13;    //平台是否限制库存
+    optional int32 inv_left=14;      //可用几间库存
+    optional int32 priority=15;      //promotionId的优先级
+    repeated HongbaoRecord hongbao_records = 16; //红包信息, 只返回activity_id(含activity_id)之前字段 
+};
+
+message Inventory
+{
+	optional bytes date=1; //对应日期
+	optional int32 amount=2; //可用的预留房数量
+	optional int32 status=3; //每日的库存状态：0为可用，其他为不可用
+	optional int32 is_over_booking=4;  //是否允许超售:0为可以超售；
+	optional int32 allbuyroom_amount=5; // 买断房的库存数量
+    optional int32 over_sold_limit = 6;  // 超售库存限量数值
+};
+
+message PriceDays
+{
+	optional int32 status=1;                    // 1: 有效, other: 无效
+	required bytes date=2;                      // 价格对应日期
+	optional int32 add_bed_price=3;             // 加床价格
+	optional bytes currency=4;                  // 币种类型: RMB、USD等
+	optional double gen_sale_cost_origin=5;     // 平日底价(原始币种)
+	optional double gen_sale_price=6;           // 平日卖价
+	optional bool is_add_bed=7;                 // 是否允许加床, true: 允许, false: 不允许
+	optional bool is_hotel_weekend=8;           // 是否酒店的周末
+	optional bool is_price_promotion=9;         // 是否促销(特别注意，这里指是否经过DRR的促销)
+	optional double real_cost_origin=10;        // 真实成本价(原则上应该是计算DRR后的底价. 但目前等于sale_cost_origin)
+	optional double sale_cost_origin=11;        // 底价(原始币种, 视平日/周末, 取gen_sale_cost_origin/weekend_sale_cost_origin)
+	optional double sale_price=12;              // 卖价(视平日/周末, 取gen_sale_price/weekend_sale_price)
+	optional double sale_price_with_drr=13;     // 计算DRR后的卖价
+	optional double weekend_sale_cost_origin=15; // 周末底价(原始币种)
+	optional double weekend_sale_price=16;      // 周末卖价
+	optional double weekend_price_origin=17;    // 周末卖价的原始币种价格 
+	optional double general_price_origin=18;    // 平日卖价的原始币种价格
+	optional double sale_price_with_drr_origin=19; // 经过促销后的价格（原始币种）
+	optional double add_bed_price_origin=20;    // 加床价格(原始币种)
+	optional double sale_price_with_drr_sub_coupon=21;  // 计算DRR和coupon后的卖价
+	optional double sale_cost = 22;             // 底价(考虑平日/周末后的取值)
+};
+
+message Price
+{
+	optional int32 audit_status=1;  //审核状态:0待审核，1已审核(priceinfo表当中的字段)
+	optional bool is_effective=2;  //是否有效：0无效 1有效
+	repeated PriceDays day_prices=4; //价格信息，拆分到每一天
+	optional int32 price_status=5;  //房价状态: 1:每天都有价格；2：部分日期有价格；3：每一天都没有价格
+};
+
+message HotelProductRelation
+{
+	optional	int32 product_id = 1; 
+	optional	int32 sroom_id = 2;
+	optional	int32 rp_id = 3;
+    required	int32 relation_type = 4;//1 龙翠产品关联 4 尾房关联 7限时抢关联 12升级产品关联房型 13铂涛产品房型关系
+	optional    double relation_product_price=5; //关联的产品的均价
+    optional    int32 mroom_id = 6;
+};
+
+// DRR促销的属性
+//
+// 各种DRR所包含的key：
+// drr_id=1: DayNum、CashScale、DeductNum
+// drr_id=2: CheckInNum、CashScale、DeductNum
+// drr_id=3: CheckInNum、LastDayNum、CashScale、DeductNum
+// drr_id=4: CheckInNum、WhichDayNum、CashScale、DeductNum
+// drr_id=5: EveryCheckInNum、LastDayNum、CashScale、DeductNum
+// drr_id=6: week_effective、FeeType
+// drr_id=7: week_effective、FeeType
+// 
+// key的各种取值的含义如下：
+// DayNum: 提前几天
+// CashScale: 优惠方式（1: 金额， 其它: 百分比）
+// DeductNum: 优惠额度
+// CheckInNum: 连住天数
+// LastDayNum: 最后几天
+// WhichDayNum: 第几天
+// EveryCheckInNum: 每连住几天
+// week_effective: 周几有效，按位与的方式进行判断，第0到6位分别表示周日到周六
+// FeeType: 价格方式（1：周末价，其它：平日价）
+message DrrAttr
+{
+	required	bytes		key		= 1;
+	required	bytes		value	= 2;
+};
+
+// dynamic rate rule
+message DrrMsg
+{
+	required	int32		id			= 1;	// 取值范围 1 ~ 7
+	repeated	DrrAttr		drrAttr		= 2;
+	required	int32		date_type	= 3;	// 1:入住日期, 2:在店日期, 3:预定日期
+	required	int64		start_date	= 4;
+	required	int64		end_date	= 5;
+};
+
+message DayMarketingPromotion
+{
+    required bytes date =1;     //日期
+    repeated MarketingPromotion day_marketing_promotion =2; 
+}
+
+message Product
+{
+    optional int64 sroomtype_id=1; //sroomtype id;
+    optional int64 shotel_id=2;  //shotel id;
+    optional int64 supplier_id=3;  //supplier id;
+	optional int32 online_search_type=4;  //直连酒店类型(0=eLong自有?1=EAN?2=万豪),直连酒店即非elong自有的酒店，目前只有EAN和万豪两个，以后可能多个
+    optional bool sroomtype_status=5;  //mmap当中的available字段，表示sroomtype的状态：0表示无效, 1表示有效(room_type_num表当中的Available字段)
+    optional bool has_breakfast=6; //是否有早餐
+	optional RPRatePlan rateplan=7;
+	optional bytes rp_code=8; //这个字段仅仅供团购使用，团购没有productid，然后每个rateplan仅仅对应一个product，所以可以使用rateplancode代替productid供团购使用
+    repeated Inventory room_inventory_days=9; //该产品的每一天库存信息
+    optional int32 room_num_status=10;   //该产品的库存状态: 1:每天都有库存；2：部分日期有库存；3：每一天都没有库存
+    optional Price price=11;   //该产品的价格
+	repeated MarketingPromotion marketing_promotions=12;  //市场部促销列表
+	repeated Gift gifts=13;
+	optional HotelProductRelation relations=14;
+	optional int64 supplier_type=15;
+    repeated SHotelBookingRule shotel_booking_rules=16;
+	optional bool is_freesale=17; //是否即时确认，为true表示即时确认
+	optional bool firstnight_has_discount=18;
+	optional float firstnight_discount=19;
+	optional int32 firstnight_discount_upper=20;
+	optional int32 freesale_num=21; //即时确认的房量，为-1表示是因为超售而引起的可以即时确认的房量
+	optional int32 cooperation_type = 22; // 0:未定义, 1:直签 2:非直签
+    optional bytes supplier_name=23;
+    optional bytes supplier_short_name=24;
+    optional bytes supplier_alias=25;
+    optional bytes supplier_telphone=26;
+	optional int64 confirm_way = 27; // 67108864:直连, 536870912:ECM, 128:Ebooking, 1073741824:Ebooking(免确认); 判断方法: (confirm_way & val) == val 
+    optional bytes shotel_contacter=28;
+    optional HoursRoomInfo hours_room_info=29;
+    optional bytes supplier_fax=30;
+	optional DrrMsg drrMsg = 32; // DRR描述信息
+    optional int32 weekend_start=33;
+    optional int32 weekend_end=34;
+    repeated DayMarketingPromotion day_marketing_promotions=35;   //每一天的promotion
+    optional int32 price_origin = 36; //返前价
+    optional int32 price_sub_coupon = 37; //返后价  
+    optional bool  is_min_price_product = 38; //是否是最低价产品. true:是; false:不是 
+    optional float weight   = 39; // 产品权重
+    optional int32 id       = 40;
+    optional float cvr      = 41; // 转化率
+    optional int64 supplier_confirm_avg_time = 42; //供应商平均确认时长
+    optional bytes rateplan_structure_name_cn = 43;  //rp结构化名称:早餐内容＋预订条件＋客人类型
+};
+
+message MHotelAttr
+{
+    required int64 mhotel_id = 1;
+    optional bool mroom_filter = 2[default=false]; //; 
+	repeated int32 selected_mroom_ids = 3;
+};
+
+message MRoomTypes
+{
+    required int64 mroomtype_id=1;  //mroomtype id
+    optional bytes mroom_name=2;  //mroontype name
+    repeated Product products=3;  
+    optional int32 bed_type=4;   // 36: big bed, 37: double bed, 38: single bed, 39: special bed, 40: other
+    optional int32 priority=5;
+};
+
+message LongcuiMessage
+{
+    //最低价格产品：当且仅当type为1，且has_longcuionly为true，这时才表示最低价格是龙翠专享，否则，最低价格不是龙翠专享
+	//酒店：只要has_longcuionly为true，则表示酒店有龙萃专享
+    optional bool has_longcuionly=1; 
+	optional int32 type=2; //1：表示该标志位是对最低价格产品的；2:表示该标志位是对酒店的
+};
+
+message TejiaMessage
+{
+    //最低价格产品：当且仅当type为1，且has_weifang为true，才表示最低价格是特价房，否则不是；
+    optional bool has_weifang=1;
+	optional int32 type=2; //1：表示该标志位是对最低价格产品的；2:表示该标志位是对酒店的
+};
+
+message ManJianMessage
+{
+    optional bool has_manjian=1;
+	optional int32 type=2;  //1: the product who has min price has manjian; 2: the product(not min price) has manjian)
+    repeated PromotionDescription promotion_description = 3; 
+};
+
+message ConfirmMessage
+{
+    optional bool has_confirm=1; //true means this mhotel has confirm product;
+    optional int32 type=2;  //1: the product who has min price has confirm; 2: the product(not min price) has confirm
+};
+
+message DanbaoMessage
+{
+    //最低价格的产品：当且仅当type为1的时候，且need_guarantee为true，才表示最低价格是特价房，否则不是
+    optional bool need_guarantee=1;
+	optional int32 type=3; //1:表示该标志位是对最低价格产品的；2:表示该标志位是对酒店的
+};
+
+message MobileOnlyMessage
+{
+    //最低价格的产品：当且仅当type为1的时候，且has_mobileonly为true，才表示最低价格是手机专享，否则不是
+    optional bool has_mobileonly=1;
+    optional int32 type=2; //1:表示该标志位是对最低价格产品的；2表示该标志位是对酒店的
+};
+
+message CouponMessage
+{
+    //最低价格产品：当且仅当type为1，且has_coupon为true，才表示最低价格有消费券，否则不是
+    optional bool has_coupon=1;
+	optional double upper_limit=2; //上限
+	optional int32 type=3; //1:表示该标志位是对最低价格产品的；2:表示该标志位是对酒店的
+};
+
+message HongBaoMessage
+{
+    //最低价格产品：当且仅当type为1，且has_coupon为true，才表示最低价格有红包，否则不是
+    optional bool has_hongbao=1;
+	optional double upper_limit=2; //上限
+	optional int32 type=3; //1:表示该标志位是对最低价格产品的；2:表示该标志位是对酒店的
+	optional int32 promotion_type=4;
+};
+
+message ZhoubianProduct
+{
+    //最低价格的产品：当且仅当type为1的时候，且has_zhoubian_pro为true，才表示最低价格是周边价格产品，否则不是
+	optional bool has_zhoubian_pro=1;
+	optional int32 type=2; //1:表示该标志位是对最低价格产品的；2表示该标志位是对酒店的
+};
+
+message CheckInPersonForOneRoom
+{
+    optional int32 min_checkin_person_for_oneroom=1;
+	optional int32 max_checkin_person_for_oneroom=2;
+};
+
+message AllBuyRoomMessage
+{
+    //最低价格的产品：当type为1且has_allbuyroom_pro为true的时候，才表示最低价格是买断房产品，否则不是
+	optional bool has_allbuyroom_pro=1;
+	optional int32 type=2; //1:表示该标志位是对最低价格产品的；2表示该标志位是对酒店的
+};
+
+message PromotionCount
+{
+    required int32 promotion_type = 1; //
+	required int32 count = 2;
+};
+
+message PromotionTypeMsg
+{
+	required int32 id = 1;
+	required bool  is_effective_price = 2; // 是否加入返后价计算
+    optional int32 priority_level     =3;  //优先级
+    optional int32 is_special         =4;  //是否属于特殊处理组(1代表数据特殊处理组)
+}
+
+message PromotionGroup
+{
+    required int32 group_id = 1;
+	repeated int32 promotion_type = 2;
+	repeated PromotionTypeMsg type_list = 3; // 拟废弃字段promotion_type，以本字段替换
+	optional int32 businessType = 4;  //产品支付方式 ：1001:现付， 1005:预付
+	optional int32 orderFromGroupId = 5; //产品线：108101：网站，  108102:手机
+    optional int32 group_type =6;            //0:间夜纬度   1:订单纬度
+};
+
+//活动打标（如5.1大促，端午大促等）
+message ActivityTag
+{
+	optional int32 tag_id = 1;          //活动标识
+	optional bytes tag_name = 2;        //活动名称
+	optional int32 priority_level = 3;  //优先级
+};
+
+// 标志Message
+// flag_type: 1, 铂涛可用红包; 2, 铂涛可返红包;3，LongcuiMessage；4，TeJiaMessage；5，DanbaoMessage；
+// 6，MobileOnlyMessage；7，CouponMessage；8，HongBaoMessage；9，ZhoubianProduct；10，AllBuyRoomMessage；
+// 11，ManJianMessage；12，ConfirmMessage，object只支持2；13，MaxDiscount,object只支持2;14,MemberBenefits,会员优惠标 15,五折,16:N折起，最高可省
+// 17:铂涛会员价标签
+// 18, 活动打标
+message HotelFlag
+{
+    required    int32   flag_type   = 1; // 表示标记类型
+    optional    bool    effective   = 2; // 标志的有效性, true: 有/是, false: 无／否
+    optional    int32   object      = 3; // 标志的对象, 1: 最低价格产品, 2: 酒店
+    optional    double  upper_limit = 4; // Coupon,HongBao 上限
+    optional    int32   promotion_type = 5;  //HongBao: 促销类型
+    repeated    PromotionDescription promotion_description = 6;  //ManJian
+    optional    int32   price = 7;    // 最大折扣对应原价
+    repeated    double discount_rates = 8; //折扣率集合
+    optional    double  low_discount_rate = 9;//N折起
+    optional    int32   high_sub = 10;//最高可省
+	repeated	ActivityTag	activity_tags = 11; //活动打标
+};
+
+//定制输出产品信息
+//type: 1,公寓top2房型返后价展示信息.
+message CustomizedProductInfo
+{
+    optional int32 type = 1;     //类型
+    optional int32 price = 2;      //返前价格
+    optional int32 price_sub_coupon = 3;  //返后价格
+    optional int64 roomtypeid = 4;     //sroomid   
+    optional int64 rateplan_id = 5; // rpid
+    optional int64 mroom_id = 6;  //mroomid
+    optional int32 shotel_id = 7;  //shotelid
+};
+
+//最低价信息
+//type:1, 预付可卖产品最低价（返前价）
+//type:2, 预付可卖产品最低价（返后价）
+//type:3, 现付可卖产品最低价（返前价）
+//type:4, 现付可卖产品最低价 (返后价)
+
+message MinPriceInfo
+{
+    optional int32 type = 1;
+    optional int32 min_price = 2;
+    optional int64 min_price_rpid = 3;
+    optional int32 min_price_sroomid = 4;
+    optional int32 min_price_mroomid = 5;
+};
+
+//挂在MHOTEL下的一些附带的价格信息
+message IncidentalPriceInfo
+{
+    optional int32 min_price_cansale_sub_coupon_origin = 1; //可卖的返后价最低价产品的原价（底价）
+    optional int32 min_price_cansale_sub_coupon = 2;  //可卖的返后价最低价产品的卖价（返后价）
+    repeated MinPriceInfo min_price_info = 3; 
+};
+
+//酒店统计信息
+//type：1 无早，2，单早，3，双早，4，3早及以上，5，免费取消，6，立即确认，7，艺龙直销，8，礼品
+//count:产品数量
+message StatisticsInfo
+{
+    optional int32 type = 1;
+    optional int32 count = 2; 
+};
+
+message MHotelDetail
+{
+    required int64 mhotel_id=1; //mhotel id
+    optional bool has_drr=2;  //是否有drr促销规则
+    optional LongcuiMessage longcui_info=3;  //是否有龙萃专享产品
+    optional TejiaMessage weifang_info=4;  //是否有尾房产品（即特价产品）
+	optional bool has_tuan=5;  //是否有团购产品
+    optional int32 inventory_type=6;  //库存类型： 0表示全部无房，1部分有房，2全部有房
+    optional int32 min_price=7;    //最低价格  
+    optional int64 min_price_rpid=9;  //最低价格的rateplanid
+    optional int64 min_price_roomtypeid=10;  //最低价格的房型ID
+    optional DanbaoMessage need_guarantee=11;  //是否有需要担保的产品
+    optional int32 product_count=12;  //可预订的产品总数
+	optional int32 product_can_be_showed=22; //可被展示的产品总数(product_count为0的情况下，这个参数也可能不是0，有种情况)
+	optional int32 promotion_type_count=13; 
+	repeated MRoomTypes room_types=14; //mroom type id list
+    repeated SHotelHelpfulTips shotel_helpfultips=15;
+    repeated SHotelBookingRule shotel_booking_rules=16;
+	repeated SHotelInvoiceInfo shotel_invoice_info=17; //酒店开发票信息：0表示没维护,1表示艺龙开发票,2表示酒店开发票
+    optional MobileOnlyMessage mobileonly_message=18;  //是否有手机专享产品
+    optional bool has_yufu=19;  //有预付产品
+	optional int32 product_count_reason=20;// product_count计数的原因：1：正常；2：因为该mhotel下面存在暂停服务的酒店；
+	optional CouponMessage coupon_message=21;
+	optional HongBaoMessage hongbao_message=28;
+	optional bool has_timerush_product=23;//是否有可卖的限时抢产品
+	optional int32 min_price_pro_relation_price=24; //最低价格产品的关联价格, 如果没有这个字段，这表示最低价格的产品没有相关联的产品。
+	optional int32 mroom_count=25; //mroom房型的总数：用于list搜索
+	optional bool is_hotel_inventory_full=26; //酒店是否满房
+	optional int32 min_price_mroomtypeid=27;//code和min_price的code是一样的
+	optional ZhoubianProduct zhoubian_message=29;
+	optional bool has_buy5send1_promotion=30;  //是否有买五赠送一活动
+	optional bool has_halfdiscount_promotion=31; //是否有半价促销活动 (酒店是否有5折)
+	optional int32 min_price_sub_coupon=32;
+	optional int64 min_price_sub_coupon_rpid=33;
+	optional int64 min_price_sub_coupon_roomtypeid=34;
+	optional int32 min_price_sub_coupon_mroomtypeid=35;
+	optional bool firstnight_has_discount=36; 
+	optional bool has_danbao_product=37;
+	optional AllBuyRoomMessage allbuyroom_message=38;
+	repeated PromotionCount promotion_count=39; //only mobile has this function; web/mis etc has not;(through code crontol this)
+	optional ManJianMessage manjian_message=40; //only mobile has this function; web/mis etc has not;(through code crontol this)
+	optional int32 min_price_sub_coupon_origin=41; // 最低返后价的原价（返前价）
+    optional ConfirmMessage confirm_message=42;
+    repeated HotelFlag hotel_flag = 43; // 酒店层面的标志
+    optional bool has_moremember_products = 44;   //提示非登录用户是否登录有更多产品 
+    repeated CustomizedProductInfo cp_info = 45; //定制输出产品信息
+    optional IncidentalPriceInfo incidental_price_info = 46;//附带的价格信息
+    repeated StatisticsInfo statistics_info = 47; //统计数组
+    optional bool has_hourroom = 48;
+};
+
+message ListProductInfo
+{
+    optional bool return_min_price_product=1;
+	optional bool need_sorted_top_product=2;
+	optional int32 top_product_num=3;
+	optional int32 sort_types=4; //强行指定排序方法：0默认排序；1价格排序；2房间入住人数排序；3预付排序；4限时抢排序；5消费券排序；6龙萃排序；7早订省排序；8连主省排序
+    optional bool return_min_stay_product = 5; // 是否返回最小入住天数最低 但大于入离店时间差 产品
+};
+
+// Promotion过滤黑名单
+message PromotionBlackList
+{
+    optional int32 method_type = 1;   //0或者不传：表示都要过滤；1:针对预付promotion；2：针对现付promotion
+    required int32 promotion_type = 2; //标记黑名单中的promotion_type
+};
+
+message ProductTypeBlackList
+{
+    optional int32 product_type = 1; //产品类型
+    repeated int64 supplier_ids = 2; //供应商id数组
+    optional bool  partial_match = 3;  // 是否部分匹配，true:是，false：否
+};
+
+//FilterCondition 筛选条件
+// type：
+//1, 最小入住天数限制;
+//2, N间起订;
+//3, 早餐筛选.     filter_value:4, 不含早。1,筛选单早。2,筛选双早 3,筛选3早及以上
+//4, 床型筛选.     filter_value:36,大床。37，双床。38，单人床。39，特殊床型。40，其他。
+//5, 支付方式筛选. filter_value: 1,现付。2，预付
+//6, 给定一个product_type，过滤给定的supplierID 产品
+    //use_or_not 传1表示使用此条件
+    //filter_value 要排除的 product_type,
+    //exclude_value_array传要过滤的supplierID集合 
+    //apply_level 传1 表示产品过滤
+    //partial_match 传false表示过滤 产品的rp的product_type 与 filter_value相等的产品
+                  //传true表示过滤 产品的rp的product_type 与 filter_value 相与不为0的产品
+//7,取消规则筛选;   filter_value：139，表示免费取消
+//8,确认方式筛选;   filter_value：141，立即确认
+//9,供应商类型筛选; filter_value: 138，表示艺龙直销
+//10,礼包筛选;      filter_value: 140，有礼品
+//11, 发票模式筛选  filter_value: 1, 艺龙开发票. 2, 酒店开发票,
+//13, 钟点房筛选;   酒店层面
+
+message FilterCondition
+{
+    optional int32 type = 1; //筛选条件类型,
+    optional int32 use_or_not = 2 [default=1];  //1:使用，0：默认原来逻辑，-1：不使用
+    optional int32 filter_value = 3; //按filter_value筛选
+    optional int32 apply_level = 4; // 应用级别：1,产品 2,酒店 (目前“供应商类型,取消规则，礼包,立即确认”支持酒店筛选)
+    repeated int64 exclude_value_array = 5;//
+    optional bool  partial_match = 6;  // 是否部分匹配，true:是，false：否
+    repeated ProductTypeBlackList ptb_array = 7; //产品类型的黑名单
+};
+
+
+//ReturnCondition 返回条件数组
+//type: 1,定制产品信息
+//message ReturnCondition
+//{
+//    optional int32 type = 1; //条件
+//    optional bool use_or_not = 2; // true:使用，flase:不使用
+//};
+
+enum BookingMenu
+{
+    kGeneralMenu    = 1;    // 常规菜单
+    kHourRoomMenu   = 2;    // 钟点房频道
+    kGroupBuyMenu   = 3;    // 团购频道
+};
+
+// 产品排序+特征分策略
+// code = 默认值 + 特征值
+// 默认值: 2000
+// 特征值是bitmap存储, 各位依次为:
+// 第1位(最低位): 支付方式, 第2位: 早餐, 第3位: 供应商
+// 第4位: 立即确认, 第5位: 收益/CVR(0: 收益, 1: CVR)
+// 并且第5位同时表示排序策略
+// code的取值与含义如下:
+// 2000: 收益
+// 2001: 收益 + 支付
+// 2002: 收益 + 早餐
+// 2003: 收益 + (支付 + 早餐)
+// 2004: 收益 + 供应商
+// 2005: 收益 + 供应商 + 支付
+// 2006: 收益 + 供应商 + 早餐
+// 2007: 收益 + 供应商 + 支付 + 早餐
+// 2016: cvr
+// 2017: cvr + 支付
+// 2018: cvr + 早餐
+// 2019: cvr + (支付 + 早餐)
+// 2020: cvr + 供应商
+// 2021: cvr + 供应商 + 支付
+// 2022: cvr + 供应商 + 早餐
+// 2023: cvr + 供应商 + 支付 + 早餐
+message Grandson
+{
+    repeated int32 codes = 1;   // 取值范围: [2000, 2999], 与AS抽流量策略相关
+};
+
+// 用户特征单元
+// 支付特征:    1, 取值: 0: 预付, 1: 现付
+// 早餐特征:    2, 取值: 0: 无早, 1: 单早, 2: 双早, 3: 三早及以上
+// 供应商特征:  3, 取值: 1: elong, 2: 其他
+message CustomerTraitUnit
+{
+    required    int32   code    = 1; // 用户属性编号
+    repeated    int32   values  = 2; // 用户属性值
+};
+
+message CustomerTrait
+{
+    repeated    CustomerTraitUnit   trait_units     = 1;
+};
+
+//用户集团信息
+message GroupInfo
+{
+    required    int32   group_id    =1;//集团id,
+    optional    int32   elong_level =2;//用户集团等级对应的艺龙等级
+};
+
+message SearchRequest
+{
+    repeated int64 mhotel_ids=1; // 已废弃，替换为mhotel_attrs字段
+	optional int64 booking_datetime=2;  //预订时间日期, 时间戳
+	required int64 checkin_date=3;  //日期类型为：2013-11-21
+	required int64 checkout_date=4;  //日期类型为：2013-11-21
+	optional int32 booking_channel=5;  //预定渠道：bitmap存储：第0位：没有使用；第1位：线上；第2位：线下；第3位：积分广场；第4位：手机；第5位：SEM特殊?
+	optional int32 sell_channel=6;  //分销渠道：bitmap存储：第0位：；第1位：A；第2位：B；第3位：C；第4位：D；第5位：E；第6位：F；第7位：G；第8位：H；第9位：I；第10位：J
+	optional int32 customer_level=7;  //会员级别：bitmap存储：第0位：普通会员；窿位：vip；第2位：龙萃会员；第3位：M会员
+	optional SelectPrice select_price=8;
+	optional bool is_limit_timesale=9;  //为true表示只输出包含尾房产品的酒店，为false表示此项不涉及到搜索的过湿(今日特价)
+	optional int32 price_type=10;  //价格类型?表示统一价；2表示内宾价格?表示外宾价格?表示港澳台客人价?表示日本客人价格。注意这个不是bitmap存储的?
+    optional int32 product_type=11;  //产品类型：bitmap存储? 第0位：单独销售；第1位：打包销售；第2位：隐价产品；第3位：酒店杀价；第4位：限时抢；第5位：钟点房；第6位：团购产品; 第7位：国际酒店产品； 第8位：周边价格； 第9位：9元/半价抢
+    optional int32 settlement_type=12; //支付类型:1表示前台自付，2表示代收代付。注意：非bitmap存储
+	repeated int32 supplier_type=13;  //供应商类型：（空?所有，1、3=elong自有,?2=非elong
+    repeated int32 online_search_type=14;  //直连酒店类型：0=elong自有?1=EAN?2=万豪。直连酒店即非elong自有的酒店，目前只有EAN和万豪两个，以后可能多个
+    optional int32 promotion_type=15; //promotion类型：1：coupon(消费券)；2：point(积分)；3：discount(折扣)；4：gift(礼品)；5：cash(返现)；6：特殊优惠1；7：特殊优惠2；9：立减项目；10：红包。
+    optional int64 order_from_id=16;  //订单来源ID：各个商家的ID编号，各个与elong有合作的商家的编号，用于在订单确认的时候搜索过滤?
+    optional bytes proxy_id=17;   //代理ID
+    optional bytes promotion_channel_code=18;  //promotion渠道代码
+    optional bool need7daygift=19;  //为true表示，如果礼包是7天内的，也需要返回，为false表示不涉及搜索过滤
+    repeated int32 codes=22;  //定制化输出的代码数组
+    optional bool return_noinv_or_noprice_product=23; //需要返回每一天都没有库存和价格的产品（检索默认返回检索中的全部都库存价格和部分有库存价格的产品）
+    optional bool return_has_coupon_hotel=24; //只返回有消费券产品的酒店
+	optional bool return_has_no_danbao_hotel=25; //只返回有非担保产品的酒店
+	optional CheckInPersonForOneRoom checkin_person_for_oneroom=26;  //每间房入住的人数
+	optional bool return_has_yufu_hotel=27; //只返回有预付产品的酒店
+	optional bool onlydebug=28;//后台bug设置，仅仅供ds服务器自测使用，请as端不要传递此参数给前端。
+	optional bool return_has_timerush_product_hotel=29; // (限时抢)
+	repeated int32 bed_type=30; //36   大床   37  双床        38  单人床      39  特殊床型       40  其他 
+	optional ListProductInfo list_product_info=31; //top2排序相关
+	optional bool return_has_lianzhu_pro_hotel=32; //返回有连住省产品的酒店
+	optional bool return_has_zaoding_pro_hotel=33; //返回有早订省产品的酒店
+	optional int32 request_origin=34[default=3]; //检索请求来源： 1.PC；2.国际自签；3.h5；4.手机app;5.团购;6.公寓
+    optional bool return_longcuionly_hotel=35; //返回包含龙萃专享产品的酒店: 0表示否，1表示是
+    optional bool return_has_hongbao_hotel=36; //返回包含红包产品的酒店
+	optional bool judge_only_has_product=37; //如果为true，该酒店只要有一个产品可预订则返回，不需要考虑其他产品了.
+	optional bool half_discount_promotion=38; //是否展示半价促销活动的产品,与discount_method一起控制5折打标与返后价计算
+    optional int32 search_method=39;
+    optional bool return_has_discount_promotion_hotel=40;  //是否返回有5折促销酒店
+	optional uint64 search_id=41;
+	optional bool price_sub_coupon=42[default=false];
+	optional bool return_freesale_msg=43[default=false];
+	repeated MHotelAttr mhotel_attrs=44; // 酒店属性，包含酒店ID、房型ID，用于替换mhotel_ids字段
+    optional bool return_has_allbuyroom_hotel=45[default=false]; // 用于买断房过滤
+	optional bool return_has_manjian_hotel=46[default=false];
+    optional int32 language=47[default=0]; //CH:0; EN:1
+    optional int32 discount_method=48; //1: 只要预付五折；2：只要现付五折；3：既要预付五折又要现付五折；不传这个参数表示不要五折产品
+    optional int32 return_discount_hotel=49; //1：只要该酒店包含1个预付五折的产品，这个酒店就返回（不用考虑现付五折的情况）;2:只要该酒店包含1个现付五折的产品，这个酒店就返回（不用考虑预付五折的情况）；3：这个酒店必须同时包含一个预付五折和一个现付五折的产品，这个酒店才返回；4：这个酒店只要有1个预付五折或者1个现付五折的产品，这个酒店就返回
+    optional int32 min_price_calc_with_halfdiscount_pro=50[default=1];//1：表示最低价计算既包含现付五折的产品也包含预付五折的产品；2：表示最低价计算只包含预付五折的产品，不包含现付五折的产品；3：表示最低价计算只包含现付五折的产品，不包含预付五折的产品；4：表示最低价计算即不包含预付五折的产品，也不包含现付五折的产品
+    optional int32 botao_customer_level = 51;   // 铂涛会员等级
+    optional bool use_botao_promotion = 52;  //是否使用铂涛红包
+    optional bool use_day_promotion = 53;   //是否使用按天返的promotion
+    optional bool only_consider_salable = 54; // (最低价计算/酒店打标)是否只考虑可售产品,true：是；false：否（包括售完的）
+    repeated PromotionBlackList promotion_black_list = 55;    //Promotion过滤黑名单
+    optional bool return_has_memberbenefits_hotel = 56;    //是否返回有会员优惠的酒店,true:是 false: 否
+    repeated FilterCondition filter_conditions = 57; // 过滤条件集合. 1:最小入住天数限制;
+    repeated int32 return_assemble = 58;//0:今日特价  1：可用红包  2:返现  3:五折限购 4:限时抢 5:周边特价(酒店层面的过滤)
+    repeated HongbaoRecord hong_bao_records = 59; //用户红包列表
+    repeated int32 return_assemble_product = 60;//0:今日特价（尾房）1:五折限购 2:限时抢 3:周边特价
+	optional    BookingMenu     booking_menu    = 61 [default = kGeneralMenu]; // 预定菜单
+    // 计算最低价时要排除的产品, bitmap存储, 取值与product_type完全相同(默认排除钟点房产品)
+    optional    int32           min_price_excluded_products = 62 [default = 0x20];
+    optional    Grandson        grandson        = 63;
+    optional    bool            is_new_hongbao  = 64;  //是否千人千价红包方式. true:采用千人千价方式，false:不采用
+    optional    int32 return_has_breakfasts_hotel = 65 [default = 0]; //返回给定早餐份数酒店，bitmap方式控制。第1位为1返回含单早，第2位为1返回含双早，第3位为1返回含三早及以上。第4位为1 表示筛选不含早的酒店。 默认情况不进行早餐筛选。
+    optional    bool            return_has_xianfu_hotel = 66; //是否返回有现付产品的酒店， true返回
+    optional    CustomerTrait   customer_trait  = 67;
+    repeated    GroupInfo       group_info      =68;//集团信息
+	repeated	int32			cooperation_type=69;//供应商类型：1, 直签,2 非直签
+};
+
+
+message PromotionGroupRelation {
+    required    int32    group_id             = 1;
+    repeated    PromotionTypeMsg  type_list      = 2;
+};
+
+message PromotionGroupRoot {
+    repeated    PromotionOrderFromLine promotion_order_from_line = 1;
+};
+
+message CommonConf {
+    required    PromotionGroupRoot promotion_group_root   = 1;
+};
+                                                                                                                                                                                                      
+message PromotionOrderFromLine {
+    required    int32    order_from_type = 1;   // 108101: web 108102: mobile
+    repeated    PromotionBusiness    promotion_business = 2;
+};
+
+message PromotionBusiness {
+    required    int32    business_type = 1;  // 1005: 预付 1001:现付
+    repeated    PromotionGroupType promotion_group_type = 2;
+};
+
+message PromotionGroupType {
+    required    int32    group_type_type = 1;  // 0: 间夜  1:订单
+    repeated    PromotionGroupRelation promotion_group_relation = 2;
+};
+
+
+message SearchResponse
+{
+    required int32 return_code=1; //0:成功;1:请求参数为空;2:BeginSearch函数失败，没办法给单一的一次搜索加锁;3:EndSearch函数失败，没办法给单一的一次搜索解锁
+	//4:checkin的时间比预定时间早，而且checkout的时间不大于checkin的时间
+	//5:checkin的时间比预定时间早
+	//6:checkout的时间不大于checkin的时间
+	//7:checkin的索引位置太小或者太大(太小是指比0小，太大是指大于索引当中存在的库存的最大天数)
+	//8:checkout的索引位置太小或者太大(太小是指比0小，太大是指大于索引当中存在的库存的最大天数)
+    repeated MHotelDetail hotels_detail=2;
+	optional uint64 search_id=3;
+	repeated PromotionGroup promotion_group=4; //only mobile has this function; web/mis etc has not;(through code crontol this)
+    repeated DebugResponse debug_response=5;
+    optional CommonConf common_conf = 6;  //公共配置，目前里面只有promotion_group树
+    optional int32 grandson = 7; // 产品排序策略: 0: 默认策略, 1: 收益排序, 2: cvr排序
+};
+
+service ProductSearchService
+{
+    rpc Search(SearchRequest) returns (SearchResponse);
+};
+
+message DebugPromotion
+{
+    required bytes  date =1;
+    required int32  promotion_id=2;
+    required int32  promotion_type=3;
+    required bool   use_ok=4[default=true];
+    optional bytes  reason=5;
+    optional int32  upperlimit=6;
+};
+
+
+message DebugDrr
+{
+    optional bytes type=1;
+    optional double drrnum=2;
+};
+
+message DebugPrice
+{
+    required bytes date=1;              //价格对应日期
+    optional int32 status=2;            //1为有效，其他位无效
+    optional int32 add_bed_price=3;     //加床价格
+    optional bytes currency=4;          //币种
+    optional double gen_sale_cost=5;   //平日低价
+    optional double gen_sale_price=6;   //平日卖家
+    optional bool is_add_bed=7;  //是否允许加床，true表示允许加床，false表示不允许加床
+    optional bool is_hotel_weekend=8;   //是否酒店的周末
+    optional bool is_price_promotion=9; //是否促销  (特别注意，这里不是指promotion，而是指是否经过DRR的促销)
+    optional double real_cost=10; //真实成本价（初始值为底价（平日或者周末）），在计算drr的时候，根据金额或者比例，在自身的基础上进行计算
+    optional double sale_cost=11;  //底价  （这个如果是平日，则为gen_sale_cost,如果为周末，则为weekend_sale_cost)
+    optional double sale_price=12; //卖价   (这个如果是平日，则为gen_sale_price, 如果为周末，则为weekend_sale_price)
+    optional double sale_price_with_drr=13; //计算过促销后的价格 (最终给用户显示的每一天的房价就是这个字段)
+    optional double weekend_sale_cost=14;  //周末底价
+    optional double weekend_sale_price=15;  //周末卖价
+    optional double weekend_price_origin=16; //周末卖价的原始币种价格
+    optional double general_price_origin=17; //平日卖价的原始币种价格
+    optional double sale_price_with_drr_origin=18; //经过促销后的价格（原始>币种
+    optional double add_bed_price_origin=19;//加床价格(原始币种)
+    optional double sale_price_with_drr_sub_coupon=20;
+    optional DebugPromotion used_promotion=21;     //返后价计算使用的是哪个promotion
+    optional double used_drr=22;                //使用到的drr
+};
+
+message DebugProduct
+{
+    required int32  product_id=1;
+    required int32  rp_id=2;
+    required int32  mroom_id=3;
+    required bytes  mroom_name=4;
+    required int32  shotel_id=5;
+    required int32  sroom_id=6;
+    required bytes  rp_name=7;
+    required bool   return_ok=8[default=true];
+    optional bytes  reason=9;
+    optional bytes  promotion_all=10;
+    repeated DebugDrr drr=11;
+    repeated DebugPromotion promotion=12;
+    repeated DebugPrice price=13;
+};
+
+message DebugSRoom
+{
+    required int32           sroom_id=1;
+    required bool            return_ok=2[default=true];
+    optional bytes           reason=3;
+    repeated DebugProduct    product=4;
+};
+
+message DebugSHotel
+{
+    required int32          shotel_id=1;
+    required bool           return_ok=2[default=true]; //该shotel是否出了
+    optional bytes          reason =3;  //该shotel没出的原因\
+    optional bytes          promotion_all=4;
+    repeated DebugSRoom     sroom=5;
+    repeated DebugPromotion promotion=6;
+};
+
+message DebugMHotel
+{
+    required int32          mhotel_id=1;
+    repeated DebugSHotel    shotel=2;
+};
+
+message DebugResponse
+{
+    optional DebugMHotel mhotel=1;
+};

@@ -1,0 +1,2 @@
+insert into HotelProductRelation(mhotelid,HotelID,RoomTypeID,RatePlanId,BaseRoomTypeID,BaseRatePlanID,operateTime,RelationType,BaseHotelId)
+values(%s,%s,%s,%s,%s,%s,GETDATE(),%s,%s)

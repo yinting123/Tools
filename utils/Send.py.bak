@@ -1,0 +1,78 @@
+#-*-coding:utf-8-*-
+__author__ = 'ting.yin'
+from utils.Format_time import FormatTime
+
+
+import sys
+sys.path.append("../gen-py")
+sys.path.append('../thrift')
+sys.path.append('./gen-py')
+import  init
+from cm.ttypes import *
+from se.ttypes import *
+from thrift.protocol import TCompactProtocol
+from thrift.transport import TSocket,TTransport
+from thriftproxy.ThriftProxy import Client
+from thrift import Thrift
+from utils.Json2Object import *
+
+
+HOST='192.168.233.17'
+# HOST = "10.39.18.58"
+PORT= 5100
+
+def get_hotelId():
+    DictObject = DictToClass()
+    data = open('./logs','r').read()
+    print type(data)
+    data = json.loads(data)
+    print type(data)
+
+    region = 101
+    ft = FormatTime()
+    ci = ft.deltaDate(1)
+    co = ft.deltaDate(2)
+    req = DictObject.dict_to_object2(data)
+
+    req.geo_attr = GeoAttribute()
+    req.geo_attr.region = region
+    req.inner_search_type = 1
+    req.geo_attr.region_id = region
+    req.product_attr.stay_date.check_in = ci
+    req.product_attr.stay_date.check_out = co
+    req.page_size = 50
+    print 'req:\n',req
+    for index in xrange(1):
+        req.page_index = index
+        res = process(req)
+        # print 'size:',res.page_size
+        # print 'index:',res.page_index
+        hotel_id = open('./hotel_ids.txt','w+')
+        print res
+        for detail in res.hotels_details:
+            print detail
+
+            hotel_id.write(str(detail.mhotel_id))
+            hotel_id.write('\n')
+    hotel_id.close()
+
+
+def process(req):
+    try:
+        socket = TSocket.TSocket(HOST, PORT)
+        #socket = TSocket.TSocket('192.168.35.37', 5555)
+        #socket = TSocket.TSocket('10.39.18.58', 5100)
+        transport = TTransport.TFramedTransport(socket)
+        protocol = TBinaryProtocol.TBinaryProtocol(transport)
+        # protocol = TCompactProtocol.TCompactProtocol(transport)
+        client = Client(protocol)
+        transport.open()
+        res = client.SearchInner(req)
+        transport.close()
+        return res
+    except Thrift.TException ,e:
+        print e.message
+
+if __name__ == '__main__':
+    get_hotelId()
+

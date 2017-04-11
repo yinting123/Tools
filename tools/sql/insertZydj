@@ -1,0 +1,2 @@
+insert into %s(checkin_date,checkout_date,elong_mhotel_id,elong_mroom_id,ctrip_mhotel_id,ctrip_mroom_id,ctrip_room_id,qunar_mhotel_id,qunar_mroom_id,pay_type,breakfast,pc_deal_price,app_deal_price,last_modify_time)
+values(%s,%s,%s,%s,%s)

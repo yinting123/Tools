@@ -1,0 +1,3 @@
+update ProHotelProductsPriceChange
+set operDate = GETDATE()
+where rateplanID in (406)

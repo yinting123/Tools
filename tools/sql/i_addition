@@ -1,0 +1,2 @@
+insert into RatePlan_additions(AdditionID,RatePlanID,HotelID,AdditionValue,OpDate,SRoomTypeID,Notes,Operator,OpIp)
+values(%s,%s,%s,%s,GETDATE(),%s,%s,%s,%s)

@@ -1,0 +1,2 @@
+insert into promotion_mark(id,promotion_name,begin_time,end_time,priority_level)
+values(%s,%s,%s,%s,%s) 

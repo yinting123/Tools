@@ -1,0 +1,548 @@
+parameter's length is : 4
+============== main ===============
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160913,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160913,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_app_price_20160921                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+insert into mj_pc_price_20160921                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1) 
+
+come to insert
+come to value
+line:  30101023 ## 1022 ## 1 ## 1 ## 56000 ## 21000 ## hotel 
+
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=====================================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160913,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160913,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160914,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160915,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160916,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160917,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160918,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160919,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160920,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160913                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160914                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160915                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160916                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160917                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160918                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160919                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160920                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_app_price_20160921                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================
+sql in insert is : insert into mj_pc_price_20160921                    (checkin_date,elong_mhotel_id,                    elong_mroom_id,pay_type,breakfast_digit,                    ctrip_deal_price,qunar_deal_price,elong_mhotel_name,lowest_term)                    values(20160921,%s,%s,%s,%s,%s,%s,%s,1)
+values is :
+[('30101023', '1022', '1', '1', '56000', '21000', 'hotel')]
+=================

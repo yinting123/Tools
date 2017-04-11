@@ -1,0 +1,153 @@
+[33m================================[0m
+('HOST:', '192.168.233.17', 'port:', 5400)
+return_code: 0
+returna_msg: None
+mhotel_id: 90000745
+     shotel_id: 90000745
+         sroom_id: 1
+             begin_date: 2016-11-29
+             end_date: 2017-03-14
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-15
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 00:00
+             ic_end_time: 18:00
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-16
+             begin_time: 00:00
+             end_time: 23:30
+             available_amount: 8
+             available_date: 2017-03-16
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 00:00
+             ic_end_time: 18:00
+             [33m===================[0m
+             begin_date: 2017-03-14
+             end_date: 2017-03-18
+             begin_time: 00:00
+             end_time: 23:59
+             available_amount: 0
+             available_date: 2017-03-17
+             is_over_booking: 0
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 00:00
+             ic_end_time: 17:30
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-17
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-18
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 00:00
+             ic_end_time: 18:00
+             [33m===================[0m
+         sroom_id: 2
+             begin_date: 2016-11-29
+             end_date: 2017-03-14
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-15
+             is_over_booking: 1
+             status: 0
+             instant_confirm: False
+             ic_begin_time: None
+             ic_end_time: None
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-16
+             begin_time: 00:00
+             end_time: 23:30
+             available_amount: 8
+             available_date: 2017-03-16
+             is_over_booking: 1
+             status: 0
+             instant_confirm: False
+             ic_begin_time: None
+             ic_end_time: None
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-16
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-17
+             is_over_booking: 1
+             status: 0
+             instant_confirm: False
+             ic_begin_time: None
+             ic_end_time: None
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-17
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-18
+             is_over_booking: 1
+             status: 0
+             instant_confirm: False
+             ic_begin_time: None
+             ic_end_time: None
+             [33m===================[0m
+         sroom_id: 3
+             begin_date: 2016-11-29
+             end_date: 2017-03-14
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-15
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 01:00
+             ic_end_time: 18:00
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-16
+             begin_time: 00:00
+             end_time: 23:30
+             available_amount: 8
+             available_date: 2017-03-16
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 01:00
+             ic_end_time: 18:00
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-16
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-17
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 01:00
+             ic_end_time: 18:00
+             [33m===================[0m
+             begin_date: 2016-11-29
+             end_date: 2017-03-17
+             begin_time: 00:00
+             end_time: 18:00
+             available_amount: 5
+             available_date: 2017-03-18
+             is_over_booking: 1
+             status: 0
+             instant_confirm: True
+             ic_begin_time: 01:00
+             ic_end_time: 18:00
+             [33m===================[0m

@@ -1,0 +1,3 @@
+update hotel
+set contacter = '9999999999' , op_date=getdate()
+where hotel_id = 90000064

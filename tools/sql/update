@@ -1,0 +1,2 @@
+update hotel
+set op_date = GETDATE()  where hotel_id= 00101201

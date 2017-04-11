@@ -1,0 +1,3 @@
+ select top 10 *
+ from rateplan_additions
+ where additionID = 7
