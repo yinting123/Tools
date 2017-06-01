@@ -1,0 +1,18 @@
+majia
+'insert into %s ' \
+                          '(checkin_date,elong_mhotel_id,elong_mroom_id,' \
+                          'pay_type,breakfast_digit,ctrip_deal_price,' \
+                          'qunar_deal_price,lowest_term,' \
+                          'sync_date,update_date,qunar_mhotel_id)'\
+                          'values(%s,%s,%s,%s,%s,%s,%s,1,now(),now(),11)'\
+                          %(mj_tables,str(self.timeStrf(self.DateTransfer(ci+i),0)),\
+                            mhotel,mroom,pay,breakfast,cp,qp)
+
+
+center_price
+'insert into %s' \
+                      '(checkin_date,elong_mhotel_id,elong_mroom_id,' \
+                      'pay_type,breakfast,pc_deal_price,app_deal_price)' \
+                      'values(%s,%s,%s,%s,%s,%s,%s,%s)' \
+                      %(ceter_tables,self.timeStrf(self.DateTransfer(check_in),0),mhotel,mroom,\
+                        pay,breakfast,pc_price,app_price)

@@ -1,3 +1,5 @@
+include "dss.thrift"
+include "cm.thrift"
 namespace java com.elong.hotel.goods.ds.thrift
 
 struct RequestPriceRange
@@ -539,6 +541,11 @@ struct Product
 142: optional bool is_dc_product, //是否直连产品
 143: optional double extras, // 信用住、闪住产品杂费
 144: optional i32 resale_product_original_price, // 转让房原产品卖价均价
+145: optional i32 product_yield,//产品产量
+146: optional double product_gains,//产品收益
+147: optional bool has_coupon_enhance,//是否有额外返现
+148: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返
+149: optional i32 coupon_enhance_member_type,//产品的额外返现用的是什么会员类型的策略
 }
 
 struct SelectedProduct
@@ -1367,6 +1374,75 @@ struct GetInvAndInstantConfirmResponse
 2:optional i32 return_code, //0：正常
 3:optional string return_msg, //
 }
+
+//价格元数据
+
+struct HotelBasePriceRequest
+{
+1: required i32 mhotel_id,
+2: optional i32 shotel_id,
+}
+
+struct GetBasePrice4NbRequest
+{
+1: optional list<HotelBasePriceRequest> hotel_base_price_request,
+2: required i16 payment_type, //0 所有，1:现付 2:预付
+3: required i32 start_date,//必填，单位秒
+4: required i32 end_date,//必填，单位秒
+5: required i32 booking_channel,//非0，必填
+6: required i32 sell_channel,//非0，必填
+7: required i32 member_level,//非0，必填
+8: optional string traceId,//选填，用于区分一次请求的标识uuid
+}
+
+struct BasePrice
+{
+1: required i32 start_date,
+2: required i32 end_date,
+3: optional i16 status,
+4: optional i64 price_id,
+5: optional bool allow_add_bed,
+6: optional i32 add_bed_price,
+7: optional string currency_code,
+8: optional i32 general_cost_origin,
+9: optional i32 general_price_origin,
+10: optional i32 weekend_cost_origin,
+11: optional i32 weekend_price_origin,
+}
+
+struct RatePlanBasePrice
+{
+1: optional i32 rateplan_id,
+2: optional list<BasePrice>  base_price;
+}
+
+struct SRoomBasePrice
+{
+1: optional i32 sroom_id,
+2: optional list<RatePlanBasePrice> rateplan_base_price,
+}
+
+struct SHotelBasePrice
+{
+1: optional i32 shotel_id,
+2: optional list<SRoomBasePrice> sroom_base_price,
+}
+
+struct MHotelBasePrice
+{
+1: optional i32 mhotel_id,
+2: optional list<SHotelBasePrice> shotel_base_price,
+}
+
+struct GetBasePrice4NbResponse
+{
+1: optional list<MHotelBasePrice> mhotel_base_price,
+2: optional i32 return_code, //0：正常
+3: optional string return_msg, //
+}
+//价格元数据 -end
+
+
 struct SearchRequest
 {
 1:    list<i64> mhotel_ids, // 已废弃，替换为mhotel_attrs字段
@@ -1451,6 +1527,14 @@ struct SearchRequest
 105:list<i32> cash_pay_hotel_level_filter,//控制分销使用,现付酒店等级过滤设置
 106:optional UserCreditLiveInfo order_by_user_credit_filter,//信用住相关参数过滤
 107:optional list<double> promotion_percentage_range, //非常优惠－优惠力度区间
+108:optional bool return_price_range_statistic, // 是否返回价格区间统计
+109:optional list<i32> privilege_return_assemble,//特权服务筛选项: 0:闪住, 1:信用住
+110:optional bool return_exclusive_hotel_info, // 是否返回专属优惠信息
+111:optional map<i64, i32> exclusive_discount_detail, // 专属优惠额度明细
+112:optional bool return_new_botao_member_product,//是否返回铂涛产品
+113:optional bool return_has_gdgf_hotel,//返回有高定高的返酒店
+114:optional i64 gs_request_time,//service发送请求的时间戳
+115:optional map<i32,list<cm.BiddingRankInfo>> biddingRanks4Ebk,//key:shotelid,ebk竞价排名相关
 }
 
 
@@ -1470,6 +1554,211 @@ struct SearchResponse
  7:optional i32 grandson, // 产品排序策略: 0: 默认策略, 1: 收益排序, 2: cvr排序
 }
 
+
+struct MetaMhotel{
+	1:required i32 mhotel_id,
+	2:required list<i32> shotel_id,
+}
+
+struct GetBaseRatePlanDRRGiftRequest
+{
+1: optional list<MetaMhotel> mhotel,
+2: required i16 payment_type, //0 所有，1:现付 2:预付
+3: required i32 booking_channel,//
+4: required i32 sell_channel,//
+5: required i32 member_level,//
+6: optional string traceId,//
+}
+
+struct MetaHotelBookingRule
+{
+1: required i64 id,
+2: optional i16 date_type,
+3: optional string cn_description,
+4: optional string en_description,
+5: optional i64 start_date,
+6: optional i64 end_date,
+7: optional string start_hour,
+8: optional string end_hour,
+9: optional string room_type_id,
+}
+
+struct MetaHotelInfo
+{
+1: required i32 shotel_id,
+2: optional list<MetaHotelBookingRule> hotel_booking_rule_list,
+3: required i16 week_end_start,
+4: required i16 week_end_end,
+}
+
+struct MetaProductInfo{
+1: required i64 product_id,
+2: optional i32 rate_plan_id,
+3: optional list<i32> drr_ids,
+4: optional list<i32> gift_ids,
+}
+
+struct MetaRoomTypeInfo
+{
+1: required i32 room_type_id,
+2: optional list<MetaHotelBookingRule> hotel_booking_rule_list,
+3: optional list<MetaProductInfo> products,
+}
+
+struct MetaPrePayInfo
+{
+1: optional i32 target,
+2: optional i32 prepay_change_rule,
+3: optional i16 date_type,
+4: optional i64 start_date,
+5: optional i64 end_date,
+6: optional i16 cut_type_after,
+7: optional i16 cut_type_befor,
+8: optional bool cut_after_change_time,
+9: optional bool cut_befor_change_time,
+10: optional double cut_num_after,
+11: optional double cut_num_befor,
+12: optional string cn_description,
+13: optional string en_description,
+14: optional i16 is_week_effective,
+15: optional map<string,string> rule_values,
+}
+
+struct MetaAddValuePolicyInfo
+{
+1:	optional i64 start_date,
+2:	optional i64 end_date,
+3:	optional i16 is_include,
+4:	optional i16 share,
+5:	optional i32 price_default_option,
+6:	optional i32 single_price_default_option,
+7:	optional double price,
+8:	optional double single_price,
+9:	optional i16 is_add,
+10:	optional string currency_code,
+11:	optional i16 is_week_effective,
+}
+
+struct MetaVouchInfo
+{
+1: optional i16 date_type,
+2: optional i64 start_date,
+3: optional string arrive_start_time,
+4: optional string arrive_end_time,
+5: optional i32 room_count,
+6: optional i32 vouch_change_rule,
+7: optional string cn_description,
+8: optional string en_description,
+9: optional bool is_room_count_vouch,
+10: optional bool is_arrive_time_vouch,
+11: optional i32 vouch_money_type,
+12: optional i16 is_week_effective,
+13: optional map<string,string> rule_values,
+14: optional i64 endDate,
+}
+
+struct MetaAddValueInfoSimple
+{
+1: required i32 rate_plan_id,
+2:	optional i16 is_include,
+3:	optional i16 share,
+4:	optional string add_value_cn_name,
+5:	optional string add_value_en_name,
+9:	optional bool is_add,
+10:	optional double single_price,
+11:	optional string business_code,
+12: optional i32 price_default_option,
+13:	optional double price,
+14: optional i32 single_price_default_option,
+}
+
+struct MetaRatePlanBaseInfo
+{
+1: required i32 rate_plan_id,
+2: optional string settlement_type,
+3: optional string cn_rate_plan_name,
+4: optional string en_rate_plan_name,
+5: optional string price_type,
+6: optional i16 is_limit_time_sale,
+7: optional string product_type,
+8: optional i32 booking_channel,
+9: optional i32 rate_plan_sell_channel,
+10: optional i64 start_time,
+11: optional i64 end_time,
+12: optional i32 min_advance_booking_days,
+13: optional i32 max_advance_booking_days,
+14: optional i32 min_stay_days,
+15: optional i32 max_stay_days,
+16: optional i32 min_checkin_rooms,
+17: optional i32 customer_level,
+18: optional list<MetaAddValuePolicyInfo> add_value_policy_list,
+19: optional list<MetaPrePayInfo> rate_plan_pre_pay_rule_list,
+20: optional list<MetaVouchInfo> rate_plan_vouch_rule_list,
+21: optional list<MetaAddValueInfoSimple> rateplan_relation_add_value,
+22: optional string rate_plan_room_type_id,
+}
+
+struct MetaDRRInfo
+{
+1: required i32 drr_rule,
+2: optional i32 money_or_percent,
+3: optional double money_or_percent_value,
+4: optional i16 date_type,
+5: optional string cn_description,
+6: optional string en_description,
+7: optional i64 start_date,
+8: optional i64 end_date,
+9: optional i16 fee_type,
+10: optional i16 is_week_effective,
+11: optional map<string,string> ruleValues,
+12: optional string room_type_ids,
+}
+
+struct MetaHotelGiftRelationDate
+{
+1: optional i64 begin_date,
+2: optional i64 end_date,
+3: optional i16 date_type,
+4: optional i64 bit_sum4_week,
+5: optional i32 hour_type,
+6: optional i32 hour_number,
+}
+struct MetaHotelGiftModel
+{
+1: required i32 gift_id,
+2: optional i16 status,
+3: optional list<MetaHotelGiftRelationDate> relation_date_list,
+4: optional bool is_all_product_related,
+5: optional i32 way_of_giving,
+6: optional string gift_content_cn,
+7: optional string gift_content_en,
+8: optional i32 gift_types,
+9: optional string way_of_giving_other_cn,
+10: optional string way_of_giving_other_en,
+}
+
+struct MetaSHotelBaseRpDrrGift
+{
+1: required MetaHotelInfo hotel_base_info,//S酒店基本信息
+2: required list<MetaRoomTypeInfo> room_base_infos,//S房型信息
+3: required list<MetaRatePlanBaseInfo> ratePlans,//RatePlan信息
+4: required list<MetaDRRInfo> drrs,//DRR信息
+5: required list<MetaHotelGiftModel> gifts,//礼包信息
+}
+
+struct MetaMHotelBaseRpDrrGift
+{
+1: optional list<MetaSHotelBaseRpDrrGift> shotel_detail,
+2: optional i32 mhotel_id,
+}
+
+struct GetBaseRatePlanDRRGiftResponse
+{
+1: optional list<MetaMHotelBaseRpDrrGift> mhotel_detail,
+2: optional i32 return_code, //0：正常
+3: optional string return_msg, //
+}
+
 service ProductSearchService
 {
     SearchResponse searchProducts(1:SearchRequest searchRequest);
@@ -1479,4 +1768,7 @@ service ProductSearchService
 	GetProductBaseInfoResponse getProductBaseInfo(1:GetProductBaseInfoRequest request);
 	// 获取库存和及时确认信息
 	GetInvAndInstantConfirmResponse getInvAndInstantConfirm(1:GetInvAndInstantConfirmRequest request);
+    // 获取价格元数据信息
+	GetBasePrice4NbResponse getMetaPrice4Nb(1:GetBasePrice4NbRequest request);
+	GetBaseRatePlanDRRGiftResponse getMetaRatePlanDrrGift(1:GetBaseRatePlanDRRGiftRequest request);
 }

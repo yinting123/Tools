@@ -32,10 +32,12 @@ def CheckCtripQunarHotel(res):
     for detail in res.hotels_details:
         for room in detail.room_types:
             for product in room.products:
-                if product.supplier_id == 151330:
+                if product.supplier_id == 151330 and detail.product_count > 1:
                     print detail.mhotel_id,'-',product.shotel_id,'携程酒店'
                     flag = 1
+                    return True
                     break
+
                 elif product.supplier_id == 187569:
                     flag = 1
                     print detail.mhotel_id,'-',product.shotel_id,'Qunar酒店'
@@ -138,7 +140,7 @@ def CheckProFreeCancle(req,product):
 
 def productCount(res):
     for detail in res.hotels_details:
-        if detail.product_can_be_showed >= 3:
+        if detail.product_can_be_showed >= 1:
             print detail.mhotel_id
             return True
         else:
@@ -193,3 +195,11 @@ def specialProduct(res,type):
                         return True
     return False
 
+def derivateProduct(res,type):
+    for detail in res.hotels_details:
+        for room in detail.room_types:
+            for product in room.products:
+                if product.derivative_type in type:
+                    print detail.mhotel_id,product.shotel_id,product.rateplan.rateplan_id
+                    return True
+    return False

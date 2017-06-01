@@ -1,0 +1,19 @@
+insert into mj_app_price_20170517
+(checkin_date,elong_mhotel_id,elong_mhotel_name,
+elong_mroom_id,pay_type,breakfast_digit,
+ctrip_deal_price,qunar_deal_price,lowest_term,
+province,city,address,
+phone,elong_rp_id,elong_shotel_id,
+elong_sroom_id,ctrip_mroom_id,qunar_mhotel_id,
+group_id,group_name,supplier_name,
+elong_href,ctrip_href,qunar_href,
+sync_date,update_date,_timestamp)
+values(20170517,%s,%s,
+%s,%s,%s
+,%s,%s,1
+,%s,%s,%s
+,%s,%s,%s
+,%s,%s,%s
+,%s,%s,%s
+,%s,%s,%s
+,now(),now(),now())

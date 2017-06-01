@@ -63,7 +63,7 @@ def GenerateSql(days,total):
                    %s,%s,%s,now())"\
                    %(name,strfDate(days+i),strfDate(days+i+1)\
                    ,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')
-        #print baseStr
+        print baseStr
         strSql.append(baseStr)
     return strSql
     
@@ -77,6 +77,6 @@ def strfDate(days):
 if __name__ == "__main__":
     delta = int(sys.argv[1])
     total = int(sys.argv[2])
-    #GenemajiaSql(delta,total) 
+    # GenemajiaSql(delta,total)
     GenerateSql(delta,total)
     #strfDate(delta)

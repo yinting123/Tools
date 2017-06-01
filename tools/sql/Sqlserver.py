@@ -27,7 +27,6 @@ class SqlServerDB:
         print "host:%s ,port:%s,user:%s,password:%s,dbname=%s"%(self.host,self.port,self.user,self.pwd,self.db)
         if (not self.host) or (not self.port) or (not self.user) or (not self.pwd) or (not self.db):
             print ("请正确设置数据库的连接信息")
-            #    conn = pymssql.connect(host = self.host,port = self.port ,user = self.user,password = self.pwd,database = self.db,charset = 'utf8')
         self.conn = pymssql.connect(host = self.host,port = self.port ,user = self.user,password = self.pwd,database = self.db,charset = 'utf8')
         if not self.conn:
             print "连接数据库失败"
@@ -37,7 +36,6 @@ class SqlServerDB:
             return cursor
 	    
     def getValues(self,DataSource):
-
         values = []
         lines = open(DataSource,'r')
         print "lines is :",lines
@@ -76,6 +74,7 @@ class SqlServerDB:
         cursor.execute(sql)
         lines = cursor.fetchall()
         for line in lines:
+            # print str(line).encode('utf-8')
             print line
         cursor.close()
         self.conn.close()
@@ -95,7 +94,9 @@ if __name__ == '__main__':
     try:
         if 2 == len:
             SqlServer =  SqlServerDB(pro_host,pro_port,pro_user,pro_password,pro_dbname)
-            SqlServer.getValues(sys.argv[1])
+            SqlServer =  SqlServerDB(phost,pport,puser,ppassword,pdbname)
+            # SqlServer.getValues(sys.argv[1])
+            SqlServer.select(sys.argv[1])
 
         if 4 == len:
             #SqlServer = SqlServerDB(HOST,PORT,USER,PASSWORD,DBNAME)
@@ -112,6 +113,7 @@ if __name__ == '__main__':
         elif 3 == len:
             #SqlServer = SqlServerDB(HOST,PORT,USER,PASSWORD,DBNAME)
             SqlServer = SqlServerDB(s_host,s_port,s_user,s_password,s_dbname)
+            SqlServer =  SqlServerDB(pro_host,pro_port,pro_user,pro_password,pro_dbname)
             #SqlServer =  SqlServerDB(pro_host,pro_port,pro_user,pro_password,pro_dbname)
             type = int(sys.argv[1])
             SqlFile = sys.argv[2]
@@ -131,5 +133,3 @@ if __name__ == '__main__':
         print "\033[35m \t ./Sqlserver.py 3 sqlFile data \033[0m "
         print "\033[35m \t *********** 参数1：查询方式，1—查询 2—更新 3—插入 \033[0m"
         print "\033[35m	 *********** 参数2：sql语句  参数3：插入数据 \033[0m"
-
-

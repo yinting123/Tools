@@ -16,11 +16,12 @@ from thriftproxy.ThriftProxy import Client
 from utils.Format_time import *
 from ShowResult import *
 
-# HOST = "172.21.27.25"
-HOST = "10.39.18.58"
 # HOST = "sa-mapi.vip.elong.com"
-# HOST = "192.168.233.17"
+# HOST = "172.21.27.25"
+# HOST = "10.39.18.58"
+HOST = "192.168.233.17"
 # HOST = "192.168.210.52"
+#  HOST = "192.168.233.83"
 # HOST = "192.168.233.2"
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.83"
@@ -44,7 +45,7 @@ def check_v(ret, str):
     # fp.close()
     show = ShowResult(req,ret)
     if req.inner_search_type == 1:
-        # show.service_product()
+        show.service_product()
         show.statics()
         # show.Product()
         # show.hasMajia()
@@ -54,20 +55,20 @@ def check_v(ret, str):
         # show.minPrice()
     # show.filter()
         show.Product()
+        # show.singleProduct()
         # show.updateInvSecond()
     # show.hasCredit()
 
 
 def build_message(id,CI,CO,type):
-
-    # print type(CI)
-    # print type(CO)
     global req
     req = InnerSearchRequest()
 
     # req.inner_search_type = 1
     # req.inner_search_type = 4
     req.hotel_attr = HotelAttribute()
+
+    # req.hotel_attr.keyword = "北京饭店"
 
     #eq.hotel_attr.return_has_breakfasts_hotel = 3
     #eq.hotel_attr.return_has_xianfu_hotel = 1
@@ -103,7 +104,6 @@ def build_message(id,CI,CO,type):
     #eq.hotel_attr.mhotel_ids.append(101201)
     #req.hotel_attr.mhotel_ids.append(mhotel_id)
     # req.hotel_attr.mhotel_ids.append(id)
-    print "in request : mhotel_id :%s "%req.hotel_attr.mhotel_ids
     #eq.hotel_attr.mhotel_ids.append(90971639)
 
 
@@ -122,18 +122,15 @@ def build_message(id,CI,CO,type):
     req.product_attr.return_has_resale_hotel = 1
 
     req.product_attr.cooperation_type = []
-    #req.product_attr.cooperation_type.append(1)
-    # req.product_attr.searchFrom = 2
 
-    #req.product_attr.majia_zydj_switch = 31
-    # req.product_attr.discount_method = 3
+
 
 
     # req.hotel_attr.only_consider_salable = False
     req.product_attr.filter_conditions = []
     fc = FilterCondition()
-    fc.type, fc.use_or_not, fc.filter_value, fc.apply_level = 18, 1, 3, 2
-    req.product_attr.filter_conditions.append(fc)
+    fc.type, fc.use_or_not, fc.filter_value, fc.apply_level = 18, 1, 2, 2
+    # req.product_attr.filter_conditions.append(fc)
 
 
     req.product_attr.use_day_promotion = 1
@@ -142,11 +139,7 @@ def build_message(id,CI,CO,type):
     #eq.product_attr.list_product_info = ListProductInfo()
     #eq.product_attr.list_product_info.return_min_price_product = 11
     #req.product_attr.list_product_info.need_sorted_top_product =1
-    #req.product_attr.price_pair = []
-    #price_pair = PricePair()
-    #price_pair.min = 500 #297
-    #price_pair.max = 99999
-    #req.product_attr.price_pair.append(price_pair)
+
     req.product_attr.stay_date = StayDate()
     req.product_attr.stay_date.check_in = int(time.time())+86400*CI
     req.product_attr.stay_date.check_out = int(time.time())+86400*CO
@@ -188,7 +181,8 @@ def build_message(id,CI,CO,type):
 
     req.caller_attr = CallerAttribute()
     req.caller_attr.ip = "192.168.1.1"
-    req.caller_attr.SearchFrom = 1
+    # req.caller_attr.SearchFrom = 2
+    # req.caller_attr.SearchFromEnd = 4
     req.caller_attr.onlydebug = 1
     #req.caller_attr.old_filter =1
     # eq.caller_attr.channel = 'mobile'#'web'
@@ -254,8 +248,9 @@ def build_message(id,CI,CO,type):
     req.user_info.geo_info = GeoInfo()
 
     req.rec_attr = RecommendAttribute()
+    req.rec_attr.rec_result = True
 
-    req.caller_attr.SearchFrom = 1
+    # req.caller_attr.SearchFrom = 1
     req.product_attr.has_zydj = 1
     req.product_attr.has_majia = True
 
@@ -280,7 +275,7 @@ def build_message(id,CI,CO,type):
     credit.flash_live_filter = True # False ,True             #闪住
     credit.credit_live_filter = True           #信用住
     credit.credit_value_live_filter = False #True #False     #是否额度过滤
-    credit.user_credit_value = 241               #额度
+    credit.user_credit_value = 200               #额度
     credit.flash_live_period = 3                #闪住通道
     credit.credit_live_period = 2               #信用住通道
     req.product_attr.order_by_user_credit_filter = credit
@@ -290,9 +285,7 @@ def build_message(id,CI,CO,type):
     req.product_attr.half_discount_promotion = 3
             # 转让房 吐出转让房 不参与®
     req.product_attr.return_has_resale_hotel = 1
-            # 列表页 统计项
-    # req.inner_search_type = 4
-    # req.geo_attr.region_id = 301#101
+
 
     ##红包
     req.product_attr.is_new_hongbao = 1
@@ -303,10 +296,10 @@ def build_message(id,CI,CO,type):
     hong_bao_records = HongbaoRecord()
     # hong_bao_records.record_id =
     # hong_bao_records.recharge_type =
-    hong_bao_records.tag = 1
+    hong_bao_records.tag = 0
     hong_bao_records.face_value = 30
     hong_bao_records.valid_date = "2017-12-27 12:00:00"
-    hong_bao_records.activity_id = 201506054 #15082701
+    hong_bao_records.activity_id = 2020000010 #15082701
     hong_bao_records.status = 1
 
     full_hong_bao = HongbaoFullBackRule()
@@ -320,13 +313,13 @@ def build_message(id,CI,CO,type):
     # hongbao end
     # ===========================
 
-    req.product_attr.return_hotel_ticket_product = True
-    req.product_attr.return_new_botao_member_product = True#False #True
+    # req.product_attr.return_hotel_ticket_product = True
+    # req.product_attr.return_new_botao_member_product = True#False #True
 
         # 列表、详情
     if type == 1:
         req.inner_search_type = 1
-        req.geo_attr.region_id = 101
+        req.geo_attr.region_id = 101#2201#101
         req.page_rank_attr.page_size = 200
         req.page_rank_attr.page_index = 0
         # req.hotel_attr.mhotel_ids = []

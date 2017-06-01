@@ -26,4 +26,7 @@ service DSServiceProxy {
 	dss.GetProductBaseInfoResponse GetProductBaseInfo(1:dss.GetProductBaseInfoRequest request);
 	// 获取库存和及时确认
 	dss.GetInvAndInstantConfirmResponse GetInvAndInstantConfirm(1:dss.GetInvAndInstantConfirmRequest request);
+	// 获取价格元数据信息
+	dynamic_search.GetBasePrice4NbResponse getMetaPrice4Nb(1:dynamic_search.GetBasePrice4NbRequest request);
+	dynamic_search.GetBaseRatePlanDRRGiftResponse getMetaRatePlanDrrGift(1:dynamic_search.GetBaseRatePlanDRRGiftRequest request);
 }

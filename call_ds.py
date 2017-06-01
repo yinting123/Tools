@@ -56,7 +56,7 @@ class GetInvForNB():
         req.start_date = dictreq["start_date"]
         req.end_date = dictreq["end_date"]
         req.need_instant_confirm = dictreq["need"]
-        req.order_from = 1
+        req.order_from = 3
         req.search_from = 3
         print req
         return req

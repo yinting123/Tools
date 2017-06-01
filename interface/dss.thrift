@@ -74,41 +74,6 @@ struct  DSSSearchCanBookRequest
 5:optional map<i64, list<SelectedProduct>> selected_product_ids, // key: mhotel_id, value : 产品信息
 }
 
-struct SimplePromotion
-{
-1:optional i32 promotion_id,
-2:optional i32 uper_limit,
-3:optional string date,
-}
-
-struct SimpleProduct
-{
-1:optional i32 sale_cost,//底价
-2:optional i32 sale_price,//卖价
-3:list<SimplePromotion> promotion_type,
-4:list<cm.Inventory> inventorys,
-5:optional i32 sroom_id,
-6:optional i32 rp_id,
-7:optional i32 shotel_id,
-}
-
-struct SimpleMRoom
-{
-1:optional i32 mroom_id,
-2:list<SimpleProduct> products,
-}
-
-struct HotelBookDetail
-{
-1:optional i64 mhotel_id,
-2:optional bool is_can_booking,
-3:list<i32> hotel_flag,
-4:optional i32 min_price_sub_coupon,
-5:optional double min_price_sub_coupon_sale_cost,
-6:list<SimpleMRoom> simple_mrooms,
-}
-
-
 struct DSSSearchCanBookResponse
 {
 1:optional cm.ServerStatus status,
@@ -121,18 +86,38 @@ struct DSSSearchCanBookResponse
 8:optional list<cm.PriceRangeStatistic> price_range_statistic, // 价格范围统计信息
 }
 
-
-//start  
-
-struct ProductDayInfo
+struct HotelBookDetail
 {
-1:optional string date,
-2:optional bool has_breakfast,
-3:optional bool has_inventory, // 是否有库存， 满房的也参与比价 
-4:optional i32 status, // 产品是否有效，产品无效判断优先级：酒店 > 房型 >  产品 > 价格 > 房态，需区分
-5:optional double sale_cost, // 平日底价
-6:optional double sale_price, // 平日卖价
-7:optional bool is_weekend_price, // 是否周末价
+1:optional i64 mhotel_id,
+2:optional bool is_can_booking,
+3:list<i32> hotel_flag,
+4:optional i32 min_price_sub_coupon,
+5:optional double min_price_sub_coupon_sale_cost,
+6:optional string simple_mrooms,
+}
+
+struct GetProductBaseInfoRequest
+{
+1:required list<i32> mhotel_ids, // 酒店id
+2:required i64 begin_date, // 开始日期
+3:required i64 end_date, // 结束日期
+}
+
+struct GetProductBaseInfoResponse
+{
+1:optional list<MhotelInfo> mhotel_info, // 酒店信息
+2:optional i32 return_code, //0：正常
+3:optional string return_msg, //
+}
+
+struct MhotelInfo
+{
+1:required i32 mhotel_id,
+2:optional string mhotel_name,
+3:optional i32 city_id, //
+4:optional string city_name,
+5:optional i32 star,
+6:optional list<ProductInfo> product_info,
 }
 
 struct ProductInfo
@@ -152,32 +137,16 @@ struct ProductInfo
 13:optional list<ProductDayInfo> product_day_info, // 产品到天信息
 }
 
-
-struct MhotelInfo
+struct ProductDayInfo
 {
-1:required i32 mhotel_id,
-2:optional string mhotel_name,
-3:optional i32 city_id, //
-4:optional string city_name,
-5:optional i32 star,
-6:optional list<ProductInfo> product_info,
+1:optional string date,
+2:optional bool has_breakfast,
+3:optional bool has_inventory, // 是否有库存， 满房的也参与比价 
+4:optional i32 status, // 产品是否有效，产品无效判断优先级：酒店 > 房型 >  产品 > 价格 > 房态，需区分
+5:optional double sale_cost, // 平日底价
+6:optional double sale_price, // 平日卖价
+7:optional bool is_weekend_price, // 是否周末价
 }
-
-struct GetProductBaseInfoRequest
-{
-1:required list<i32> mhotel_ids, // 酒店id
-2:required i64 begin_date, // 开始日期
-3:required i64 end_date, // 结束日期
-}
-
-struct GetProductBaseInfoResponse
-{
-1:optional list<MhotelInfo> mhotel_info, // 酒店信息
-2:optional i32 return_code, //0：正常
-3:optional string return_msg, //
-}
- // end -GetProductBaseInfoResponse
-
 
 struct ShotelAttr
 {
@@ -190,7 +159,6 @@ struct MhotelAttr
 1:required i32 mhotel_id,
 2:optional list<ShotelAttr> shotel_attr,
 }
-
 
 struct GetInvAndInstantConfirmRequest
 {

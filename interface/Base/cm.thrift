@@ -1288,6 +1288,14 @@ struct UserCreditLiveInfo
 6:optional i32  credit_live_period,//信用住信用通道有效期
 }
 
+//竞价排名相关
+struct BiddingRankInfo{
+   1:i16 pay_type,//支付类型,1.到店付,修改佣金额 2:预付,修改底价,
+   2:i16 caculate_type,//计算类型: 1:减少, 2:增加
+   3:i16 value_type,//值类型: 1:比率, 2:金额,
+   4:double value,//值: 1:比率,单位%, 2:金额, 单位产品币种
+}
+
 struct  ProductAttribute
 {
 1: StayDate stay_date,
@@ -1345,6 +1353,7 @@ struct  ProductAttribute
 109:list<double> promotion_percentage_range, //非常优惠－优惠力度区间 QuickScreenProduct
 110:optional bool return_min_ac_price_simple_product , // 是否返回最低价简单产品信息,搜索排序使用
 111:optional bool return_new_botao_member_product , // 是否返回铂涛新会员产品
+112:optional map<i32,list<BiddingRankInfo>> biddingRanks4Ebk, //key:shotelid, ebk竞价排名相关
 }
 
 struct PriceInterval
@@ -2000,6 +2009,10 @@ struct  Product
 150: optional bool is_dc_product, //是否直连产品
 151: optional double extras, // 信用住、闪住产品杂费
 152:optional i32 resale_product_original_price, // 转让房原产品卖价均价
+153: optional i32 product_yield,//产品产量
+154: optional double product_gains,//产品收益
+155: optional bool has_coupon_enhance,//是否有额外返现
+156: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返
 }
 
 struct  MRoomTypes

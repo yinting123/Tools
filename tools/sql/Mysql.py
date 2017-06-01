@@ -83,12 +83,12 @@ class MysqlDB:
             #tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6])  
             #tmp = (ls[0],ls[1],ls[2],ls[3],ls[4])  
             #马甲 7位
-            #tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6])  
+            # tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6])
             #中央定价 11位
-            tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6],ls[7],ls[8],ls[9],ls[10])
+            # tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6],ls[7],ls[8],ls[9],ls[10])
             #马甲7+15位
-            # tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6],ls[7],ls[8],ls[9],ls[10],ls[11],ls[12],\
-            #         ls[13],ls[14],ls[15],ls[16],ls[17],ls[18],ls[19],ls[20],ls[21])
+            tmp = (ls[0],ls[1],ls[2],ls[3],ls[4],ls[5],ls[6],ls[7],ls[8],ls[9],ls[10],ls[11],ls[12],\
+                    ls[13],ls[14],ls[15],ls[16],ls[17],ls[18],ls[19],ls[20],ls[21])
             values.append(tmp)
             del tmp
             print values
@@ -141,8 +141,8 @@ if __name__== "__main__":
             SqlFile = sys.argv[2]
             DataSource = sys.argv[3]
             ##两天以后的三天的数据GenerateSql(2,3)
-            # SqlFile = GenemajiaSql(1,2)
-            SqlFile = GenerateSql(1,5)
+            SqlFile = GenemajiaSql(1,2)
+            # SqlFile = GenerateSql(1,5)
             print "============== main ==============="
             for i in SqlFile:
                 print i,'\n'

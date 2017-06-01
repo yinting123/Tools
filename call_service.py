@@ -3,11 +3,12 @@
 import os
 import sys,getopt
 import time
-import init
+import init,random,uuid
 
 from call_sa import *
-
 from ShowResult import  *
+
+sys.path.append("./gen-py/")
 
 from thrift import Thrift
 from thrift.Thrift import TProcessor
@@ -17,16 +18,23 @@ from se.ttypes import *
 from cm.ttypes import *
 from dss.ttypes import *
 from dsservice.ttypes import *
+from dynamic_search.ttypes import *
 from dsservice.DSServiceProxy import Client
 
-
-
-# HOST = '192.168.233.17'
-# HOST = '192.168.35.21'
+HOST = '192.168.233.17'
+# HOST = '192.168.233.2'
+# HOST = '192.168.35.17'
+# HOST = '192.168.35.30'
 # HOST = '192.168.233.83'
-HOST = '192.168.35.19'
+# HOST = '192.168.35.17'
+# HOST = '192.168.35.21'
+# HOST = 'goodsservicenb.vip.elong.com'
 # HOST = '172.21.106.26'
+# HOST = '192.168.210.52'
 PORT = 5400
+# PORT = 5401
+# PORT = 5407
+
 
 class GetInvForNB():
     """给NB提供的查询库存以及立即确认的接口"""
@@ -82,6 +90,104 @@ class GetInvForNB():
     def handle(self,res):
         result = ShowDSResult(res)
         result.ShowInvForNB()
+
+class GetPriceForNB():
+    """NB 元数据模式"""
+    def __init__(self):
+        pass
+
+    def build_request(self,req):
+        request = GetBasePrice4NbRequest()
+        request.hotel_base_price_request = []
+        for item in req["hotel_base_price_request"]:
+            mhotel_id = int(item.split("-")[0])
+            print mhotel_id
+            base_info = HotelBasePriceRequest()
+            base_info.mhotel_id = mhotel_id
+            if len(item.split("-")) > 1:
+                base_info.shotel_id =  int(item.split("-")[1])
+            request.hotel_base_price_request.append(base_info)
+        request.payment_type = req["payment_type"]
+        request.start_date = req["start_date"]
+        request.end_date = req["end_date"]
+        request.booking_channel = req["booking_channel"]
+        request.sell_channel = req["sell_channel"]
+        request.member_level = req["member_level"]
+        traceId = uuid.uuid1()
+        print traceId
+        request.traceId = str(traceId )
+        return request
+
+    def create_connection(self):
+        print ("HOST:", HOST, "port:", PORT)
+        socket = TSocket.TSocket(HOST, PORT)
+        transport = TTransport.TFramedTransport(socket)
+        protocol = TCompactProtocol.TCompactProtocol(transport)
+        client = Client(protocol)
+        return transport, client
+
+    def get_response(self,dictreq):
+        req = self.build_request(dictreq)
+        transport, client = self.create_connection()
+        transport.open()
+        res = client.getMetaPrice4Nb(req)
+        transport.close()
+        self.handle(res)
+        return
+
+    def handle(self,res):
+        # print res
+        print res.return_msg
+        result = ShowDSResult(res)
+        result.showPriceForNB()
+
+class GetRatePlanForNB():
+    def build_message(self,rp):
+        request = GetBaseRatePlanDRRGiftRequest()
+        metaMhotel = []
+        for i in xrange(len(rp["MetaMhotel"])):
+            mhotel = rp["MetaMhotel"][i].split("-")[0]
+            hotel = MetaMhotel()
+            hotel.mhotel_id = int(mhotel)
+            if len(rp["MetaMhotel"][i].split("-")) > 1:
+                shotel = rp["MetaMhotel"][i].split("-")[1]
+                shotels = shotel.split(",")
+                hotel.shotel_id = [int(x) for x in shotels]
+            metaMhotel.append(hotel)
+        request.mhotel = metaMhotel
+        request.payment_type = rp["payment_type"]
+        request.booking_channel = rp["booking_channel"]
+        request.sell_channel = rp["sell_channel"]
+        request.member_level = rp["member_level"]
+        # request.traceId = rp["traceId"]
+        print request
+        return request
+
+    def create_connection(self):
+        print ("HOST:", HOST, "port:", PORT)
+        socket = TSocket.TSocket(HOST, PORT)
+        transport = TTransport.TFramedTransport(socket)
+        protocol = TCompactProtocol.TCompactProtocol(transport)
+        client = Client(protocol)
+        return transport, client
+
+    def get_response(self,rp):
+        request = self.build_message(rp)
+
+        transport,client = self.create_connection()
+        transport.open()
+        response = client.getMetaRatePlanDrrGift(request)
+        self.handle(response)
+        transport.close()
+
+
+    def handle(self, res):
+        print res
+        print res.return_msg
+        print json.dumps(res.mhotel_detail,default=lambda o:o.__dict__,indent= 2,encoding="utf-8",ensure_ascii=False)
+        # result = ShowDSResult(res)
+        # result.showPriceForNB()
+
 
 class VerifyPrice():
     """调验价接口进行验价"""
@@ -312,21 +418,9 @@ def build_req(id,CI,CO):
         #eq.user_info.idfa = '357513050484667||3575E3010404697'
         #eq.user_info.idfa = '353115059584903||3531E5019504993'
         req.user_info.geo_info = GeoInfo()
-        #eq.user_info.geo_info.geo_longitude = 116.373989
-        #eq.user_info.geo_info.geo_latitude = 39.89585
-
-        #eq.user_info.geo_info.geo_longitude = 116.5632553
-        #eq.user_info.geo_info.geo_latitude = 40.07008124
-        #eq.user_info.geo_info.geo_longitude = 116.4677322 #国贸
-        #eq.user_info.geo_info.geo_latitude = 39.91606155
-        #eq.user_info.geo_info.geo_longitude = 121.496951 #上海外滩
-        #eq.user_info.geo_info.geo_latitude = 31.241647
 
         req.rec_attr = RecommendAttribute()
-        #eq.rec_attr.return_talent_recommend = 1
-        #eq.rec_attr.rec_result = 1
-        #eq.rec_attr.hotel_num = 20
-        #req.rec_attr.rec_return_num_only = 0
+
         
         return req,req_v5
 

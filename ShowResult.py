@@ -5,6 +5,7 @@
 import json
 import sys,init
 sys.path.append("./utils/")
+sys.path.append("./gen-py/")
 
 import time
 from filter import *
@@ -29,6 +30,9 @@ statics = {1:"可定",2:"尾房",3:"红包",4:"周边",5:"五折",6:"买断",7:"
            13:"返现",14:"限时抢",16:"闪住",17:"信用住",18:"景酒",19:"主动马甲",
            20:"被动马甲",21:"马甲数",22:""
            }
+
+
+
 class ShowResult:
 
     result = ''
@@ -108,10 +112,32 @@ class ShowResult:
             #         # self.promotion(product)
             # print "\033[31m =\033[0m"*30
 
+    def singleProduct(self):
+        for detail in self.result.hotels_details:
+            print "mhotel_id:", detail.mhotel_id
+            for room in detail.room_types:
+                for product in room.products:
+                    if product.rateplan.rateplan_id == 6526207 and product.sroomtype_id == 1:
+
+                        print productType[product.derivative_type]
+                        for price in product.price.day_prices:
+                            print price.date
+                            print price.currency,"      ",price.sale_cost,"     ",\
+                                price.sale_cost_origin,\
+                                "     ",price.sale_price,     "     ",\
+                                price.sale_price_with_drr_origin,"    ",\
+                                price.sale_price_with_drr_sub_coupon
+                        print "============================="
+
+
     def Product(self):
         # print 'common_conf:\n',self.result.common_conf.wechat_for_new_user_promotion_ids
         # print 'common_conf:\n',json.dumps(self.result.cities_common_conf[101],default=lambda o:o.__dict__)
         print '\033[35m***\033[0m'*10
+        # if type == "sa":
+        #     pass
+        # elif type == "service":
+        #     self.result = self.result.response
         for detail in self.result.hotels_details:
             count = 0
             print "mhotel_id :",detail.mhotel_id
@@ -132,7 +158,7 @@ class ShowResult:
                     # for addition in rp.additions:
                     #     if addition.addition_id == 11:、
                     # if room.mroomtype_id == 1163 and product.rateplan.settlement_type == 1:
-                    # if product.rateplan.rateplan_id == 481097 and product.sroomtype_id == 1:
+                    # if product.rateplan.rateplan_id == 8266523 and product.sroomtype_id == 3:
                     #     and product.room_num_status != 3:
                     # if product.derivative_type == 0:
                     #     if product.rateplan.rateplan_id in (30501015,):
@@ -144,6 +170,7 @@ class ShowResult:
                     # if product.derivative_type in (2,3,6,7,813,814):  #中央价
                     # if product.derivative_type in (4,5,6,7):  #预付定价
                     # if product.shotel_id in [92047490]:
+                    # if product.rateplan.rateplan_id == 480902 and product.sroomtype_id == 1:
                             count += 1
                             print "     count = ",count
                             print "     shotel_id :",product.shotel_id
@@ -151,6 +178,7 @@ class ShowResult:
                             print "     sroom_id:",product.sroomtype_id
                             print "     supplier_name: ", product.supplier_name
                             print "         rp_id: ",product.rateplan.rateplan_id
+                            print "         rp_name: ",product.rateplan.rateplan_name_cn
                             print "         支付方式: ",settlement[product.rateplan.settlement_type]
                             print "         产品类型: ",productType[product.derivative_type]
                             print "         立即确认: ", product.is_freesale, "     数量：", product.freesale_num
@@ -159,7 +187,13 @@ class ShowResult:
                             print "         是否二手房: ",product.is_resale_product
                             print "         二手房原卖价: ",product.resale_product_original_price
                             print "         马甲ID: ",product.majia_id
+                            print "         product_flag:",product.product_flag
+                            print "         booking_channel:",product.rateplan.booking_channel
+                            print "         sell_channel:",product.rateplan.sell_channel
+                            print "         customer_level:",product.rateplan.customer_level
+                            print "         cooperation_type:",product.cooperation_type
                             self.credictProduct(product)
+
                             print "         inv-status: ", ip_status[product.room_num_status]
                             print "         price-status: ",ip_status[product.price.price_status]
                             print "         -----  库存  -----"
@@ -167,7 +201,14 @@ class ShowResult:
                                 print "         ", inv.date, "   ", inv.status, "   ", inv.amount, "  "
                             print "         -----  价格  -----"
                             for p in product.price.day_prices:
-                                print "         ", p.date, "  ", p.sale_cost, "  ", p.sale_price, "  "
+                                print "         ", p.date, "  ", p.sale_cost, "  ", p.sale_price_with_drr, "  ",p.currency,"    ",p.sale_price_with_drr_sub_coupon
+                            print "         -----  促销  -----"
+                            for dmt in product.day_marketing_promotions:
+                                print "         ",dmt.date
+                                for dmtd in dmt.day_marketing_promotion:
+                                    print "         ",dmtd.promotion_type,"     ",dmtd.upper_limit,\
+                                        "       "
+                            print
                             print "\033[31m     ===============\033[0m"
             print "============= \n  直连酒店个数 %s \n============= "%count
             self.hotelFlag()
@@ -232,6 +273,7 @@ class ShowResult:
 
     def credictProduct(self,product):
         print "             ========  闪住、信用住、直连、杂费   ========"
+        print "             confirm_way :",((product.confirm_way & pow(2,7)) or( product.confirm_way & 1073741824))
         print "             is_support_flash_live : ",product.is_support_flash_live
         print "             is_support_credit_live: ",product.is_support_credit_live
         print "             is_dc_product: ",product.is_dc_product
@@ -397,12 +439,12 @@ class ShowResult:
     def hasAddition(self,rp,id):
         for addition in rp.additions:
             if addition.addition_id == id:
-                print '\033[33m----  Addition  ----\033[0m'
+                print '\033[33m             ----  Addition  ----\033[0m'
                 print 'id: ',addition.addition_id
                 if id == 11:
-                    print 'value: ',addition.addition_value_str
+                    print '                     value: ',addition.addition_value_str
                 else:
-                    print 'value: ',addition.addition_value
+                    print '                     value: ',addition.addition_value
 
     def ShotelBooking_Rule(self,product):
         print '\033[33m-------  shotel_booking_rule  ------- \033[0m'
@@ -549,6 +591,8 @@ class ShowResult:
         static = self.result.statistics
         # print static
         # print statics.keys()
+        print static
+        # return
         for item in static.static_count:
             if item.id in statics.keys():
                 print item.id,"     ",statics[item.id],"       ",item.num
@@ -752,7 +796,39 @@ class ShowDSResult():
     #                             print "             \033[33m===================\033[0m"
     #                         print "             \033[35m*************\033[0m"
 
-
+    def showPriceForNB(self):
+        count = 0
+        for mbase in self.res.mhotel_base_price:
+            print "mhotel_id:",mbase.mhotel_id
+            if mbase.shotel_base_price is not None:
+                for sbase in mbase.shotel_base_price:
+                    print "     shotel_id:",sbase.shotel_id
+                    if sbase.sroom_base_price is not None:
+                        for srmbase in sbase.sroom_base_price:
+                            print "         sroom_id:",srmbase.sroom_id
+                            if srmbase.rateplan_base_price is not None:
+                                for rpbase in srmbase.rateplan_base_price:
+                                    print "             count = ",count
+                                    print "             rp_id:",rpbase.rateplan_id
+                                    if rpbase.base_price is not None:
+                                        for base in rpbase.base_price:
+                                            print "                 price_id:",base.price_id
+                                            print "                 start_date:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(base.start_date))
+                                            print "                 end_date:",time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(base.end_date))
+                                            print "                 status:",base.status
+                                            print "                 allow_add_bed:",base.allow_add_bed
+                                            print "                 add_bed_price:",base.add_bed_price
+                                            print "                 currency_code:",base.currency_code
+                                            print "                 general_cost_origin:",base.general_cost_origin
+                                            print "                 general_price_origin:",base.general_price_origin
+                                            print "                 weekend_cost_origin:",base.weekend_cost_origin
+                                            print "                 weekend_price_origin:",base.weekend_price_origin
+                                            print "                 \033[33m----------\033[0m"
+                                            count += 1
+                                        print "             \033[34m--------------\033[0m"
+                                print "         \033[35m==========================\033[0m"
+                print "     \033[31m++++++++++++++++++++++++++++++++++\033[0m"
+        print "产品数 ： " ,count
 
 
 

@@ -3,12 +3,14 @@ __author__='ting.yin'
 
 import re,json,hashlib
 import urllib,urllib2
+import requests
 from collections import namedtuple,defaultdict
 
 class InterfaceTest():
-    def __init__(self,name,url):
+    def __init__(self,name,url,header):
         self.url = url
         self.filename = name
+        self.header = header
 
     def process_source_data(self):
         three_item = []
@@ -93,17 +95,28 @@ class InterfaceTest():
         request['logId'] = hashlib.md5('yes').hexdigest()
         request['traceId'] = hashlib.md5('no').hexdigest()
         request['realRequest'] = self.source_data(self.filename)
-        print '',json.dumps(request,ensure_ascii=True)
+        # print '',json.dumps(request,ensure_ascii=True)
+        print 'requestJson:'+str(request)
+        return 'requestJson:'+str(request)
+        # return request
+        data = open(self.filename).read()
+        return json.loads(data)
 
     def send_message(self):
-        return
         data = self.build_message()
-        req_data = urllib.urlencode(data)
-        req = urllib2.Request(url=self.url,data=req_data)
-        res = urllib.urlopen(req)
-        res.read()
+        print type(data),data
+        return
+        # 方法一
+        r = requests.post(self.url,data=data,headers=self.header)
+        print r
+        # req_data = urllib.urlencode(data)
+        # # req = urllib2.Request(url=self.url,data=req_data)
+        # res = urllib.urlopen(self.url,data=req_data)
+        # print res.read()
 
 if __name__ == "__main__":
-    url = "http://192.168.233.13:9037/rest/com/elong/hotel/goods/message/common/entity/DCPriceInBatchReq"
-    it = InterfaceTest()
-    it.build_message('./data/request',url)
+    header = {"Content-Type": "application/x-www-form-urlencoded"}
+    url = "http://192.168.233.113:9037/rest/com/elong/hotel/goods/message/common/entity/DCPriceInBatchReq"
+    it = InterfaceTest('./data/request',url,header)
+    # it.build_message()
+    it.send_message()

@@ -34,6 +34,8 @@ if len(sys.argv) <= 1 or sys.argv[1] == '--help':
   print('  StringModel SearchGsTransportTest(StringModel content)')
   print('  GetProductBaseInfoResponse GetProductBaseInfo(GetProductBaseInfoRequest request)')
   print('  GetInvAndInstantConfirmResponse GetInvAndInstantConfirm(GetInvAndInstantConfirmRequest request)')
+  print('  GetBasePrice4NbResponse getMetaPrice4Nb(GetBasePrice4NbRequest request)')
+  print('  GetBaseRatePlanDRRGiftResponse getMetaRatePlanDrrGift(GetBaseRatePlanDRRGiftRequest request)')
   print('')
   sys.exit(0)
 
@@ -149,6 +151,18 @@ elif cmd == 'GetInvAndInstantConfirm':
     print('GetInvAndInstantConfirm requires 1 args')
     sys.exit(1)
   pp.pprint(client.GetInvAndInstantConfirm(eval(args[0]),))
+
+elif cmd == 'getMetaPrice4Nb':
+  if len(args) != 1:
+    print('getMetaPrice4Nb requires 1 args')
+    sys.exit(1)
+  pp.pprint(client.getMetaPrice4Nb(eval(args[0]),))
+
+elif cmd == 'getMetaRatePlanDrrGift':
+  if len(args) != 1:
+    print('getMetaRatePlanDrrGift requires 1 args')
+    sys.exit(1)
+  pp.pprint(client.getMetaRatePlanDrrGift(eval(args[0]),))
 
 else:
   print('Unrecognized method %s' % cmd)

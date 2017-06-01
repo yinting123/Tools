@@ -9,8 +9,8 @@ from ShowResult import *
 import json
 
 # HOST = "172.21.27.25"
-# HOST = "10.39.18.58"
-HOST = "192.168.233.17"
+HOST = "10.39.18.58"
+# HOST = "192.168.233.17"
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.2"
 # HOST = "192.168.210.52"
@@ -22,13 +22,14 @@ def get_req():
     global req
     # filePath = "/Users/user/Documents/project/PycharmProjects/call_ds/utils/tt"
     # readLogFile(filePath)
-    path2 = "/Users/user/Documents/project/PycharmProjects/call_ds/utils/logs_beijing"
+    path2 = "/Users/user/Documents/project/PycharmProjects/workAbout/call_ds/data/logs_beijing"
     f = open(path2)
-    line = f.readline()
+    line = f.read()
     source = json.loads(line)
     dict1 = DictToClass()
     req = dict1.dict_to_object2(source)
-    print json.dumps(req,default=lambda o:o.__dict__)
+    print type(req)
+    # print json.dumps(req,default=lambda o:o.__dict__)
     # ft = FormatTime()
     # req.inner_search_type = 4
     # req.page_rank_attr = PageRankAttribute()
@@ -49,7 +50,7 @@ def process():
     req = get_req()
     send = Send.SendMessage(HOST,PORT)
     res = send.process(req)
-    print res.status.msg
+    # print res.status.msg
     return res
 
 
@@ -59,5 +60,6 @@ if __name__ == '__main__':
     # print res.status.msg
     print json.dumps(res,default=lambda o:o.__dict__)
     result = ShowResult(req,res)
-    result.Product()
+    # result.Product()
+    result.statics()
     # print res

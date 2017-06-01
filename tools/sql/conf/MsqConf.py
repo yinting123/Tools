@@ -4,6 +4,14 @@ pro_user = 'Deployer_Platform'
 pro_password = 'nopass.pf0'
 pro_dbname = 'PromotionDB'
 
+phost='192.168.82.13'
+pport = 1433
+puser = 'Deployer_Platform'
+ppassword = 'nopass.pf0'
+pdbname = 'PromotionDB'
+
+
+
 HOST = '192.168.78.14'
 PORT = 1433
 USER = 'Deployer_Air'

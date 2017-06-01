@@ -7,6 +7,9 @@
 #
 
 from thrift.Thrift import TType, TMessageType, TException, TApplicationException
+import dss.ttypes
+import cm.ttypes
+
 
 from thrift.transport import TTransport
 from thrift.protocol import TBinaryProtocol, TProtocol
@@ -5389,6 +5392,11 @@ class Product:
    - is_dc_product
    - extras
    - resale_product_original_price
+   - product_yield
+   - product_gains
+   - has_coupon_enhance
+   - product_flag
+   - coupon_enhance_member_type
   """
 
   thrift_spec = (
@@ -5537,9 +5545,14 @@ class Product:
     (142, TType.BOOL, 'is_dc_product', None, None, ), # 142
     (143, TType.DOUBLE, 'extras', None, None, ), # 143
     (144, TType.I32, 'resale_product_original_price', None, None, ), # 144
+    (145, TType.I32, 'product_yield', None, None, ), # 145
+    (146, TType.DOUBLE, 'product_gains', None, None, ), # 146
+    (147, TType.BOOL, 'has_coupon_enhance', None, None, ), # 147
+    (148, TType.I32, 'product_flag', None, None, ), # 148
+    (149, TType.I32, 'coupon_enhance_member_type', None, None, ), # 149
   )
 
-  def __init__(self, sroomtype_id=None, shotel_id=None, supplier_id=None, online_search_type=None, sroomtype_status=None, has_breakfast=None, rateplan=None, rp_code=None, room_inventory_days=None, room_num_status=None, price=None, marketing_promotions=None, gifts=None, relations=None, supplier_type=None, shotel_booking_rules=None, is_freesale=None, firstnight_has_discount=None, firstnight_discount=None, firstnight_discount_upper=None, freesale_num=None, cooperation_type=None, supplier_name=None, supplier_short_name=None, supplier_alias=None, supplier_telphone=None, confirm_way=None, shotel_contacter=None, hours_room_info=None, supplier_fax=None, drrMsg=None, weekend_start=None, weekend_end=None, day_marketing_promotions=None, price_origin=None, price_sub_coupon=None, is_min_price_product=None, weight=None, id=None, cvr=None, supplier_confirm_avg_time=None, rateplan_structure_name_cn=None, is_resale_product=None, order_id=None, sign_type=None, cost_point=None, hotel_service_point=None, total_point=None, commission_value=None, is_majia=None, majia_id=None, derivative_type=None, is_hotel_ticket_product=None, force_show=None, ticket_resource_infoes=None, is_support_flash_live=None, is_support_credit_live=None, is_dc_product=None, extras=None, resale_product_original_price=None,):
+  def __init__(self, sroomtype_id=None, shotel_id=None, supplier_id=None, online_search_type=None, sroomtype_status=None, has_breakfast=None, rateplan=None, rp_code=None, room_inventory_days=None, room_num_status=None, price=None, marketing_promotions=None, gifts=None, relations=None, supplier_type=None, shotel_booking_rules=None, is_freesale=None, firstnight_has_discount=None, firstnight_discount=None, firstnight_discount_upper=None, freesale_num=None, cooperation_type=None, supplier_name=None, supplier_short_name=None, supplier_alias=None, supplier_telphone=None, confirm_way=None, shotel_contacter=None, hours_room_info=None, supplier_fax=None, drrMsg=None, weekend_start=None, weekend_end=None, day_marketing_promotions=None, price_origin=None, price_sub_coupon=None, is_min_price_product=None, weight=None, id=None, cvr=None, supplier_confirm_avg_time=None, rateplan_structure_name_cn=None, is_resale_product=None, order_id=None, sign_type=None, cost_point=None, hotel_service_point=None, total_point=None, commission_value=None, is_majia=None, majia_id=None, derivative_type=None, is_hotel_ticket_product=None, force_show=None, ticket_resource_infoes=None, is_support_flash_live=None, is_support_credit_live=None, is_dc_product=None, extras=None, resale_product_original_price=None, product_yield=None, product_gains=None, has_coupon_enhance=None, product_flag=None, coupon_enhance_member_type=None,):
     self.sroomtype_id = sroomtype_id
     self.shotel_id = shotel_id
     self.supplier_id = supplier_id
@@ -5600,6 +5613,11 @@ class Product:
     self.is_dc_product = is_dc_product
     self.extras = extras
     self.resale_product_original_price = resale_product_original_price
+    self.product_yield = product_yield
+    self.product_gains = product_gains
+    self.has_coupon_enhance = has_coupon_enhance
+    self.product_flag = product_flag
+    self.coupon_enhance_member_type = coupon_enhance_member_type
 
   def read(self, iprot):
     if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
@@ -5951,6 +5969,31 @@ class Product:
           self.resale_product_original_price = iprot.readI32()
         else:
           iprot.skip(ftype)
+      elif fid == 145:
+        if ftype == TType.I32:
+          self.product_yield = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 146:
+        if ftype == TType.DOUBLE:
+          self.product_gains = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 147:
+        if ftype == TType.BOOL:
+          self.has_coupon_enhance = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 148:
+        if ftype == TType.I32:
+          self.product_flag = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 149:
+        if ftype == TType.I32:
+          self.coupon_enhance_member_type = iprot.readI32()
+        else:
+          iprot.skip(ftype)
       else:
         iprot.skip(ftype)
       iprot.readFieldEnd()
@@ -6219,6 +6262,26 @@ class Product:
       oprot.writeFieldBegin('resale_product_original_price', TType.I32, 144)
       oprot.writeI32(self.resale_product_original_price)
       oprot.writeFieldEnd()
+    if self.product_yield is not None:
+      oprot.writeFieldBegin('product_yield', TType.I32, 145)
+      oprot.writeI32(self.product_yield)
+      oprot.writeFieldEnd()
+    if self.product_gains is not None:
+      oprot.writeFieldBegin('product_gains', TType.DOUBLE, 146)
+      oprot.writeDouble(self.product_gains)
+      oprot.writeFieldEnd()
+    if self.has_coupon_enhance is not None:
+      oprot.writeFieldBegin('has_coupon_enhance', TType.BOOL, 147)
+      oprot.writeBool(self.has_coupon_enhance)
+      oprot.writeFieldEnd()
+    if self.product_flag is not None:
+      oprot.writeFieldBegin('product_flag', TType.I32, 148)
+      oprot.writeI32(self.product_flag)
+      oprot.writeFieldEnd()
+    if self.coupon_enhance_member_type is not None:
+      oprot.writeFieldBegin('coupon_enhance_member_type', TType.I32, 149)
+      oprot.writeI32(self.coupon_enhance_member_type)
+      oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
 
@@ -6288,6 +6351,11 @@ class Product:
     value = (value * 31) ^ hash(self.is_dc_product)
     value = (value * 31) ^ hash(self.extras)
     value = (value * 31) ^ hash(self.resale_product_original_price)
+    value = (value * 31) ^ hash(self.product_yield)
+    value = (value * 31) ^ hash(self.product_gains)
+    value = (value * 31) ^ hash(self.has_coupon_enhance)
+    value = (value * 31) ^ hash(self.product_flag)
+    value = (value * 31) ^ hash(self.coupon_enhance_member_type)
     return value
 
   def __repr__(self):
@@ -16320,6 +16388,910 @@ class GetInvAndInstantConfirmResponse:
   def __ne__(self, other):
     return not (self == other)
 
+class HotelBasePriceRequest:
+  """
+  Attributes:
+   - mhotel_id
+   - shotel_id
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'mhotel_id', None, None, ), # 1
+    (2, TType.I32, 'shotel_id', None, None, ), # 2
+  )
+
+  def __init__(self, mhotel_id=None, shotel_id=None,):
+    self.mhotel_id = mhotel_id
+    self.shotel_id = shotel_id
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.mhotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.shotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('HotelBasePriceRequest')
+    if self.mhotel_id is not None:
+      oprot.writeFieldBegin('mhotel_id', TType.I32, 1)
+      oprot.writeI32(self.mhotel_id)
+      oprot.writeFieldEnd()
+    if self.shotel_id is not None:
+      oprot.writeFieldBegin('shotel_id', TType.I32, 2)
+      oprot.writeI32(self.shotel_id)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.mhotel_id is None:
+      raise TProtocol.TProtocolException(message='Required field mhotel_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.mhotel_id)
+    value = (value * 31) ^ hash(self.shotel_id)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class GetBasePrice4NbRequest:
+  """
+  Attributes:
+   - hotel_base_price_request
+   - payment_type
+   - start_date
+   - end_date
+   - booking_channel
+   - sell_channel
+   - member_level
+   - traceId
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.LIST, 'hotel_base_price_request', (TType.STRUCT,(HotelBasePriceRequest, HotelBasePriceRequest.thrift_spec)), None, ), # 1
+    (2, TType.I16, 'payment_type', None, None, ), # 2
+    (3, TType.I32, 'start_date', None, None, ), # 3
+    (4, TType.I32, 'end_date', None, None, ), # 4
+    (5, TType.I32, 'booking_channel', None, None, ), # 5
+    (6, TType.I32, 'sell_channel', None, None, ), # 6
+    (7, TType.I32, 'member_level', None, None, ), # 7
+    (8, TType.STRING, 'traceId', None, None, ), # 8
+  )
+
+  def __init__(self, hotel_base_price_request=None, payment_type=None, start_date=None, end_date=None, booking_channel=None, sell_channel=None, member_level=None, traceId=None,):
+    self.hotel_base_price_request = hotel_base_price_request
+    self.payment_type = payment_type
+    self.start_date = start_date
+    self.end_date = end_date
+    self.booking_channel = booking_channel
+    self.sell_channel = sell_channel
+    self.member_level = member_level
+    self.traceId = traceId
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.LIST:
+          self.hotel_base_price_request = []
+          (_etype710, _size707) = iprot.readListBegin()
+          for _i711 in xrange(_size707):
+            _elem712 = HotelBasePriceRequest()
+            _elem712.read(iprot)
+            self.hotel_base_price_request.append(_elem712)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I16:
+          self.payment_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I32:
+          self.start_date = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I32:
+          self.end_date = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I32:
+          self.booking_channel = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I32:
+          self.sell_channel = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.I32:
+          self.member_level = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.STRING:
+          self.traceId = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('GetBasePrice4NbRequest')
+    if self.hotel_base_price_request is not None:
+      oprot.writeFieldBegin('hotel_base_price_request', TType.LIST, 1)
+      oprot.writeListBegin(TType.STRUCT, len(self.hotel_base_price_request))
+      for iter713 in self.hotel_base_price_request:
+        iter713.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.payment_type is not None:
+      oprot.writeFieldBegin('payment_type', TType.I16, 2)
+      oprot.writeI16(self.payment_type)
+      oprot.writeFieldEnd()
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I32, 3)
+      oprot.writeI32(self.start_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I32, 4)
+      oprot.writeI32(self.end_date)
+      oprot.writeFieldEnd()
+    if self.booking_channel is not None:
+      oprot.writeFieldBegin('booking_channel', TType.I32, 5)
+      oprot.writeI32(self.booking_channel)
+      oprot.writeFieldEnd()
+    if self.sell_channel is not None:
+      oprot.writeFieldBegin('sell_channel', TType.I32, 6)
+      oprot.writeI32(self.sell_channel)
+      oprot.writeFieldEnd()
+    if self.member_level is not None:
+      oprot.writeFieldBegin('member_level', TType.I32, 7)
+      oprot.writeI32(self.member_level)
+      oprot.writeFieldEnd()
+    if self.traceId is not None:
+      oprot.writeFieldBegin('traceId', TType.STRING, 8)
+      oprot.writeString(self.traceId)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.payment_type is None:
+      raise TProtocol.TProtocolException(message='Required field payment_type is unset!')
+    if self.start_date is None:
+      raise TProtocol.TProtocolException(message='Required field start_date is unset!')
+    if self.end_date is None:
+      raise TProtocol.TProtocolException(message='Required field end_date is unset!')
+    if self.booking_channel is None:
+      raise TProtocol.TProtocolException(message='Required field booking_channel is unset!')
+    if self.sell_channel is None:
+      raise TProtocol.TProtocolException(message='Required field sell_channel is unset!')
+    if self.member_level is None:
+      raise TProtocol.TProtocolException(message='Required field member_level is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.hotel_base_price_request)
+    value = (value * 31) ^ hash(self.payment_type)
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.booking_channel)
+    value = (value * 31) ^ hash(self.sell_channel)
+    value = (value * 31) ^ hash(self.member_level)
+    value = (value * 31) ^ hash(self.traceId)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class BasePrice:
+  """
+  Attributes:
+   - start_date
+   - end_date
+   - status
+   - price_id
+   - allow_add_bed
+   - add_bed_price
+   - currency_code
+   - general_cost_origin
+   - general_price_origin
+   - weekend_cost_origin
+   - weekend_price_origin
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'start_date', None, None, ), # 1
+    (2, TType.I32, 'end_date', None, None, ), # 2
+    (3, TType.I16, 'status', None, None, ), # 3
+    (4, TType.I64, 'price_id', None, None, ), # 4
+    (5, TType.BOOL, 'allow_add_bed', None, None, ), # 5
+    (6, TType.I32, 'add_bed_price', None, None, ), # 6
+    (7, TType.STRING, 'currency_code', None, None, ), # 7
+    (8, TType.I32, 'general_cost_origin', None, None, ), # 8
+    (9, TType.I32, 'general_price_origin', None, None, ), # 9
+    (10, TType.I32, 'weekend_cost_origin', None, None, ), # 10
+    (11, TType.I32, 'weekend_price_origin', None, None, ), # 11
+  )
+
+  def __init__(self, start_date=None, end_date=None, status=None, price_id=None, allow_add_bed=None, add_bed_price=None, currency_code=None, general_cost_origin=None, general_price_origin=None, weekend_cost_origin=None, weekend_price_origin=None,):
+    self.start_date = start_date
+    self.end_date = end_date
+    self.status = status
+    self.price_id = price_id
+    self.allow_add_bed = allow_add_bed
+    self.add_bed_price = add_bed_price
+    self.currency_code = currency_code
+    self.general_cost_origin = general_cost_origin
+    self.general_price_origin = general_price_origin
+    self.weekend_cost_origin = weekend_cost_origin
+    self.weekend_price_origin = weekend_price_origin
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.start_date = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.end_date = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I16:
+          self.status = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I64:
+          self.price_id = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.BOOL:
+          self.allow_add_bed = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I32:
+          self.add_bed_price = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.STRING:
+          self.currency_code = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.I32:
+          self.general_cost_origin = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.I32:
+          self.general_price_origin = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.I32:
+          self.weekend_cost_origin = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.I32:
+          self.weekend_price_origin = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('BasePrice')
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I32, 1)
+      oprot.writeI32(self.start_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I32, 2)
+      oprot.writeI32(self.end_date)
+      oprot.writeFieldEnd()
+    if self.status is not None:
+      oprot.writeFieldBegin('status', TType.I16, 3)
+      oprot.writeI16(self.status)
+      oprot.writeFieldEnd()
+    if self.price_id is not None:
+      oprot.writeFieldBegin('price_id', TType.I64, 4)
+      oprot.writeI64(self.price_id)
+      oprot.writeFieldEnd()
+    if self.allow_add_bed is not None:
+      oprot.writeFieldBegin('allow_add_bed', TType.BOOL, 5)
+      oprot.writeBool(self.allow_add_bed)
+      oprot.writeFieldEnd()
+    if self.add_bed_price is not None:
+      oprot.writeFieldBegin('add_bed_price', TType.I32, 6)
+      oprot.writeI32(self.add_bed_price)
+      oprot.writeFieldEnd()
+    if self.currency_code is not None:
+      oprot.writeFieldBegin('currency_code', TType.STRING, 7)
+      oprot.writeString(self.currency_code)
+      oprot.writeFieldEnd()
+    if self.general_cost_origin is not None:
+      oprot.writeFieldBegin('general_cost_origin', TType.I32, 8)
+      oprot.writeI32(self.general_cost_origin)
+      oprot.writeFieldEnd()
+    if self.general_price_origin is not None:
+      oprot.writeFieldBegin('general_price_origin', TType.I32, 9)
+      oprot.writeI32(self.general_price_origin)
+      oprot.writeFieldEnd()
+    if self.weekend_cost_origin is not None:
+      oprot.writeFieldBegin('weekend_cost_origin', TType.I32, 10)
+      oprot.writeI32(self.weekend_cost_origin)
+      oprot.writeFieldEnd()
+    if self.weekend_price_origin is not None:
+      oprot.writeFieldBegin('weekend_price_origin', TType.I32, 11)
+      oprot.writeI32(self.weekend_price_origin)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.start_date is None:
+      raise TProtocol.TProtocolException(message='Required field start_date is unset!')
+    if self.end_date is None:
+      raise TProtocol.TProtocolException(message='Required field end_date is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.status)
+    value = (value * 31) ^ hash(self.price_id)
+    value = (value * 31) ^ hash(self.allow_add_bed)
+    value = (value * 31) ^ hash(self.add_bed_price)
+    value = (value * 31) ^ hash(self.currency_code)
+    value = (value * 31) ^ hash(self.general_cost_origin)
+    value = (value * 31) ^ hash(self.general_price_origin)
+    value = (value * 31) ^ hash(self.weekend_cost_origin)
+    value = (value * 31) ^ hash(self.weekend_price_origin)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class RatePlanBasePrice:
+  """
+  Attributes:
+   - rateplan_id
+   - base_price
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'rateplan_id', None, None, ), # 1
+    (2, TType.LIST, 'base_price', (TType.STRUCT,(BasePrice, BasePrice.thrift_spec)), None, ), # 2
+  )
+
+  def __init__(self, rateplan_id=None, base_price=None,):
+    self.rateplan_id = rateplan_id
+    self.base_price = base_price
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.rateplan_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.base_price = []
+          (_etype717, _size714) = iprot.readListBegin()
+          for _i718 in xrange(_size714):
+            _elem719 = BasePrice()
+            _elem719.read(iprot)
+            self.base_price.append(_elem719)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('RatePlanBasePrice')
+    if self.rateplan_id is not None:
+      oprot.writeFieldBegin('rateplan_id', TType.I32, 1)
+      oprot.writeI32(self.rateplan_id)
+      oprot.writeFieldEnd()
+    if self.base_price is not None:
+      oprot.writeFieldBegin('base_price', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.base_price))
+      for iter720 in self.base_price:
+        iter720.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.rateplan_id)
+    value = (value * 31) ^ hash(self.base_price)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class SRoomBasePrice:
+  """
+  Attributes:
+   - sroom_id
+   - rateplan_base_price
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'sroom_id', None, None, ), # 1
+    (2, TType.LIST, 'rateplan_base_price', (TType.STRUCT,(RatePlanBasePrice, RatePlanBasePrice.thrift_spec)), None, ), # 2
+  )
+
+  def __init__(self, sroom_id=None, rateplan_base_price=None,):
+    self.sroom_id = sroom_id
+    self.rateplan_base_price = rateplan_base_price
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.sroom_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.rateplan_base_price = []
+          (_etype724, _size721) = iprot.readListBegin()
+          for _i725 in xrange(_size721):
+            _elem726 = RatePlanBasePrice()
+            _elem726.read(iprot)
+            self.rateplan_base_price.append(_elem726)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('SRoomBasePrice')
+    if self.sroom_id is not None:
+      oprot.writeFieldBegin('sroom_id', TType.I32, 1)
+      oprot.writeI32(self.sroom_id)
+      oprot.writeFieldEnd()
+    if self.rateplan_base_price is not None:
+      oprot.writeFieldBegin('rateplan_base_price', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.rateplan_base_price))
+      for iter727 in self.rateplan_base_price:
+        iter727.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.sroom_id)
+    value = (value * 31) ^ hash(self.rateplan_base_price)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class SHotelBasePrice:
+  """
+  Attributes:
+   - shotel_id
+   - sroom_base_price
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'shotel_id', None, None, ), # 1
+    (2, TType.LIST, 'sroom_base_price', (TType.STRUCT,(SRoomBasePrice, SRoomBasePrice.thrift_spec)), None, ), # 2
+  )
+
+  def __init__(self, shotel_id=None, sroom_base_price=None,):
+    self.shotel_id = shotel_id
+    self.sroom_base_price = sroom_base_price
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.shotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.sroom_base_price = []
+          (_etype731, _size728) = iprot.readListBegin()
+          for _i732 in xrange(_size728):
+            _elem733 = SRoomBasePrice()
+            _elem733.read(iprot)
+            self.sroom_base_price.append(_elem733)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('SHotelBasePrice')
+    if self.shotel_id is not None:
+      oprot.writeFieldBegin('shotel_id', TType.I32, 1)
+      oprot.writeI32(self.shotel_id)
+      oprot.writeFieldEnd()
+    if self.sroom_base_price is not None:
+      oprot.writeFieldBegin('sroom_base_price', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.sroom_base_price))
+      for iter734 in self.sroom_base_price:
+        iter734.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.shotel_id)
+    value = (value * 31) ^ hash(self.sroom_base_price)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MHotelBasePrice:
+  """
+  Attributes:
+   - mhotel_id
+   - shotel_base_price
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'mhotel_id', None, None, ), # 1
+    (2, TType.LIST, 'shotel_base_price', (TType.STRUCT,(SHotelBasePrice, SHotelBasePrice.thrift_spec)), None, ), # 2
+  )
+
+  def __init__(self, mhotel_id=None, shotel_base_price=None,):
+    self.mhotel_id = mhotel_id
+    self.shotel_base_price = shotel_base_price
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.mhotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.shotel_base_price = []
+          (_etype738, _size735) = iprot.readListBegin()
+          for _i739 in xrange(_size735):
+            _elem740 = SHotelBasePrice()
+            _elem740.read(iprot)
+            self.shotel_base_price.append(_elem740)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MHotelBasePrice')
+    if self.mhotel_id is not None:
+      oprot.writeFieldBegin('mhotel_id', TType.I32, 1)
+      oprot.writeI32(self.mhotel_id)
+      oprot.writeFieldEnd()
+    if self.shotel_base_price is not None:
+      oprot.writeFieldBegin('shotel_base_price', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.shotel_base_price))
+      for iter741 in self.shotel_base_price:
+        iter741.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.mhotel_id)
+    value = (value * 31) ^ hash(self.shotel_base_price)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class GetBasePrice4NbResponse:
+  """
+  Attributes:
+   - mhotel_base_price
+   - return_code
+   - return_msg
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.LIST, 'mhotel_base_price', (TType.STRUCT,(MHotelBasePrice, MHotelBasePrice.thrift_spec)), None, ), # 1
+    (2, TType.I32, 'return_code', None, None, ), # 2
+    (3, TType.STRING, 'return_msg', None, None, ), # 3
+  )
+
+  def __init__(self, mhotel_base_price=None, return_code=None, return_msg=None,):
+    self.mhotel_base_price = mhotel_base_price
+    self.return_code = return_code
+    self.return_msg = return_msg
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.LIST:
+          self.mhotel_base_price = []
+          (_etype745, _size742) = iprot.readListBegin()
+          for _i746 in xrange(_size742):
+            _elem747 = MHotelBasePrice()
+            _elem747.read(iprot)
+            self.mhotel_base_price.append(_elem747)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.return_code = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.STRING:
+          self.return_msg = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('GetBasePrice4NbResponse')
+    if self.mhotel_base_price is not None:
+      oprot.writeFieldBegin('mhotel_base_price', TType.LIST, 1)
+      oprot.writeListBegin(TType.STRUCT, len(self.mhotel_base_price))
+      for iter748 in self.mhotel_base_price:
+        iter748.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.return_code is not None:
+      oprot.writeFieldBegin('return_code', TType.I32, 2)
+      oprot.writeI32(self.return_code)
+      oprot.writeFieldEnd()
+    if self.return_msg is not None:
+      oprot.writeFieldBegin('return_msg', TType.STRING, 3)
+      oprot.writeString(self.return_msg)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.mhotel_base_price)
+    value = (value * 31) ^ hash(self.return_code)
+    value = (value * 31) ^ hash(self.return_msg)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
 class SearchRequest:
   """
   Attributes:
@@ -16403,6 +17375,14 @@ class SearchRequest:
    - cash_pay_hotel_level_filter
    - order_by_user_credit_filter
    - promotion_percentage_range
+   - return_price_range_statistic
+   - privilege_return_assemble
+   - return_exclusive_hotel_info
+   - exclusive_discount_detail
+   - return_new_botao_member_product
+   - return_has_gdgf_hotel
+   - gs_request_time
+   - biddingRanks4Ebk
   """
 
   thrift_spec = (
@@ -16514,9 +17494,17 @@ class SearchRequest:
     (105, TType.LIST, 'cash_pay_hotel_level_filter', (TType.I32,None), None, ), # 105
     (106, TType.STRUCT, 'order_by_user_credit_filter', (UserCreditLiveInfo, UserCreditLiveInfo.thrift_spec), None, ), # 106
     (107, TType.LIST, 'promotion_percentage_range', (TType.DOUBLE,None), None, ), # 107
+    (108, TType.BOOL, 'return_price_range_statistic', None, None, ), # 108
+    (109, TType.LIST, 'privilege_return_assemble', (TType.I32,None), None, ), # 109
+    (110, TType.BOOL, 'return_exclusive_hotel_info', None, None, ), # 110
+    (111, TType.MAP, 'exclusive_discount_detail', (TType.I64,None,TType.I32,None), None, ), # 111
+    (112, TType.BOOL, 'return_new_botao_member_product', None, None, ), # 112
+    (113, TType.BOOL, 'return_has_gdgf_hotel', None, None, ), # 113
+    (114, TType.I64, 'gs_request_time', None, None, ), # 114
+    (115, TType.MAP, 'biddingRanks4Ebk', (TType.I32,None,TType.LIST,(TType.STRUCT,(cm.ttypes.BiddingRankInfo, cm.ttypes.BiddingRankInfo.thrift_spec))), None, ), # 115
   )
 
-  def __init__(self, mhotel_ids=None, booking_datetime=None, checkin_date=None, checkout_date=None, booking_channel=None, sell_channel=None, customer_level=None, select_price=None, is_limit_timesale=None, price_type=None, product_type=None, settlement_type=None, supplier_type=None, online_search_type=None, promotion_type=None, order_from_id=None, proxy_id=None, promotion_channel_code=None, need7daygift=None, codes=None, return_noinv_or_noprice_product=None, return_has_coupon_hotel=None, return_has_no_danbao_hotel=None, checkin_person_for_oneroom=None, return_has_yufu_hotel=None, onlydebug=None, return_has_timerush_product_hotel=None, bed_type=None, list_product_info=None, return_has_lianzhu_pro_hotel=None, return_has_zaoding_pro_hotel=None, request_origin=None, return_longcuionly_hotel=None, return_has_hongbao_hotel=None, judge_only_has_product=None, half_discount_promotion=None, search_method=None, return_has_discount_promotion_hotel=None, search_id=None, price_sub_coupon=None, return_freesale_msg=None, mhotel_attrs=None, return_has_allbuyroom_hotel=None, return_has_manjian_hotel=None, language=None, discount_method=None, return_discount_hotel=None, min_price_calc_with_halfdiscount_pro=None, botao_customer_level=None, use_botao_promotion=None, use_day_promotion=None, only_consider_salable=None, promotion_black_list=None, return_has_memberbenefits_hotel=None, filter_conditions=None, return_assemble=None, hong_bao_records=None, return_assemble_product=None, booking_menu=None, min_price_excluded_products=None, grandson=None, is_new_hongbao=None, return_has_breakfasts_hotel=None, return_has_xianfu_hotel=None, customer_trait=None, group_info=None, request_type=None, searchFrom=None, traceId=None, onlymajiadebug=None, cooperation_type=None, return_has_resale_hotel=None, has_majia=None, has_zydj=None, majia_zydj_switch=None, return_hotel_ticket_product=None, pre_pay_hotel_level_filter=None, cash_pay_hotel_level_filter=None, order_by_user_credit_filter=None, promotion_percentage_range=None,):
+  def __init__(self, mhotel_ids=None, booking_datetime=None, checkin_date=None, checkout_date=None, booking_channel=None, sell_channel=None, customer_level=None, select_price=None, is_limit_timesale=None, price_type=None, product_type=None, settlement_type=None, supplier_type=None, online_search_type=None, promotion_type=None, order_from_id=None, proxy_id=None, promotion_channel_code=None, need7daygift=None, codes=None, return_noinv_or_noprice_product=None, return_has_coupon_hotel=None, return_has_no_danbao_hotel=None, checkin_person_for_oneroom=None, return_has_yufu_hotel=None, onlydebug=None, return_has_timerush_product_hotel=None, bed_type=None, list_product_info=None, return_has_lianzhu_pro_hotel=None, return_has_zaoding_pro_hotel=None, request_origin=None, return_longcuionly_hotel=None, return_has_hongbao_hotel=None, judge_only_has_product=None, half_discount_promotion=None, search_method=None, return_has_discount_promotion_hotel=None, search_id=None, price_sub_coupon=None, return_freesale_msg=None, mhotel_attrs=None, return_has_allbuyroom_hotel=None, return_has_manjian_hotel=None, language=None, discount_method=None, return_discount_hotel=None, min_price_calc_with_halfdiscount_pro=None, botao_customer_level=None, use_botao_promotion=None, use_day_promotion=None, only_consider_salable=None, promotion_black_list=None, return_has_memberbenefits_hotel=None, filter_conditions=None, return_assemble=None, hong_bao_records=None, return_assemble_product=None, booking_menu=None, min_price_excluded_products=None, grandson=None, is_new_hongbao=None, return_has_breakfasts_hotel=None, return_has_xianfu_hotel=None, customer_trait=None, group_info=None, request_type=None, searchFrom=None, traceId=None, onlymajiadebug=None, cooperation_type=None, return_has_resale_hotel=None, has_majia=None, has_zydj=None, majia_zydj_switch=None, return_hotel_ticket_product=None, pre_pay_hotel_level_filter=None, cash_pay_hotel_level_filter=None, order_by_user_credit_filter=None, promotion_percentage_range=None, return_price_range_statistic=None, privilege_return_assemble=None, return_exclusive_hotel_info=None, exclusive_discount_detail=None, return_new_botao_member_product=None, return_has_gdgf_hotel=None, gs_request_time=None, biddingRanks4Ebk=None,):
     self.mhotel_ids = mhotel_ids
     self.booking_datetime = booking_datetime
     self.checkin_date = checkin_date
@@ -16597,6 +17585,14 @@ class SearchRequest:
     self.cash_pay_hotel_level_filter = cash_pay_hotel_level_filter
     self.order_by_user_credit_filter = order_by_user_credit_filter
     self.promotion_percentage_range = promotion_percentage_range
+    self.return_price_range_statistic = return_price_range_statistic
+    self.privilege_return_assemble = privilege_return_assemble
+    self.return_exclusive_hotel_info = return_exclusive_hotel_info
+    self.exclusive_discount_detail = exclusive_discount_detail
+    self.return_new_botao_member_product = return_new_botao_member_product
+    self.return_has_gdgf_hotel = return_has_gdgf_hotel
+    self.gs_request_time = gs_request_time
+    self.biddingRanks4Ebk = biddingRanks4Ebk
 
   def read(self, iprot):
     if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
@@ -16610,10 +17606,10 @@ class SearchRequest:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_ids = []
-          (_etype710, _size707) = iprot.readListBegin()
-          for _i711 in xrange(_size707):
-            _elem712 = iprot.readI64()
-            self.mhotel_ids.append(_elem712)
+          (_etype752, _size749) = iprot.readListBegin()
+          for _i753 in xrange(_size749):
+            _elem754 = iprot.readI64()
+            self.mhotel_ids.append(_elem754)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16676,20 +17672,20 @@ class SearchRequest:
       elif fid == 13:
         if ftype == TType.LIST:
           self.supplier_type = []
-          (_etype716, _size713) = iprot.readListBegin()
-          for _i717 in xrange(_size713):
-            _elem718 = iprot.readI32()
-            self.supplier_type.append(_elem718)
+          (_etype758, _size755) = iprot.readListBegin()
+          for _i759 in xrange(_size755):
+            _elem760 = iprot.readI32()
+            self.supplier_type.append(_elem760)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 14:
         if ftype == TType.LIST:
           self.online_search_type = []
-          (_etype722, _size719) = iprot.readListBegin()
-          for _i723 in xrange(_size719):
-            _elem724 = iprot.readI32()
-            self.online_search_type.append(_elem724)
+          (_etype764, _size761) = iprot.readListBegin()
+          for _i765 in xrange(_size761):
+            _elem766 = iprot.readI32()
+            self.online_search_type.append(_elem766)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16721,10 +17717,10 @@ class SearchRequest:
       elif fid == 22:
         if ftype == TType.LIST:
           self.codes = []
-          (_etype728, _size725) = iprot.readListBegin()
-          for _i729 in xrange(_size725):
-            _elem730 = iprot.readI32()
-            self.codes.append(_elem730)
+          (_etype770, _size767) = iprot.readListBegin()
+          for _i771 in xrange(_size767):
+            _elem772 = iprot.readI32()
+            self.codes.append(_elem772)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16767,10 +17763,10 @@ class SearchRequest:
       elif fid == 30:
         if ftype == TType.LIST:
           self.bed_type = []
-          (_etype734, _size731) = iprot.readListBegin()
-          for _i735 in xrange(_size731):
-            _elem736 = iprot.readI32()
-            self.bed_type.append(_elem736)
+          (_etype776, _size773) = iprot.readListBegin()
+          for _i777 in xrange(_size773):
+            _elem778 = iprot.readI32()
+            self.bed_type.append(_elem778)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16843,11 +17839,11 @@ class SearchRequest:
       elif fid == 44:
         if ftype == TType.LIST:
           self.mhotel_attrs = []
-          (_etype740, _size737) = iprot.readListBegin()
-          for _i741 in xrange(_size737):
-            _elem742 = MHotelAttr()
-            _elem742.read(iprot)
-            self.mhotel_attrs.append(_elem742)
+          (_etype782, _size779) = iprot.readListBegin()
+          for _i783 in xrange(_size779):
+            _elem784 = MHotelAttr()
+            _elem784.read(iprot)
+            self.mhotel_attrs.append(_elem784)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16904,11 +17900,11 @@ class SearchRequest:
       elif fid == 55:
         if ftype == TType.LIST:
           self.promotion_black_list = []
-          (_etype746, _size743) = iprot.readListBegin()
-          for _i747 in xrange(_size743):
-            _elem748 = PromotionBlackList()
-            _elem748.read(iprot)
-            self.promotion_black_list.append(_elem748)
+          (_etype788, _size785) = iprot.readListBegin()
+          for _i789 in xrange(_size785):
+            _elem790 = PromotionBlackList()
+            _elem790.read(iprot)
+            self.promotion_black_list.append(_elem790)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16920,42 +17916,42 @@ class SearchRequest:
       elif fid == 57:
         if ftype == TType.LIST:
           self.filter_conditions = []
-          (_etype752, _size749) = iprot.readListBegin()
-          for _i753 in xrange(_size749):
-            _elem754 = FilterCondition()
-            _elem754.read(iprot)
-            self.filter_conditions.append(_elem754)
+          (_etype794, _size791) = iprot.readListBegin()
+          for _i795 in xrange(_size791):
+            _elem796 = FilterCondition()
+            _elem796.read(iprot)
+            self.filter_conditions.append(_elem796)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 58:
         if ftype == TType.LIST:
           self.return_assemble = []
-          (_etype758, _size755) = iprot.readListBegin()
-          for _i759 in xrange(_size755):
-            _elem760 = iprot.readI32()
-            self.return_assemble.append(_elem760)
+          (_etype800, _size797) = iprot.readListBegin()
+          for _i801 in xrange(_size797):
+            _elem802 = iprot.readI32()
+            self.return_assemble.append(_elem802)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 59:
         if ftype == TType.LIST:
           self.hong_bao_records = []
-          (_etype764, _size761) = iprot.readListBegin()
-          for _i765 in xrange(_size761):
-            _elem766 = HongbaoRecord()
-            _elem766.read(iprot)
-            self.hong_bao_records.append(_elem766)
+          (_etype806, _size803) = iprot.readListBegin()
+          for _i807 in xrange(_size803):
+            _elem808 = HongbaoRecord()
+            _elem808.read(iprot)
+            self.hong_bao_records.append(_elem808)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 60:
         if ftype == TType.LIST:
           self.return_assemble_product = []
-          (_etype770, _size767) = iprot.readListBegin()
-          for _i771 in xrange(_size767):
-            _elem772 = iprot.readI32()
-            self.return_assemble_product.append(_elem772)
+          (_etype812, _size809) = iprot.readListBegin()
+          for _i813 in xrange(_size809):
+            _elem814 = iprot.readI32()
+            self.return_assemble_product.append(_elem814)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16999,11 +17995,11 @@ class SearchRequest:
       elif fid == 68:
         if ftype == TType.LIST:
           self.group_info = []
-          (_etype776, _size773) = iprot.readListBegin()
-          for _i777 in xrange(_size773):
-            _elem778 = GroupInfo()
-            _elem778.read(iprot)
-            self.group_info.append(_elem778)
+          (_etype818, _size815) = iprot.readListBegin()
+          for _i819 in xrange(_size815):
+            _elem820 = GroupInfo()
+            _elem820.read(iprot)
+            self.group_info.append(_elem820)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17030,10 +18026,10 @@ class SearchRequest:
       elif fid == 73:
         if ftype == TType.LIST:
           self.cooperation_type = []
-          (_etype782, _size779) = iprot.readListBegin()
-          for _i783 in xrange(_size779):
-            _elem784 = iprot.readI32()
-            self.cooperation_type.append(_elem784)
+          (_etype824, _size821) = iprot.readListBegin()
+          for _i825 in xrange(_size821):
+            _elem826 = iprot.readI32()
+            self.cooperation_type.append(_elem826)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17065,20 +18061,20 @@ class SearchRequest:
       elif fid == 104:
         if ftype == TType.LIST:
           self.pre_pay_hotel_level_filter = []
-          (_etype788, _size785) = iprot.readListBegin()
-          for _i789 in xrange(_size785):
-            _elem790 = iprot.readI32()
-            self.pre_pay_hotel_level_filter.append(_elem790)
+          (_etype830, _size827) = iprot.readListBegin()
+          for _i831 in xrange(_size827):
+            _elem832 = iprot.readI32()
+            self.pre_pay_hotel_level_filter.append(_elem832)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 105:
         if ftype == TType.LIST:
           self.cash_pay_hotel_level_filter = []
-          (_etype794, _size791) = iprot.readListBegin()
-          for _i795 in xrange(_size791):
-            _elem796 = iprot.readI32()
-            self.cash_pay_hotel_level_filter.append(_elem796)
+          (_etype836, _size833) = iprot.readListBegin()
+          for _i837 in xrange(_size833):
+            _elem838 = iprot.readI32()
+            self.cash_pay_hotel_level_filter.append(_elem838)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17091,11 +18087,74 @@ class SearchRequest:
       elif fid == 107:
         if ftype == TType.LIST:
           self.promotion_percentage_range = []
-          (_etype800, _size797) = iprot.readListBegin()
-          for _i801 in xrange(_size797):
-            _elem802 = iprot.readDouble()
-            self.promotion_percentage_range.append(_elem802)
+          (_etype842, _size839) = iprot.readListBegin()
+          for _i843 in xrange(_size839):
+            _elem844 = iprot.readDouble()
+            self.promotion_percentage_range.append(_elem844)
           iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 108:
+        if ftype == TType.BOOL:
+          self.return_price_range_statistic = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 109:
+        if ftype == TType.LIST:
+          self.privilege_return_assemble = []
+          (_etype848, _size845) = iprot.readListBegin()
+          for _i849 in xrange(_size845):
+            _elem850 = iprot.readI32()
+            self.privilege_return_assemble.append(_elem850)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 110:
+        if ftype == TType.BOOL:
+          self.return_exclusive_hotel_info = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 111:
+        if ftype == TType.MAP:
+          self.exclusive_discount_detail = {}
+          (_ktype852, _vtype853, _size851 ) = iprot.readMapBegin()
+          for _i855 in xrange(_size851):
+            _key856 = iprot.readI64()
+            _val857 = iprot.readI32()
+            self.exclusive_discount_detail[_key856] = _val857
+          iprot.readMapEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 112:
+        if ftype == TType.BOOL:
+          self.return_new_botao_member_product = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 113:
+        if ftype == TType.BOOL:
+          self.return_has_gdgf_hotel = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 114:
+        if ftype == TType.I64:
+          self.gs_request_time = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 115:
+        if ftype == TType.MAP:
+          self.biddingRanks4Ebk = {}
+          (_ktype859, _vtype860, _size858 ) = iprot.readMapBegin()
+          for _i862 in xrange(_size858):
+            _key863 = iprot.readI32()
+            _val864 = []
+            (_etype868, _size865) = iprot.readListBegin()
+            for _i869 in xrange(_size865):
+              _elem870 = cm.ttypes.BiddingRankInfo()
+              _elem870.read(iprot)
+              _val864.append(_elem870)
+            iprot.readListEnd()
+            self.biddingRanks4Ebk[_key863] = _val864
+          iprot.readMapEnd()
         else:
           iprot.skip(ftype)
       else:
@@ -17111,8 +18170,8 @@ class SearchRequest:
     if self.mhotel_ids is not None:
       oprot.writeFieldBegin('mhotel_ids', TType.LIST, 1)
       oprot.writeListBegin(TType.I64, len(self.mhotel_ids))
-      for iter803 in self.mhotel_ids:
-        oprot.writeI64(iter803)
+      for iter871 in self.mhotel_ids:
+        oprot.writeI64(iter871)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.booking_datetime is not None:
@@ -17162,15 +18221,15 @@ class SearchRequest:
     if self.supplier_type is not None:
       oprot.writeFieldBegin('supplier_type', TType.LIST, 13)
       oprot.writeListBegin(TType.I32, len(self.supplier_type))
-      for iter804 in self.supplier_type:
-        oprot.writeI32(iter804)
+      for iter872 in self.supplier_type:
+        oprot.writeI32(iter872)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.online_search_type is not None:
       oprot.writeFieldBegin('online_search_type', TType.LIST, 14)
       oprot.writeListBegin(TType.I32, len(self.online_search_type))
-      for iter805 in self.online_search_type:
-        oprot.writeI32(iter805)
+      for iter873 in self.online_search_type:
+        oprot.writeI32(iter873)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.promotion_type is not None:
@@ -17196,8 +18255,8 @@ class SearchRequest:
     if self.codes is not None:
       oprot.writeFieldBegin('codes', TType.LIST, 22)
       oprot.writeListBegin(TType.I32, len(self.codes))
-      for iter806 in self.codes:
-        oprot.writeI32(iter806)
+      for iter874 in self.codes:
+        oprot.writeI32(iter874)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_noinv_or_noprice_product is not None:
@@ -17231,8 +18290,8 @@ class SearchRequest:
     if self.bed_type is not None:
       oprot.writeFieldBegin('bed_type', TType.LIST, 30)
       oprot.writeListBegin(TType.I32, len(self.bed_type))
-      for iter807 in self.bed_type:
-        oprot.writeI32(iter807)
+      for iter875 in self.bed_type:
+        oprot.writeI32(iter875)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.list_product_info is not None:
@@ -17290,8 +18349,8 @@ class SearchRequest:
     if self.mhotel_attrs is not None:
       oprot.writeFieldBegin('mhotel_attrs', TType.LIST, 44)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_attrs))
-      for iter808 in self.mhotel_attrs:
-        iter808.write(oprot)
+      for iter876 in self.mhotel_attrs:
+        iter876.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_has_allbuyroom_hotel is not None:
@@ -17337,8 +18396,8 @@ class SearchRequest:
     if self.promotion_black_list is not None:
       oprot.writeFieldBegin('promotion_black_list', TType.LIST, 55)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_black_list))
-      for iter809 in self.promotion_black_list:
-        iter809.write(oprot)
+      for iter877 in self.promotion_black_list:
+        iter877.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_has_memberbenefits_hotel is not None:
@@ -17348,29 +18407,29 @@ class SearchRequest:
     if self.filter_conditions is not None:
       oprot.writeFieldBegin('filter_conditions', TType.LIST, 57)
       oprot.writeListBegin(TType.STRUCT, len(self.filter_conditions))
-      for iter810 in self.filter_conditions:
-        iter810.write(oprot)
+      for iter878 in self.filter_conditions:
+        iter878.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_assemble is not None:
       oprot.writeFieldBegin('return_assemble', TType.LIST, 58)
       oprot.writeListBegin(TType.I32, len(self.return_assemble))
-      for iter811 in self.return_assemble:
-        oprot.writeI32(iter811)
+      for iter879 in self.return_assemble:
+        oprot.writeI32(iter879)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.hong_bao_records is not None:
       oprot.writeFieldBegin('hong_bao_records', TType.LIST, 59)
       oprot.writeListBegin(TType.STRUCT, len(self.hong_bao_records))
-      for iter812 in self.hong_bao_records:
-        iter812.write(oprot)
+      for iter880 in self.hong_bao_records:
+        iter880.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_assemble_product is not None:
       oprot.writeFieldBegin('return_assemble_product', TType.LIST, 60)
       oprot.writeListBegin(TType.I32, len(self.return_assemble_product))
-      for iter813 in self.return_assemble_product:
-        oprot.writeI32(iter813)
+      for iter881 in self.return_assemble_product:
+        oprot.writeI32(iter881)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.booking_menu is not None:
@@ -17404,8 +18463,8 @@ class SearchRequest:
     if self.group_info is not None:
       oprot.writeFieldBegin('group_info', TType.LIST, 68)
       oprot.writeListBegin(TType.STRUCT, len(self.group_info))
-      for iter814 in self.group_info:
-        iter814.write(oprot)
+      for iter882 in self.group_info:
+        iter882.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.request_type is not None:
@@ -17427,8 +18486,8 @@ class SearchRequest:
     if self.cooperation_type is not None:
       oprot.writeFieldBegin('cooperation_type', TType.LIST, 73)
       oprot.writeListBegin(TType.I32, len(self.cooperation_type))
-      for iter815 in self.cooperation_type:
-        oprot.writeI32(iter815)
+      for iter883 in self.cooperation_type:
+        oprot.writeI32(iter883)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_has_resale_hotel is not None:
@@ -17454,15 +18513,15 @@ class SearchRequest:
     if self.pre_pay_hotel_level_filter is not None:
       oprot.writeFieldBegin('pre_pay_hotel_level_filter', TType.LIST, 104)
       oprot.writeListBegin(TType.I32, len(self.pre_pay_hotel_level_filter))
-      for iter816 in self.pre_pay_hotel_level_filter:
-        oprot.writeI32(iter816)
+      for iter884 in self.pre_pay_hotel_level_filter:
+        oprot.writeI32(iter884)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.cash_pay_hotel_level_filter is not None:
       oprot.writeFieldBegin('cash_pay_hotel_level_filter', TType.LIST, 105)
       oprot.writeListBegin(TType.I32, len(self.cash_pay_hotel_level_filter))
-      for iter817 in self.cash_pay_hotel_level_filter:
-        oprot.writeI32(iter817)
+      for iter885 in self.cash_pay_hotel_level_filter:
+        oprot.writeI32(iter885)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.order_by_user_credit_filter is not None:
@@ -17472,9 +18531,55 @@ class SearchRequest:
     if self.promotion_percentage_range is not None:
       oprot.writeFieldBegin('promotion_percentage_range', TType.LIST, 107)
       oprot.writeListBegin(TType.DOUBLE, len(self.promotion_percentage_range))
-      for iter818 in self.promotion_percentage_range:
-        oprot.writeDouble(iter818)
+      for iter886 in self.promotion_percentage_range:
+        oprot.writeDouble(iter886)
       oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.return_price_range_statistic is not None:
+      oprot.writeFieldBegin('return_price_range_statistic', TType.BOOL, 108)
+      oprot.writeBool(self.return_price_range_statistic)
+      oprot.writeFieldEnd()
+    if self.privilege_return_assemble is not None:
+      oprot.writeFieldBegin('privilege_return_assemble', TType.LIST, 109)
+      oprot.writeListBegin(TType.I32, len(self.privilege_return_assemble))
+      for iter887 in self.privilege_return_assemble:
+        oprot.writeI32(iter887)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.return_exclusive_hotel_info is not None:
+      oprot.writeFieldBegin('return_exclusive_hotel_info', TType.BOOL, 110)
+      oprot.writeBool(self.return_exclusive_hotel_info)
+      oprot.writeFieldEnd()
+    if self.exclusive_discount_detail is not None:
+      oprot.writeFieldBegin('exclusive_discount_detail', TType.MAP, 111)
+      oprot.writeMapBegin(TType.I64, TType.I32, len(self.exclusive_discount_detail))
+      for kiter888,viter889 in self.exclusive_discount_detail.items():
+        oprot.writeI64(kiter888)
+        oprot.writeI32(viter889)
+      oprot.writeMapEnd()
+      oprot.writeFieldEnd()
+    if self.return_new_botao_member_product is not None:
+      oprot.writeFieldBegin('return_new_botao_member_product', TType.BOOL, 112)
+      oprot.writeBool(self.return_new_botao_member_product)
+      oprot.writeFieldEnd()
+    if self.return_has_gdgf_hotel is not None:
+      oprot.writeFieldBegin('return_has_gdgf_hotel', TType.BOOL, 113)
+      oprot.writeBool(self.return_has_gdgf_hotel)
+      oprot.writeFieldEnd()
+    if self.gs_request_time is not None:
+      oprot.writeFieldBegin('gs_request_time', TType.I64, 114)
+      oprot.writeI64(self.gs_request_time)
+      oprot.writeFieldEnd()
+    if self.biddingRanks4Ebk is not None:
+      oprot.writeFieldBegin('biddingRanks4Ebk', TType.MAP, 115)
+      oprot.writeMapBegin(TType.I32, TType.LIST, len(self.biddingRanks4Ebk))
+      for kiter890,viter891 in self.biddingRanks4Ebk.items():
+        oprot.writeI32(kiter890)
+        oprot.writeListBegin(TType.STRUCT, len(viter891))
+        for iter892 in viter891:
+          iter892.write(oprot)
+        oprot.writeListEnd()
+      oprot.writeMapEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
@@ -17569,6 +18674,14 @@ class SearchRequest:
     value = (value * 31) ^ hash(self.cash_pay_hotel_level_filter)
     value = (value * 31) ^ hash(self.order_by_user_credit_filter)
     value = (value * 31) ^ hash(self.promotion_percentage_range)
+    value = (value * 31) ^ hash(self.return_price_range_statistic)
+    value = (value * 31) ^ hash(self.privilege_return_assemble)
+    value = (value * 31) ^ hash(self.return_exclusive_hotel_info)
+    value = (value * 31) ^ hash(self.exclusive_discount_detail)
+    value = (value * 31) ^ hash(self.return_new_botao_member_product)
+    value = (value * 31) ^ hash(self.return_has_gdgf_hotel)
+    value = (value * 31) ^ hash(self.gs_request_time)
+    value = (value * 31) ^ hash(self.biddingRanks4Ebk)
     return value
 
   def __repr__(self):
@@ -17631,11 +18744,11 @@ class SearchResponse:
       elif fid == 2:
         if ftype == TType.LIST:
           self.hotels_detail = []
-          (_etype822, _size819) = iprot.readListBegin()
-          for _i823 in xrange(_size819):
-            _elem824 = MHotelDetail()
-            _elem824.read(iprot)
-            self.hotels_detail.append(_elem824)
+          (_etype896, _size893) = iprot.readListBegin()
+          for _i897 in xrange(_size893):
+            _elem898 = MHotelDetail()
+            _elem898.read(iprot)
+            self.hotels_detail.append(_elem898)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17647,22 +18760,22 @@ class SearchResponse:
       elif fid == 4:
         if ftype == TType.LIST:
           self.promotion_group = []
-          (_etype828, _size825) = iprot.readListBegin()
-          for _i829 in xrange(_size825):
-            _elem830 = PromotionGroup()
-            _elem830.read(iprot)
-            self.promotion_group.append(_elem830)
+          (_etype902, _size899) = iprot.readListBegin()
+          for _i903 in xrange(_size899):
+            _elem904 = PromotionGroup()
+            _elem904.read(iprot)
+            self.promotion_group.append(_elem904)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 5:
         if ftype == TType.LIST:
           self.debug_response = []
-          (_etype834, _size831) = iprot.readListBegin()
-          for _i835 in xrange(_size831):
-            _elem836 = DebugResponse()
-            _elem836.read(iprot)
-            self.debug_response.append(_elem836)
+          (_etype908, _size905) = iprot.readListBegin()
+          for _i909 in xrange(_size905):
+            _elem910 = DebugResponse()
+            _elem910.read(iprot)
+            self.debug_response.append(_elem910)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17694,8 +18807,8 @@ class SearchResponse:
     if self.hotels_detail is not None:
       oprot.writeFieldBegin('hotels_detail', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.hotels_detail))
-      for iter837 in self.hotels_detail:
-        iter837.write(oprot)
+      for iter911 in self.hotels_detail:
+        iter911.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.search_id is not None:
@@ -17705,15 +18818,15 @@ class SearchResponse:
     if self.promotion_group is not None:
       oprot.writeFieldBegin('promotion_group', TType.LIST, 4)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_group))
-      for iter838 in self.promotion_group:
-        iter838.write(oprot)
+      for iter912 in self.promotion_group:
+        iter912.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.debug_response is not None:
       oprot.writeFieldBegin('debug_response', TType.LIST, 5)
       oprot.writeListBegin(TType.STRUCT, len(self.debug_response))
-      for iter839 in self.debug_response:
-        iter839.write(oprot)
+      for iter913 in self.debug_response:
+        iter913.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.common_conf is not None:
@@ -17742,6 +18855,2932 @@ class SearchResponse:
     value = (value * 31) ^ hash(self.debug_response)
     value = (value * 31) ^ hash(self.common_conf)
     value = (value * 31) ^ hash(self.grandson)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaMhotel:
+  """
+  Attributes:
+   - mhotel_id
+   - shotel_id
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'mhotel_id', None, None, ), # 1
+    (2, TType.LIST, 'shotel_id', (TType.I32,None), None, ), # 2
+  )
+
+  def __init__(self, mhotel_id=None, shotel_id=None,):
+    self.mhotel_id = mhotel_id
+    self.shotel_id = shotel_id
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.mhotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.shotel_id = []
+          (_etype917, _size914) = iprot.readListBegin()
+          for _i918 in xrange(_size914):
+            _elem919 = iprot.readI32()
+            self.shotel_id.append(_elem919)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaMhotel')
+    if self.mhotel_id is not None:
+      oprot.writeFieldBegin('mhotel_id', TType.I32, 1)
+      oprot.writeI32(self.mhotel_id)
+      oprot.writeFieldEnd()
+    if self.shotel_id is not None:
+      oprot.writeFieldBegin('shotel_id', TType.LIST, 2)
+      oprot.writeListBegin(TType.I32, len(self.shotel_id))
+      for iter920 in self.shotel_id:
+        oprot.writeI32(iter920)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.mhotel_id is None:
+      raise TProtocol.TProtocolException(message='Required field mhotel_id is unset!')
+    if self.shotel_id is None:
+      raise TProtocol.TProtocolException(message='Required field shotel_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.mhotel_id)
+    value = (value * 31) ^ hash(self.shotel_id)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class GetBaseRatePlanDRRGiftRequest:
+  """
+  Attributes:
+   - mhotel
+   - payment_type
+   - booking_channel
+   - sell_channel
+   - member_level
+   - traceId
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.LIST, 'mhotel', (TType.STRUCT,(MetaMhotel, MetaMhotel.thrift_spec)), None, ), # 1
+    (2, TType.I16, 'payment_type', None, None, ), # 2
+    (3, TType.I32, 'booking_channel', None, None, ), # 3
+    (4, TType.I32, 'sell_channel', None, None, ), # 4
+    (5, TType.I32, 'member_level', None, None, ), # 5
+    (6, TType.STRING, 'traceId', None, None, ), # 6
+  )
+
+  def __init__(self, mhotel=None, payment_type=None, booking_channel=None, sell_channel=None, member_level=None, traceId=None,):
+    self.mhotel = mhotel
+    self.payment_type = payment_type
+    self.booking_channel = booking_channel
+    self.sell_channel = sell_channel
+    self.member_level = member_level
+    self.traceId = traceId
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.LIST:
+          self.mhotel = []
+          (_etype924, _size921) = iprot.readListBegin()
+          for _i925 in xrange(_size921):
+            _elem926 = MetaMhotel()
+            _elem926.read(iprot)
+            self.mhotel.append(_elem926)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I16:
+          self.payment_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I32:
+          self.booking_channel = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I32:
+          self.sell_channel = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I32:
+          self.member_level = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.STRING:
+          self.traceId = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('GetBaseRatePlanDRRGiftRequest')
+    if self.mhotel is not None:
+      oprot.writeFieldBegin('mhotel', TType.LIST, 1)
+      oprot.writeListBegin(TType.STRUCT, len(self.mhotel))
+      for iter927 in self.mhotel:
+        iter927.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.payment_type is not None:
+      oprot.writeFieldBegin('payment_type', TType.I16, 2)
+      oprot.writeI16(self.payment_type)
+      oprot.writeFieldEnd()
+    if self.booking_channel is not None:
+      oprot.writeFieldBegin('booking_channel', TType.I32, 3)
+      oprot.writeI32(self.booking_channel)
+      oprot.writeFieldEnd()
+    if self.sell_channel is not None:
+      oprot.writeFieldBegin('sell_channel', TType.I32, 4)
+      oprot.writeI32(self.sell_channel)
+      oprot.writeFieldEnd()
+    if self.member_level is not None:
+      oprot.writeFieldBegin('member_level', TType.I32, 5)
+      oprot.writeI32(self.member_level)
+      oprot.writeFieldEnd()
+    if self.traceId is not None:
+      oprot.writeFieldBegin('traceId', TType.STRING, 6)
+      oprot.writeString(self.traceId)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.payment_type is None:
+      raise TProtocol.TProtocolException(message='Required field payment_type is unset!')
+    if self.booking_channel is None:
+      raise TProtocol.TProtocolException(message='Required field booking_channel is unset!')
+    if self.sell_channel is None:
+      raise TProtocol.TProtocolException(message='Required field sell_channel is unset!')
+    if self.member_level is None:
+      raise TProtocol.TProtocolException(message='Required field member_level is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.mhotel)
+    value = (value * 31) ^ hash(self.payment_type)
+    value = (value * 31) ^ hash(self.booking_channel)
+    value = (value * 31) ^ hash(self.sell_channel)
+    value = (value * 31) ^ hash(self.member_level)
+    value = (value * 31) ^ hash(self.traceId)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaHotelBookingRule:
+  """
+  Attributes:
+   - id
+   - date_type
+   - cn_description
+   - en_description
+   - start_date
+   - end_date
+   - start_hour
+   - end_hour
+   - room_type_id
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I64, 'id', None, None, ), # 1
+    (2, TType.I16, 'date_type', None, None, ), # 2
+    (3, TType.STRING, 'cn_description', None, None, ), # 3
+    (4, TType.STRING, 'en_description', None, None, ), # 4
+    (5, TType.I64, 'start_date', None, None, ), # 5
+    (6, TType.I64, 'end_date', None, None, ), # 6
+    (7, TType.STRING, 'start_hour', None, None, ), # 7
+    (8, TType.STRING, 'end_hour', None, None, ), # 8
+    (9, TType.STRING, 'room_type_id', None, None, ), # 9
+  )
+
+  def __init__(self, id=None, date_type=None, cn_description=None, en_description=None, start_date=None, end_date=None, start_hour=None, end_hour=None, room_type_id=None,):
+    self.id = id
+    self.date_type = date_type
+    self.cn_description = cn_description
+    self.en_description = en_description
+    self.start_date = start_date
+    self.end_date = end_date
+    self.start_hour = start_hour
+    self.end_hour = end_hour
+    self.room_type_id = room_type_id
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I64:
+          self.id = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I16:
+          self.date_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.STRING:
+          self.cn_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.STRING:
+          self.en_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I64:
+          self.start_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I64:
+          self.end_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.STRING:
+          self.start_hour = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.STRING:
+          self.end_hour = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.STRING:
+          self.room_type_id = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaHotelBookingRule')
+    if self.id is not None:
+      oprot.writeFieldBegin('id', TType.I64, 1)
+      oprot.writeI64(self.id)
+      oprot.writeFieldEnd()
+    if self.date_type is not None:
+      oprot.writeFieldBegin('date_type', TType.I16, 2)
+      oprot.writeI16(self.date_type)
+      oprot.writeFieldEnd()
+    if self.cn_description is not None:
+      oprot.writeFieldBegin('cn_description', TType.STRING, 3)
+      oprot.writeString(self.cn_description)
+      oprot.writeFieldEnd()
+    if self.en_description is not None:
+      oprot.writeFieldBegin('en_description', TType.STRING, 4)
+      oprot.writeString(self.en_description)
+      oprot.writeFieldEnd()
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I64, 5)
+      oprot.writeI64(self.start_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I64, 6)
+      oprot.writeI64(self.end_date)
+      oprot.writeFieldEnd()
+    if self.start_hour is not None:
+      oprot.writeFieldBegin('start_hour', TType.STRING, 7)
+      oprot.writeString(self.start_hour)
+      oprot.writeFieldEnd()
+    if self.end_hour is not None:
+      oprot.writeFieldBegin('end_hour', TType.STRING, 8)
+      oprot.writeString(self.end_hour)
+      oprot.writeFieldEnd()
+    if self.room_type_id is not None:
+      oprot.writeFieldBegin('room_type_id', TType.STRING, 9)
+      oprot.writeString(self.room_type_id)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.id is None:
+      raise TProtocol.TProtocolException(message='Required field id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.id)
+    value = (value * 31) ^ hash(self.date_type)
+    value = (value * 31) ^ hash(self.cn_description)
+    value = (value * 31) ^ hash(self.en_description)
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.start_hour)
+    value = (value * 31) ^ hash(self.end_hour)
+    value = (value * 31) ^ hash(self.room_type_id)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaHotelInfo:
+  """
+  Attributes:
+   - shotel_id
+   - hotel_booking_rule_list
+   - week_end_start
+   - week_end_end
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'shotel_id', None, None, ), # 1
+    (2, TType.LIST, 'hotel_booking_rule_list', (TType.STRUCT,(MetaHotelBookingRule, MetaHotelBookingRule.thrift_spec)), None, ), # 2
+    (3, TType.I16, 'week_end_start', None, None, ), # 3
+    (4, TType.I16, 'week_end_end', None, None, ), # 4
+  )
+
+  def __init__(self, shotel_id=None, hotel_booking_rule_list=None, week_end_start=None, week_end_end=None,):
+    self.shotel_id = shotel_id
+    self.hotel_booking_rule_list = hotel_booking_rule_list
+    self.week_end_start = week_end_start
+    self.week_end_end = week_end_end
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.shotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.hotel_booking_rule_list = []
+          (_etype931, _size928) = iprot.readListBegin()
+          for _i932 in xrange(_size928):
+            _elem933 = MetaHotelBookingRule()
+            _elem933.read(iprot)
+            self.hotel_booking_rule_list.append(_elem933)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I16:
+          self.week_end_start = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I16:
+          self.week_end_end = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaHotelInfo')
+    if self.shotel_id is not None:
+      oprot.writeFieldBegin('shotel_id', TType.I32, 1)
+      oprot.writeI32(self.shotel_id)
+      oprot.writeFieldEnd()
+    if self.hotel_booking_rule_list is not None:
+      oprot.writeFieldBegin('hotel_booking_rule_list', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.hotel_booking_rule_list))
+      for iter934 in self.hotel_booking_rule_list:
+        iter934.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.week_end_start is not None:
+      oprot.writeFieldBegin('week_end_start', TType.I16, 3)
+      oprot.writeI16(self.week_end_start)
+      oprot.writeFieldEnd()
+    if self.week_end_end is not None:
+      oprot.writeFieldBegin('week_end_end', TType.I16, 4)
+      oprot.writeI16(self.week_end_end)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.shotel_id is None:
+      raise TProtocol.TProtocolException(message='Required field shotel_id is unset!')
+    if self.week_end_start is None:
+      raise TProtocol.TProtocolException(message='Required field week_end_start is unset!')
+    if self.week_end_end is None:
+      raise TProtocol.TProtocolException(message='Required field week_end_end is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.shotel_id)
+    value = (value * 31) ^ hash(self.hotel_booking_rule_list)
+    value = (value * 31) ^ hash(self.week_end_start)
+    value = (value * 31) ^ hash(self.week_end_end)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaProductInfo:
+  """
+  Attributes:
+   - product_id
+   - rate_plan_id
+   - drr_ids
+   - gift_ids
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I64, 'product_id', None, None, ), # 1
+    (2, TType.I32, 'rate_plan_id', None, None, ), # 2
+    (3, TType.LIST, 'drr_ids', (TType.I32,None), None, ), # 3
+    (4, TType.LIST, 'gift_ids', (TType.I32,None), None, ), # 4
+  )
+
+  def __init__(self, product_id=None, rate_plan_id=None, drr_ids=None, gift_ids=None,):
+    self.product_id = product_id
+    self.rate_plan_id = rate_plan_id
+    self.drr_ids = drr_ids
+    self.gift_ids = gift_ids
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I64:
+          self.product_id = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.rate_plan_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.LIST:
+          self.drr_ids = []
+          (_etype938, _size935) = iprot.readListBegin()
+          for _i939 in xrange(_size935):
+            _elem940 = iprot.readI32()
+            self.drr_ids.append(_elem940)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.LIST:
+          self.gift_ids = []
+          (_etype944, _size941) = iprot.readListBegin()
+          for _i945 in xrange(_size941):
+            _elem946 = iprot.readI32()
+            self.gift_ids.append(_elem946)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaProductInfo')
+    if self.product_id is not None:
+      oprot.writeFieldBegin('product_id', TType.I64, 1)
+      oprot.writeI64(self.product_id)
+      oprot.writeFieldEnd()
+    if self.rate_plan_id is not None:
+      oprot.writeFieldBegin('rate_plan_id', TType.I32, 2)
+      oprot.writeI32(self.rate_plan_id)
+      oprot.writeFieldEnd()
+    if self.drr_ids is not None:
+      oprot.writeFieldBegin('drr_ids', TType.LIST, 3)
+      oprot.writeListBegin(TType.I32, len(self.drr_ids))
+      for iter947 in self.drr_ids:
+        oprot.writeI32(iter947)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.gift_ids is not None:
+      oprot.writeFieldBegin('gift_ids', TType.LIST, 4)
+      oprot.writeListBegin(TType.I32, len(self.gift_ids))
+      for iter948 in self.gift_ids:
+        oprot.writeI32(iter948)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.product_id is None:
+      raise TProtocol.TProtocolException(message='Required field product_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.product_id)
+    value = (value * 31) ^ hash(self.rate_plan_id)
+    value = (value * 31) ^ hash(self.drr_ids)
+    value = (value * 31) ^ hash(self.gift_ids)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaRoomTypeInfo:
+  """
+  Attributes:
+   - room_type_id
+   - hotel_booking_rule_list
+   - products
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'room_type_id', None, None, ), # 1
+    (2, TType.LIST, 'hotel_booking_rule_list', (TType.STRUCT,(MetaHotelBookingRule, MetaHotelBookingRule.thrift_spec)), None, ), # 2
+    (3, TType.LIST, 'products', (TType.STRUCT,(MetaProductInfo, MetaProductInfo.thrift_spec)), None, ), # 3
+  )
+
+  def __init__(self, room_type_id=None, hotel_booking_rule_list=None, products=None,):
+    self.room_type_id = room_type_id
+    self.hotel_booking_rule_list = hotel_booking_rule_list
+    self.products = products
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.room_type_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.hotel_booking_rule_list = []
+          (_etype952, _size949) = iprot.readListBegin()
+          for _i953 in xrange(_size949):
+            _elem954 = MetaHotelBookingRule()
+            _elem954.read(iprot)
+            self.hotel_booking_rule_list.append(_elem954)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.LIST:
+          self.products = []
+          (_etype958, _size955) = iprot.readListBegin()
+          for _i959 in xrange(_size955):
+            _elem960 = MetaProductInfo()
+            _elem960.read(iprot)
+            self.products.append(_elem960)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaRoomTypeInfo')
+    if self.room_type_id is not None:
+      oprot.writeFieldBegin('room_type_id', TType.I32, 1)
+      oprot.writeI32(self.room_type_id)
+      oprot.writeFieldEnd()
+    if self.hotel_booking_rule_list is not None:
+      oprot.writeFieldBegin('hotel_booking_rule_list', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.hotel_booking_rule_list))
+      for iter961 in self.hotel_booking_rule_list:
+        iter961.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.products is not None:
+      oprot.writeFieldBegin('products', TType.LIST, 3)
+      oprot.writeListBegin(TType.STRUCT, len(self.products))
+      for iter962 in self.products:
+        iter962.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.room_type_id is None:
+      raise TProtocol.TProtocolException(message='Required field room_type_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.room_type_id)
+    value = (value * 31) ^ hash(self.hotel_booking_rule_list)
+    value = (value * 31) ^ hash(self.products)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaPrePayInfo:
+  """
+  Attributes:
+   - target
+   - prepay_change_rule
+   - date_type
+   - start_date
+   - end_date
+   - cut_type_after
+   - cut_type_befor
+   - cut_after_change_time
+   - cut_befor_change_time
+   - cut_num_after
+   - cut_num_befor
+   - cn_description
+   - en_description
+   - is_week_effective
+   - rule_values
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'target', None, None, ), # 1
+    (2, TType.I32, 'prepay_change_rule', None, None, ), # 2
+    (3, TType.I16, 'date_type', None, None, ), # 3
+    (4, TType.I64, 'start_date', None, None, ), # 4
+    (5, TType.I64, 'end_date', None, None, ), # 5
+    (6, TType.I16, 'cut_type_after', None, None, ), # 6
+    (7, TType.I16, 'cut_type_befor', None, None, ), # 7
+    (8, TType.BOOL, 'cut_after_change_time', None, None, ), # 8
+    (9, TType.BOOL, 'cut_befor_change_time', None, None, ), # 9
+    (10, TType.DOUBLE, 'cut_num_after', None, None, ), # 10
+    (11, TType.DOUBLE, 'cut_num_befor', None, None, ), # 11
+    (12, TType.STRING, 'cn_description', None, None, ), # 12
+    (13, TType.STRING, 'en_description', None, None, ), # 13
+    (14, TType.I16, 'is_week_effective', None, None, ), # 14
+    (15, TType.MAP, 'rule_values', (TType.STRING,None,TType.STRING,None), None, ), # 15
+  )
+
+  def __init__(self, target=None, prepay_change_rule=None, date_type=None, start_date=None, end_date=None, cut_type_after=None, cut_type_befor=None, cut_after_change_time=None, cut_befor_change_time=None, cut_num_after=None, cut_num_befor=None, cn_description=None, en_description=None, is_week_effective=None, rule_values=None,):
+    self.target = target
+    self.prepay_change_rule = prepay_change_rule
+    self.date_type = date_type
+    self.start_date = start_date
+    self.end_date = end_date
+    self.cut_type_after = cut_type_after
+    self.cut_type_befor = cut_type_befor
+    self.cut_after_change_time = cut_after_change_time
+    self.cut_befor_change_time = cut_befor_change_time
+    self.cut_num_after = cut_num_after
+    self.cut_num_befor = cut_num_befor
+    self.cn_description = cn_description
+    self.en_description = en_description
+    self.is_week_effective = is_week_effective
+    self.rule_values = rule_values
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.target = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.prepay_change_rule = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I16:
+          self.date_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I64:
+          self.start_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I64:
+          self.end_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I16:
+          self.cut_type_after = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.I16:
+          self.cut_type_befor = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.BOOL:
+          self.cut_after_change_time = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.BOOL:
+          self.cut_befor_change_time = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.DOUBLE:
+          self.cut_num_after = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.DOUBLE:
+          self.cut_num_befor = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 12:
+        if ftype == TType.STRING:
+          self.cn_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 13:
+        if ftype == TType.STRING:
+          self.en_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 14:
+        if ftype == TType.I16:
+          self.is_week_effective = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 15:
+        if ftype == TType.MAP:
+          self.rule_values = {}
+          (_ktype964, _vtype965, _size963 ) = iprot.readMapBegin()
+          for _i967 in xrange(_size963):
+            _key968 = iprot.readString()
+            _val969 = iprot.readString()
+            self.rule_values[_key968] = _val969
+          iprot.readMapEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaPrePayInfo')
+    if self.target is not None:
+      oprot.writeFieldBegin('target', TType.I32, 1)
+      oprot.writeI32(self.target)
+      oprot.writeFieldEnd()
+    if self.prepay_change_rule is not None:
+      oprot.writeFieldBegin('prepay_change_rule', TType.I32, 2)
+      oprot.writeI32(self.prepay_change_rule)
+      oprot.writeFieldEnd()
+    if self.date_type is not None:
+      oprot.writeFieldBegin('date_type', TType.I16, 3)
+      oprot.writeI16(self.date_type)
+      oprot.writeFieldEnd()
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I64, 4)
+      oprot.writeI64(self.start_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I64, 5)
+      oprot.writeI64(self.end_date)
+      oprot.writeFieldEnd()
+    if self.cut_type_after is not None:
+      oprot.writeFieldBegin('cut_type_after', TType.I16, 6)
+      oprot.writeI16(self.cut_type_after)
+      oprot.writeFieldEnd()
+    if self.cut_type_befor is not None:
+      oprot.writeFieldBegin('cut_type_befor', TType.I16, 7)
+      oprot.writeI16(self.cut_type_befor)
+      oprot.writeFieldEnd()
+    if self.cut_after_change_time is not None:
+      oprot.writeFieldBegin('cut_after_change_time', TType.BOOL, 8)
+      oprot.writeBool(self.cut_after_change_time)
+      oprot.writeFieldEnd()
+    if self.cut_befor_change_time is not None:
+      oprot.writeFieldBegin('cut_befor_change_time', TType.BOOL, 9)
+      oprot.writeBool(self.cut_befor_change_time)
+      oprot.writeFieldEnd()
+    if self.cut_num_after is not None:
+      oprot.writeFieldBegin('cut_num_after', TType.DOUBLE, 10)
+      oprot.writeDouble(self.cut_num_after)
+      oprot.writeFieldEnd()
+    if self.cut_num_befor is not None:
+      oprot.writeFieldBegin('cut_num_befor', TType.DOUBLE, 11)
+      oprot.writeDouble(self.cut_num_befor)
+      oprot.writeFieldEnd()
+    if self.cn_description is not None:
+      oprot.writeFieldBegin('cn_description', TType.STRING, 12)
+      oprot.writeString(self.cn_description)
+      oprot.writeFieldEnd()
+    if self.en_description is not None:
+      oprot.writeFieldBegin('en_description', TType.STRING, 13)
+      oprot.writeString(self.en_description)
+      oprot.writeFieldEnd()
+    if self.is_week_effective is not None:
+      oprot.writeFieldBegin('is_week_effective', TType.I16, 14)
+      oprot.writeI16(self.is_week_effective)
+      oprot.writeFieldEnd()
+    if self.rule_values is not None:
+      oprot.writeFieldBegin('rule_values', TType.MAP, 15)
+      oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.rule_values))
+      for kiter970,viter971 in self.rule_values.items():
+        oprot.writeString(kiter970)
+        oprot.writeString(viter971)
+      oprot.writeMapEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.target)
+    value = (value * 31) ^ hash(self.prepay_change_rule)
+    value = (value * 31) ^ hash(self.date_type)
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.cut_type_after)
+    value = (value * 31) ^ hash(self.cut_type_befor)
+    value = (value * 31) ^ hash(self.cut_after_change_time)
+    value = (value * 31) ^ hash(self.cut_befor_change_time)
+    value = (value * 31) ^ hash(self.cut_num_after)
+    value = (value * 31) ^ hash(self.cut_num_befor)
+    value = (value * 31) ^ hash(self.cn_description)
+    value = (value * 31) ^ hash(self.en_description)
+    value = (value * 31) ^ hash(self.is_week_effective)
+    value = (value * 31) ^ hash(self.rule_values)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaAddValuePolicyInfo:
+  """
+  Attributes:
+   - start_date
+   - end_date
+   - is_include
+   - share
+   - price_default_option
+   - single_price_default_option
+   - price
+   - single_price
+   - is_add
+   - currency_code
+   - is_week_effective
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I64, 'start_date', None, None, ), # 1
+    (2, TType.I64, 'end_date', None, None, ), # 2
+    (3, TType.I16, 'is_include', None, None, ), # 3
+    (4, TType.I16, 'share', None, None, ), # 4
+    (5, TType.I32, 'price_default_option', None, None, ), # 5
+    (6, TType.I32, 'single_price_default_option', None, None, ), # 6
+    (7, TType.DOUBLE, 'price', None, None, ), # 7
+    (8, TType.DOUBLE, 'single_price', None, None, ), # 8
+    (9, TType.I16, 'is_add', None, None, ), # 9
+    (10, TType.STRING, 'currency_code', None, None, ), # 10
+    (11, TType.I16, 'is_week_effective', None, None, ), # 11
+  )
+
+  def __init__(self, start_date=None, end_date=None, is_include=None, share=None, price_default_option=None, single_price_default_option=None, price=None, single_price=None, is_add=None, currency_code=None, is_week_effective=None,):
+    self.start_date = start_date
+    self.end_date = end_date
+    self.is_include = is_include
+    self.share = share
+    self.price_default_option = price_default_option
+    self.single_price_default_option = single_price_default_option
+    self.price = price
+    self.single_price = single_price
+    self.is_add = is_add
+    self.currency_code = currency_code
+    self.is_week_effective = is_week_effective
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I64:
+          self.start_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I64:
+          self.end_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I16:
+          self.is_include = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I16:
+          self.share = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I32:
+          self.price_default_option = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I32:
+          self.single_price_default_option = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.DOUBLE:
+          self.price = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.DOUBLE:
+          self.single_price = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.I16:
+          self.is_add = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.STRING:
+          self.currency_code = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.I16:
+          self.is_week_effective = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaAddValuePolicyInfo')
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I64, 1)
+      oprot.writeI64(self.start_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I64, 2)
+      oprot.writeI64(self.end_date)
+      oprot.writeFieldEnd()
+    if self.is_include is not None:
+      oprot.writeFieldBegin('is_include', TType.I16, 3)
+      oprot.writeI16(self.is_include)
+      oprot.writeFieldEnd()
+    if self.share is not None:
+      oprot.writeFieldBegin('share', TType.I16, 4)
+      oprot.writeI16(self.share)
+      oprot.writeFieldEnd()
+    if self.price_default_option is not None:
+      oprot.writeFieldBegin('price_default_option', TType.I32, 5)
+      oprot.writeI32(self.price_default_option)
+      oprot.writeFieldEnd()
+    if self.single_price_default_option is not None:
+      oprot.writeFieldBegin('single_price_default_option', TType.I32, 6)
+      oprot.writeI32(self.single_price_default_option)
+      oprot.writeFieldEnd()
+    if self.price is not None:
+      oprot.writeFieldBegin('price', TType.DOUBLE, 7)
+      oprot.writeDouble(self.price)
+      oprot.writeFieldEnd()
+    if self.single_price is not None:
+      oprot.writeFieldBegin('single_price', TType.DOUBLE, 8)
+      oprot.writeDouble(self.single_price)
+      oprot.writeFieldEnd()
+    if self.is_add is not None:
+      oprot.writeFieldBegin('is_add', TType.I16, 9)
+      oprot.writeI16(self.is_add)
+      oprot.writeFieldEnd()
+    if self.currency_code is not None:
+      oprot.writeFieldBegin('currency_code', TType.STRING, 10)
+      oprot.writeString(self.currency_code)
+      oprot.writeFieldEnd()
+    if self.is_week_effective is not None:
+      oprot.writeFieldBegin('is_week_effective', TType.I16, 11)
+      oprot.writeI16(self.is_week_effective)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.is_include)
+    value = (value * 31) ^ hash(self.share)
+    value = (value * 31) ^ hash(self.price_default_option)
+    value = (value * 31) ^ hash(self.single_price_default_option)
+    value = (value * 31) ^ hash(self.price)
+    value = (value * 31) ^ hash(self.single_price)
+    value = (value * 31) ^ hash(self.is_add)
+    value = (value * 31) ^ hash(self.currency_code)
+    value = (value * 31) ^ hash(self.is_week_effective)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaVouchInfo:
+  """
+  Attributes:
+   - date_type
+   - start_date
+   - arrive_start_time
+   - arrive_end_time
+   - room_count
+   - vouch_change_rule
+   - cn_description
+   - en_description
+   - is_room_count_vouch
+   - is_arrive_time_vouch
+   - vouch_money_type
+   - is_week_effective
+   - rule_values
+   - endDate
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I16, 'date_type', None, None, ), # 1
+    (2, TType.I64, 'start_date', None, None, ), # 2
+    (3, TType.STRING, 'arrive_start_time', None, None, ), # 3
+    (4, TType.STRING, 'arrive_end_time', None, None, ), # 4
+    (5, TType.I32, 'room_count', None, None, ), # 5
+    (6, TType.I32, 'vouch_change_rule', None, None, ), # 6
+    (7, TType.STRING, 'cn_description', None, None, ), # 7
+    (8, TType.STRING, 'en_description', None, None, ), # 8
+    (9, TType.BOOL, 'is_room_count_vouch', None, None, ), # 9
+    (10, TType.BOOL, 'is_arrive_time_vouch', None, None, ), # 10
+    (11, TType.I32, 'vouch_money_type', None, None, ), # 11
+    (12, TType.I16, 'is_week_effective', None, None, ), # 12
+    (13, TType.MAP, 'rule_values', (TType.STRING,None,TType.STRING,None), None, ), # 13
+    (14, TType.I64, 'endDate', None, None, ), # 14
+  )
+
+  def __init__(self, date_type=None, start_date=None, arrive_start_time=None, arrive_end_time=None, room_count=None, vouch_change_rule=None, cn_description=None, en_description=None, is_room_count_vouch=None, is_arrive_time_vouch=None, vouch_money_type=None, is_week_effective=None, rule_values=None, endDate=None,):
+    self.date_type = date_type
+    self.start_date = start_date
+    self.arrive_start_time = arrive_start_time
+    self.arrive_end_time = arrive_end_time
+    self.room_count = room_count
+    self.vouch_change_rule = vouch_change_rule
+    self.cn_description = cn_description
+    self.en_description = en_description
+    self.is_room_count_vouch = is_room_count_vouch
+    self.is_arrive_time_vouch = is_arrive_time_vouch
+    self.vouch_money_type = vouch_money_type
+    self.is_week_effective = is_week_effective
+    self.rule_values = rule_values
+    self.endDate = endDate
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I16:
+          self.date_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I64:
+          self.start_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.STRING:
+          self.arrive_start_time = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.STRING:
+          self.arrive_end_time = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I32:
+          self.room_count = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I32:
+          self.vouch_change_rule = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.STRING:
+          self.cn_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.STRING:
+          self.en_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.BOOL:
+          self.is_room_count_vouch = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.BOOL:
+          self.is_arrive_time_vouch = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.I32:
+          self.vouch_money_type = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 12:
+        if ftype == TType.I16:
+          self.is_week_effective = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 13:
+        if ftype == TType.MAP:
+          self.rule_values = {}
+          (_ktype973, _vtype974, _size972 ) = iprot.readMapBegin()
+          for _i976 in xrange(_size972):
+            _key977 = iprot.readString()
+            _val978 = iprot.readString()
+            self.rule_values[_key977] = _val978
+          iprot.readMapEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 14:
+        if ftype == TType.I64:
+          self.endDate = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaVouchInfo')
+    if self.date_type is not None:
+      oprot.writeFieldBegin('date_type', TType.I16, 1)
+      oprot.writeI16(self.date_type)
+      oprot.writeFieldEnd()
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I64, 2)
+      oprot.writeI64(self.start_date)
+      oprot.writeFieldEnd()
+    if self.arrive_start_time is not None:
+      oprot.writeFieldBegin('arrive_start_time', TType.STRING, 3)
+      oprot.writeString(self.arrive_start_time)
+      oprot.writeFieldEnd()
+    if self.arrive_end_time is not None:
+      oprot.writeFieldBegin('arrive_end_time', TType.STRING, 4)
+      oprot.writeString(self.arrive_end_time)
+      oprot.writeFieldEnd()
+    if self.room_count is not None:
+      oprot.writeFieldBegin('room_count', TType.I32, 5)
+      oprot.writeI32(self.room_count)
+      oprot.writeFieldEnd()
+    if self.vouch_change_rule is not None:
+      oprot.writeFieldBegin('vouch_change_rule', TType.I32, 6)
+      oprot.writeI32(self.vouch_change_rule)
+      oprot.writeFieldEnd()
+    if self.cn_description is not None:
+      oprot.writeFieldBegin('cn_description', TType.STRING, 7)
+      oprot.writeString(self.cn_description)
+      oprot.writeFieldEnd()
+    if self.en_description is not None:
+      oprot.writeFieldBegin('en_description', TType.STRING, 8)
+      oprot.writeString(self.en_description)
+      oprot.writeFieldEnd()
+    if self.is_room_count_vouch is not None:
+      oprot.writeFieldBegin('is_room_count_vouch', TType.BOOL, 9)
+      oprot.writeBool(self.is_room_count_vouch)
+      oprot.writeFieldEnd()
+    if self.is_arrive_time_vouch is not None:
+      oprot.writeFieldBegin('is_arrive_time_vouch', TType.BOOL, 10)
+      oprot.writeBool(self.is_arrive_time_vouch)
+      oprot.writeFieldEnd()
+    if self.vouch_money_type is not None:
+      oprot.writeFieldBegin('vouch_money_type', TType.I32, 11)
+      oprot.writeI32(self.vouch_money_type)
+      oprot.writeFieldEnd()
+    if self.is_week_effective is not None:
+      oprot.writeFieldBegin('is_week_effective', TType.I16, 12)
+      oprot.writeI16(self.is_week_effective)
+      oprot.writeFieldEnd()
+    if self.rule_values is not None:
+      oprot.writeFieldBegin('rule_values', TType.MAP, 13)
+      oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.rule_values))
+      for kiter979,viter980 in self.rule_values.items():
+        oprot.writeString(kiter979)
+        oprot.writeString(viter980)
+      oprot.writeMapEnd()
+      oprot.writeFieldEnd()
+    if self.endDate is not None:
+      oprot.writeFieldBegin('endDate', TType.I64, 14)
+      oprot.writeI64(self.endDate)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.date_type)
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.arrive_start_time)
+    value = (value * 31) ^ hash(self.arrive_end_time)
+    value = (value * 31) ^ hash(self.room_count)
+    value = (value * 31) ^ hash(self.vouch_change_rule)
+    value = (value * 31) ^ hash(self.cn_description)
+    value = (value * 31) ^ hash(self.en_description)
+    value = (value * 31) ^ hash(self.is_room_count_vouch)
+    value = (value * 31) ^ hash(self.is_arrive_time_vouch)
+    value = (value * 31) ^ hash(self.vouch_money_type)
+    value = (value * 31) ^ hash(self.is_week_effective)
+    value = (value * 31) ^ hash(self.rule_values)
+    value = (value * 31) ^ hash(self.endDate)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaAddValueInfoSimple:
+  """
+  Attributes:
+   - rate_plan_id
+   - is_include
+   - share
+   - add_value_cn_name
+   - add_value_en_name
+   - is_add
+   - single_price
+   - business_code
+   - price_default_option
+   - price
+   - single_price_default_option
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'rate_plan_id', None, None, ), # 1
+    (2, TType.I16, 'is_include', None, None, ), # 2
+    (3, TType.I16, 'share', None, None, ), # 3
+    (4, TType.STRING, 'add_value_cn_name', None, None, ), # 4
+    (5, TType.STRING, 'add_value_en_name', None, None, ), # 5
+    None, # 6
+    None, # 7
+    None, # 8
+    (9, TType.BOOL, 'is_add', None, None, ), # 9
+    (10, TType.DOUBLE, 'single_price', None, None, ), # 10
+    (11, TType.STRING, 'business_code', None, None, ), # 11
+    (12, TType.I32, 'price_default_option', None, None, ), # 12
+    (13, TType.DOUBLE, 'price', None, None, ), # 13
+    (14, TType.I32, 'single_price_default_option', None, None, ), # 14
+  )
+
+  def __init__(self, rate_plan_id=None, is_include=None, share=None, add_value_cn_name=None, add_value_en_name=None, is_add=None, single_price=None, business_code=None, price_default_option=None, price=None, single_price_default_option=None,):
+    self.rate_plan_id = rate_plan_id
+    self.is_include = is_include
+    self.share = share
+    self.add_value_cn_name = add_value_cn_name
+    self.add_value_en_name = add_value_en_name
+    self.is_add = is_add
+    self.single_price = single_price
+    self.business_code = business_code
+    self.price_default_option = price_default_option
+    self.price = price
+    self.single_price_default_option = single_price_default_option
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.rate_plan_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I16:
+          self.is_include = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I16:
+          self.share = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.STRING:
+          self.add_value_cn_name = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.STRING:
+          self.add_value_en_name = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.BOOL:
+          self.is_add = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.DOUBLE:
+          self.single_price = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.STRING:
+          self.business_code = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 12:
+        if ftype == TType.I32:
+          self.price_default_option = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 13:
+        if ftype == TType.DOUBLE:
+          self.price = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 14:
+        if ftype == TType.I32:
+          self.single_price_default_option = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaAddValueInfoSimple')
+    if self.rate_plan_id is not None:
+      oprot.writeFieldBegin('rate_plan_id', TType.I32, 1)
+      oprot.writeI32(self.rate_plan_id)
+      oprot.writeFieldEnd()
+    if self.is_include is not None:
+      oprot.writeFieldBegin('is_include', TType.I16, 2)
+      oprot.writeI16(self.is_include)
+      oprot.writeFieldEnd()
+    if self.share is not None:
+      oprot.writeFieldBegin('share', TType.I16, 3)
+      oprot.writeI16(self.share)
+      oprot.writeFieldEnd()
+    if self.add_value_cn_name is not None:
+      oprot.writeFieldBegin('add_value_cn_name', TType.STRING, 4)
+      oprot.writeString(self.add_value_cn_name)
+      oprot.writeFieldEnd()
+    if self.add_value_en_name is not None:
+      oprot.writeFieldBegin('add_value_en_name', TType.STRING, 5)
+      oprot.writeString(self.add_value_en_name)
+      oprot.writeFieldEnd()
+    if self.is_add is not None:
+      oprot.writeFieldBegin('is_add', TType.BOOL, 9)
+      oprot.writeBool(self.is_add)
+      oprot.writeFieldEnd()
+    if self.single_price is not None:
+      oprot.writeFieldBegin('single_price', TType.DOUBLE, 10)
+      oprot.writeDouble(self.single_price)
+      oprot.writeFieldEnd()
+    if self.business_code is not None:
+      oprot.writeFieldBegin('business_code', TType.STRING, 11)
+      oprot.writeString(self.business_code)
+      oprot.writeFieldEnd()
+    if self.price_default_option is not None:
+      oprot.writeFieldBegin('price_default_option', TType.I32, 12)
+      oprot.writeI32(self.price_default_option)
+      oprot.writeFieldEnd()
+    if self.price is not None:
+      oprot.writeFieldBegin('price', TType.DOUBLE, 13)
+      oprot.writeDouble(self.price)
+      oprot.writeFieldEnd()
+    if self.single_price_default_option is not None:
+      oprot.writeFieldBegin('single_price_default_option', TType.I32, 14)
+      oprot.writeI32(self.single_price_default_option)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.rate_plan_id is None:
+      raise TProtocol.TProtocolException(message='Required field rate_plan_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.rate_plan_id)
+    value = (value * 31) ^ hash(self.is_include)
+    value = (value * 31) ^ hash(self.share)
+    value = (value * 31) ^ hash(self.add_value_cn_name)
+    value = (value * 31) ^ hash(self.add_value_en_name)
+    value = (value * 31) ^ hash(self.is_add)
+    value = (value * 31) ^ hash(self.single_price)
+    value = (value * 31) ^ hash(self.business_code)
+    value = (value * 31) ^ hash(self.price_default_option)
+    value = (value * 31) ^ hash(self.price)
+    value = (value * 31) ^ hash(self.single_price_default_option)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaRatePlanBaseInfo:
+  """
+  Attributes:
+   - rate_plan_id
+   - settlement_type
+   - cn_rate_plan_name
+   - en_rate_plan_name
+   - price_type
+   - is_limit_time_sale
+   - product_type
+   - booking_channel
+   - rate_plan_sell_channel
+   - start_time
+   - end_time
+   - min_advance_booking_days
+   - max_advance_booking_days
+   - min_stay_days
+   - max_stay_days
+   - min_checkin_rooms
+   - customer_level
+   - add_value_policy_list
+   - rate_plan_pre_pay_rule_list
+   - rate_plan_vouch_rule_list
+   - rateplan_relation_add_value
+   - rate_plan_room_type_id
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'rate_plan_id', None, None, ), # 1
+    (2, TType.STRING, 'settlement_type', None, None, ), # 2
+    (3, TType.STRING, 'cn_rate_plan_name', None, None, ), # 3
+    (4, TType.STRING, 'en_rate_plan_name', None, None, ), # 4
+    (5, TType.STRING, 'price_type', None, None, ), # 5
+    (6, TType.I16, 'is_limit_time_sale', None, None, ), # 6
+    (7, TType.STRING, 'product_type', None, None, ), # 7
+    (8, TType.I32, 'booking_channel', None, None, ), # 8
+    (9, TType.I32, 'rate_plan_sell_channel', None, None, ), # 9
+    (10, TType.I64, 'start_time', None, None, ), # 10
+    (11, TType.I64, 'end_time', None, None, ), # 11
+    (12, TType.I32, 'min_advance_booking_days', None, None, ), # 12
+    (13, TType.I32, 'max_advance_booking_days', None, None, ), # 13
+    (14, TType.I32, 'min_stay_days', None, None, ), # 14
+    (15, TType.I32, 'max_stay_days', None, None, ), # 15
+    (16, TType.I32, 'min_checkin_rooms', None, None, ), # 16
+    (17, TType.I32, 'customer_level', None, None, ), # 17
+    (18, TType.LIST, 'add_value_policy_list', (TType.STRUCT,(MetaAddValuePolicyInfo, MetaAddValuePolicyInfo.thrift_spec)), None, ), # 18
+    (19, TType.LIST, 'rate_plan_pre_pay_rule_list', (TType.STRUCT,(MetaPrePayInfo, MetaPrePayInfo.thrift_spec)), None, ), # 19
+    (20, TType.LIST, 'rate_plan_vouch_rule_list', (TType.STRUCT,(MetaVouchInfo, MetaVouchInfo.thrift_spec)), None, ), # 20
+    (21, TType.LIST, 'rateplan_relation_add_value', (TType.STRUCT,(MetaAddValueInfoSimple, MetaAddValueInfoSimple.thrift_spec)), None, ), # 21
+    (22, TType.STRING, 'rate_plan_room_type_id', None, None, ), # 22
+  )
+
+  def __init__(self, rate_plan_id=None, settlement_type=None, cn_rate_plan_name=None, en_rate_plan_name=None, price_type=None, is_limit_time_sale=None, product_type=None, booking_channel=None, rate_plan_sell_channel=None, start_time=None, end_time=None, min_advance_booking_days=None, max_advance_booking_days=None, min_stay_days=None, max_stay_days=None, min_checkin_rooms=None, customer_level=None, add_value_policy_list=None, rate_plan_pre_pay_rule_list=None, rate_plan_vouch_rule_list=None, rateplan_relation_add_value=None, rate_plan_room_type_id=None,):
+    self.rate_plan_id = rate_plan_id
+    self.settlement_type = settlement_type
+    self.cn_rate_plan_name = cn_rate_plan_name
+    self.en_rate_plan_name = en_rate_plan_name
+    self.price_type = price_type
+    self.is_limit_time_sale = is_limit_time_sale
+    self.product_type = product_type
+    self.booking_channel = booking_channel
+    self.rate_plan_sell_channel = rate_plan_sell_channel
+    self.start_time = start_time
+    self.end_time = end_time
+    self.min_advance_booking_days = min_advance_booking_days
+    self.max_advance_booking_days = max_advance_booking_days
+    self.min_stay_days = min_stay_days
+    self.max_stay_days = max_stay_days
+    self.min_checkin_rooms = min_checkin_rooms
+    self.customer_level = customer_level
+    self.add_value_policy_list = add_value_policy_list
+    self.rate_plan_pre_pay_rule_list = rate_plan_pre_pay_rule_list
+    self.rate_plan_vouch_rule_list = rate_plan_vouch_rule_list
+    self.rateplan_relation_add_value = rateplan_relation_add_value
+    self.rate_plan_room_type_id = rate_plan_room_type_id
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.rate_plan_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.STRING:
+          self.settlement_type = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.STRING:
+          self.cn_rate_plan_name = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.STRING:
+          self.en_rate_plan_name = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.STRING:
+          self.price_type = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I16:
+          self.is_limit_time_sale = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.STRING:
+          self.product_type = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.I32:
+          self.booking_channel = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.I32:
+          self.rate_plan_sell_channel = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.I64:
+          self.start_time = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.I64:
+          self.end_time = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 12:
+        if ftype == TType.I32:
+          self.min_advance_booking_days = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 13:
+        if ftype == TType.I32:
+          self.max_advance_booking_days = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 14:
+        if ftype == TType.I32:
+          self.min_stay_days = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 15:
+        if ftype == TType.I32:
+          self.max_stay_days = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 16:
+        if ftype == TType.I32:
+          self.min_checkin_rooms = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 17:
+        if ftype == TType.I32:
+          self.customer_level = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 18:
+        if ftype == TType.LIST:
+          self.add_value_policy_list = []
+          (_etype984, _size981) = iprot.readListBegin()
+          for _i985 in xrange(_size981):
+            _elem986 = MetaAddValuePolicyInfo()
+            _elem986.read(iprot)
+            self.add_value_policy_list.append(_elem986)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 19:
+        if ftype == TType.LIST:
+          self.rate_plan_pre_pay_rule_list = []
+          (_etype990, _size987) = iprot.readListBegin()
+          for _i991 in xrange(_size987):
+            _elem992 = MetaPrePayInfo()
+            _elem992.read(iprot)
+            self.rate_plan_pre_pay_rule_list.append(_elem992)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 20:
+        if ftype == TType.LIST:
+          self.rate_plan_vouch_rule_list = []
+          (_etype996, _size993) = iprot.readListBegin()
+          for _i997 in xrange(_size993):
+            _elem998 = MetaVouchInfo()
+            _elem998.read(iprot)
+            self.rate_plan_vouch_rule_list.append(_elem998)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 21:
+        if ftype == TType.LIST:
+          self.rateplan_relation_add_value = []
+          (_etype1002, _size999) = iprot.readListBegin()
+          for _i1003 in xrange(_size999):
+            _elem1004 = MetaAddValueInfoSimple()
+            _elem1004.read(iprot)
+            self.rateplan_relation_add_value.append(_elem1004)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 22:
+        if ftype == TType.STRING:
+          self.rate_plan_room_type_id = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaRatePlanBaseInfo')
+    if self.rate_plan_id is not None:
+      oprot.writeFieldBegin('rate_plan_id', TType.I32, 1)
+      oprot.writeI32(self.rate_plan_id)
+      oprot.writeFieldEnd()
+    if self.settlement_type is not None:
+      oprot.writeFieldBegin('settlement_type', TType.STRING, 2)
+      oprot.writeString(self.settlement_type)
+      oprot.writeFieldEnd()
+    if self.cn_rate_plan_name is not None:
+      oprot.writeFieldBegin('cn_rate_plan_name', TType.STRING, 3)
+      oprot.writeString(self.cn_rate_plan_name)
+      oprot.writeFieldEnd()
+    if self.en_rate_plan_name is not None:
+      oprot.writeFieldBegin('en_rate_plan_name', TType.STRING, 4)
+      oprot.writeString(self.en_rate_plan_name)
+      oprot.writeFieldEnd()
+    if self.price_type is not None:
+      oprot.writeFieldBegin('price_type', TType.STRING, 5)
+      oprot.writeString(self.price_type)
+      oprot.writeFieldEnd()
+    if self.is_limit_time_sale is not None:
+      oprot.writeFieldBegin('is_limit_time_sale', TType.I16, 6)
+      oprot.writeI16(self.is_limit_time_sale)
+      oprot.writeFieldEnd()
+    if self.product_type is not None:
+      oprot.writeFieldBegin('product_type', TType.STRING, 7)
+      oprot.writeString(self.product_type)
+      oprot.writeFieldEnd()
+    if self.booking_channel is not None:
+      oprot.writeFieldBegin('booking_channel', TType.I32, 8)
+      oprot.writeI32(self.booking_channel)
+      oprot.writeFieldEnd()
+    if self.rate_plan_sell_channel is not None:
+      oprot.writeFieldBegin('rate_plan_sell_channel', TType.I32, 9)
+      oprot.writeI32(self.rate_plan_sell_channel)
+      oprot.writeFieldEnd()
+    if self.start_time is not None:
+      oprot.writeFieldBegin('start_time', TType.I64, 10)
+      oprot.writeI64(self.start_time)
+      oprot.writeFieldEnd()
+    if self.end_time is not None:
+      oprot.writeFieldBegin('end_time', TType.I64, 11)
+      oprot.writeI64(self.end_time)
+      oprot.writeFieldEnd()
+    if self.min_advance_booking_days is not None:
+      oprot.writeFieldBegin('min_advance_booking_days', TType.I32, 12)
+      oprot.writeI32(self.min_advance_booking_days)
+      oprot.writeFieldEnd()
+    if self.max_advance_booking_days is not None:
+      oprot.writeFieldBegin('max_advance_booking_days', TType.I32, 13)
+      oprot.writeI32(self.max_advance_booking_days)
+      oprot.writeFieldEnd()
+    if self.min_stay_days is not None:
+      oprot.writeFieldBegin('min_stay_days', TType.I32, 14)
+      oprot.writeI32(self.min_stay_days)
+      oprot.writeFieldEnd()
+    if self.max_stay_days is not None:
+      oprot.writeFieldBegin('max_stay_days', TType.I32, 15)
+      oprot.writeI32(self.max_stay_days)
+      oprot.writeFieldEnd()
+    if self.min_checkin_rooms is not None:
+      oprot.writeFieldBegin('min_checkin_rooms', TType.I32, 16)
+      oprot.writeI32(self.min_checkin_rooms)
+      oprot.writeFieldEnd()
+    if self.customer_level is not None:
+      oprot.writeFieldBegin('customer_level', TType.I32, 17)
+      oprot.writeI32(self.customer_level)
+      oprot.writeFieldEnd()
+    if self.add_value_policy_list is not None:
+      oprot.writeFieldBegin('add_value_policy_list', TType.LIST, 18)
+      oprot.writeListBegin(TType.STRUCT, len(self.add_value_policy_list))
+      for iter1005 in self.add_value_policy_list:
+        iter1005.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.rate_plan_pre_pay_rule_list is not None:
+      oprot.writeFieldBegin('rate_plan_pre_pay_rule_list', TType.LIST, 19)
+      oprot.writeListBegin(TType.STRUCT, len(self.rate_plan_pre_pay_rule_list))
+      for iter1006 in self.rate_plan_pre_pay_rule_list:
+        iter1006.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.rate_plan_vouch_rule_list is not None:
+      oprot.writeFieldBegin('rate_plan_vouch_rule_list', TType.LIST, 20)
+      oprot.writeListBegin(TType.STRUCT, len(self.rate_plan_vouch_rule_list))
+      for iter1007 in self.rate_plan_vouch_rule_list:
+        iter1007.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.rateplan_relation_add_value is not None:
+      oprot.writeFieldBegin('rateplan_relation_add_value', TType.LIST, 21)
+      oprot.writeListBegin(TType.STRUCT, len(self.rateplan_relation_add_value))
+      for iter1008 in self.rateplan_relation_add_value:
+        iter1008.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.rate_plan_room_type_id is not None:
+      oprot.writeFieldBegin('rate_plan_room_type_id', TType.STRING, 22)
+      oprot.writeString(self.rate_plan_room_type_id)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.rate_plan_id is None:
+      raise TProtocol.TProtocolException(message='Required field rate_plan_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.rate_plan_id)
+    value = (value * 31) ^ hash(self.settlement_type)
+    value = (value * 31) ^ hash(self.cn_rate_plan_name)
+    value = (value * 31) ^ hash(self.en_rate_plan_name)
+    value = (value * 31) ^ hash(self.price_type)
+    value = (value * 31) ^ hash(self.is_limit_time_sale)
+    value = (value * 31) ^ hash(self.product_type)
+    value = (value * 31) ^ hash(self.booking_channel)
+    value = (value * 31) ^ hash(self.rate_plan_sell_channel)
+    value = (value * 31) ^ hash(self.start_time)
+    value = (value * 31) ^ hash(self.end_time)
+    value = (value * 31) ^ hash(self.min_advance_booking_days)
+    value = (value * 31) ^ hash(self.max_advance_booking_days)
+    value = (value * 31) ^ hash(self.min_stay_days)
+    value = (value * 31) ^ hash(self.max_stay_days)
+    value = (value * 31) ^ hash(self.min_checkin_rooms)
+    value = (value * 31) ^ hash(self.customer_level)
+    value = (value * 31) ^ hash(self.add_value_policy_list)
+    value = (value * 31) ^ hash(self.rate_plan_pre_pay_rule_list)
+    value = (value * 31) ^ hash(self.rate_plan_vouch_rule_list)
+    value = (value * 31) ^ hash(self.rateplan_relation_add_value)
+    value = (value * 31) ^ hash(self.rate_plan_room_type_id)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaDRRInfo:
+  """
+  Attributes:
+   - drr_rule
+   - money_or_percent
+   - money_or_percent_value
+   - date_type
+   - cn_description
+   - en_description
+   - start_date
+   - end_date
+   - fee_type
+   - is_week_effective
+   - ruleValues
+   - room_type_ids
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'drr_rule', None, None, ), # 1
+    (2, TType.I32, 'money_or_percent', None, None, ), # 2
+    (3, TType.DOUBLE, 'money_or_percent_value', None, None, ), # 3
+    (4, TType.I16, 'date_type', None, None, ), # 4
+    (5, TType.STRING, 'cn_description', None, None, ), # 5
+    (6, TType.STRING, 'en_description', None, None, ), # 6
+    (7, TType.I64, 'start_date', None, None, ), # 7
+    (8, TType.I64, 'end_date', None, None, ), # 8
+    (9, TType.I16, 'fee_type', None, None, ), # 9
+    (10, TType.I16, 'is_week_effective', None, None, ), # 10
+    (11, TType.MAP, 'ruleValues', (TType.STRING,None,TType.STRING,None), None, ), # 11
+    (12, TType.STRING, 'room_type_ids', None, None, ), # 12
+  )
+
+  def __init__(self, drr_rule=None, money_or_percent=None, money_or_percent_value=None, date_type=None, cn_description=None, en_description=None, start_date=None, end_date=None, fee_type=None, is_week_effective=None, ruleValues=None, room_type_ids=None,):
+    self.drr_rule = drr_rule
+    self.money_or_percent = money_or_percent
+    self.money_or_percent_value = money_or_percent_value
+    self.date_type = date_type
+    self.cn_description = cn_description
+    self.en_description = en_description
+    self.start_date = start_date
+    self.end_date = end_date
+    self.fee_type = fee_type
+    self.is_week_effective = is_week_effective
+    self.ruleValues = ruleValues
+    self.room_type_ids = room_type_ids
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.drr_rule = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.money_or_percent = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.DOUBLE:
+          self.money_or_percent_value = iprot.readDouble()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I16:
+          self.date_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.STRING:
+          self.cn_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.STRING:
+          self.en_description = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.I64:
+          self.start_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.I64:
+          self.end_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.I16:
+          self.fee_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.I16:
+          self.is_week_effective = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 11:
+        if ftype == TType.MAP:
+          self.ruleValues = {}
+          (_ktype1010, _vtype1011, _size1009 ) = iprot.readMapBegin()
+          for _i1013 in xrange(_size1009):
+            _key1014 = iprot.readString()
+            _val1015 = iprot.readString()
+            self.ruleValues[_key1014] = _val1015
+          iprot.readMapEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 12:
+        if ftype == TType.STRING:
+          self.room_type_ids = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaDRRInfo')
+    if self.drr_rule is not None:
+      oprot.writeFieldBegin('drr_rule', TType.I32, 1)
+      oprot.writeI32(self.drr_rule)
+      oprot.writeFieldEnd()
+    if self.money_or_percent is not None:
+      oprot.writeFieldBegin('money_or_percent', TType.I32, 2)
+      oprot.writeI32(self.money_or_percent)
+      oprot.writeFieldEnd()
+    if self.money_or_percent_value is not None:
+      oprot.writeFieldBegin('money_or_percent_value', TType.DOUBLE, 3)
+      oprot.writeDouble(self.money_or_percent_value)
+      oprot.writeFieldEnd()
+    if self.date_type is not None:
+      oprot.writeFieldBegin('date_type', TType.I16, 4)
+      oprot.writeI16(self.date_type)
+      oprot.writeFieldEnd()
+    if self.cn_description is not None:
+      oprot.writeFieldBegin('cn_description', TType.STRING, 5)
+      oprot.writeString(self.cn_description)
+      oprot.writeFieldEnd()
+    if self.en_description is not None:
+      oprot.writeFieldBegin('en_description', TType.STRING, 6)
+      oprot.writeString(self.en_description)
+      oprot.writeFieldEnd()
+    if self.start_date is not None:
+      oprot.writeFieldBegin('start_date', TType.I64, 7)
+      oprot.writeI64(self.start_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I64, 8)
+      oprot.writeI64(self.end_date)
+      oprot.writeFieldEnd()
+    if self.fee_type is not None:
+      oprot.writeFieldBegin('fee_type', TType.I16, 9)
+      oprot.writeI16(self.fee_type)
+      oprot.writeFieldEnd()
+    if self.is_week_effective is not None:
+      oprot.writeFieldBegin('is_week_effective', TType.I16, 10)
+      oprot.writeI16(self.is_week_effective)
+      oprot.writeFieldEnd()
+    if self.ruleValues is not None:
+      oprot.writeFieldBegin('ruleValues', TType.MAP, 11)
+      oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.ruleValues))
+      for kiter1016,viter1017 in self.ruleValues.items():
+        oprot.writeString(kiter1016)
+        oprot.writeString(viter1017)
+      oprot.writeMapEnd()
+      oprot.writeFieldEnd()
+    if self.room_type_ids is not None:
+      oprot.writeFieldBegin('room_type_ids', TType.STRING, 12)
+      oprot.writeString(self.room_type_ids)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.drr_rule is None:
+      raise TProtocol.TProtocolException(message='Required field drr_rule is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.drr_rule)
+    value = (value * 31) ^ hash(self.money_or_percent)
+    value = (value * 31) ^ hash(self.money_or_percent_value)
+    value = (value * 31) ^ hash(self.date_type)
+    value = (value * 31) ^ hash(self.cn_description)
+    value = (value * 31) ^ hash(self.en_description)
+    value = (value * 31) ^ hash(self.start_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.fee_type)
+    value = (value * 31) ^ hash(self.is_week_effective)
+    value = (value * 31) ^ hash(self.ruleValues)
+    value = (value * 31) ^ hash(self.room_type_ids)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaHotelGiftRelationDate:
+  """
+  Attributes:
+   - begin_date
+   - end_date
+   - date_type
+   - bit_sum4_week
+   - hour_type
+   - hour_number
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I64, 'begin_date', None, None, ), # 1
+    (2, TType.I64, 'end_date', None, None, ), # 2
+    (3, TType.I16, 'date_type', None, None, ), # 3
+    (4, TType.I64, 'bit_sum4_week', None, None, ), # 4
+    (5, TType.I32, 'hour_type', None, None, ), # 5
+    (6, TType.I32, 'hour_number', None, None, ), # 6
+  )
+
+  def __init__(self, begin_date=None, end_date=None, date_type=None, bit_sum4_week=None, hour_type=None, hour_number=None,):
+    self.begin_date = begin_date
+    self.end_date = end_date
+    self.date_type = date_type
+    self.bit_sum4_week = bit_sum4_week
+    self.hour_type = hour_type
+    self.hour_number = hour_number
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I64:
+          self.begin_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I64:
+          self.end_date = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.I16:
+          self.date_type = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.I64:
+          self.bit_sum4_week = iprot.readI64()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I32:
+          self.hour_type = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.I32:
+          self.hour_number = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaHotelGiftRelationDate')
+    if self.begin_date is not None:
+      oprot.writeFieldBegin('begin_date', TType.I64, 1)
+      oprot.writeI64(self.begin_date)
+      oprot.writeFieldEnd()
+    if self.end_date is not None:
+      oprot.writeFieldBegin('end_date', TType.I64, 2)
+      oprot.writeI64(self.end_date)
+      oprot.writeFieldEnd()
+    if self.date_type is not None:
+      oprot.writeFieldBegin('date_type', TType.I16, 3)
+      oprot.writeI16(self.date_type)
+      oprot.writeFieldEnd()
+    if self.bit_sum4_week is not None:
+      oprot.writeFieldBegin('bit_sum4_week', TType.I64, 4)
+      oprot.writeI64(self.bit_sum4_week)
+      oprot.writeFieldEnd()
+    if self.hour_type is not None:
+      oprot.writeFieldBegin('hour_type', TType.I32, 5)
+      oprot.writeI32(self.hour_type)
+      oprot.writeFieldEnd()
+    if self.hour_number is not None:
+      oprot.writeFieldBegin('hour_number', TType.I32, 6)
+      oprot.writeI32(self.hour_number)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.begin_date)
+    value = (value * 31) ^ hash(self.end_date)
+    value = (value * 31) ^ hash(self.date_type)
+    value = (value * 31) ^ hash(self.bit_sum4_week)
+    value = (value * 31) ^ hash(self.hour_type)
+    value = (value * 31) ^ hash(self.hour_number)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaHotelGiftModel:
+  """
+  Attributes:
+   - gift_id
+   - status
+   - relation_date_list
+   - is_all_product_related
+   - way_of_giving
+   - gift_content_cn
+   - gift_content_en
+   - gift_types
+   - way_of_giving_other_cn
+   - way_of_giving_other_en
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.I32, 'gift_id', None, None, ), # 1
+    (2, TType.I16, 'status', None, None, ), # 2
+    (3, TType.LIST, 'relation_date_list', (TType.STRUCT,(MetaHotelGiftRelationDate, MetaHotelGiftRelationDate.thrift_spec)), None, ), # 3
+    (4, TType.BOOL, 'is_all_product_related', None, None, ), # 4
+    (5, TType.I32, 'way_of_giving', None, None, ), # 5
+    (6, TType.STRING, 'gift_content_cn', None, None, ), # 6
+    (7, TType.STRING, 'gift_content_en', None, None, ), # 7
+    (8, TType.I32, 'gift_types', None, None, ), # 8
+    (9, TType.STRING, 'way_of_giving_other_cn', None, None, ), # 9
+    (10, TType.STRING, 'way_of_giving_other_en', None, None, ), # 10
+  )
+
+  def __init__(self, gift_id=None, status=None, relation_date_list=None, is_all_product_related=None, way_of_giving=None, gift_content_cn=None, gift_content_en=None, gift_types=None, way_of_giving_other_cn=None, way_of_giving_other_en=None,):
+    self.gift_id = gift_id
+    self.status = status
+    self.relation_date_list = relation_date_list
+    self.is_all_product_related = is_all_product_related
+    self.way_of_giving = way_of_giving
+    self.gift_content_cn = gift_content_cn
+    self.gift_content_en = gift_content_en
+    self.gift_types = gift_types
+    self.way_of_giving_other_cn = way_of_giving_other_cn
+    self.way_of_giving_other_en = way_of_giving_other_en
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.I32:
+          self.gift_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I16:
+          self.status = iprot.readI16()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.LIST:
+          self.relation_date_list = []
+          (_etype1021, _size1018) = iprot.readListBegin()
+          for _i1022 in xrange(_size1018):
+            _elem1023 = MetaHotelGiftRelationDate()
+            _elem1023.read(iprot)
+            self.relation_date_list.append(_elem1023)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.BOOL:
+          self.is_all_product_related = iprot.readBool()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.I32:
+          self.way_of_giving = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 6:
+        if ftype == TType.STRING:
+          self.gift_content_cn = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 7:
+        if ftype == TType.STRING:
+          self.gift_content_en = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 8:
+        if ftype == TType.I32:
+          self.gift_types = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 9:
+        if ftype == TType.STRING:
+          self.way_of_giving_other_cn = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      elif fid == 10:
+        if ftype == TType.STRING:
+          self.way_of_giving_other_en = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaHotelGiftModel')
+    if self.gift_id is not None:
+      oprot.writeFieldBegin('gift_id', TType.I32, 1)
+      oprot.writeI32(self.gift_id)
+      oprot.writeFieldEnd()
+    if self.status is not None:
+      oprot.writeFieldBegin('status', TType.I16, 2)
+      oprot.writeI16(self.status)
+      oprot.writeFieldEnd()
+    if self.relation_date_list is not None:
+      oprot.writeFieldBegin('relation_date_list', TType.LIST, 3)
+      oprot.writeListBegin(TType.STRUCT, len(self.relation_date_list))
+      for iter1024 in self.relation_date_list:
+        iter1024.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.is_all_product_related is not None:
+      oprot.writeFieldBegin('is_all_product_related', TType.BOOL, 4)
+      oprot.writeBool(self.is_all_product_related)
+      oprot.writeFieldEnd()
+    if self.way_of_giving is not None:
+      oprot.writeFieldBegin('way_of_giving', TType.I32, 5)
+      oprot.writeI32(self.way_of_giving)
+      oprot.writeFieldEnd()
+    if self.gift_content_cn is not None:
+      oprot.writeFieldBegin('gift_content_cn', TType.STRING, 6)
+      oprot.writeString(self.gift_content_cn)
+      oprot.writeFieldEnd()
+    if self.gift_content_en is not None:
+      oprot.writeFieldBegin('gift_content_en', TType.STRING, 7)
+      oprot.writeString(self.gift_content_en)
+      oprot.writeFieldEnd()
+    if self.gift_types is not None:
+      oprot.writeFieldBegin('gift_types', TType.I32, 8)
+      oprot.writeI32(self.gift_types)
+      oprot.writeFieldEnd()
+    if self.way_of_giving_other_cn is not None:
+      oprot.writeFieldBegin('way_of_giving_other_cn', TType.STRING, 9)
+      oprot.writeString(self.way_of_giving_other_cn)
+      oprot.writeFieldEnd()
+    if self.way_of_giving_other_en is not None:
+      oprot.writeFieldBegin('way_of_giving_other_en', TType.STRING, 10)
+      oprot.writeString(self.way_of_giving_other_en)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.gift_id is None:
+      raise TProtocol.TProtocolException(message='Required field gift_id is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.gift_id)
+    value = (value * 31) ^ hash(self.status)
+    value = (value * 31) ^ hash(self.relation_date_list)
+    value = (value * 31) ^ hash(self.is_all_product_related)
+    value = (value * 31) ^ hash(self.way_of_giving)
+    value = (value * 31) ^ hash(self.gift_content_cn)
+    value = (value * 31) ^ hash(self.gift_content_en)
+    value = (value * 31) ^ hash(self.gift_types)
+    value = (value * 31) ^ hash(self.way_of_giving_other_cn)
+    value = (value * 31) ^ hash(self.way_of_giving_other_en)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaSHotelBaseRpDrrGift:
+  """
+  Attributes:
+   - hotel_base_info
+   - room_base_infos
+   - ratePlans
+   - drrs
+   - gifts
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.STRUCT, 'hotel_base_info', (MetaHotelInfo, MetaHotelInfo.thrift_spec), None, ), # 1
+    (2, TType.LIST, 'room_base_infos', (TType.STRUCT,(MetaRoomTypeInfo, MetaRoomTypeInfo.thrift_spec)), None, ), # 2
+    (3, TType.LIST, 'ratePlans', (TType.STRUCT,(MetaRatePlanBaseInfo, MetaRatePlanBaseInfo.thrift_spec)), None, ), # 3
+    (4, TType.LIST, 'drrs', (TType.STRUCT,(MetaDRRInfo, MetaDRRInfo.thrift_spec)), None, ), # 4
+    (5, TType.LIST, 'gifts', (TType.STRUCT,(MetaHotelGiftModel, MetaHotelGiftModel.thrift_spec)), None, ), # 5
+  )
+
+  def __init__(self, hotel_base_info=None, room_base_infos=None, ratePlans=None, drrs=None, gifts=None,):
+    self.hotel_base_info = hotel_base_info
+    self.room_base_infos = room_base_infos
+    self.ratePlans = ratePlans
+    self.drrs = drrs
+    self.gifts = gifts
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.STRUCT:
+          self.hotel_base_info = MetaHotelInfo()
+          self.hotel_base_info.read(iprot)
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.LIST:
+          self.room_base_infos = []
+          (_etype1028, _size1025) = iprot.readListBegin()
+          for _i1029 in xrange(_size1025):
+            _elem1030 = MetaRoomTypeInfo()
+            _elem1030.read(iprot)
+            self.room_base_infos.append(_elem1030)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.LIST:
+          self.ratePlans = []
+          (_etype1034, _size1031) = iprot.readListBegin()
+          for _i1035 in xrange(_size1031):
+            _elem1036 = MetaRatePlanBaseInfo()
+            _elem1036.read(iprot)
+            self.ratePlans.append(_elem1036)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.LIST:
+          self.drrs = []
+          (_etype1040, _size1037) = iprot.readListBegin()
+          for _i1041 in xrange(_size1037):
+            _elem1042 = MetaDRRInfo()
+            _elem1042.read(iprot)
+            self.drrs.append(_elem1042)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 5:
+        if ftype == TType.LIST:
+          self.gifts = []
+          (_etype1046, _size1043) = iprot.readListBegin()
+          for _i1047 in xrange(_size1043):
+            _elem1048 = MetaHotelGiftModel()
+            _elem1048.read(iprot)
+            self.gifts.append(_elem1048)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaSHotelBaseRpDrrGift')
+    if self.hotel_base_info is not None:
+      oprot.writeFieldBegin('hotel_base_info', TType.STRUCT, 1)
+      self.hotel_base_info.write(oprot)
+      oprot.writeFieldEnd()
+    if self.room_base_infos is not None:
+      oprot.writeFieldBegin('room_base_infos', TType.LIST, 2)
+      oprot.writeListBegin(TType.STRUCT, len(self.room_base_infos))
+      for iter1049 in self.room_base_infos:
+        iter1049.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.ratePlans is not None:
+      oprot.writeFieldBegin('ratePlans', TType.LIST, 3)
+      oprot.writeListBegin(TType.STRUCT, len(self.ratePlans))
+      for iter1050 in self.ratePlans:
+        iter1050.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.drrs is not None:
+      oprot.writeFieldBegin('drrs', TType.LIST, 4)
+      oprot.writeListBegin(TType.STRUCT, len(self.drrs))
+      for iter1051 in self.drrs:
+        iter1051.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.gifts is not None:
+      oprot.writeFieldBegin('gifts', TType.LIST, 5)
+      oprot.writeListBegin(TType.STRUCT, len(self.gifts))
+      for iter1052 in self.gifts:
+        iter1052.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    if self.hotel_base_info is None:
+      raise TProtocol.TProtocolException(message='Required field hotel_base_info is unset!')
+    if self.room_base_infos is None:
+      raise TProtocol.TProtocolException(message='Required field room_base_infos is unset!')
+    if self.ratePlans is None:
+      raise TProtocol.TProtocolException(message='Required field ratePlans is unset!')
+    if self.drrs is None:
+      raise TProtocol.TProtocolException(message='Required field drrs is unset!')
+    if self.gifts is None:
+      raise TProtocol.TProtocolException(message='Required field gifts is unset!')
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.hotel_base_info)
+    value = (value * 31) ^ hash(self.room_base_infos)
+    value = (value * 31) ^ hash(self.ratePlans)
+    value = (value * 31) ^ hash(self.drrs)
+    value = (value * 31) ^ hash(self.gifts)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class MetaMHotelBaseRpDrrGift:
+  """
+  Attributes:
+   - shotel_detail
+   - mhotel_id
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.LIST, 'shotel_detail', (TType.STRUCT,(MetaSHotelBaseRpDrrGift, MetaSHotelBaseRpDrrGift.thrift_spec)), None, ), # 1
+    (2, TType.I32, 'mhotel_id', None, None, ), # 2
+  )
+
+  def __init__(self, shotel_detail=None, mhotel_id=None,):
+    self.shotel_detail = shotel_detail
+    self.mhotel_id = mhotel_id
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.LIST:
+          self.shotel_detail = []
+          (_etype1056, _size1053) = iprot.readListBegin()
+          for _i1057 in xrange(_size1053):
+            _elem1058 = MetaSHotelBaseRpDrrGift()
+            _elem1058.read(iprot)
+            self.shotel_detail.append(_elem1058)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.mhotel_id = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('MetaMHotelBaseRpDrrGift')
+    if self.shotel_detail is not None:
+      oprot.writeFieldBegin('shotel_detail', TType.LIST, 1)
+      oprot.writeListBegin(TType.STRUCT, len(self.shotel_detail))
+      for iter1059 in self.shotel_detail:
+        iter1059.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.mhotel_id is not None:
+      oprot.writeFieldBegin('mhotel_id', TType.I32, 2)
+      oprot.writeI32(self.mhotel_id)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.shotel_detail)
+    value = (value * 31) ^ hash(self.mhotel_id)
+    return value
+
+  def __repr__(self):
+    L = ['%s=%r' % (key, value)
+      for key, value in self.__dict__.iteritems()]
+    return '%s(%s)' % (self.__class__.__name__, ', '.join(L))
+
+  def __eq__(self, other):
+    return isinstance(other, self.__class__) and self.__dict__ == other.__dict__
+
+  def __ne__(self, other):
+    return not (self == other)
+
+class GetBaseRatePlanDRRGiftResponse:
+  """
+  Attributes:
+   - mhotel_detail
+   - return_code
+   - return_msg
+  """
+
+  thrift_spec = (
+    None, # 0
+    (1, TType.LIST, 'mhotel_detail', (TType.STRUCT,(MetaMHotelBaseRpDrrGift, MetaMHotelBaseRpDrrGift.thrift_spec)), None, ), # 1
+    (2, TType.I32, 'return_code', None, None, ), # 2
+    (3, TType.STRING, 'return_msg', None, None, ), # 3
+  )
+
+  def __init__(self, mhotel_detail=None, return_code=None, return_msg=None,):
+    self.mhotel_detail = mhotel_detail
+    self.return_code = return_code
+    self.return_msg = return_msg
+
+  def read(self, iprot):
+    if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
+      fastbinary.decode_binary(self, iprot.trans, (self.__class__, self.thrift_spec))
+      return
+    iprot.readStructBegin()
+    while True:
+      (fname, ftype, fid) = iprot.readFieldBegin()
+      if ftype == TType.STOP:
+        break
+      if fid == 1:
+        if ftype == TType.LIST:
+          self.mhotel_detail = []
+          (_etype1063, _size1060) = iprot.readListBegin()
+          for _i1064 in xrange(_size1060):
+            _elem1065 = MetaMHotelBaseRpDrrGift()
+            _elem1065.read(iprot)
+            self.mhotel_detail.append(_elem1065)
+          iprot.readListEnd()
+        else:
+          iprot.skip(ftype)
+      elif fid == 2:
+        if ftype == TType.I32:
+          self.return_code = iprot.readI32()
+        else:
+          iprot.skip(ftype)
+      elif fid == 3:
+        if ftype == TType.STRING:
+          self.return_msg = iprot.readString()
+        else:
+          iprot.skip(ftype)
+      else:
+        iprot.skip(ftype)
+      iprot.readFieldEnd()
+    iprot.readStructEnd()
+
+  def write(self, oprot):
+    if oprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and self.thrift_spec is not None and fastbinary is not None:
+      oprot.trans.write(fastbinary.encode_binary(self, (self.__class__, self.thrift_spec)))
+      return
+    oprot.writeStructBegin('GetBaseRatePlanDRRGiftResponse')
+    if self.mhotel_detail is not None:
+      oprot.writeFieldBegin('mhotel_detail', TType.LIST, 1)
+      oprot.writeListBegin(TType.STRUCT, len(self.mhotel_detail))
+      for iter1066 in self.mhotel_detail:
+        iter1066.write(oprot)
+      oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.return_code is not None:
+      oprot.writeFieldBegin('return_code', TType.I32, 2)
+      oprot.writeI32(self.return_code)
+      oprot.writeFieldEnd()
+    if self.return_msg is not None:
+      oprot.writeFieldBegin('return_msg', TType.STRING, 3)
+      oprot.writeString(self.return_msg)
+      oprot.writeFieldEnd()
+    oprot.writeFieldStop()
+    oprot.writeStructEnd()
+
+  def validate(self):
+    return
+
+
+  def __hash__(self):
+    value = 17
+    value = (value * 31) ^ hash(self.mhotel_detail)
+    value = (value * 31) ^ hash(self.return_code)
+    value = (value * 31) ^ hash(self.return_msg)
     return value
 
   def __repr__(self):

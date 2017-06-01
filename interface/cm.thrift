@@ -1,4 +1,4 @@
- // 类型定义文件
+// 类型定义文件
 
 namespace cpp  se
 namespace csharp  se
@@ -899,8 +899,6 @@ struct  HotelAttribute
 32:list<i32> service_filter_ids, // 快筛项服务的筛选：免费取消 . 艺龙直销. 立即确认. 含礼包
 34:optional bool return_price_range_statistic, // 是否返回价格区间统计
 35:optional list<i32> privilege_return_assemble,//特权服务筛选项: 0:闪住, 1:信用住
-36:optional bool return_exclusive_discount_info, // 是否返回专属优惠酒店信息
-37:optional map<i32, i32> exclusive_discount_detail, // 专属优惠额度明细
 38:optional bool return_has_gdgf_hotel,//是否只返回有高定高返的酒店
 }
 
@@ -1290,6 +1288,14 @@ struct UserCreditLiveInfo
 6:optional i32  credit_live_period,//信用住信用通道有效期
 }
 
+//竞价排名相关
+struct BiddingRankInfo{
+   1:i16 pay_type,//支付类型,1.到店付,修改佣金额 2:预付,修改底价,
+   2:i16 caculate_type,//计算类型: 1:减少, 2:增加
+   3:i16 value_type,//值类型: 1:比率, 2:金额,
+   4:double value,//值: 1:比率,单位%, 2:金额, 单位产品币种
+}
+
 struct  ProductAttribute
 {
 1: StayDate stay_date,
@@ -1347,6 +1353,7 @@ struct  ProductAttribute
 109:list<double> promotion_percentage_range, //非常优惠－优惠力度区间 QuickScreenProduct
 110:optional bool return_min_ac_price_simple_product , // 是否返回最低价简单产品信息,搜索排序使用
 111:optional bool return_new_botao_member_product , // 是否返回铂涛新会员产品
+112:optional map<i32,list<BiddingRankInfo>> biddingRanks4Ebk, //key:shotelid, ebk竞价排名相关
 }
 
 struct PriceInterval
@@ -2002,6 +2009,10 @@ struct  Product
 150: optional bool is_dc_product, //是否直连产品
 151: optional double extras, // 信用住、闪住产品杂费
 152:optional i32 resale_product_original_price, // 转让房原产品卖价均价
+153: optional i32 product_yield,//产品产量
+154: optional double product_gains,//产品收益
+155: optional bool has_coupon_enhance,//是否有额外返现
+156: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返
 }
 
 struct  MRoomTypes
@@ -2559,6 +2570,13 @@ struct RecallInfo
 2: optional RecallReason reason,
 }
 
+struct PromotionRange
+{
+    1: optional i32 promotionStatsType,  //优惠统计类型 0-红包 1-返现 2-立减 3-N折
+    2: optional double minPromotion, //最小优惠额
+    3: optional double maxPromotion, //最大优惠额 
+}
+
 //detail相关
 struct  HotelDetail
 {
@@ -2981,11 +2999,4 @@ struct PersonalTraitResult {
     3: optional    i32          weight,
     4: optional    i32          city_id,
     5: optional    i32          method,     //1表示末次算法，2表示频次算法
-}
-
-struct PromotionRange
-{
-    1: optional i32 promotionStatsType,  //优惠统计类型 0-红包 1-返现 2-立减 3-N折
-    2: optional double minPromotion, //最小优惠额
-    3: optional double maxPromotion, //最大优惠额 
 }

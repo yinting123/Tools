@@ -12,8 +12,8 @@ from call_sa import *
 from utils.ds_search_product import *
 
 # HOST = "172.21.27.25"
-HOST = "10.39.18.58"
-# HOST = "192.168.233.17"
+# HOST = "10.39.18.58"
+HOST = "192.168.233.17"
 # HOST = "192.168.233.2"
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.83"
@@ -27,7 +27,7 @@ def multi_process(func,paras,num):
 
 def build_and_send():
     ft = FormatTime()
-    line = open("./utils/logs_beijing").readline()
+    line = open("./data/logs_beijing").readline()
     data = json.loads(line)
     dtc = Json2Object.DictToClass()
     req = dtc.dict_to_object2(data)
@@ -47,13 +47,13 @@ def build_and_send():
     req.customer_attr.booking_date = ft.Today()
 
     results = []
-    for page in xrange(0,1):
+    for page in xrange(0,10):
         print 'page:',page
         req.page_rank_attr.page_index = page
         send = Send.SendMessage(HOST,PORT)
         res = send.process(req)
         if res is not None:
-            print res.total
+            print res.total,res.count
             print res.status.msg
             if res.count > 0:
                 for detail in res.hotels_details:
@@ -61,35 +61,38 @@ def build_and_send():
             else:
                 print 'page',page,'退出'
                 break
-
+    print results
     req.inner_search_type = 4
-    lenght = found = 0
+    lenght = 0
+    found = 0
     while True:
         if len(results) > 0 and len(results) > lenght and found <= 2:
             if lenght+300 > len(results):
                 hotels = results[:len(results)]
             else:
                 hotels = results[lenght,lenght+300]
-            print len(hotels),hotels
+            # print len(hotels),hotels
             lenght += 300
             req.hotel_attr.mhotel_ids = hotels
             resd = send.process(req)
             print resd.total
             if resd.total > 0:
+                if productCount(resd):
+                    found += 1
                 #执行查找操作
                 # if specialProduct(resd, [4,5,6,7]):   #特定产品
-                if productCount(resd):     #产品个数
-                    found += 1
-                # 有addition的酒店
-                # for detail in resd.hotels_details:
-                #     if hasAddition(detail,11):
-                #         found += 1
+                # if productCount(resd):     #产品个数
+                # if derivateProduct(resd,[4,5,6,7]):
+                #     found += 1
+                # if CheckCtripQunarHotel(resd):
+                #     found += 1
+
 
         else:
             break
 
 def get_one_hotel(id,ci,co):
-    line = open("./utils/logs_beijing").readline()
+    line = open("../data/logs_beijing").readline()
     data = json.loads(line)
     dtc = Json2Object.DictToClass()
     req = dtc.dict_to_object2(data)

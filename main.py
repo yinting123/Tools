@@ -1,14 +1,17 @@
-__author__ = 'ting.yin'
 #-*-coding:utf-8 -*-
-
+#/usr/bin/env python
+# __author__ = 'ting.yin'
 # import call_ds
 import os,sys
 import call_dc_app
 import call_sa
 import call_service
 import call_service_CanBook
-import time,datetime
+import time
 import call_ds
+import time
+
+from datetime import datetime
 
 
 # id = int(sys.argv[1])
@@ -90,9 +93,9 @@ hotel_ids = [90000064,101162,2001137,10201019]
 # call_sa.process(40101006,1,2)   ## 北京西苑，闪住信用住
 # call_sa.process(2001137,1,2)   ## 闪住信用住
 
-# call_sa.process(30101023,1,2)  ## 信用住 — 立减、红包立减、红包返现
-
-# call_sa.process(50101002,1,2)
+# call_sa.process(30101023,1,2,4)  ## 信用住 — 立减、红包立减、红包返现
+#
+# call_sa.process(50101012,1,2,4)
 
 # call_sa.process(101338,-1,0)   ## 到店时间（当天订昨天）信用住-红包返现
 # call_sa.process(101338,0,1,4)   ## 到店时间（当天订昨天
@@ -114,27 +117,39 @@ hotel_ids = [90000064,101162,2001137,10201019]
 # call_sa.process(2001137,1,2,4)   ##铂涛测试环境联调
 
 # call_sa.process(90924681,1,2,1)   ##铂涛测试环境联调
+# call_sa.process(91924993,0,1,4)   ##铂涛测试环境联调
 
 # call_service.process(90727029,1,2,4)  ##铂涛新会员测试环境
 
 # call_sa.process(516017,1,2,4) ## 铂涛会员灰度环境数据
 
 
-# call_sa.process(92047490,0,1,4)
-# call_sa.process(91924993,0,1,4)    # 促销精确锚定
-# call_sa.process(90000329,0,1,4)   #90000329   30101023
+# call_service.process(50101002,1,2,4)
+# call_service.process(90021543,0,1,4)
+# call_service.process(101112,1,2,4)
+# call_sa.process(90949966,0,1,4)    # 马甲
+# call_sa.process(91778835,0,1,4)    # 马甲测试酒店 验价格
+# call_sa.process(90931731,0,1,4)    # 促销精确锚定
+# call_service.process(90000745,0,1,4)   #90000329   30101023
 
-# call_sa.process(10101323,1,2,1)  #返现兜底
+# for i in xrange(30):
+#     time.sleep(5)
+#     call_sa.process(91924993,5,6,4)  #返现兜底
+#     print "\033[33m===========================\033[0m"
 #
 
-call_sa.process(10101323,0,7,4)
+# print time.time()
+# call_sa.process(90101033,2,3,4)
+# call_sa.process(90000329,0,1,4)
+# call_sa.process(91778835,2,16,4)
 
 # ———————————————— NB库存接口  ————————————————————
 # print "\033[33m================================\033[0m"
-#
-req = {"mhotelAttr":["10101323"],
-       "start_date":1490284800000,
-       "end_date":1505750400000,
+start_date = int(time.mktime(time.strptime('2017-05-17','%Y-%m-%d')))
+end_date = int(time.mktime(time.strptime('2017-05-18','%Y-%m-%d')))
+req = {"mhotelAttr":["30101023-80101019-1078"],
+       "start_date":start_date*1000,
+       "end_date":end_date*1000,
        "need":True
        }
 # for one in req["mhotelAttr"]:
@@ -149,8 +164,42 @@ req = {"mhotelAttr":["10101323"],
 #             srooms = rs[2].split('|')
 #             print "srooms: ",[int(x) for x in srooms]
 
+# print req
 # nb = call_ds.GetInvForNB()
-nb = call_service.GetInvForNB()
-nb.get_response(req)
+# print type(req)
+# nb = call_service.GetInvForNB()
+# nb.get_response(req)
 # ———————————————— NB库存接口  ————————————————————
+start = int(time.mktime(time.strptime("2017-05-08 10:00:00","%Y-%m-%d %H:%M:%S")))
+# start = int(time.mktime(time.strptime("2017-06-01","%Y-%m-%d")))
+end = int(time.mktime(time.strptime("2017-11-03 10:00:00","%Y-%m-%d %H:%M:%S")))
+# end = int(time.mktime(time.strptime("2017-06-08","%Y-%m-%d")))
+# print start
+# print end
+price = {"hotel_base_price_request":["30101023-90000809",],
+        "payment_type":1,
+        "start_date":start,
+        "end_date":end,
+        "booking_channel":32,
+        "sell_channel":4,
+        "member_level":1,
+        "traceId":24234234
+       }
 
+# nb = call_ds.GetInvForNB()
+# print type(req)
+nb = call_service.GetPriceForNB()
+# nb.get_response(price)
+
+rateplan = {"MetaMhotel":["30101023-90000809"],
+            "payment_type":0,
+            "booking_channel":12,
+            "sell_channel":12,
+            "member_level":15,
+            "traceId":3124
+           }
+nb = call_service.GetRatePlanForNB()
+nb.get_response(rateplan)
+
+# call_sa.process(30101023,7,8,4)
+# call_sa.process(91924993,1,2,4)
