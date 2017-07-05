@@ -351,8 +351,8 @@ def  process(id,CI,CO,type):#page_index):
         req = build_message(id,CI,CO,type)
         # print json.dumps(req,default=lambda o:o.__dict__)
         ret = client.SearchInner((req))
-        print json.dumps(ret,default=lambda o:o.__dict__)
-        # check_v(ret, "SearchInner")
+        # print json.dumps(ret,default=lambda o:o.__dict__)
+        check_v(ret, "SearchInner")
         transport.close()
     except Thrift.TException, tx:
         print "%s" % (tx.message)

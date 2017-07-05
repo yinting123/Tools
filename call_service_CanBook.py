@@ -1,5 +1,6 @@
-__author__ = 'ting.yin'
 #-*-coding:utf-8-*-
+__author__ = 'ting.yin'
+
 
 import os
 import sys,getopt
