@@ -149,6 +149,8 @@ struct VouchInfo
 17:    optional string rule_description_en,  //英文描述  (PolicyBaseInfo表当中的ENGDescription字段)
 18:    optional bool is_arrive_time_vouch, //是否要店时间担保
 19:    optional bool is_room_count_vouch,  //是否房量担保
+20:    optional bool is_none_structure, // 是否为非结构化
+21:    optional string policy_desc, // 规则说明
 }
 
 //预付规则数据使用：
@@ -197,6 +199,8 @@ struct PrePayInfo
 18:    optional string rule_description_cn, //预付规则中文描述
 19:    optional string rule_description_en, //预付规则英文描述
 20:    list<i32> is_week_effective,  //周有效
+21:    optional bool is_none_structure, // 是否为非结构化
+22:    optional string policy_desc, // 规则说明
 }
 
 struct AddBreakfastInfoOfDay
@@ -544,8 +548,9 @@ struct Product
 145: optional i32 product_yield,//产品产量
 146: optional double product_gains,//产品收益
 147: optional bool has_coupon_enhance,//是否有额外返现
-148: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返
+148: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返 3:闪住最低返后价产品
 149: optional i32 coupon_enhance_member_type,//产品的额外返现用的是什么会员类型的策略
+150: optional bool is_shopper_product, // 是否为shopper产品
 }
 
 struct SelectedProduct
@@ -689,7 +694,9 @@ struct ActivityTag
 // flag_type: 1, 铂涛可用红包; 2, 铂涛可返红包;3，Longcuistruct；4，TeJiastruct；5，Danbaostruct；
 // 6，MobileOnlystruct；7，Couponstruct；8，HongBaostruct；9，ZhoubianProduct；10，AllBuyRoomstruct；
 // 11，ManJianstruct；12，Confirmstruct，object只支持2；13，MaxDiscount,object只支持2;14,MemberBenefits,会员优惠标 15,五折
-//16:N折起，最高可省 17:铂涛会员价标签18, 活动打标 19: 钟点房  1019:转让房, 1020:中大网视促销, 1021:闪住, 1022：信用住,1023:微信专享,1024:微信钱包新客专享N折活动标识 1025:铂涛新会员
+//16:N折起，最高可省 17:铂涛会员价标签18, 活动打标 19: 钟点房  1019:转让房, 1020:中大网视促销, 1021:闪住,
+//1022：信用住,1023:微信专享,1024:微信钱包新客专享N折活动标识 1025:铂涛新会员 1026:APP新客登录有礼 1027:含景酒打包产品酒店
+//1028: 含有主动马甲 1029：含有被动马甲  1030：含有返现增强的产品酒店
 struct HotelFlag
 {
  1:    required    i32   flag_type   , // 表示标记类型
@@ -758,6 +765,20 @@ struct PromotionRange
 	3: optional double maxPromotion, //最大优惠额 
 }
 
+struct HotelHongbao
+{
+1:optional i32 recharge_type, // 资产类型（充值类型）
+2:optional string recharge_type_name, // 资产类型名称
+3:optional i32 activity_id, // 红包活动ID
+4:optional string activity_name, // 红包活动名称
+5:optional i32 face_value, // 面值
+6:optional bool status, // 红包活动ID
+7:optional string valid_date, //固定有效期：红包使用的截止日期   动态有效期：红包激活后有效使用天数
+8:optional bool is_regular, // 是否是固定有效期
+9:optional string create_time, // 红包创建时间
+10:optional string bonus_intro,//红包简介
+}
+
 struct MHotelDetail
 {
 1:    required i64 mhotel_id, //mhotel id
@@ -818,6 +839,7 @@ struct MHotelDetail
 57:optional i32 star, // 星级信息
 58:optional bool is_economic, // 是否经济型
 59:optional list<PromotionRange> promotionStats, //酒店促销信息统计(按优惠类型得到酒店底下最小最大优惠金额)
+60:optional list<HotelHongbao> hotelHongbao, // 酒店可领红包列表
 }
 
 struct SimplePromotion
@@ -1596,6 +1618,7 @@ struct MetaProductInfo{
 2: optional i32 rate_plan_id,
 3: optional list<i32> drr_ids,
 4: optional list<i32> gift_ids,
+5: optional i32 invoice_mode,//发票模式
 }
 
 struct MetaRoomTypeInfo

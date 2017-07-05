@@ -649,6 +649,8 @@ struct UserInfo {
     // search id
     19:optional string          session_flow_id,
     20:optional bool            at_current_city,
+    //爬虫标记,-2:黑名单，封禁,-1:白名单，放行,0:正常，放行,1:判定为爬虫，封禁,2:疑似爬虫，前端可弹验证码等
+    21:optional i16            crawled_flag,
 }
 
 // 预定酒店的客人信息
@@ -734,6 +736,7 @@ struct CommonConf
 {
 1: required PromotionGroupRoot promotion_group_root,
 2: optional list<i32> wechat_for_new_user_promotion_ids,//微信新用户专享促销配置
+3: optional map<i32, string> promotion_conf,//促销配置信息 1：app新客登录有礼，促销Id明细 2: 红包优惠券促销id明细
 }
 
 struct DebugPromotion
@@ -891,7 +894,7 @@ struct  HotelAttribute
 25:list<i32> fast_filter_ids, 
 26:list<i32> talent_recommend_ids,
 27:optional bool only_consider_salable, // (最低价计算/酒店打标)是否只考虑可售产品,true：是；false：否（包括售完的）
-28:list<i32> return_assemble, //只看优惠: 0:今日特价  1：可用红包  2:返现  3:五折限购 4:限时抢 5:周边抢 6: 转让房
+28:list<i32> return_assemble, //只看优惠: 0:今日特价  1：可用红包  2:返现  3:五折限购 4:限时抢 5:周边抢 6: 转让房 7: 长住省 8:额外返现 9:红包优惠券(满返或满减红包)
 29:optional i32 return_has_breakfasts_hotel, //返回有早餐酒店，bitmap方式控制。
     //第1位为1返回含单早,第2位为1返回含双早，第3位为1返回含三早及以上。第4位表示不含早  默认情况不进行早餐过滤。
 30:optional bool return_has_xianfu_hotel,
@@ -899,6 +902,8 @@ struct  HotelAttribute
 32:list<i32> service_filter_ids, // 快筛项服务的筛选：免费取消 . 艺龙直销. 立即确认. 含礼包
 34:optional bool return_price_range_statistic, // 是否返回价格区间统计
 35:optional list<i32> privilege_return_assemble,//特权服务筛选项: 0:闪住, 1:信用住
+36:optional bool return_exclusive_discount_info, // 是否返回专属优惠酒店信息
+37:optional map<i32, i32> exclusive_discount_detail, // 专属优惠额度明细
 38:optional bool return_has_gdgf_hotel,//是否只返回有高定高返的酒店
 }
 
@@ -1115,6 +1120,8 @@ struct  CustomerAttribute
 7:optional i32 botao_customer_level,
 8:optional bool use_botao_promotion,
 9:list<GroupInfo> group_info, //集团信息
+
+100:optional i32 member_type,//会员类型：老会员:1,新会员:2,一年以上老会员:4
 }
 
 enum SortingMethod 
@@ -1261,6 +1268,10 @@ struct ProductTypeBlackList
 //13,钟点房 filter_value:1
 //14,闪住 filter_value:1
 //15,信用住 filter_value:1
+//16,担保规则 filter_value: 1，担保。2，非担保。
+//17,含有景酒产品的酒店,filter_value:1
+//18,含有马甲产品的酒店, filter_value 1：主动马甲； 2：被动马甲； 3：马甲
+//19,含有返现增强的酒店，filter_value 1
 //use_or_not 传1表示使用此条件
 //filter_value 要排除的 product_type,
 //exclude_value_array传要过滤的supplierID集合
@@ -1294,6 +1305,24 @@ struct BiddingRankInfo{
    2:i16 caculate_type,//计算类型: 1:减少, 2:增加
    3:i16 value_type,//值类型: 1:比率, 2:金额,
    4:double value,//值: 1:比率,单位%, 2:金额, 单位产品币种
+}
+
+struct ChangedPriceDetail
+{
+1:required i64 date,
+2:optional double sale_price_origin_before_drr,
+3:required double sale_cost_origin,
+4:optional double sale_price_origin_after_drr,
+5:optional double sale_cost_origin_after_drr,
+}
+
+//成单时预付产品重新定价
+struct ChangedPrice4Order
+{
+1: required i32 shotel_id,
+2: required i32 sroom_id,
+3: required i32 rateplan_id,
+4: required list<ChangedPriceDetail> changed_prices,
 }
 
 struct  ProductAttribute
@@ -1333,7 +1362,7 @@ struct  ProductAttribute
 33: list<FilterCondition> filter_conditions, // 过滤条件集合. 1:最小入住天数限制;
 34: optional BookingMenu booking_menu, //预订菜单
 35: optional i32 min_price_excluded_products, //计算最低价时要排除的产品, bitmap存储, 取值与product_type完全相同(默认排除钟点房产品)
-36: list<i32> return_assemble_product, //0:今日特价（尾房）1:五折限购 2:限时抢 3:周边特价 4:转让房
+36: list<i32> return_assemble_product, //0:今日特价（尾房）1:五折限购 2:限时抢 3:周边特价 4:转让房 5:优惠力度 6:长住省 7:额外返现
 37: list<HongbaoRecord> hong_bao_records, //用户红包列表
 38: optional bool is_new_hongbao, //是否千人千价红包方式. true:采用千人千价方式，false:不采用
 40: list<i32> cooperation_type,
@@ -1350,10 +1379,15 @@ struct  ProductAttribute
 106: list<i32> pre_pay_hotel_level_filter,//控制分销使用,预付酒店等级过滤设置
 107: list<i32> cash_pay_hotel_level_filter,//控制分销使用,现付酒店等级过滤设置
 108: optional UserCreditLiveInfo order_by_user_credit_filter,//信用住相关参数过滤
-109:list<double> promotion_percentage_range, //非常优惠－优惠力度区间 QuickScreenProduct
+109:list<double> promotion_percentage_range, //非常优惠－优惠力度区间 QuickScreenu
 110:optional bool return_min_ac_price_simple_product , // 是否返回最低价简单产品信息,搜索排序使用
 111:optional bool return_new_botao_member_product , // 是否返回铂涛新会员产品
 112:optional map<i32,list<BiddingRankInfo>> biddingRanks4Ebk, //key:shotelid, ebk竞价排名相关
+113:optional ChangedPrice4Order changed_prices_for_order,//成单预付产品重新定价
+114:optional bool has_coupon_enhance, // 是否使用返现增强
+115:optional bool return_coupon_enhance,//has_coupon_enhance=true时有效:true返回具体的返现值及打标统计,false:只打标和统计
+116:optional bool hotel_ticket_product_need_promotion, //景酒打包产品是否需要促销
+117:optional bool return_shopper_product, // 是否需要shopper产品
 }
 
 struct PriceInterval
@@ -1389,11 +1423,11 @@ struct  CallerAttribute
 1:optional i64 search_guid,
 2:optional string ip,
 3:optional string channel,
-4:optional i32 SearchFrom,
+4:optional i32 SearchFrom, //0mis,1web.,2mobile,7公寓
 5:optional bool old_filter,
 6:optional i32 request_origin,
 7:optional bool is_inner,
-8:optional i32 searchFromEnd,//搜索来源端,0mis,1PC,2APP,3H5,4微信,5NBApi
+8:optional i32 searchFromEnd,//搜索来源端,0mis,1PC,2APP,3H5,4微信,5NBApi其它;6:B2B,7去哪;8携程;9微信小程序,12公寓
 41:optional i64 search_id,
 42:optional bool is_debug,
 43:optional bool onlydebug,
@@ -1401,6 +1435,7 @@ struct  CallerAttribute
 
 // add by majia
 100:optional string trace_id,
+301:optional i32 app_from,// app端来源,iphone:1,android:2,winphone:3
 }
 
 struct  FilterAttribute                                                                                   
@@ -1662,6 +1697,8 @@ struct  VouchInfo
 17: optional string rule_description_en,
 18: optional bool is_arrive_time_vouch,
 19: optional bool is_room_count_vouch,
+20: optional bool is_none_structure, // 是否为非结构化
+21: optional string policy_desc, // 规则说明
 }
 
 struct  PrePayInfo
@@ -1686,6 +1723,8 @@ struct  PrePayInfo
 18: optional string rule_description_cn,
 19: optional string rule_description_en,
 20: list<i32> is_week_effective,
+21: optional bool is_none_structure, // 是否为非结构化
+22: optional string policy_desc, // 规则说明
 }
 
 struct  AddBreakfastInfoOfDay
@@ -1919,9 +1958,10 @@ struct MinTicketInfo
 struct HotelTicketProduct
 {
 1: list<MinTicketInfo> min_ticket_info, // 最低价门票产品
-2: optional double product_sale_price, // 打包产品价格(原产品均价+最低门票价卖价*最低价门票票数)
+2: optional double product_sale_price, // 打包产品价格(原产品均价 + 最低门票价卖价 * 最低价门票票数 / stayDays)
 3: list<TicketInfo> ticket_infoes, // 门票详细信息 
 4: optional i32 status, // 景酒打包产品状态  1：可售， 0: 不可售
+5: optional double product_sale_price_sub_coupon, // 打包产品价格返后价(原产品返后均价 + 最低门票价卖价 * 最低价门票票数 / stayDays)
 }
 
 struct  Product
@@ -2012,7 +2052,10 @@ struct  Product
 153: optional i32 product_yield,//产品产量
 154: optional double product_gains,//产品收益
 155: optional bool has_coupon_enhance,//是否有额外返现
-156: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返
+156: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返 3:闪住最低返后价产品
+//157 已经被sa使用
+158: optional i32 coupon_enhance_member_type,//产品使用额外返现使用的会员类型
+159: optional bool is_shopper_product, // 是否为shopper产品
 }
 
 struct  MRoomTypes
@@ -2319,6 +2362,7 @@ struct  MHotelInfo
 99:optional ServiceCityLevel service_city_level,
 100:list< RecommendReason> rec_reason,// 推荐理由相关
 101:list< NearByPoiInfo> nearby_poi_info_list,
+200:optional string google_coordinate_system, //google酒店坐标
 }
 struct  RoomAdditionDefine
 {
@@ -2484,7 +2528,8 @@ struct ActivityTag
 // 6，MobileOnlystruct；7，Couponstruct；8，HongBaostruct；9，ZhoubianProduct；10，AllBuyRoomstruct；
 // 11，ManJianstruct；12，Confirmstruct，object只支持2；13，MaxDiscount,object只支持2;14,MemberBenefits,会员优惠标 15,五折
 //16:N折起，最高可省 17:铂涛会员价标签18, 活动打标 19: 钟点房 120:专属优惠标  1019:转让房 1020:中大网视促销, 1021:闪住, 1022：信用住
-//1023:微信专享标识, 1024:微信钱包新客专享N折活动标识 1025:铂涛新会员
+//1023:微信专享标识, 1024:微信钱包新客专享N折活动标识 1025:铂涛新会员 1026:APP新客登录有礼 1027:含景酒打包产品酒店
+//1028: 含有主动马甲 1029：含有被动马甲  1030：含有返现增强的产品酒店 1031:含有长住省的酒店 1032:含有红包优惠券的产品酒店
 struct HotelFlag
 {
 1:required i32 flag_type,
@@ -2577,6 +2622,20 @@ struct PromotionRange
     3: optional double maxPromotion, //最大优惠额 
 }
 
+struct HotelHongbao
+{
+1:optional i32 recharge_type, // 资产类型（充值类型）
+2:optional string recharge_type_name, // 资产类型名称
+3:optional i32 activity_id, // 红包活动ID
+4:optional string activity_name, // 红包活动名称
+5:optional i32 face_value, // 面值
+6:optional bool status, // 红包活动ID
+7:optional string valid_date, //固定有效期：红包使用的截止日期   动态有效期：红包激活后有效使用天数
+8:optional bool is_regular, // 是否是固定有效期
+9:optional string create_time, // 红包创建时间
+10:optional string bonus_intro,//红包简介
+}
+
 //detail相关
 struct  HotelDetail
 {
@@ -2644,6 +2703,7 @@ struct  HotelDetail
 105: list<Inventory> min_price_sub_coupon_inventories, // 返后最低价库存列表
 106: list<Inventory> min_price_inventories, // 最低价产品库存列表
 107:optional list<PromotionRange> promotion_stats, //酒店促销信息统计(按优惠类型得到酒店底下最小最大优惠金额)
+108:optional list<HotelHongbao> hotelHongbao, // 酒店可领红包列表
 }
 
 struct TalentRecommend
@@ -2678,6 +2738,13 @@ struct Statistics
 2:list<StatisticsItem> star,
 3:list<StatisticsItem> facility,
 4:list<StatisticsItem> sheme,
+//0 total-can_book 不可预订酒店数;1 can_book:可预订酒店;2 weifang:有尾房的酒店数,3 has_hongbao:有红包的酒店数
+//4 has_zhoubian 有周边产品的酒店数;5 has_half_discount 有五折产品的酒店数;6 has_allbuyroom_num 有买断房的酒店数
+//7 total total酒店数的酒店数;8 index_total 索引筛选完的酒店数目，即return_no_product开启时的total;9 cut_num 智能截断的截断数字
+//10 max_hotel_filter_num 最大截断数字;11 min_hotel_filter_num 最小截断数字;12 coe_hotel_filter_num	截断系数
+//13 coupon	有返现的酒店数;14 has_timerush_product_num	有限时抢的酒店数;16 flash_live_num 闪住酒店数;17 credit_live_num 信用住酒店数
+//18 ticket_hotel_num 景酒打包酒店数;19 attact_majia_hotel_num 主动马甲酒店数; 20 mbl_majia_hotel_num 被动马甲酒店数; 21 majia_hotel_num 马甲酒店数
+//22 有返现增强的酒店数 23:有长住省的酒店数 24:有红包优惠券的酒店数
 5:list<StatisticsItem> static_count,
 6:optional double booking_rate,
 7:list<StatisticsItem> promotions,

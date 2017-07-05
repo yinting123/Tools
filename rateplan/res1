@@ -1,0 +1,3127 @@
+GetBaseRatePlanDRRGiftRequest(traceId=None, sell_channel=12, member_level=15, mhotel=[MetaMhotel(shotel_id=[30101023, 90000809], mhotel_id=30101023)], payment_type=0, booking_channel=12)
+('HOST:', '192.168.233.17', 'port:', 5400)
+GetBaseRatePlanDRRGiftResponse(return_msg='0538208d-37a2-4f11-85ab-13aebb351204 192.168.233.17 null', return_code=0, mhotel_detail=[MetaMHotelBaseRpDrrGift(shotel_detail=[MetaSHotelBaseRpDrrGift(gifts=[], ratePlans=[MetaRatePlanBaseInfo(rate_plan_id=160146, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts \xef\xbc\x88\xe9\xab\x98\xe8\x80\x83\xe6\x88\xbf\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xef\xbc\x88\xe9\xab\x98\xe8\x80\x83\xe6\x88\xbf\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=20651, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakfast Excluded', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=300607, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=100.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakfast Excluded\xef\xbc\x88\xe9\xa2\x84\xe8\xae\xa2\xe5\x8d\xb3\xe4\xba\xab\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe9\xa2\x84\xe8\xae\xa2\xe5\x8d\xb3\xe4\xba\xab\xef\xbc\x89', end_time=86340000, booking_channel=630, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=93279, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x94\xbf\xe5\xba\x9c\xe7\xa8\x8e', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=1, business_code='06', rate_plan_id=0, single_price_default_option=1, price=11.0, add_value_en_name=''), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=100.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='q', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='2', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe6\x9c\xba+\xe9\x85\x92\xe4\xb8\x93\xe7\x94\xa8\xe4\xbb\xb7\xe6\xa0\xbc', end_time=86340000, booking_channel=630, rate_plan_sell_channel=2614), MetaRatePlanBaseInfo(rate_plan_id=24496, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=1, is_add=True, share=2, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=100.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time='20:00', date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=5, is_arrive_time_vouch=True, is_week_effective=127, is_room_count_vouch=True, rule_values={'DayNum': '2008-8-18', 'VouchMoneyType': '1', 'IsChange': '1', 'ArriveStatTime': '20:00', 'HourNum': '24', 'RoomCount': '5', 'IsArriveTimeVouch': '1', 'IsRoomCountVouch': '1', 'IsTomorrow': '1', 'TimeNum': '18:00', 'ArriveEndTime': '\xe6\xac\xa1\xe6\x97\xa56:00', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=3, arrive_end_time='6:00')], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=44609, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=1, is_add=True, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - Minimum 2-night stay', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time=None, date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=5, is_arrive_time_vouch=False, is_week_effective=127, is_room_count_vouch=True, rule_values={'DayNum': '', 'VouchMoneyType': '1', 'IsChange': '1', 'ArriveStatTime': '', 'HourNum': '24', 'RoomCount': '5', 'IsArriveTimeVouch': '0', 'IsRoomCountVouch': '1', 'IsTomorrow': '0', 'TimeNum': '', 'ArriveEndTime': '', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=3, arrive_end_time=None)], price_type='1', rate_plan_room_type_id='', min_stay_days=2, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe8\xbf\x9e\xe4\xbd\x8f2\xe6\x99\x9a\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=169325, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=720, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - 30-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d30\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=300611, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=100.0, is_include=1, is_add=True, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts \xef\xbc\x88\xe9\xa2\x84\xe8\xae\xa2\xe5\x8d\xb3\xe4\xba\xab\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xef\xbc\x88\xe9\xa2\x84\xe8\xae\xa2\xe5\x8d\xb3\xe4\xba\xab\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=164548, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=24, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - 1-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d1\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=160215, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=72, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - 3-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d3\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=225152, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=48, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - 2-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d2\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=328572, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=1, is_add=True, share=2, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=100.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts\xef\xbc\x88LM\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time='20:00', date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=5, is_arrive_time_vouch=True, is_week_effective=127, is_room_count_vouch=True, rule_values={'DayNum': '2008-8-18', 'VouchMoneyType': '1', 'IsChange': '1', 'ArriveStatTime': '20:00', 'HourNum': '24', 'RoomCount': '5', 'IsArriveTimeVouch': '1', 'IsRoomCountVouch': '1', 'IsTomorrow': '1', 'TimeNum': '18:00', 'ArriveEndTime': '\xe6\xac\xa1\xe6\x97\xa56:00', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=3, arrive_end_time='6:00')], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xef\xbc\x88\xe5\x86\xac\xe5\xad\xa3\xe7\x89\xb9\xe6\x83\xa0\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=403843, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=100.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts \xef\xbc\x88\xe8\xb8\x8f\xe9\x9d\x92\xe4\xbf\x83\xe9\x94\x80\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xef\xbc\x88\xe8\xb8\x8f\xe9\x9d\x92\xe4\xbf\x83\xe9\x94\x80\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=328169, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=3, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='3 Breakfasts \xef\xbc\x88\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa25\xe6\x8a\x98\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='17', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe4\xb8\x89\xe6\x97\xa9\xef\xbc\x88\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa25\xe6\x8a\x98\xef\xbc\x89', end_time=86340000, booking_channel=630, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=96249, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=168, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - 7-day Advance Booking', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d7\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=399728, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=336, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts - 14-day Advance Booking', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d14\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=373435, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts \xef\xbc\x88flash sale\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time='18:00', date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=0, is_arrive_time_vouch=True, is_week_effective=127, is_room_count_vouch=False, rule_values={'DayNum': '2008-8-18', 'VouchMoneyType': '1', 'IsChange': '0', 'ArriveStatTime': '18:00', 'HourNum': '6', 'RoomCount': '0', 'IsArriveTimeVouch': '1', 'IsRoomCountVouch': '0', 'IsTomorrow': '1', 'TimeNum': '18:00', 'ArriveEndTime': '\xe6\xac\xa1\xe6\x97\xa56:00', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=4, arrive_end_time='6:00')], price_type='19', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xef\xbc\x887\xe6\x8a\x98\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa2\xe8\xb4\xad\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=25227, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=1, is_add=True, share=1, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='1 Breakfast', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time='20:00', date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=5, is_arrive_time_vouch=True, is_week_effective=127, is_room_count_vouch=True, rule_values={'DayNum': '2008-8-18', 'VouchMoneyType': '1', 'IsChange': '1', 'ArriveStatTime': '20:00', 'HourNum': '24', 'RoomCount': '5', 'IsArriveTimeVouch': '1', 'IsRoomCountVouch': '1', 'IsTomorrow': '1', 'TimeNum': '18:00', 'ArriveEndTime': '\xe6\xac\xa1\xe6\x97\xa56:00', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=3, arrive_end_time='6:00')], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8d\x95\xe6\x97\xa9', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=224710, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[], min_advance_booking_days=48, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakf.- 2-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d2\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=164547, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=24, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakf.- 1-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d1\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=44604, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakf. Excl. - Minimum 2-night stay', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=2, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe8\xbf\x9e\xe4\xbd\x8f2\xe6\x99\x9a\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=328571, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakfast Excluded\xef\xbc\x88LM\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe5\x86\xac\xe5\xad\xa3\xe7\x89\xb9\xe6\x83\xa0\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=403833, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakfast\xef\xbc\x88\xe8\xb8\x8f\xe9\x9d\x92\xe4\xbf\x83\xe9\x94\x80\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe8\xb8\x8f\xe9\x9d\x92\xe4\xbf\x83\xe9\x94\x80\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=359984, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=168, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakf.- 7-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d7\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=399731, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=336, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakf.- 14-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d14\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=442827, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakfast\xef\xbc\x88\xe4\xba\x94\xe6\x9c\x88\xe7\x89\xb9\xe6\x83\xa0\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe4\xba\x94\xe6\x9c\x88\xe7\x89\xb9\xe6\x83\xa0\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=95804, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x94\xbf\xe5\xba\x9c\xe7\xa8\x8e', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=1, business_code='06', rate_plan_id=0, single_price_default_option=1, price=11.0, add_value_en_name=''), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=100.0, is_include=1, is_add=True, share=2, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=100.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakf.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='2', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9(\xe7\xa7\xaf\xe5\x88\x86)', end_time=86340000, booking_channel=3144, rate_plan_sell_channel=2614), MetaRatePlanBaseInfo(rate_plan_id=91880, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=100.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakfast Excluded1', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time='20:00', date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=5, is_arrive_time_vouch=True, is_week_effective=127, is_room_count_vouch=True, rule_values={'DayNum': '2008-8-18', 'VouchMoneyType': '1', 'IsChange': '1', 'ArriveStatTime': '20:00', 'HourNum': '24', 'RoomCount': '5', 'IsArriveTimeVouch': '1', 'IsRoomCountVouch': '1', 'IsTomorrow': '1', 'TimeNum': '18:00', 'ArriveEndTime': '\xe6\xac\xa1\xe6\x97\xa56:00', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=3, arrive_end_time='6:00')], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe4\xbf\x83\xe9\x94\x80\xe4\xbb\xb7\xef\xbc\x89', end_time=86340000, booking_channel=630, rate_plan_sell_channel=2614), MetaRatePlanBaseInfo(rate_plan_id=169324, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=720, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakf.- 30-day Adv.', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='1', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe6\x8f\x90\xe5\x89\x8d30\xe5\xa4\xa9\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=328167, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='No Breakfast\xef\xbc\x88\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa25\xe6\x8a\x98\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='17', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa25\xe6\x8a\x98\xef\xbc\x89', end_time=86340000, booking_channel=630, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=328168, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=1, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='1 Breakfast \xef\xbc\x88\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa25\xe6\x8a\x98\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='17', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8d\x95\xe6\x97\xa9\xef\xbc\x88\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa25\xe6\x8a\x98\xef\xbc\x89', end_time=86340000, booking_channel=630, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=484298, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='promotion-test', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xbf\x83\xe9\x94\x80\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe9\x94\x9a\xe5\xae\x9a\xe6\xb5\x8b\xe8\xaf\x95', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=484302, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[MetaPrePayInfo(cut_befor_change_time=False, cut_type_after=3, en_description='', target=2, end_date=4102416000000, prepay_change_rule=1, date_type=1, cut_type_befor=3, cn_description='', is_week_effective=127, cut_num_befor=-1.0, rule_values={'HourNum2': '0', 'DeductNumAfter': '-1', 'CashScaleFirstAfter': '3', 'DeductFeesBefore': '0', 'IsChange': '2', 'DeductNumBefore': '-1', 'HourNum': '24', 'DeductFeesAfter': '1', 'CashScaleFirstBefore': '3', 'TimeNum': '18:00', 'DateNum': '', 'Target': '2'}, cut_after_change_time=True, start_date=-2209017600000, cut_num_after=-1.0)], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=1, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=1.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x90\xab\xe5\x8d\x95\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x90\xab\xe5\x8d\x95\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=484303, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=484304, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[MetaPrePayInfo(cut_befor_change_time=False, cut_type_after=3, en_description='', target=2, end_date=4102416000000, prepay_change_rule=1, date_type=1, cut_type_befor=3, cn_description='', is_week_effective=127, cut_num_befor=-1.0, rule_values={'HourNum2': '0', 'DeductNumAfter': '-1', 'CashScaleFirstAfter': '3', 'DeductFeesBefore': '0', 'IsChange': '2', 'DeductNumBefore': '-1', 'HourNum': '24', 'DeductFeesAfter': '1', 'CashScaleFirstBefore': '3', 'TimeNum': '18:00', 'DateNum': '', 'Target': '2'}, cut_after_change_time=True, start_date=-2209017600000, cut_num_after=-1.0)], rateplan_relation_add_value=[], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x90\xab\xe4\xb8\x89\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='32', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x90\xab\xe4\xb8\x89\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=95910, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=100.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakfast Excluded\xef\xbc\x88\xe6\x98\xa5\xe8\x8a\x82\xe7\x89\xb9\xe4\xbb\xb7\xef\xbc\x8c\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa2\xe8\xb4\xad\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xef\xbc\x88\xe6\x98\xa5\xe8\x8a\x82\xe7\x89\xb9\xe4\xbb\xb7\xef\xbc\x8c\xe9\x99\x90\xe6\x97\xb6\xe6\x8a\xa2\xe8\xb4\xad\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2622), MetaRatePlanBaseInfo(rate_plan_id=442829, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=2, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='2 Breakfasts \xef\xbc\x88\xe4\xba\x94\xe6\x9c\x88\xe7\x89\xb9\xe6\x83\xa0\xef\xbc\x89', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe5\x90\xab\xe5\x8f\x8c\xe6\x97\xa9\xef\xbc\x88\xe4\xba\x94\xe6\x9c\x88\xe7\x89\xb9\xe6\x83\xa0\xef\xbc\x89', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566), MetaRatePlanBaseInfo(rate_plan_id=89617, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x9c\x8d\xe5\x8a\xa1\xe8\xb4\xb9', single_price=0.0, is_include=1, is_add=False, share=0, price_default_option=2, business_code='05', rate_plan_id=0, single_price_default_option=1, price=15.0, add_value_en_name='Service Fees'), MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=160.0, is_include=0, is_add=True, share=0, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=0.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='Breakfast Excluded - Minimum 3-night stay', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[MetaVouchInfo(en_description='', arrive_start_time='20:00', date_type=1, endDate=4102416000000, cn_description='', start_date=-2209017600000, room_count=5, is_arrive_time_vouch=True, is_week_effective=127, is_room_count_vouch=True, rule_values={'DayNum': '2008-8-18', 'VouchMoneyType': '1', 'IsChange': '1', 'ArriveStatTime': '20:00', 'HourNum': '24', 'RoomCount': '5', 'IsArriveTimeVouch': '1', 'IsRoomCountVouch': '1', 'IsTomorrow': '1', 'TimeNum': '18:00', 'ArriveEndTime': '\xe6\xac\xa1\xe6\x97\xa56:00', 'Gage': '1'}, vouch_money_type=1, vouch_change_rule=3, arrive_end_time='6:00')], price_type='1', rate_plan_room_type_id='', min_stay_days=3, cn_rate_plan_name='\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9\xe8\xbf\x9e\xe4\xbd\x8f3\xe6\x99\x9a\xe8\xb5\xb7', end_time=86340000, booking_channel=3702, rate_plan_sell_channel=2566)], room_base_infos=[MetaRoomTypeInfo(room_type_id=8, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=16, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1034, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1036, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=10, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=17, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1023, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1031, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1033, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1037, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=160146, product_id=425165, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=100080, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1044, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1046, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1052, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1059, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1088, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=300607, product_id=980387, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=93279, product_id=250867, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1018, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=24496, product_id=384957, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44609, product_id=411002, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=169325, product_id=465741, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300611, product_id=980404, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164548, product_id=445016, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=160215, product_id=425424, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=225152, product_id=682338, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=328572, product_id=1070323, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=403843, product_id=1331196, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=328169, product_id=1068774, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=96249, product_id=1317050, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399728, product_id=1317206, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=373435, product_id=1226564, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1020, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1022, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=100081, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1025, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1029, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1051, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1057, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1060, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1062, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1065, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1069, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1081, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=25227, product_id=100107, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1083, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=109690, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=224710, product_id=680443, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164547, product_id=445119, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44604, product_id=1073639, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300607, product_id=980386, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=328571, product_id=1070322, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=403833, product_id=1331178, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=359984, product_id=1317064, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399731, product_id=1317215, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44609, product_id=1073559, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=442827, product_id=1460913, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1047, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1058, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1071, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1073, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1077, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=95804, product_id=126823, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=224710, product_id=680438, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=100082, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=91880, product_id=107618, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=169324, product_id=465739, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=93279, product_id=115016, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300607, product_id=980384, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44604, product_id=508658, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164547, product_id=445013, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=25227, product_id=182452, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=328167, product_id=1068770, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=328168, product_id=1068772, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=359984, product_id=1317062, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399731, product_id=1317213, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=484298, product_id=1592195, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=484302, product_id=1592199, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=484303, product_id=1592200, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=484304, product_id=1592201, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=442827, product_id=1460912, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1084, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=95910, product_id=127593, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1086, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=11, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1016, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1028, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1030, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1032, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1035, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1039, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=112616, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1053, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1068, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1017, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1024, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1038, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=112615, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1045, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1064, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1066, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1070, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1072, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1075, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1079, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=24496, product_id=214489, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44609, product_id=214490, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=95804, product_id=126824, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=96249, product_id=129317, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=169325, product_id=465740, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=93279, product_id=115017, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300611, product_id=980405, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164548, product_id=445015, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=225152, product_id=682337, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399728, product_id=1317205, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=442829, product_id=1460917, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1040, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1042, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1049, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1078, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=224710, product_id=680439, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=100083, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=91880, product_id=107619, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300607, product_id=980385, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164547, product_id=445014, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=25227, product_id=182453, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=359984, product_id=1317063, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399731, product_id=1317214, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44604, product_id=1073555, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1085, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=136426, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1091, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=24496, product_id=384958, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300611, product_id=980407, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164548, product_id=445019, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44609, product_id=425423, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=160215, product_id=425425, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=225152, product_id=682340, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=96249, product_id=1317051, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399728, product_id=1317207, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=442829, product_id=1460918, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1019, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1041, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1043, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1054, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1056, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1087, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=150070, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1021, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=19919, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1027, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1048, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1050, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1055, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1061, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1063, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1067, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1074, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1076, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=150068, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1080, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=24496, product_id=255528, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44609, product_id=411003, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300611, product_id=980406, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=164548, product_id=445017, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=225152, product_id=682339, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=96249, product_id=1317052, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399728, product_id=1317208, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=442829, product_id=1460919, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=1082, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1089, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1090, hotel_booking_rule_list=[], products=[]), MetaRoomTypeInfo(room_type_id=1092, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=25227, product_id=813367, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=224710, product_id=923095, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=44604, product_id=1082060, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=359984, product_id=1184094, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=89617, product_id=1184115, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=300607, product_id=980388, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=20651, product_id=740809, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=160146, product_id=740877, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=399731, product_id=1317216, gift_ids=[])])], hotel_base_info=MetaHotelInfo(hotel_booking_rule_list=[MetaHotelBookingRule(en_description='Please provide at least 1 guest name for each room booked.', end_date=2885817600000, room_type_id=None, date_type=3, start_hour='00:00:00', end_hour='23:59:00', cn_description='\xe6\x82\xa8\xe9\xa2\x84\xe8\xae\xa2\xe4\xba\x86@6@\xe9\x97\xb4\xe6\x88\xbf\xef\xbc\x8c\xe8\xaf\xb7\xe6\x82\xa8\xe6\x8f\x90\xe4\xbe\x9b\xe4\xb8\x8d\xe5\xb0\x91\xe4\xba\x8e@6@\xe4\xbd\x8d\xe7\x9a\x84\xe5\x85\xa5\xe4\xbd\x8f\xe5\xae\xa2\xe4\xba\xba\xe5\xa7\x93\xe5\x90\x8d', start_date=1307894400000, id=46385)], shotel_id=30101023, week_end_start=5, week_end_end=7), drrs=[]), MetaSHotelBaseRpDrrGift(gifts=[], ratePlans=[MetaRatePlanBaseInfo(rate_plan_id=480901, add_value_policy_list=[MetaAddValuePolicyInfo(single_price=11.0, end_date=4102416000, is_include=1, price=11.0, share=2, price_default_option=1, is_week_effective=119, is_add=0, single_price_default_option=0, start_date=-2209017600, currency_code='RMB')], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='1-\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='1-\xe4\xb8\x8d\xe5\x90\xab\xe6\x97\xa9', end_time=86340000, booking_channel=4086, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=484299, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=1, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=1.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x8d\x95\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x8d\x95\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=484300, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=2, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=1.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x8f\x8c\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='3', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe5\x8f\x8c\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726), MetaRatePlanBaseInfo(rate_plan_id=484301, add_value_policy_list=[], max_advance_booking_days=8760, rate_plan_pre_pay_rule_list=[], rateplan_relation_add_value=[MetaAddValueInfoSimple(add_value_cn_name='\xe6\x97\xa9\xe9\xa4\x90', single_price=0.0, is_include=1, is_add=False, share=3, price_default_option=1, business_code='01', rate_plan_id=0, single_price_default_option=1, price=1.0, add_value_en_name='Breakfast')], min_advance_booking_days=0, max_stay_days=365, is_limit_time_sale=0, en_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe4\xb8\x89\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', start_time=0, settlement_type='1', customer_level=1039, min_checkin_rooms=1, product_type=None, rate_plan_vouch_rule_list=[], price_type='294944', rate_plan_room_type_id='', min_stay_days=1, cn_rate_plan_name='\xe7\xb2\xbe\xe7\xa1\xae\xe9\x94\x9a\xe5\xae\x9a\xe4\xb8\x89\xe6\x97\xa9-\xe9\x9d\x9e\xe5\xb0\x8f\xe6\x97\xb6\xe6\x88\xbf', end_time=86340000, booking_channel=7158, rate_plan_sell_channel=49726)], room_base_infos=[MetaRoomTypeInfo(room_type_id=1, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=480901, product_id=1587526, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=2, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=480901, product_id=1587525, gift_ids=[])]), MetaRoomTypeInfo(room_type_id=3, hotel_booking_rule_list=[], products=[MetaProductInfo(drr_ids=[], rate_plan_id=484299, product_id=1592196, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=484300, product_id=1592197, gift_ids=[]), MetaProductInfo(drr_ids=[], rate_plan_id=484301, product_id=1592198, gift_ids=[])])], hotel_base_info=MetaHotelInfo(hotel_booking_rule_list=[], shotel_id=90000809, week_end_start=5, week_end_end=7), drrs=[])], mhotel_id=30101023)])
+0538208d-37a2-4f11-85ab-13aebb351204 192.168.233.17 null
+[
+  {
+    "shotel_detail": [
+      {
+        "gifts": [], 
+        "ratePlans": [
+          {
+            "rate_plan_id": 160146, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }, 
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts （高考房）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早（高考房）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 20651, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakfast Excluded", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 300607, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 100.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakfast Excluded（预订即享）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（预订即享）", 
+            "end_time": 86340000, 
+            "booking_channel": 630, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 93279, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "政府税", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "06", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 11.0, 
+                "add_value_en_name": ""
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 100.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "q", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "2", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "机+酒专用价格", 
+            "end_time": 86340000, 
+            "booking_channel": 630, 
+            "rate_plan_sell_channel": 2614
+          }, 
+          {
+            "rate_plan_id": 24496, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 1, 
+                "is_add": true, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 100.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": "20:00", 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 5, 
+                "is_arrive_time_vouch": true, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": true, 
+                "rule_values": {
+                  "DayNum": "2008-8-18", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "1", 
+                  "ArriveStatTime": "20:00", 
+                  "HourNum": "24", 
+                  "RoomCount": "5", 
+                  "IsArriveTimeVouch": "1", 
+                  "IsRoomCountVouch": "1", 
+                  "IsTomorrow": "1", 
+                  "TimeNum": "18:00", 
+                  "ArriveEndTime": "次日6:00", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 3, 
+                "arrive_end_time": "6:00"
+              }
+            ], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 44609, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 1, 
+                "is_add": true, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - Minimum 2-night stay", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": null, 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 5, 
+                "is_arrive_time_vouch": false, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": true, 
+                "rule_values": {
+                  "DayNum": "", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "1", 
+                  "ArriveStatTime": "", 
+                  "HourNum": "24", 
+                  "RoomCount": "5", 
+                  "IsArriveTimeVouch": "0", 
+                  "IsRoomCountVouch": "1", 
+                  "IsTomorrow": "0", 
+                  "TimeNum": "", 
+                  "ArriveEndTime": "", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 3, 
+                "arrive_end_time": null
+              }
+            ], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 2, 
+            "cn_rate_plan_name": "含双早连住2晚起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 169325, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 720, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - 30-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早提前30天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 300611, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 100.0, 
+                "is_include": 1, 
+                "is_add": true, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }, 
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts （预订即享）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早（预订即享）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 164548, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 24, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - 1-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早提前1天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 160215, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }, 
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 72, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - 3-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早提前3天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 225152, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 48, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - 2-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早提前2天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 328572, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 1, 
+                "is_add": true, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 100.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts（LM）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": "20:00", 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 5, 
+                "is_arrive_time_vouch": true, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": true, 
+                "rule_values": {
+                  "DayNum": "2008-8-18", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "1", 
+                  "ArriveStatTime": "20:00", 
+                  "HourNum": "24", 
+                  "RoomCount": "5", 
+                  "IsArriveTimeVouch": "1", 
+                  "IsRoomCountVouch": "1", 
+                  "IsTomorrow": "1", 
+                  "TimeNum": "18:00", 
+                  "ArriveEndTime": "次日6:00", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 3, 
+                "arrive_end_time": "6:00"
+              }
+            ], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早（冬季特惠）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 403843, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 100.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts （踏青促销）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早（踏青促销）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 328169, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 3, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "3 Breakfasts （限时抢5折）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "17", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含三早（限时抢5折）", 
+            "end_time": 86340000, 
+            "booking_channel": 630, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 96249, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 168, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - 7-day Advance Booking", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早提前7天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 399728, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }, 
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 336, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts - 14-day Advance Booking", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早提前14天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 373435, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts （flash sale）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": "18:00", 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 0, 
+                "is_arrive_time_vouch": true, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": false, 
+                "rule_values": {
+                  "DayNum": "2008-8-18", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "0", 
+                  "ArriveStatTime": "18:00", 
+                  "HourNum": "6", 
+                  "RoomCount": "0", 
+                  "IsArriveTimeVouch": "1", 
+                  "IsRoomCountVouch": "0", 
+                  "IsTomorrow": "1", 
+                  "TimeNum": "18:00", 
+                  "ArriveEndTime": "次日6:00", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 4, 
+                "arrive_end_time": "6:00"
+              }
+            ], 
+            "price_type": "19", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早（7折限时抢购）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 25227, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 1, 
+                "is_add": true, 
+                "share": 1, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "1 Breakfast", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": "20:00", 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 5, 
+                "is_arrive_time_vouch": true, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": true, 
+                "rule_values": {
+                  "DayNum": "2008-8-18", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "1", 
+                  "ArriveStatTime": "20:00", 
+                  "HourNum": "24", 
+                  "RoomCount": "5", 
+                  "IsArriveTimeVouch": "1", 
+                  "IsRoomCountVouch": "1", 
+                  "IsTomorrow": "1", 
+                  "TimeNum": "18:00", 
+                  "ArriveEndTime": "次日6:00", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 3, 
+                "arrive_end_time": "6:00"
+              }
+            ], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含单早", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 224710, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 48, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakf.- 2-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早提前2天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 164547, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 24, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakf.- 1-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早提前1天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 44604, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakf. Excl. - Minimum 2-night stay", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 2, 
+            "cn_rate_plan_name": "不含早连住2晚起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 328571, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakfast Excluded（LM）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（冬季特惠）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 403833, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakfast（踏青促销）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（踏青促销）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 359984, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 168, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakf.- 7-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早提前7天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 399731, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 336, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakf.- 14-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早提前14天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 442827, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakfast（五月特惠）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（五月特惠）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 95804, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "政府税", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "06", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 11.0, 
+                "add_value_en_name": ""
+              }, 
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 100.0, 
+                "is_include": 1, 
+                "is_add": true, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 100.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakf.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "2", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早(积分)", 
+            "end_time": 86340000, 
+            "booking_channel": 3144, 
+            "rate_plan_sell_channel": 2614
+          }, 
+          {
+            "rate_plan_id": 91880, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 100.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakfast Excluded1", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": "20:00", 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 5, 
+                "is_arrive_time_vouch": true, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": true, 
+                "rule_values": {
+                  "DayNum": "2008-8-18", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "1", 
+                  "ArriveStatTime": "20:00", 
+                  "HourNum": "24", 
+                  "RoomCount": "5", 
+                  "IsArriveTimeVouch": "1", 
+                  "IsRoomCountVouch": "1", 
+                  "IsTomorrow": "1", 
+                  "TimeNum": "18:00", 
+                  "ArriveEndTime": "次日6:00", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 3, 
+                "arrive_end_time": "6:00"
+              }
+            ], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（促销价）", 
+            "end_time": 86340000, 
+            "booking_channel": 630, 
+            "rate_plan_sell_channel": 2614
+          }, 
+          {
+            "rate_plan_id": 169324, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 720, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakf.- 30-day Adv.", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早提前30天起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 328167, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "No Breakfast（限时抢5折）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "17", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（限时抢5折）", 
+            "end_time": 86340000, 
+            "booking_channel": 630, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 328168, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 1, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "1 Breakfast （限时抢5折）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "17", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含单早（限时抢5折）", 
+            "end_time": 86340000, 
+            "booking_channel": 630, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 484298, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "promotion-test", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "促销精确锚定锚定测试", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 484302, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [
+              {
+                "cut_befor_change_time": false, 
+                "cut_type_after": 3, 
+                "en_description": "", 
+                "target": 2, 
+                "end_date": 4102416000000, 
+                "prepay_change_rule": 1, 
+                "date_type": 1, 
+                "cut_type_befor": 3, 
+                "cn_description": "", 
+                "is_week_effective": 127, 
+                "cut_num_befor": -1.0, 
+                "rule_values": {
+                  "HourNum2": "0", 
+                  "DeductNumAfter": "-1", 
+                  "CashScaleFirstAfter": "3", 
+                  "DeductFeesBefore": "0", 
+                  "IsChange": "2", 
+                  "DeductNumBefore": "-1", 
+                  "HourNum": "24", 
+                  "DeductFeesAfter": "1", 
+                  "CashScaleFirstBefore": "3", 
+                  "TimeNum": "18:00", 
+                  "DateNum": "", 
+                  "Target": "2"
+                }, 
+                "cut_after_change_time": true, 
+                "start_date": -2209017600000, 
+                "cut_num_after": -1.0
+              }
+            ], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 1, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 1.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "精确锚定含单早-非小时房", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "精确锚定含单早-非小时房", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 484303, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "精确锚定含双早-非小时房", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "精确锚定含双早-非小时房", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 484304, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [
+              {
+                "cut_befor_change_time": false, 
+                "cut_type_after": 3, 
+                "en_description": "", 
+                "target": 2, 
+                "end_date": 4102416000000, 
+                "prepay_change_rule": 1, 
+                "date_type": 1, 
+                "cut_type_befor": 3, 
+                "cn_description": "", 
+                "is_week_effective": 127, 
+                "cut_num_befor": -1.0, 
+                "rule_values": {
+                  "HourNum2": "0", 
+                  "DeductNumAfter": "-1", 
+                  "CashScaleFirstAfter": "3", 
+                  "DeductFeesBefore": "0", 
+                  "IsChange": "2", 
+                  "DeductNumBefore": "-1", 
+                  "HourNum": "24", 
+                  "DeductFeesAfter": "1", 
+                  "CashScaleFirstBefore": "3", 
+                  "TimeNum": "18:00", 
+                  "DateNum": "", 
+                  "Target": "2"
+                }, 
+                "cut_after_change_time": true, 
+                "start_date": -2209017600000, 
+                "cut_num_after": -1.0
+              }
+            ], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "精确锚定含三早-非小时房", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "32", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "精确锚定含三早-非小时房", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 95910, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 100.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakfast Excluded（春节特价，限时抢购）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "不含早（春节特价，限时抢购）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2622
+          }, 
+          {
+            "rate_plan_id": 442829, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 2, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "2 Breakfasts （五月特惠）", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "含双早（五月特惠）", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }, 
+          {
+            "rate_plan_id": 89617, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "服务费", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 0, 
+                "price_default_option": 2, 
+                "business_code": "05", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 15.0, 
+                "add_value_en_name": "Service Fees"
+              }, 
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 160.0, 
+                "is_include": 0, 
+                "is_add": true, 
+                "share": 0, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 0.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "Breakfast Excluded - Minimum 3-night stay", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [
+              {
+                "en_description": "", 
+                "arrive_start_time": "20:00", 
+                "date_type": 1, 
+                "endDate": 4102416000000, 
+                "cn_description": "", 
+                "start_date": -2209017600000, 
+                "room_count": 5, 
+                "is_arrive_time_vouch": true, 
+                "is_week_effective": 127, 
+                "is_room_count_vouch": true, 
+                "rule_values": {
+                  "DayNum": "2008-8-18", 
+                  "VouchMoneyType": "1", 
+                  "IsChange": "1", 
+                  "ArriveStatTime": "20:00", 
+                  "HourNum": "24", 
+                  "RoomCount": "5", 
+                  "IsArriveTimeVouch": "1", 
+                  "IsRoomCountVouch": "1", 
+                  "IsTomorrow": "1", 
+                  "TimeNum": "18:00", 
+                  "ArriveEndTime": "次日6:00", 
+                  "Gage": "1"
+                }, 
+                "vouch_money_type": 1, 
+                "vouch_change_rule": 3, 
+                "arrive_end_time": "6:00"
+              }
+            ], 
+            "price_type": "1", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 3, 
+            "cn_rate_plan_name": "不含早连住3晚起", 
+            "end_time": 86340000, 
+            "booking_channel": 3702, 
+            "rate_plan_sell_channel": 2566
+          }
+        ], 
+        "room_base_infos": [
+          {
+            "room_type_id": 8, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 16, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1034, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1036, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 10, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 17, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1023, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1031, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1033, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1037, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 160146, 
+                "product_id": 425165, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 100080, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1044, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1046, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1052, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1059, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1088, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300607, 
+                "product_id": 980387, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 93279, 
+                "product_id": 250867, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1018, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 24496, 
+                "product_id": 384957, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44609, 
+                "product_id": 411002, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 169325, 
+                "product_id": 465741, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300611, 
+                "product_id": 980404, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164548, 
+                "product_id": 445016, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 160215, 
+                "product_id": 425424, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 225152, 
+                "product_id": 682338, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 328572, 
+                "product_id": 1070323, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 403843, 
+                "product_id": 1331196, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 328169, 
+                "product_id": 1068774, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 96249, 
+                "product_id": 1317050, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399728, 
+                "product_id": 1317206, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 373435, 
+                "product_id": 1226564, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1020, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1022, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 100081, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1025, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1029, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1051, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1057, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1060, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1062, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1065, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1069, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1081, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 25227, 
+                "product_id": 100107, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1083, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 109690, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 224710, 
+                "product_id": 680443, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164547, 
+                "product_id": 445119, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44604, 
+                "product_id": 1073639, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300607, 
+                "product_id": 980386, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 328571, 
+                "product_id": 1070322, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 403833, 
+                "product_id": 1331178, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 359984, 
+                "product_id": 1317064, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399731, 
+                "product_id": 1317215, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44609, 
+                "product_id": 1073559, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 442827, 
+                "product_id": 1460913, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1047, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1058, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1071, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1073, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1077, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 95804, 
+                "product_id": 126823, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 224710, 
+                "product_id": 680438, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 100082, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 91880, 
+                "product_id": 107618, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 169324, 
+                "product_id": 465739, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 93279, 
+                "product_id": 115016, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300607, 
+                "product_id": 980384, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44604, 
+                "product_id": 508658, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164547, 
+                "product_id": 445013, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 25227, 
+                "product_id": 182452, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 328167, 
+                "product_id": 1068770, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 328168, 
+                "product_id": 1068772, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 359984, 
+                "product_id": 1317062, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399731, 
+                "product_id": 1317213, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484298, 
+                "product_id": 1592195, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484302, 
+                "product_id": 1592199, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484303, 
+                "product_id": 1592200, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484304, 
+                "product_id": 1592201, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 442827, 
+                "product_id": 1460912, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1084, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 95910, 
+                "product_id": 127593, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1086, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 11, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1016, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1028, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1030, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1032, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1035, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1039, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 112616, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1053, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1068, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1017, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1024, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1038, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 112615, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1045, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1064, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1066, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1070, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1072, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1075, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1079, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 24496, 
+                "product_id": 214489, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44609, 
+                "product_id": 214490, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 95804, 
+                "product_id": 126824, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 96249, 
+                "product_id": 129317, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 169325, 
+                "product_id": 465740, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 93279, 
+                "product_id": 115017, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300611, 
+                "product_id": 980405, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164548, 
+                "product_id": 445015, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 225152, 
+                "product_id": 682337, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399728, 
+                "product_id": 1317205, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 442829, 
+                "product_id": 1460917, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1040, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1042, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1049, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1078, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 224710, 
+                "product_id": 680439, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 100083, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 91880, 
+                "product_id": 107619, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300607, 
+                "product_id": 980385, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164547, 
+                "product_id": 445014, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 25227, 
+                "product_id": 182453, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 359984, 
+                "product_id": 1317063, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399731, 
+                "product_id": 1317214, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44604, 
+                "product_id": 1073555, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1085, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 136426, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1091, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 24496, 
+                "product_id": 384958, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300611, 
+                "product_id": 980407, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164548, 
+                "product_id": 445019, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44609, 
+                "product_id": 425423, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 160215, 
+                "product_id": 425425, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 225152, 
+                "product_id": 682340, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 96249, 
+                "product_id": 1317051, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399728, 
+                "product_id": 1317207, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 442829, 
+                "product_id": 1460918, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1019, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1041, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1043, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1054, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1056, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1087, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 150070, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1021, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 19919, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1027, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1048, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1050, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1055, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1061, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1063, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1067, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1074, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1076, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 150068, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1080, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 24496, 
+                "product_id": 255528, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44609, 
+                "product_id": 411003, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300611, 
+                "product_id": 980406, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 164548, 
+                "product_id": 445017, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 225152, 
+                "product_id": 682339, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 96249, 
+                "product_id": 1317052, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399728, 
+                "product_id": 1317208, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 442829, 
+                "product_id": 1460919, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 1082, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1089, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1090, 
+            "hotel_booking_rule_list": [], 
+            "products": []
+          }, 
+          {
+            "room_type_id": 1092, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 25227, 
+                "product_id": 813367, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 224710, 
+                "product_id": 923095, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 44604, 
+                "product_id": 1082060, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 359984, 
+                "product_id": 1184094, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 89617, 
+                "product_id": 1184115, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 300607, 
+                "product_id": 980388, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 20651, 
+                "product_id": 740809, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 160146, 
+                "product_id": 740877, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 399731, 
+                "product_id": 1317216, 
+                "gift_ids": []
+              }
+            ]
+          }
+        ], 
+        "hotel_base_info": {
+          "hotel_booking_rule_list": [
+            {
+              "en_description": "Please provide at least 1 guest name for each room booked.", 
+              "end_date": 2885817600000, 
+              "room_type_id": null, 
+              "date_type": 3, 
+              "start_hour": "00:00:00", 
+              "end_hour": "23:59:00", 
+              "cn_description": "您预订了@6@间房，请您提供不少于@6@位的入住客人姓名", 
+              "start_date": 1307894400000, 
+              "id": 46385
+            }
+          ], 
+          "shotel_id": 30101023, 
+          "week_end_start": 5, 
+          "week_end_end": 7
+        }, 
+        "drrs": []
+      }, 
+      {
+        "gifts": [], 
+        "ratePlans": [
+          {
+            "rate_plan_id": 480901, 
+            "add_value_policy_list": [
+              {
+                "single_price": 11.0, 
+                "end_date": 4102416000, 
+                "is_include": 1, 
+                "price": 11.0, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "is_week_effective": 119, 
+                "is_add": 0, 
+                "single_price_default_option": 0, 
+                "start_date": -2209017600, 
+                "currency_code": "RMB"
+              }
+            ], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "1-不含早", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "1-不含早", 
+            "end_time": 86340000, 
+            "booking_channel": 4086, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 484299, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 1, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 1.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "精确锚定单早-非小时房", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "精确锚定单早-非小时房", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 484300, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 2, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 1.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "精确锚定双早-非小时房", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "3", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "精确锚定双早-非小时房", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }, 
+          {
+            "rate_plan_id": 484301, 
+            "add_value_policy_list": [], 
+            "max_advance_booking_days": 8760, 
+            "rate_plan_pre_pay_rule_list": [], 
+            "rateplan_relation_add_value": [
+              {
+                "add_value_cn_name": "早餐", 
+                "single_price": 0.0, 
+                "is_include": 1, 
+                "is_add": false, 
+                "share": 3, 
+                "price_default_option": 1, 
+                "business_code": "01", 
+                "rate_plan_id": 0, 
+                "single_price_default_option": 1, 
+                "price": 1.0, 
+                "add_value_en_name": "Breakfast"
+              }
+            ], 
+            "min_advance_booking_days": 0, 
+            "max_stay_days": 365, 
+            "is_limit_time_sale": 0, 
+            "en_rate_plan_name": "精确锚定三早-非小时房", 
+            "start_time": 0, 
+            "settlement_type": "1", 
+            "customer_level": 1039, 
+            "min_checkin_rooms": 1, 
+            "product_type": null, 
+            "rate_plan_vouch_rule_list": [], 
+            "price_type": "294944", 
+            "rate_plan_room_type_id": "", 
+            "min_stay_days": 1, 
+            "cn_rate_plan_name": "精确锚定三早-非小时房", 
+            "end_time": 86340000, 
+            "booking_channel": 7158, 
+            "rate_plan_sell_channel": 49726
+          }
+        ], 
+        "room_base_infos": [
+          {
+            "room_type_id": 1, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 480901, 
+                "product_id": 1587526, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 2, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 480901, 
+                "product_id": 1587525, 
+                "gift_ids": []
+              }
+            ]
+          }, 
+          {
+            "room_type_id": 3, 
+            "hotel_booking_rule_list": [], 
+            "products": [
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484299, 
+                "product_id": 1592196, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484300, 
+                "product_id": 1592197, 
+                "gift_ids": []
+              }, 
+              {
+                "drr_ids": [], 
+                "rate_plan_id": 484301, 
+                "product_id": 1592198, 
+                "gift_ids": []
+              }
+            ]
+          }
+        ], 
+        "hotel_base_info": {
+          "hotel_booking_rule_list": [], 
+          "shotel_id": 90000809, 
+          "week_end_start": 5, 
+          "week_end_end": 7
+        }, 
+        "drrs": []
+      }
+    ], 
+    "mhotel_id": 30101023
+  }
+]

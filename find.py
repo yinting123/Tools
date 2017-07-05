@@ -3,13 +3,16 @@
 
 __author__ = 'ting.yin'
 
-import time
+import time,sys
 from utils import Send,Json2Object
 from utils.ds_search_product import *
 from utils.Format_time import FormatTime
 import multiprocessing,json
 from call_sa import *
 from utils.ds_search_product import *
+from ShowResult import *
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 # HOST = "172.21.27.25"
 # HOST = "10.39.18.58"
@@ -31,7 +34,6 @@ def build_and_send():
     data = json.loads(line)
     dtc = Json2Object.DictToClass()
     req = dtc.dict_to_object2(data)
-
     # print json.dumps(req, default=lambda o: o.__dict__)
     # return
     # req = build_message(101,0,1,1)
@@ -52,16 +54,28 @@ def build_and_send():
         req.page_rank_attr.page_index = page
         send = Send.SendMessage(HOST,PORT)
         res = send.process(req)
+        # result = ShowResult(req, res)
+        # result.statics()
+        # return
+
         if res is not None:
             print res.total,res.count
             print res.status.msg
             if res.count > 0:
+                # 统计酒店产品
                 for detail in res.hotels_details:
                     results.append(detail.mhotel_id)
+                    count = 0
+                    if(detail.product_can_be_showed > 3 and count <= 3):
+                        count += 1
+                        print detail.mhotel_id
             else:
                 print 'page',page,'退出'
                 break
     print results
+
+
+
     req.inner_search_type = 4
     lenght = 0
     found = 0
@@ -92,7 +106,7 @@ def build_and_send():
             break
 
 def get_one_hotel(id,ci,co):
-    line = open("../data/logs_beijing").readline()
+    line = open("./data/logs_beijing").readline()
     data = json.loads(line)
     dtc = Json2Object.DictToClass()
     req = dtc.dict_to_object2(data)
@@ -103,16 +117,16 @@ def get_one_hotel(id,ci,co):
     req.customer_attr.booking_date = int(time.time())
     req.product_attr.stay_date.check_in = int(time.time()) + ci * 86400
     req.product_attr.stay_date.check_out = int(time.time()) + co * 86400
-    print json.dumps(req,default=lambda o:o.__dict__)
+    # print json.dumps(req,default=lambda o:o.__dict__)
     res = send.process(req)
-    print res
+    # print res
     result = ShowResult(req,res)
+    # result.statics()
     result.Product()
-
 
 if __name__ == '__main__':
     build_and_send()
-    # get_one_hotel(90987784,0,1)
+    # get_one_hotel(30101023,0,1)
 
 
 

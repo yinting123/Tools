@@ -21,7 +21,7 @@ from ShowResult import *
 # HOST = "10.39.18.58"
 HOST = "192.168.233.17"
 # HOST = "192.168.210.52"
-#  HOST = "192.168.233.83"
+# HOST = "192.168.233.83"
 # HOST = "192.168.233.2"
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.83"
@@ -118,18 +118,24 @@ def build_message(id,CI,CO,type):
     req.product_attr = ProductAttribute()
     #req.product_attr.half_discount_promotion = 3
 
+    req.product_attr.return_shopper_product = True
     # 返回二手房产品
     req.product_attr.return_has_resale_hotel = 1
 
     req.product_attr.cooperation_type = []
+    req.product_attr.promotion_black_list = []
+    black_list = PromotionBlackList()
+    black_list.promotion_type = 1
+    req.product_attr.promotion_black_list.append(black_list)
 
 
-
-
+    #  11：发票模式  12：转让房  13：钟点房  14：闪住  15：信用住
+    #  16：担保    17：景酒  18：马甲   19：返现增强
     # req.hotel_attr.only_consider_salable = False
     req.product_attr.filter_conditions = []
     fc = FilterCondition()
-    fc.type, fc.use_or_not, fc.filter_value, fc.apply_level = 18, 1, 2, 2
+    # fc.type, fc.use_or_not, fc.filter_value, fc.apply_level = 14, 1, 2, 2
+    fc.type, fc.use_or_not, fc.apply_level = 14, 1, 2
     # req.product_attr.filter_conditions.append(fc)
 
 
@@ -255,11 +261,7 @@ def build_message(id,CI,CO,type):
     req.product_attr.has_majia = True
 
 
-    # 促销黑名单
-    req.product_attr.promotion_black_list = []
-    black_list = PromotionBlackList()
-    black_list.promotion_type = 18
-    # req.product_attr.promotion_black_list.append(black_list)
+
 
 
 
@@ -272,16 +274,16 @@ def build_message(id,CI,CO,type):
 
             # 信用住 请求参数
     credit = UserCreditLiveInfo()
-    credit.flash_live_filter = True # False ,True             #闪住
+    credit.flash_live_filter = False # False ,True             #闪住
     credit.credit_live_filter = True           #信用住
     credit.credit_value_live_filter = False #True #False     #是否额度过滤
     credit.user_credit_value = 200               #额度
-    credit.flash_live_period = 3                #闪住通道
-    credit.credit_live_period = 2               #信用住通道
+    credit.flash_live_period = 0                #闪住通道
+    credit.credit_live_period = 30               #信用住通道
     req.product_attr.order_by_user_credit_filter = credit
 
             # 五折 参与相容互斥 ，不参与
-    # req.product_attr.discount_method = 3
+    req.product_attr.discount_method = 3
     req.product_attr.half_discount_promotion = 3
             # 转让房 吐出转让房 不参与®
     req.product_attr.return_has_resale_hotel = 1
@@ -332,7 +334,7 @@ def build_message(id,CI,CO,type):
         # req.hotel_attr.mhotel_ids.append(50101002)
         # req.hotel_attr.mhotel_ids.append(30101023)
 
-    # print type(req)
+    # print (req)
     return req
 
 
@@ -349,7 +351,8 @@ def  process(id,CI,CO,type):#page_index):
         req = build_message(id,CI,CO,type)
         # print json.dumps(req,default=lambda o:o.__dict__)
         ret = client.SearchInner((req))
-        check_v(ret, "SearchInner")
+        print json.dumps(ret,default=lambda o:o.__dict__)
+        # check_v(ret, "SearchInner")
         transport.close()
     except Thrift.TException, tx:
         print "%s" % (tx.message)

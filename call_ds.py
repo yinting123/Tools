@@ -20,7 +20,8 @@ from gen.dynamic_search.ProductSearchService import Client
 # HOST = "10.39.18.58"
 # HOST = "sa-mapi.vip.elong.com"
 # HOST = "192.168.35.30"  #——shard_2
-HOST = "192.168.233.17"
+# HOST = "192.168.233.17"
+HOST = "10.66.3.73"
 # HOST = "192.168.35.30"    #——shard_3
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.2"
@@ -100,11 +101,6 @@ def build_message(id,ci,co,type):
         request.onlymajiadebug = True
         # request.customer_level = 1;
         request.price_sub_coupon = True
-
-        src = "hello"
-        m1 = md5.new()
-        m1.update(src)
-        request.traceId = m1.hexdigest()
 
         request.mhotel_attrs = []
         # for id in hotel_ids:
@@ -223,8 +219,8 @@ def build_message(id,ci,co,type):
         request.request_origin = 3
 
         # 五折
-        #request.half_discount_promotion = True
-        #request.discount_method = 3
+        request.half_discount_promotion = True
+        request.discount_method = 3
         #request.return_has_discount_promotion_hotel = True
         #request.return_discount_hotel = 3
 
@@ -241,7 +237,7 @@ def build_message(id,ci,co,type):
         request.filter_conditions = []
         fc = FilterCondition()
         fc.type,fc.apply_level,fc.use_or_not = 17,2,1
-        request.filter_conditions.append(fc)
+        # request.filter_conditions.append(fc)
 
         # 酒店+产品 过滤
         request.return_noinv_or_noprice_product = True
@@ -262,13 +258,15 @@ def build_message(id,ci,co,type):
 
         # 返回特定产品   景酒打包
         request.return_hotel_ticket_product = True
+
+        # request.order_by_user_credit_filter =
         return request
 
 
 def handle(req,res):
-
+    print json.dumps(res,default=lambda o:o.__dict__)
     result = ShowDSResult(res,req)
-    result.showNormal()
+    # result.showNormal()
     # print "\033[35m----------------\033[0m"
     # result.showDebugInfo()
 
@@ -339,4 +337,4 @@ if __name__ == '__main__':
     # ci = int(sys.argv[2])
     # co = int(sys.argv[3])
     # main(id,ci,co)
-    main(90000064,1,2)
+    main(30101023,1,2,4)

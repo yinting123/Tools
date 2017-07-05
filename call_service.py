@@ -21,11 +21,11 @@ from dsservice.ttypes import *
 from dynamic_search.ttypes import *
 from dsservice.DSServiceProxy import Client
 
-HOST = '192.168.233.17'
+# HOST = '192.168.233.17'
 # HOST = '192.168.233.2'
 # HOST = '192.168.35.17'
 # HOST = '192.168.35.30'
-# HOST = '192.168.233.83'
+HOST = '192.168.233.83'
 # HOST = '192.168.35.17'
 # HOST = '192.168.35.21'
 # HOST = 'goodsservicenb.vip.elong.com'
@@ -180,14 +180,12 @@ class GetRatePlanForNB():
         self.handle(response)
         transport.close()
 
-
     def handle(self, res):
-        print res
-        print res.return_msg
+        # print res
+        # print res.return_msg
         print json.dumps(res.mhotel_detail,default=lambda o:o.__dict__,indent= 2,encoding="utf-8",ensure_ascii=False)
         # result = ShowDSResult(res)
         # result.showPriceForNB()
-
 
 class VerifyPrice():
     """调验价接口进行验价"""
@@ -215,6 +213,7 @@ def build_req(id,CI,CO):
         req_v5.mhotel_id_attr = []
         mhotel_ids = HotelIdAttr()
         mhotel_ids.mhotel_id = id
+        mhotel_ids.attr = 1
         #mhotel_ids1 = HotelIdAttr()
         #mhotel_ids1.mhotel_id = 50101002
         #mhotel_ids2 = HotelIdAttr()

@@ -140,9 +140,11 @@ class ShowResult:
         #     self.result = self.result.response
         for detail in self.result.hotels_details:
             count = 0
+
             print "mhotel_id :",detail.mhotel_id
             print "product_count :",detail.product_count
             print "product_can_be_showed :",detail.product_can_be_showed
+            self.shotel_invoice_info()
             print "==========================="
             print "min_price:",detail.min_price
             print "min_price_rp:",detail.min_price_rpid
@@ -192,6 +194,7 @@ class ShowResult:
                             print "         sell_channel:",product.rateplan.sell_channel
                             print "         customer_level:",product.rateplan.customer_level
                             print "         cooperation_type:",product.cooperation_type
+                            self.hasAddition(product.rateplan,8)
                             self.credictProduct(product)
 
                             print "         inv-status: ", ip_status[product.room_num_status]
@@ -440,7 +443,7 @@ class ShowResult:
         for addition in rp.additions:
             if addition.addition_id == id:
                 print '\033[33m             ----  Addition  ----\033[0m'
-                print 'id: ',addition.addition_id
+                print '                     id: ',addition.addition_id
                 if id == 11:
                     print '                     value: ',addition.addition_value_str
                 else:
@@ -467,10 +470,11 @@ class ShowResult:
 
     def shotel_invoice_info(self):
         for detail in self.result.hotels_details:
+            print '     \033[35m ****\033[0m' * 10
             for invoice in detail.shotel_invoice_info:
-                print 'shotel_id: ',invoice.shotel_id
-                print 'type: ',invoice.type
-            print '\033[35m ****\033[0m'*10
+                print '     shotel_id: ',invoice.shotel_id
+                print '     type: ',invoice.type
+            print '     \033[35m ****\033[0m'*10
 
     def IsHourTimeRoom(self,rp):
         if  rp.product_type & 32:
@@ -591,7 +595,7 @@ class ShowResult:
         static = self.result.statistics
         # print static
         # print statics.keys()
-        print static
+        # print static
         # return
         for item in static.static_count:
             if item.id in statics.keys():
@@ -605,7 +609,6 @@ class ShowResult:
         print "flag_type     effective      uplimit"
         if self.result.hotels_details[0].hotel_flag:
             for hotel_flag in self.result.hotels_details[0].hotel_flag :
-
                 if hotel_flag.effective == True:
                     show.append((hotel_flag.flag_type,hotel_flag.effective,hotel_flag.upper_limit))
                     type = hotel_flag.flag_type

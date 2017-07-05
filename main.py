@@ -191,7 +191,7 @@ price = {"hotel_base_price_request":["30101023-90000809",],
 nb = call_service.GetPriceForNB()
 # nb.get_response(price)
 
-rateplan = {"MetaMhotel":["30101023-90000809"],
+rateplan = {"MetaMhotel":["90000064-90000822"],
             "payment_type":0,
             "booking_channel":12,
             "sell_channel":12,
@@ -199,7 +199,10 @@ rateplan = {"MetaMhotel":["30101023-90000809"],
             "traceId":3124
            }
 nb = call_service.GetRatePlanForNB()
-nb.get_response(rateplan)
+# nb.get_response(rateplan)
 
-# call_sa.process(30101023,7,8,4)
+# call_sa.process(50401025,1,2,4)
+call_sa.process(30101023,1,2,4)
+# call_service.process(40101022,1,2,4)
+# call_service.process(90000064,1,2,4)
 # call_sa.process(91924993,1,2,4)
