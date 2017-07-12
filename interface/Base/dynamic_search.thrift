@@ -548,7 +548,9 @@ struct Product
 145: optional i32 product_yield,//产品产量
 146: optional double product_gains,//产品收益
 147: optional bool has_coupon_enhance,//是否有额外返现
-148: optional i32 product_flag,//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返 3:闪住最低返后价产品
+//二进制位表示(从0开始数):0 被动马甲，1 主动马甲 2 高定高返 3:闪住最低返后价产品 4:转让房,最大优惠产品 5:N折促销,最大优惠产品 6:会员优惠, 最大优惠产品
+//7:今日特价,最大优惠产品 8:返现:最大优惠产品 9:红包促销:最大优惠产品 10:红包优惠券:最大优惠产品
+148: optional i32 product_flag,
 149: optional i32 coupon_enhance_member_type,//产品的额外返现用的是什么会员类型的策略
 150: optional bool is_shopper_product, // 是否为shopper产品
 }
@@ -710,6 +712,7 @@ struct HotelFlag
  9:    optional    double  low_discount_rate,//N折起
  10:   optional    i32   high_sub,//最高可省
  11:	list<ActivityTag> activity_tags,//活动打标
+ 12:   optional    i32
 }
 
 //定制输出产品信息
@@ -769,7 +772,7 @@ struct HotelHongbao
 {
 1:optional i32 recharge_type, // 资产类型（充值类型）
 2:optional string recharge_type_name, // 资产类型名称
-3:optional i32 activity_id, // 红包活动ID
+3:optional i32 activity_id, // 红包活动ID 
 4:optional string activity_name, // 红包活动名称
 5:optional i32 face_value, // 面值
 6:optional bool status, // 红包活动ID
@@ -840,6 +843,7 @@ struct MHotelDetail
 58:optional bool is_economic, // 是否经济型
 59:optional list<PromotionRange> promotionStats, //酒店促销信息统计(按优惠类型得到酒店底下最小最大优惠金额)
 60:optional list<HotelHongbao> hotelHongbao, // 酒店可领红包列表
+61:optional map<i16,bool> max_discounts,
 }
 
 struct SimplePromotion

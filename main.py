@@ -203,6 +203,6 @@ nb = call_service.GetRatePlanForNB()
 
 # call_sa.process(50401025,1,2,4)
 call_sa.process(30101023,1,2,4)
-# call_service.process(40101022,1,2,4)
+# call_service.process(50401025,17,18,4)
 # call_service.process(90000064,1,2,4)
 # call_sa.process(91924993,1,2,4)

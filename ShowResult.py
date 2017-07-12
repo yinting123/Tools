@@ -32,7 +32,6 @@ statics = {1:"可定",2:"尾房",3:"红包",4:"周边",5:"五折",6:"买断",7:"
            }
 
 
-
 class ShowResult:
 
     result = ''
@@ -194,6 +193,7 @@ class ShowResult:
                             print "         sell_channel:",product.rateplan.sell_channel
                             print "         customer_level:",product.rateplan.customer_level
                             print "         cooperation_type:",product.cooperation_type
+                            print "         shopper产品:",product.is_shopper_product
                             self.hasAddition(product.rateplan,8)
                             self.credictProduct(product)
 
@@ -603,43 +603,16 @@ class ShowResult:
 
     def hotelFlag(self):
             #打标
-        show = []
-        dict = {}
         print "\033[35m*******hotel_flag*******\033[0m"
-        print "flag_type     effective      uplimit"
+        print "name             flag_type        effective      uplimit     high_sub"
         if self.result.hotels_details[0].hotel_flag:
             for hotel_flag in self.result.hotels_details[0].hotel_flag :
                 if hotel_flag.effective == True:
-                    show.append((hotel_flag.flag_type,hotel_flag.effective,hotel_flag.upper_limit))
-                    type = hotel_flag.flag_type
-
-                    if type == 1 or type ==2:
-                        print "铂涛红包"
-
-                    elif type == 7:
-                        print "coupon"
-                    elif type == 8:
-                        print "红包"
-                    elif type == 11:
-                        print "满减"
-                    elif type == 13:
-                        print "最大折扣"
-                    elif type == 14:
-                        print "会员优惠"
-                    elif type == 15:
-                        print "折扣率"
-                    elif type == 16:
-                        print "最低价最多可省"
-                    elif type == 17:
-                        print "铂涛会员价"
-                    elif type ==18:
-                        print "活动打标"
-                        print "length = ",len(hotel_flag.activity_tags)
-                    # else:
-                    #     print
-                        # print hotel_flag
-        for i in range(len(show)):
-            print "%-15s%-15s%-10s"%(show[i][0],show[i][1],show[i][2])
+                    print "%-22s%-18s%-18s%-10s%-10s"%(hotelFlag[hotel_flag.flag_type],
+                                                     hotel_flag.flag_type,hotel_flag.effective,
+                                                     hotel_flag.upper_limit,hotel_flag.high_sub)
+        # for i in range(len(show)):
+        #     print "%-15s%-15s%-10s"%(show[i][0],show[i][1],show[i][2])
 
     def DebugPromotion(self):
         for d_detail in self.result.debug_response:

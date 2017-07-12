@@ -427,6 +427,7 @@ def build_req(id,CI,CO):
 def  process(id,CI,CO,type):
     try:
         socket = TSocket.TSocket(HOST, PORT)
+        print HOST,PORT
         transport = TTransport.TFramedTransport(socket)
         protocol = TCompactProtocol.TCompactProtocol(transport)
         client = Client(protocol)
@@ -435,6 +436,7 @@ def  process(id,CI,CO,type):
         req = build_message(id,CI,CO,type)
         # req.inner_search_type = 4
         # print "request:\n",req
+        print req.inner_search_type
         ret = client.SearchInner2(req, req_v5)
         check_v(ret)
         transport.close()

@@ -9151,6 +9151,7 @@ class MHotelDetail:
    - is_economic
    - promotionStats
    - hotelHongbao
+   - max_discounts
   """
 
   thrift_spec = (
@@ -9215,9 +9216,10 @@ class MHotelDetail:
     (58, TType.BOOL, 'is_economic', None, None, ), # 58
     (59, TType.LIST, 'promotionStats', (TType.STRUCT,(PromotionRange, PromotionRange.thrift_spec)), None, ), # 59
     (60, TType.LIST, 'hotelHongbao', (TType.STRUCT,(HotelHongbao, HotelHongbao.thrift_spec)), None, ), # 60
+    (61, TType.MAP, 'max_discounts', (TType.I16,None,TType.BOOL,None), None, ), # 61
   )
 
-  def __init__(self, mhotel_id=None, has_drr=None, longcui_info=None, weifang_info=None, has_tuan=None, inventory_type=None, min_price=None, min_price_rpid=None, min_price_roomtypeid=None, need_guarantee=None, product_count=None, product_can_be_showed=None, promotion_type_count=None, room_types=None, shotel_helpfultips=None, shotel_booking_rules=None, shotel_invoice_info=None, mobileonly_struct=None, has_yufu=None, product_count_reason=None, coupon_struct=None, hongbao_struct=None, has_timerush_product=None, min_price_pro_relation_price=None, mroom_count=None, is_hotel_inventory_full=None, min_price_mroomtypeid=None, zhoubian_struct=None, has_buy5send1_promotion=None, has_halfdiscount_promotion=None, min_price_sub_coupon=None, min_price_sub_coupon_rpid=None, min_price_sub_coupon_roomtypeid=None, min_price_sub_coupon_mroomtypeid=None, firstnight_has_discount=None, has_danbao_product=None, allbuyroom_struct=None, promotion_count=None, manjian_struct=None, min_price_sub_coupon_origin=None, confirm_struct=None, hotel_flag=None, has_moremember_products=None, cp_info=None, incidental_price_info=None, statistics_info=None, hotel_service_status=None, min_price_sale_cost=None, min_price_sub_coupon_sale_cost=None, min_weifang_price=None, hours_room_min_price_cansale=None, simple_mrooms=None, min_price_inventories=None, min_price_sub_coupon_inventories=None, star_type=None, star=None, is_economic=None, promotionStats=None, hotelHongbao=None,):
+  def __init__(self, mhotel_id=None, has_drr=None, longcui_info=None, weifang_info=None, has_tuan=None, inventory_type=None, min_price=None, min_price_rpid=None, min_price_roomtypeid=None, need_guarantee=None, product_count=None, product_can_be_showed=None, promotion_type_count=None, room_types=None, shotel_helpfultips=None, shotel_booking_rules=None, shotel_invoice_info=None, mobileonly_struct=None, has_yufu=None, product_count_reason=None, coupon_struct=None, hongbao_struct=None, has_timerush_product=None, min_price_pro_relation_price=None, mroom_count=None, is_hotel_inventory_full=None, min_price_mroomtypeid=None, zhoubian_struct=None, has_buy5send1_promotion=None, has_halfdiscount_promotion=None, min_price_sub_coupon=None, min_price_sub_coupon_rpid=None, min_price_sub_coupon_roomtypeid=None, min_price_sub_coupon_mroomtypeid=None, firstnight_has_discount=None, has_danbao_product=None, allbuyroom_struct=None, promotion_count=None, manjian_struct=None, min_price_sub_coupon_origin=None, confirm_struct=None, hotel_flag=None, has_moremember_products=None, cp_info=None, incidental_price_info=None, statistics_info=None, hotel_service_status=None, min_price_sale_cost=None, min_price_sub_coupon_sale_cost=None, min_weifang_price=None, hours_room_min_price_cansale=None, simple_mrooms=None, min_price_inventories=None, min_price_sub_coupon_inventories=None, star_type=None, star=None, is_economic=None, promotionStats=None, hotelHongbao=None, max_discounts=None,):
     self.mhotel_id = mhotel_id
     self.has_drr = has_drr
     self.longcui_info = longcui_info
@@ -9277,6 +9279,7 @@ class MHotelDetail:
     self.is_economic = is_economic
     self.promotionStats = promotionStats
     self.hotelHongbao = hotelHongbao
+    self.max_discounts = max_discounts
 
   def read(self, iprot):
     if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
@@ -9671,6 +9674,17 @@ class MHotelDetail:
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
+      elif fid == 61:
+        if ftype == TType.MAP:
+          self.max_discounts = {}
+          (_ktype354, _vtype355, _size353 ) = iprot.readMapBegin()
+          for _i357 in xrange(_size353):
+            _key358 = iprot.readI16()
+            _val359 = iprot.readBool()
+            self.max_discounts[_key358] = _val359
+          iprot.readMapEnd()
+        else:
+          iprot.skip(ftype)
       else:
         iprot.skip(ftype)
       iprot.readFieldEnd()
@@ -9732,29 +9746,29 @@ class MHotelDetail:
     if self.room_types is not None:
       oprot.writeFieldBegin('room_types', TType.LIST, 14)
       oprot.writeListBegin(TType.STRUCT, len(self.room_types))
-      for iter353 in self.room_types:
-        iter353.write(oprot)
+      for iter360 in self.room_types:
+        iter360.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.shotel_helpfultips is not None:
       oprot.writeFieldBegin('shotel_helpfultips', TType.LIST, 15)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_helpfultips))
-      for iter354 in self.shotel_helpfultips:
-        iter354.write(oprot)
+      for iter361 in self.shotel_helpfultips:
+        iter361.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.shotel_booking_rules is not None:
       oprot.writeFieldBegin('shotel_booking_rules', TType.LIST, 16)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_booking_rules))
-      for iter355 in self.shotel_booking_rules:
-        iter355.write(oprot)
+      for iter362 in self.shotel_booking_rules:
+        iter362.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.shotel_invoice_info is not None:
       oprot.writeFieldBegin('shotel_invoice_info', TType.LIST, 17)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_invoice_info))
-      for iter356 in self.shotel_invoice_info:
-        iter356.write(oprot)
+      for iter363 in self.shotel_invoice_info:
+        iter363.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.mobileonly_struct is not None:
@@ -9844,8 +9858,8 @@ class MHotelDetail:
     if self.promotion_count is not None:
       oprot.writeFieldBegin('promotion_count', TType.LIST, 39)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_count))
-      for iter357 in self.promotion_count:
-        iter357.write(oprot)
+      for iter364 in self.promotion_count:
+        iter364.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.manjian_struct is not None:
@@ -9863,8 +9877,8 @@ class MHotelDetail:
     if self.hotel_flag is not None:
       oprot.writeFieldBegin('hotel_flag', TType.LIST, 43)
       oprot.writeListBegin(TType.STRUCT, len(self.hotel_flag))
-      for iter358 in self.hotel_flag:
-        iter358.write(oprot)
+      for iter365 in self.hotel_flag:
+        iter365.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.has_moremember_products is not None:
@@ -9874,8 +9888,8 @@ class MHotelDetail:
     if self.cp_info is not None:
       oprot.writeFieldBegin('cp_info', TType.LIST, 45)
       oprot.writeListBegin(TType.STRUCT, len(self.cp_info))
-      for iter359 in self.cp_info:
-        iter359.write(oprot)
+      for iter366 in self.cp_info:
+        iter366.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.incidental_price_info is not None:
@@ -9885,8 +9899,8 @@ class MHotelDetail:
     if self.statistics_info is not None:
       oprot.writeFieldBegin('statistics_info', TType.LIST, 47)
       oprot.writeListBegin(TType.STRUCT, len(self.statistics_info))
-      for iter360 in self.statistics_info:
-        iter360.write(oprot)
+      for iter367 in self.statistics_info:
+        iter367.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.hotel_service_status is not None:
@@ -9908,8 +9922,8 @@ class MHotelDetail:
     if self.hours_room_min_price_cansale is not None:
       oprot.writeFieldBegin('hours_room_min_price_cansale', TType.LIST, 52)
       oprot.writeListBegin(TType.STRUCT, len(self.hours_room_min_price_cansale))
-      for iter361 in self.hours_room_min_price_cansale:
-        iter361.write(oprot)
+      for iter368 in self.hours_room_min_price_cansale:
+        iter368.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.simple_mrooms is not None:
@@ -9919,15 +9933,15 @@ class MHotelDetail:
     if self.min_price_inventories is not None:
       oprot.writeFieldBegin('min_price_inventories', TType.LIST, 54)
       oprot.writeListBegin(TType.STRUCT, len(self.min_price_inventories))
-      for iter362 in self.min_price_inventories:
-        iter362.write(oprot)
+      for iter369 in self.min_price_inventories:
+        iter369.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.min_price_sub_coupon_inventories is not None:
       oprot.writeFieldBegin('min_price_sub_coupon_inventories', TType.LIST, 55)
       oprot.writeListBegin(TType.STRUCT, len(self.min_price_sub_coupon_inventories))
-      for iter363 in self.min_price_sub_coupon_inventories:
-        iter363.write(oprot)
+      for iter370 in self.min_price_sub_coupon_inventories:
+        iter370.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.star_type is not None:
@@ -9945,16 +9959,24 @@ class MHotelDetail:
     if self.promotionStats is not None:
       oprot.writeFieldBegin('promotionStats', TType.LIST, 59)
       oprot.writeListBegin(TType.STRUCT, len(self.promotionStats))
-      for iter364 in self.promotionStats:
-        iter364.write(oprot)
+      for iter371 in self.promotionStats:
+        iter371.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.hotelHongbao is not None:
       oprot.writeFieldBegin('hotelHongbao', TType.LIST, 60)
       oprot.writeListBegin(TType.STRUCT, len(self.hotelHongbao))
-      for iter365 in self.hotelHongbao:
-        iter365.write(oprot)
+      for iter372 in self.hotelHongbao:
+        iter372.write(oprot)
       oprot.writeListEnd()
+      oprot.writeFieldEnd()
+    if self.max_discounts is not None:
+      oprot.writeFieldBegin('max_discounts', TType.MAP, 61)
+      oprot.writeMapBegin(TType.I16, TType.BOOL, len(self.max_discounts))
+      for kiter373,viter374 in self.max_discounts.items():
+        oprot.writeI16(kiter373)
+        oprot.writeBool(viter374)
+      oprot.writeMapEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
@@ -10026,6 +10048,7 @@ class MHotelDetail:
     value = (value * 31) ^ hash(self.is_economic)
     value = (value * 31) ^ hash(self.promotionStats)
     value = (value * 31) ^ hash(self.hotelHongbao)
+    value = (value * 31) ^ hash(self.max_discounts)
     return value
 
   def __repr__(self):
@@ -10171,22 +10194,22 @@ class SimpleProduct:
       elif fid == 3:
         if ftype == TType.LIST:
           self.promotion_type = []
-          (_etype369, _size366) = iprot.readListBegin()
-          for _i370 in xrange(_size366):
-            _elem371 = SimplePromotion()
-            _elem371.read(iprot)
-            self.promotion_type.append(_elem371)
+          (_etype378, _size375) = iprot.readListBegin()
+          for _i379 in xrange(_size375):
+            _elem380 = SimplePromotion()
+            _elem380.read(iprot)
+            self.promotion_type.append(_elem380)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 4:
         if ftype == TType.LIST:
           self.inventorys = []
-          (_etype375, _size372) = iprot.readListBegin()
-          for _i376 in xrange(_size372):
-            _elem377 = Inventory()
-            _elem377.read(iprot)
-            self.inventorys.append(_elem377)
+          (_etype384, _size381) = iprot.readListBegin()
+          for _i385 in xrange(_size381):
+            _elem386 = Inventory()
+            _elem386.read(iprot)
+            self.inventorys.append(_elem386)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10226,15 +10249,15 @@ class SimpleProduct:
     if self.promotion_type is not None:
       oprot.writeFieldBegin('promotion_type', TType.LIST, 3)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_type))
-      for iter378 in self.promotion_type:
-        iter378.write(oprot)
+      for iter387 in self.promotion_type:
+        iter387.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.inventorys is not None:
       oprot.writeFieldBegin('inventorys', TType.LIST, 4)
       oprot.writeListBegin(TType.STRUCT, len(self.inventorys))
-      for iter379 in self.inventorys:
-        iter379.write(oprot)
+      for iter388 in self.inventorys:
+        iter388.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.sroom_id is not None:
@@ -10312,11 +10335,11 @@ class SimpleMRoom:
       elif fid == 2:
         if ftype == TType.LIST:
           self.products = []
-          (_etype383, _size380) = iprot.readListBegin()
-          for _i384 in xrange(_size380):
-            _elem385 = SimpleProduct()
-            _elem385.read(iprot)
-            self.products.append(_elem385)
+          (_etype392, _size389) = iprot.readListBegin()
+          for _i393 in xrange(_size389):
+            _elem394 = SimpleProduct()
+            _elem394.read(iprot)
+            self.products.append(_elem394)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10337,8 +10360,8 @@ class SimpleMRoom:
     if self.products is not None:
       oprot.writeFieldBegin('products', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.products))
-      for iter386 in self.products:
-        iter386.write(oprot)
+      for iter395 in self.products:
+        iter395.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -10612,10 +10635,10 @@ class ProductTypeBlackList:
       elif fid == 2:
         if ftype == TType.LIST:
           self.supplier_ids = []
-          (_etype390, _size387) = iprot.readListBegin()
-          for _i391 in xrange(_size387):
-            _elem392 = iprot.readI64()
-            self.supplier_ids.append(_elem392)
+          (_etype399, _size396) = iprot.readListBegin()
+          for _i400 in xrange(_size396):
+            _elem401 = iprot.readI64()
+            self.supplier_ids.append(_elem401)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10641,8 +10664,8 @@ class ProductTypeBlackList:
     if self.supplier_ids is not None:
       oprot.writeFieldBegin('supplier_ids', TType.LIST, 2)
       oprot.writeListBegin(TType.I64, len(self.supplier_ids))
-      for iter393 in self.supplier_ids:
-        oprot.writeI64(iter393)
+      for iter402 in self.supplier_ids:
+        oprot.writeI64(iter402)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.partial_match is not None:
@@ -10738,10 +10761,10 @@ class FilterCondition:
       elif fid == 5:
         if ftype == TType.LIST:
           self.exclude_value_array = []
-          (_etype397, _size394) = iprot.readListBegin()
-          for _i398 in xrange(_size394):
-            _elem399 = iprot.readI64()
-            self.exclude_value_array.append(_elem399)
+          (_etype406, _size403) = iprot.readListBegin()
+          for _i407 in xrange(_size403):
+            _elem408 = iprot.readI64()
+            self.exclude_value_array.append(_elem408)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10753,11 +10776,11 @@ class FilterCondition:
       elif fid == 7:
         if ftype == TType.LIST:
           self.ptb_array = []
-          (_etype403, _size400) = iprot.readListBegin()
-          for _i404 in xrange(_size400):
-            _elem405 = ProductTypeBlackList()
-            _elem405.read(iprot)
-            self.ptb_array.append(_elem405)
+          (_etype412, _size409) = iprot.readListBegin()
+          for _i413 in xrange(_size409):
+            _elem414 = ProductTypeBlackList()
+            _elem414.read(iprot)
+            self.ptb_array.append(_elem414)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10790,8 +10813,8 @@ class FilterCondition:
     if self.exclude_value_array is not None:
       oprot.writeFieldBegin('exclude_value_array', TType.LIST, 5)
       oprot.writeListBegin(TType.I64, len(self.exclude_value_array))
-      for iter406 in self.exclude_value_array:
-        oprot.writeI64(iter406)
+      for iter415 in self.exclude_value_array:
+        oprot.writeI64(iter415)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.partial_match is not None:
@@ -10801,8 +10824,8 @@ class FilterCondition:
     if self.ptb_array is not None:
       oprot.writeFieldBegin('ptb_array', TType.LIST, 7)
       oprot.writeListBegin(TType.STRUCT, len(self.ptb_array))
-      for iter407 in self.ptb_array:
-        iter407.write(oprot)
+      for iter416 in self.ptb_array:
+        iter416.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -10860,10 +10883,10 @@ class Grandson:
       if fid == 1:
         if ftype == TType.LIST:
           self.codes = []
-          (_etype411, _size408) = iprot.readListBegin()
-          for _i412 in xrange(_size408):
-            _elem413 = iprot.readI32()
-            self.codes.append(_elem413)
+          (_etype420, _size417) = iprot.readListBegin()
+          for _i421 in xrange(_size417):
+            _elem422 = iprot.readI32()
+            self.codes.append(_elem422)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10880,8 +10903,8 @@ class Grandson:
     if self.codes is not None:
       oprot.writeFieldBegin('codes', TType.LIST, 1)
       oprot.writeListBegin(TType.I32, len(self.codes))
-      for iter414 in self.codes:
-        oprot.writeI32(iter414)
+      for iter423 in self.codes:
+        oprot.writeI32(iter423)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -10941,10 +10964,10 @@ class CustomerTraitUnit:
       elif fid == 2:
         if ftype == TType.LIST:
           self.values = []
-          (_etype418, _size415) = iprot.readListBegin()
-          for _i419 in xrange(_size415):
-            _elem420 = iprot.readI32()
-            self.values.append(_elem420)
+          (_etype427, _size424) = iprot.readListBegin()
+          for _i428 in xrange(_size424):
+            _elem429 = iprot.readI32()
+            self.values.append(_elem429)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -10965,8 +10988,8 @@ class CustomerTraitUnit:
     if self.values is not None:
       oprot.writeFieldBegin('values', TType.LIST, 2)
       oprot.writeListBegin(TType.I32, len(self.values))
-      for iter421 in self.values:
-        oprot.writeI32(iter421)
+      for iter430 in self.values:
+        oprot.writeI32(iter430)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11021,11 +11044,11 @@ class CustomerTrait:
       if fid == 1:
         if ftype == TType.LIST:
           self.trait_units = []
-          (_etype425, _size422) = iprot.readListBegin()
-          for _i426 in xrange(_size422):
-            _elem427 = CustomerTraitUnit()
-            _elem427.read(iprot)
-            self.trait_units.append(_elem427)
+          (_etype434, _size431) = iprot.readListBegin()
+          for _i435 in xrange(_size431):
+            _elem436 = CustomerTraitUnit()
+            _elem436.read(iprot)
+            self.trait_units.append(_elem436)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11042,8 +11065,8 @@ class CustomerTrait:
     if self.trait_units is not None:
       oprot.writeFieldBegin('trait_units', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.trait_units))
-      for iter428 in self.trait_units:
-        iter428.write(oprot)
+      for iter437 in self.trait_units:
+        iter437.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11183,11 +11206,11 @@ class PromotionGroupRelation:
       elif fid == 2:
         if ftype == TType.LIST:
           self.type_list = []
-          (_etype432, _size429) = iprot.readListBegin()
-          for _i433 in xrange(_size429):
-            _elem434 = PromotionTypeMsg()
-            _elem434.read(iprot)
-            self.type_list.append(_elem434)
+          (_etype441, _size438) = iprot.readListBegin()
+          for _i442 in xrange(_size438):
+            _elem443 = PromotionTypeMsg()
+            _elem443.read(iprot)
+            self.type_list.append(_elem443)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11208,8 +11231,8 @@ class PromotionGroupRelation:
     if self.type_list is not None:
       oprot.writeFieldBegin('type_list', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.type_list))
-      for iter435 in self.type_list:
-        iter435.write(oprot)
+      for iter444 in self.type_list:
+        iter444.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11272,11 +11295,11 @@ class PromotionGroupType:
       elif fid == 2:
         if ftype == TType.LIST:
           self.promotion_group_relation = []
-          (_etype439, _size436) = iprot.readListBegin()
-          for _i440 in xrange(_size436):
-            _elem441 = PromotionGroupRelation()
-            _elem441.read(iprot)
-            self.promotion_group_relation.append(_elem441)
+          (_etype448, _size445) = iprot.readListBegin()
+          for _i449 in xrange(_size445):
+            _elem450 = PromotionGroupRelation()
+            _elem450.read(iprot)
+            self.promotion_group_relation.append(_elem450)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11297,8 +11320,8 @@ class PromotionGroupType:
     if self.promotion_group_relation is not None:
       oprot.writeFieldBegin('promotion_group_relation', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_group_relation))
-      for iter442 in self.promotion_group_relation:
-        iter442.write(oprot)
+      for iter451 in self.promotion_group_relation:
+        iter451.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11361,11 +11384,11 @@ class PromotionBusiness:
       elif fid == 2:
         if ftype == TType.LIST:
           self.promotion_group_type = []
-          (_etype446, _size443) = iprot.readListBegin()
-          for _i447 in xrange(_size443):
-            _elem448 = PromotionGroupType()
-            _elem448.read(iprot)
-            self.promotion_group_type.append(_elem448)
+          (_etype455, _size452) = iprot.readListBegin()
+          for _i456 in xrange(_size452):
+            _elem457 = PromotionGroupType()
+            _elem457.read(iprot)
+            self.promotion_group_type.append(_elem457)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11386,8 +11409,8 @@ class PromotionBusiness:
     if self.promotion_group_type is not None:
       oprot.writeFieldBegin('promotion_group_type', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_group_type))
-      for iter449 in self.promotion_group_type:
-        iter449.write(oprot)
+      for iter458 in self.promotion_group_type:
+        iter458.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11450,11 +11473,11 @@ class PromotionOrderFromLine:
       elif fid == 2:
         if ftype == TType.LIST:
           self.promotion_business = []
-          (_etype453, _size450) = iprot.readListBegin()
-          for _i454 in xrange(_size450):
-            _elem455 = PromotionBusiness()
-            _elem455.read(iprot)
-            self.promotion_business.append(_elem455)
+          (_etype462, _size459) = iprot.readListBegin()
+          for _i463 in xrange(_size459):
+            _elem464 = PromotionBusiness()
+            _elem464.read(iprot)
+            self.promotion_business.append(_elem464)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11475,8 +11498,8 @@ class PromotionOrderFromLine:
     if self.promotion_business is not None:
       oprot.writeFieldBegin('promotion_business', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_business))
-      for iter456 in self.promotion_business:
-        iter456.write(oprot)
+      for iter465 in self.promotion_business:
+        iter465.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11531,11 +11554,11 @@ class PromotionGroupRoot:
       if fid == 1:
         if ftype == TType.LIST:
           self.promotion_order_from_line = []
-          (_etype460, _size457) = iprot.readListBegin()
-          for _i461 in xrange(_size457):
-            _elem462 = PromotionOrderFromLine()
-            _elem462.read(iprot)
-            self.promotion_order_from_line.append(_elem462)
+          (_etype469, _size466) = iprot.readListBegin()
+          for _i470 in xrange(_size466):
+            _elem471 = PromotionOrderFromLine()
+            _elem471.read(iprot)
+            self.promotion_order_from_line.append(_elem471)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11552,8 +11575,8 @@ class PromotionGroupRoot:
     if self.promotion_order_from_line is not None:
       oprot.writeFieldBegin('promotion_order_from_line', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_order_from_line))
-      for iter463 in self.promotion_order_from_line:
-        iter463.write(oprot)
+      for iter472 in self.promotion_order_from_line:
+        iter472.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -11605,11 +11628,11 @@ class CommonConf:
       if fid == 1:
         if ftype == TType.LIST:
           self.promotion_group_root = []
-          (_etype467, _size464) = iprot.readListBegin()
-          for _i468 in xrange(_size464):
-            _elem469 = PromotionGroupRoot()
-            _elem469.read(iprot)
-            self.promotion_group_root.append(_elem469)
+          (_etype476, _size473) = iprot.readListBegin()
+          for _i477 in xrange(_size473):
+            _elem478 = PromotionGroupRoot()
+            _elem478.read(iprot)
+            self.promotion_group_root.append(_elem478)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -11626,8 +11649,8 @@ class CommonConf:
     if self.promotion_group_root is not None:
       oprot.writeFieldBegin('promotion_group_root', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_group_root))
-      for iter470 in self.promotion_group_root:
-        iter470.write(oprot)
+      for iter479 in self.promotion_group_root:
+        iter479.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -13058,11 +13081,11 @@ class DebugMajia:
       elif fid == 7:
         if ftype == TType.LIST:
           self.mbls = []
-          (_etype474, _size471) = iprot.readListBegin()
-          for _i475 in xrange(_size471):
-            _elem476 = DebugMBL()
-            _elem476.read(iprot)
-            self.mbls.append(_elem476)
+          (_etype483, _size480) = iprot.readListBegin()
+          for _i484 in xrange(_size480):
+            _elem485 = DebugMBL()
+            _elem485.read(iprot)
+            self.mbls.append(_elem485)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -13126,8 +13149,8 @@ class DebugMajia:
     if self.mbls is not None:
       oprot.writeFieldBegin('mbls', TType.LIST, 7)
       oprot.writeListBegin(TType.STRUCT, len(self.mbls))
-      for iter477 in self.mbls:
-        iter477.write(oprot)
+      for iter486 in self.mbls:
+        iter486.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.zydj is not None:
@@ -13393,11 +13416,11 @@ class PriceDealStep:
       elif fid == 13:
         if ftype == TType.LIST:
           self.mbls = []
-          (_etype481, _size478) = iprot.readListBegin()
-          for _i482 in xrange(_size478):
-            _elem483 = DebugMBL()
-            _elem483.read(iprot)
-            self.mbls.append(_elem483)
+          (_etype490, _size487) = iprot.readListBegin()
+          for _i491 in xrange(_size487):
+            _elem492 = DebugMBL()
+            _elem492.read(iprot)
+            self.mbls.append(_elem492)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -13473,8 +13496,8 @@ class PriceDealStep:
     if self.mbls is not None:
       oprot.writeFieldBegin('mbls', TType.LIST, 13)
       oprot.writeListBegin(TType.STRUCT, len(self.mbls))
-      for iter484 in self.mbls:
-        iter484.write(oprot)
+      for iter493 in self.mbls:
+        iter493.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.zydj is not None:
@@ -13679,33 +13702,33 @@ class DebugProduct:
       elif fid == 11:
         if ftype == TType.LIST:
           self.drr = []
-          (_etype488, _size485) = iprot.readListBegin()
-          for _i489 in xrange(_size485):
-            _elem490 = DebugDrr()
-            _elem490.read(iprot)
-            self.drr.append(_elem490)
+          (_etype497, _size494) = iprot.readListBegin()
+          for _i498 in xrange(_size494):
+            _elem499 = DebugDrr()
+            _elem499.read(iprot)
+            self.drr.append(_elem499)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 12:
         if ftype == TType.LIST:
           self.promotion = []
-          (_etype494, _size491) = iprot.readListBegin()
-          for _i495 in xrange(_size491):
-            _elem496 = DebugPromotion()
-            _elem496.read(iprot)
-            self.promotion.append(_elem496)
+          (_etype503, _size500) = iprot.readListBegin()
+          for _i504 in xrange(_size500):
+            _elem505 = DebugPromotion()
+            _elem505.read(iprot)
+            self.promotion.append(_elem505)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 13:
         if ftype == TType.LIST:
           self.price = []
-          (_etype500, _size497) = iprot.readListBegin()
-          for _i501 in xrange(_size497):
-            _elem502 = DebugPrice()
-            _elem502.read(iprot)
-            self.price.append(_elem502)
+          (_etype509, _size506) = iprot.readListBegin()
+          for _i510 in xrange(_size506):
+            _elem511 = DebugPrice()
+            _elem511.read(iprot)
+            self.price.append(_elem511)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -13738,11 +13761,11 @@ class DebugProduct:
       elif fid == 19:
         if ftype == TType.LIST:
           self.price_deal_steps = []
-          (_etype506, _size503) = iprot.readListBegin()
-          for _i507 in xrange(_size503):
-            _elem508 = PriceDealStep()
-            _elem508.read(iprot)
-            self.price_deal_steps.append(_elem508)
+          (_etype515, _size512) = iprot.readListBegin()
+          for _i516 in xrange(_size512):
+            _elem517 = PriceDealStep()
+            _elem517.read(iprot)
+            self.price_deal_steps.append(_elem517)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -13754,11 +13777,11 @@ class DebugProduct:
       elif fid == 21:
         if ftype == TType.LIST:
           self.derivative_reason = []
-          (_etype512, _size509) = iprot.readListBegin()
-          for _i513 in xrange(_size509):
-            _elem514 = DerivativeDesc()
-            _elem514.read(iprot)
-            self.derivative_reason.append(_elem514)
+          (_etype521, _size518) = iprot.readListBegin()
+          for _i522 in xrange(_size518):
+            _elem523 = DerivativeDesc()
+            _elem523.read(iprot)
+            self.derivative_reason.append(_elem523)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -13770,22 +13793,22 @@ class DebugProduct:
       elif fid == 23:
         if ftype == TType.MAP:
           self.baseFlag = {}
-          (_ktype516, _vtype517, _size515 ) = iprot.readMapBegin()
-          for _i519 in xrange(_size515):
-            _key520 = iprot.readString()
-            _val521 = iprot.readBool()
-            self.baseFlag[_key520] = _val521
+          (_ktype525, _vtype526, _size524 ) = iprot.readMapBegin()
+          for _i528 in xrange(_size524):
+            _key529 = iprot.readString()
+            _val530 = iprot.readBool()
+            self.baseFlag[_key529] = _val530
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
       elif fid == 24:
         if ftype == TType.MAP:
           self.others = {}
-          (_ktype523, _vtype524, _size522 ) = iprot.readMapBegin()
-          for _i526 in xrange(_size522):
-            _key527 = iprot.readString()
-            _val528 = iprot.readString()
-            self.others[_key527] = _val528
+          (_ktype532, _vtype533, _size531 ) = iprot.readMapBegin()
+          for _i535 in xrange(_size531):
+            _key536 = iprot.readString()
+            _val537 = iprot.readString()
+            self.others[_key536] = _val537
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -13852,22 +13875,22 @@ class DebugProduct:
     if self.drr is not None:
       oprot.writeFieldBegin('drr', TType.LIST, 11)
       oprot.writeListBegin(TType.STRUCT, len(self.drr))
-      for iter529 in self.drr:
-        iter529.write(oprot)
+      for iter538 in self.drr:
+        iter538.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.promotion is not None:
       oprot.writeFieldBegin('promotion', TType.LIST, 12)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion))
-      for iter530 in self.promotion:
-        iter530.write(oprot)
+      for iter539 in self.promotion:
+        iter539.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.price is not None:
       oprot.writeFieldBegin('price', TType.LIST, 13)
       oprot.writeListBegin(TType.STRUCT, len(self.price))
-      for iter531 in self.price:
-        iter531.write(oprot)
+      for iter540 in self.price:
+        iter540.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.majia is not None:
@@ -13893,8 +13916,8 @@ class DebugProduct:
     if self.price_deal_steps is not None:
       oprot.writeFieldBegin('price_deal_steps', TType.LIST, 19)
       oprot.writeListBegin(TType.STRUCT, len(self.price_deal_steps))
-      for iter532 in self.price_deal_steps:
-        iter532.write(oprot)
+      for iter541 in self.price_deal_steps:
+        iter541.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.majia_reason is not None:
@@ -13904,8 +13927,8 @@ class DebugProduct:
     if self.derivative_reason is not None:
       oprot.writeFieldBegin('derivative_reason', TType.LIST, 21)
       oprot.writeListBegin(TType.STRUCT, len(self.derivative_reason))
-      for iter533 in self.derivative_reason:
-        iter533.write(oprot)
+      for iter542 in self.derivative_reason:
+        iter542.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.breakfast is not None:
@@ -13915,17 +13938,17 @@ class DebugProduct:
     if self.baseFlag is not None:
       oprot.writeFieldBegin('baseFlag', TType.MAP, 23)
       oprot.writeMapBegin(TType.STRING, TType.BOOL, len(self.baseFlag))
-      for kiter534,viter535 in self.baseFlag.items():
-        oprot.writeString(kiter534)
-        oprot.writeBool(viter535)
+      for kiter543,viter544 in self.baseFlag.items():
+        oprot.writeString(kiter543)
+        oprot.writeBool(viter544)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.others is not None:
       oprot.writeFieldBegin('others', TType.MAP, 24)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.others))
-      for kiter536,viter537 in self.others.items():
-        oprot.writeString(kiter536)
-        oprot.writeString(viter537)
+      for kiter545,viter546 in self.others.items():
+        oprot.writeString(kiter545)
+        oprot.writeString(viter546)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.reason_id is not None:
@@ -14068,11 +14091,11 @@ class DebugSRoom:
       elif fid == 4:
         if ftype == TType.LIST:
           self.product = []
-          (_etype541, _size538) = iprot.readListBegin()
-          for _i542 in xrange(_size538):
-            _elem543 = DebugProduct()
-            _elem543.read(iprot)
-            self.product.append(_elem543)
+          (_etype550, _size547) = iprot.readListBegin()
+          for _i551 in xrange(_size547):
+            _elem552 = DebugProduct()
+            _elem552.read(iprot)
+            self.product.append(_elem552)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -14089,11 +14112,11 @@ class DebugSRoom:
       elif fid == 7:
         if ftype == TType.LIST:
           self.derivative_reason = []
-          (_etype547, _size544) = iprot.readListBegin()
-          for _i548 in xrange(_size544):
-            _elem549 = DerivativeDesc()
-            _elem549.read(iprot)
-            self.derivative_reason.append(_elem549)
+          (_etype556, _size553) = iprot.readListBegin()
+          for _i557 in xrange(_size553):
+            _elem558 = DerivativeDesc()
+            _elem558.read(iprot)
+            self.derivative_reason.append(_elem558)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -14137,8 +14160,8 @@ class DebugSRoom:
     if self.product is not None:
       oprot.writeFieldBegin('product', TType.LIST, 4)
       oprot.writeListBegin(TType.STRUCT, len(self.product))
-      for iter550 in self.product:
-        iter550.write(oprot)
+      for iter559 in self.product:
+        iter559.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.inventory_type is not None:
@@ -14152,8 +14175,8 @@ class DebugSRoom:
     if self.derivative_reason is not None:
       oprot.writeFieldBegin('derivative_reason', TType.LIST, 7)
       oprot.writeListBegin(TType.STRUCT, len(self.derivative_reason))
-      for iter551 in self.derivative_reason:
-        iter551.write(oprot)
+      for iter560 in self.derivative_reason:
+        iter560.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.mroom_name is not None:
@@ -14280,22 +14303,22 @@ class DebugSHotel:
       elif fid == 5:
         if ftype == TType.LIST:
           self.sroom = []
-          (_etype555, _size552) = iprot.readListBegin()
-          for _i556 in xrange(_size552):
-            _elem557 = DebugSRoom()
-            _elem557.read(iprot)
-            self.sroom.append(_elem557)
+          (_etype564, _size561) = iprot.readListBegin()
+          for _i565 in xrange(_size561):
+            _elem566 = DebugSRoom()
+            _elem566.read(iprot)
+            self.sroom.append(_elem566)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 6:
         if ftype == TType.LIST:
           self.promotion = []
-          (_etype561, _size558) = iprot.readListBegin()
-          for _i562 in xrange(_size558):
-            _elem563 = DebugPromotion()
-            _elem563.read(iprot)
-            self.promotion.append(_elem563)
+          (_etype570, _size567) = iprot.readListBegin()
+          for _i571 in xrange(_size567):
+            _elem572 = DebugPromotion()
+            _elem572.read(iprot)
+            self.promotion.append(_elem572)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -14317,11 +14340,11 @@ class DebugSHotel:
       elif fid == 10:
         if ftype == TType.LIST:
           self.derivative_reason = []
-          (_etype567, _size564) = iprot.readListBegin()
-          for _i568 in xrange(_size564):
-            _elem569 = DerivativeDesc()
-            _elem569.read(iprot)
-            self.derivative_reason.append(_elem569)
+          (_etype576, _size573) = iprot.readListBegin()
+          for _i577 in xrange(_size573):
+            _elem578 = DerivativeDesc()
+            _elem578.read(iprot)
+            self.derivative_reason.append(_elem578)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -14359,15 +14382,15 @@ class DebugSHotel:
     if self.sroom is not None:
       oprot.writeFieldBegin('sroom', TType.LIST, 5)
       oprot.writeListBegin(TType.STRUCT, len(self.sroom))
-      for iter570 in self.sroom:
-        iter570.write(oprot)
+      for iter579 in self.sroom:
+        iter579.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.promotion is not None:
       oprot.writeFieldBegin('promotion', TType.LIST, 6)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion))
-      for iter571 in self.promotion:
-        iter571.write(oprot)
+      for iter580 in self.promotion:
+        iter580.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.supplier_name is not None:
@@ -14385,8 +14408,8 @@ class DebugSHotel:
     if self.derivative_reason is not None:
       oprot.writeFieldBegin('derivative_reason', TType.LIST, 10)
       oprot.writeListBegin(TType.STRUCT, len(self.derivative_reason))
-      for iter572 in self.derivative_reason:
-        iter572.write(oprot)
+      for iter581 in self.derivative_reason:
+        iter581.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.reason_id is not None:
@@ -14497,33 +14520,33 @@ class DebugMRoom:
       elif fid == 5:
         if ftype == TType.LIST:
           self.derivative_reason = []
-          (_etype576, _size573) = iprot.readListBegin()
-          for _i577 in xrange(_size573):
-            _elem578 = DerivativeDesc()
-            _elem578.read(iprot)
-            self.derivative_reason.append(_elem578)
+          (_etype585, _size582) = iprot.readListBegin()
+          for _i586 in xrange(_size582):
+            _elem587 = DerivativeDesc()
+            _elem587.read(iprot)
+            self.derivative_reason.append(_elem587)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 6:
         if ftype == TType.MAP:
           self.baseFlag = {}
-          (_ktype580, _vtype581, _size579 ) = iprot.readMapBegin()
-          for _i583 in xrange(_size579):
-            _key584 = iprot.readString()
-            _val585 = iprot.readBool()
-            self.baseFlag[_key584] = _val585
+          (_ktype589, _vtype590, _size588 ) = iprot.readMapBegin()
+          for _i592 in xrange(_size588):
+            _key593 = iprot.readString()
+            _val594 = iprot.readBool()
+            self.baseFlag[_key593] = _val594
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
       elif fid == 7:
         if ftype == TType.MAP:
           self.others = {}
-          (_ktype587, _vtype588, _size586 ) = iprot.readMapBegin()
-          for _i590 in xrange(_size586):
-            _key591 = iprot.readString()
-            _val592 = iprot.readString()
-            self.others[_key591] = _val592
+          (_ktype596, _vtype597, _size595 ) = iprot.readMapBegin()
+          for _i599 in xrange(_size595):
+            _key600 = iprot.readString()
+            _val601 = iprot.readString()
+            self.others[_key600] = _val601
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -14561,24 +14584,24 @@ class DebugMRoom:
     if self.derivative_reason is not None:
       oprot.writeFieldBegin('derivative_reason', TType.LIST, 5)
       oprot.writeListBegin(TType.STRUCT, len(self.derivative_reason))
-      for iter593 in self.derivative_reason:
-        iter593.write(oprot)
+      for iter602 in self.derivative_reason:
+        iter602.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.baseFlag is not None:
       oprot.writeFieldBegin('baseFlag', TType.MAP, 6)
       oprot.writeMapBegin(TType.STRING, TType.BOOL, len(self.baseFlag))
-      for kiter594,viter595 in self.baseFlag.items():
-        oprot.writeString(kiter594)
-        oprot.writeBool(viter595)
+      for kiter603,viter604 in self.baseFlag.items():
+        oprot.writeString(kiter603)
+        oprot.writeBool(viter604)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.others is not None:
       oprot.writeFieldBegin('others', TType.MAP, 7)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.others))
-      for kiter596,viter597 in self.others.items():
-        oprot.writeString(kiter596)
-        oprot.writeString(viter597)
+      for kiter605,viter606 in self.others.items():
+        oprot.writeString(kiter605)
+        oprot.writeString(viter606)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.reason_id is not None:
@@ -14676,11 +14699,11 @@ class DebugMHotel:
       elif fid == 2:
         if ftype == TType.LIST:
           self.shotel = []
-          (_etype601, _size598) = iprot.readListBegin()
-          for _i602 in xrange(_size598):
-            _elem603 = DebugSHotel()
-            _elem603.read(iprot)
-            self.shotel.append(_elem603)
+          (_etype610, _size607) = iprot.readListBegin()
+          for _i611 in xrange(_size607):
+            _elem612 = DebugSHotel()
+            _elem612.read(iprot)
+            self.shotel.append(_elem612)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -14692,11 +14715,11 @@ class DebugMHotel:
       elif fid == 4:
         if ftype == TType.LIST:
           self.mroom = []
-          (_etype607, _size604) = iprot.readListBegin()
-          for _i608 in xrange(_size604):
-            _elem609 = DebugMRoom()
-            _elem609.read(iprot)
-            self.mroom.append(_elem609)
+          (_etype616, _size613) = iprot.readListBegin()
+          for _i617 in xrange(_size613):
+            _elem618 = DebugMRoom()
+            _elem618.read(iprot)
+            self.mroom.append(_elem618)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -14708,33 +14731,33 @@ class DebugMHotel:
       elif fid == 6:
         if ftype == TType.LIST:
           self.derivative_reason = []
-          (_etype613, _size610) = iprot.readListBegin()
-          for _i614 in xrange(_size610):
-            _elem615 = DerivativeDesc()
-            _elem615.read(iprot)
-            self.derivative_reason.append(_elem615)
+          (_etype622, _size619) = iprot.readListBegin()
+          for _i623 in xrange(_size619):
+            _elem624 = DerivativeDesc()
+            _elem624.read(iprot)
+            self.derivative_reason.append(_elem624)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 7:
         if ftype == TType.MAP:
           self.baseFlag = {}
-          (_ktype617, _vtype618, _size616 ) = iprot.readMapBegin()
-          for _i620 in xrange(_size616):
-            _key621 = iprot.readString()
-            _val622 = iprot.readBool()
-            self.baseFlag[_key621] = _val622
+          (_ktype626, _vtype627, _size625 ) = iprot.readMapBegin()
+          for _i629 in xrange(_size625):
+            _key630 = iprot.readString()
+            _val631 = iprot.readBool()
+            self.baseFlag[_key630] = _val631
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
       elif fid == 8:
         if ftype == TType.MAP:
           self.others = {}
-          (_ktype624, _vtype625, _size623 ) = iprot.readMapBegin()
-          for _i627 in xrange(_size623):
-            _key628 = iprot.readString()
-            _val629 = iprot.readString()
-            self.others[_key628] = _val629
+          (_ktype633, _vtype634, _size632 ) = iprot.readMapBegin()
+          for _i636 in xrange(_size632):
+            _key637 = iprot.readString()
+            _val638 = iprot.readString()
+            self.others[_key637] = _val638
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -14760,8 +14783,8 @@ class DebugMHotel:
     if self.shotel is not None:
       oprot.writeFieldBegin('shotel', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel))
-      for iter630 in self.shotel:
-        iter630.write(oprot)
+      for iter639 in self.shotel:
+        iter639.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.majia_reason is not None:
@@ -14771,8 +14794,8 @@ class DebugMHotel:
     if self.mroom is not None:
       oprot.writeFieldBegin('mroom', TType.LIST, 4)
       oprot.writeListBegin(TType.STRUCT, len(self.mroom))
-      for iter631 in self.mroom:
-        iter631.write(oprot)
+      for iter640 in self.mroom:
+        iter640.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.reason is not None:
@@ -14782,24 +14805,24 @@ class DebugMHotel:
     if self.derivative_reason is not None:
       oprot.writeFieldBegin('derivative_reason', TType.LIST, 6)
       oprot.writeListBegin(TType.STRUCT, len(self.derivative_reason))
-      for iter632 in self.derivative_reason:
-        iter632.write(oprot)
+      for iter641 in self.derivative_reason:
+        iter641.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.baseFlag is not None:
       oprot.writeFieldBegin('baseFlag', TType.MAP, 7)
       oprot.writeMapBegin(TType.STRING, TType.BOOL, len(self.baseFlag))
-      for kiter633,viter634 in self.baseFlag.items():
-        oprot.writeString(kiter633)
-        oprot.writeBool(viter634)
+      for kiter642,viter643 in self.baseFlag.items():
+        oprot.writeString(kiter642)
+        oprot.writeBool(viter643)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.others is not None:
       oprot.writeFieldBegin('others', TType.MAP, 8)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.others))
-      for kiter635,viter636 in self.others.items():
-        oprot.writeString(kiter635)
-        oprot.writeString(viter636)
+      for kiter644,viter645 in self.others.items():
+        oprot.writeString(kiter644)
+        oprot.writeString(viter645)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.reason_id is not None:
@@ -15371,11 +15394,11 @@ class ProductInfo:
       elif fid == 13:
         if ftype == TType.LIST:
           self.product_day_info = []
-          (_etype640, _size637) = iprot.readListBegin()
-          for _i641 in xrange(_size637):
-            _elem642 = ProductDayInfo()
-            _elem642.read(iprot)
-            self.product_day_info.append(_elem642)
+          (_etype649, _size646) = iprot.readListBegin()
+          for _i650 in xrange(_size646):
+            _elem651 = ProductDayInfo()
+            _elem651.read(iprot)
+            self.product_day_info.append(_elem651)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -15440,8 +15463,8 @@ class ProductInfo:
     if self.product_day_info is not None:
       oprot.writeFieldBegin('product_day_info', TType.LIST, 13)
       oprot.writeListBegin(TType.STRUCT, len(self.product_day_info))
-      for iter643 in self.product_day_info:
-        iter643.write(oprot)
+      for iter652 in self.product_day_info:
+        iter652.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -15513,11 +15536,11 @@ class MhotelInfo:
       elif fid == 2:
         if ftype == TType.LIST:
           self.product_info = []
-          (_etype647, _size644) = iprot.readListBegin()
-          for _i648 in xrange(_size644):
-            _elem649 = ProductInfo()
-            _elem649.read(iprot)
-            self.product_info.append(_elem649)
+          (_etype656, _size653) = iprot.readListBegin()
+          for _i657 in xrange(_size653):
+            _elem658 = ProductInfo()
+            _elem658.read(iprot)
+            self.product_info.append(_elem658)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -15538,8 +15561,8 @@ class MhotelInfo:
     if self.product_info is not None:
       oprot.writeFieldBegin('product_info', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.product_info))
-      for iter650 in self.product_info:
-        iter650.write(oprot)
+      for iter659 in self.product_info:
+        iter659.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -15600,10 +15623,10 @@ class GetProductBaseInfoRequest:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_ids = []
-          (_etype654, _size651) = iprot.readListBegin()
-          for _i655 in xrange(_size651):
-            _elem656 = iprot.readI32()
-            self.mhotel_ids.append(_elem656)
+          (_etype663, _size660) = iprot.readListBegin()
+          for _i664 in xrange(_size660):
+            _elem665 = iprot.readI32()
+            self.mhotel_ids.append(_elem665)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -15630,8 +15653,8 @@ class GetProductBaseInfoRequest:
     if self.mhotel_ids is not None:
       oprot.writeFieldBegin('mhotel_ids', TType.LIST, 1)
       oprot.writeListBegin(TType.I32, len(self.mhotel_ids))
-      for iter657 in self.mhotel_ids:
-        oprot.writeI32(iter657)
+      for iter666 in self.mhotel_ids:
+        oprot.writeI32(iter666)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.begin_date is not None:
@@ -15705,11 +15728,11 @@ class GetProductBaseInfoResponse:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_info = []
-          (_etype661, _size658) = iprot.readListBegin()
-          for _i662 in xrange(_size658):
-            _elem663 = MhotelInfo()
-            _elem663.read(iprot)
-            self.mhotel_info.append(_elem663)
+          (_etype670, _size667) = iprot.readListBegin()
+          for _i671 in xrange(_size667):
+            _elem672 = MhotelInfo()
+            _elem672.read(iprot)
+            self.mhotel_info.append(_elem672)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -15736,8 +15759,8 @@ class GetProductBaseInfoResponse:
     if self.mhotel_info is not None:
       oprot.writeFieldBegin('mhotel_info', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_info))
-      for iter664 in self.mhotel_info:
-        iter664.write(oprot)
+      for iter673 in self.mhotel_info:
+        iter673.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_code is not None:
@@ -15807,10 +15830,10 @@ class ShotelAttr:
       elif fid == 2:
         if ftype == TType.LIST:
           self.sroom_ids = []
-          (_etype668, _size665) = iprot.readListBegin()
-          for _i669 in xrange(_size665):
-            _elem670 = iprot.readI32()
-            self.sroom_ids.append(_elem670)
+          (_etype677, _size674) = iprot.readListBegin()
+          for _i678 in xrange(_size674):
+            _elem679 = iprot.readI32()
+            self.sroom_ids.append(_elem679)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -15831,8 +15854,8 @@ class ShotelAttr:
     if self.sroom_ids is not None:
       oprot.writeFieldBegin('sroom_ids', TType.LIST, 2)
       oprot.writeListBegin(TType.I32, len(self.sroom_ids))
-      for iter671 in self.sroom_ids:
-        oprot.writeI32(iter671)
+      for iter680 in self.sroom_ids:
+        oprot.writeI32(iter680)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -15895,11 +15918,11 @@ class MhotelShotelAttr:
       elif fid == 2:
         if ftype == TType.LIST:
           self.shotel_attr = []
-          (_etype675, _size672) = iprot.readListBegin()
-          for _i676 in xrange(_size672):
-            _elem677 = ShotelAttr()
-            _elem677.read(iprot)
-            self.shotel_attr.append(_elem677)
+          (_etype684, _size681) = iprot.readListBegin()
+          for _i685 in xrange(_size681):
+            _elem686 = ShotelAttr()
+            _elem686.read(iprot)
+            self.shotel_attr.append(_elem686)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -15920,8 +15943,8 @@ class MhotelShotelAttr:
     if self.shotel_attr is not None:
       oprot.writeFieldBegin('shotel_attr', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_attr))
-      for iter678 in self.shotel_attr:
-        iter678.write(oprot)
+      for iter687 in self.shotel_attr:
+        iter687.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -15991,11 +16014,11 @@ class GetInvAndInstantConfirmRequest:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_attr = []
-          (_etype682, _size679) = iprot.readListBegin()
-          for _i683 in xrange(_size679):
-            _elem684 = MhotelShotelAttr()
-            _elem684.read(iprot)
-            self.mhotel_attr.append(_elem684)
+          (_etype691, _size688) = iprot.readListBegin()
+          for _i692 in xrange(_size688):
+            _elem693 = MhotelShotelAttr()
+            _elem693.read(iprot)
+            self.mhotel_attr.append(_elem693)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16037,8 +16060,8 @@ class GetInvAndInstantConfirmRequest:
     if self.mhotel_attr is not None:
       oprot.writeFieldBegin('mhotel_attr', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_attr))
-      for iter685 in self.mhotel_attr:
-        iter685.write(oprot)
+      for iter694 in self.mhotel_attr:
+        iter694.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.start_date is not None:
@@ -16324,11 +16347,11 @@ class SroomDetail:
       elif fid == 2:
         if ftype == TType.LIST:
           self.inv_detail = []
-          (_etype689, _size686) = iprot.readListBegin()
-          for _i690 in xrange(_size686):
-            _elem691 = InvDetail()
-            _elem691.read(iprot)
-            self.inv_detail.append(_elem691)
+          (_etype698, _size695) = iprot.readListBegin()
+          for _i699 in xrange(_size695):
+            _elem700 = InvDetail()
+            _elem700.read(iprot)
+            self.inv_detail.append(_elem700)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16349,8 +16372,8 @@ class SroomDetail:
     if self.inv_detail is not None:
       oprot.writeFieldBegin('inv_detail', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.inv_detail))
-      for iter692 in self.inv_detail:
-        iter692.write(oprot)
+      for iter701 in self.inv_detail:
+        iter701.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -16413,11 +16436,11 @@ class ShotelDetail:
       elif fid == 2:
         if ftype == TType.LIST:
           self.sroom_detail = []
-          (_etype696, _size693) = iprot.readListBegin()
-          for _i697 in xrange(_size693):
-            _elem698 = SroomDetail()
-            _elem698.read(iprot)
-            self.sroom_detail.append(_elem698)
+          (_etype705, _size702) = iprot.readListBegin()
+          for _i706 in xrange(_size702):
+            _elem707 = SroomDetail()
+            _elem707.read(iprot)
+            self.sroom_detail.append(_elem707)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16438,8 +16461,8 @@ class ShotelDetail:
     if self.sroom_detail is not None:
       oprot.writeFieldBegin('sroom_detail', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.sroom_detail))
-      for iter699 in self.sroom_detail:
-        iter699.write(oprot)
+      for iter708 in self.sroom_detail:
+        iter708.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -16502,11 +16525,11 @@ class MhotelInfoDetail:
       elif fid == 2:
         if ftype == TType.LIST:
           self.shotel_detail = []
-          (_etype703, _size700) = iprot.readListBegin()
-          for _i704 in xrange(_size700):
-            _elem705 = ShotelDetail()
-            _elem705.read(iprot)
-            self.shotel_detail.append(_elem705)
+          (_etype712, _size709) = iprot.readListBegin()
+          for _i713 in xrange(_size709):
+            _elem714 = ShotelDetail()
+            _elem714.read(iprot)
+            self.shotel_detail.append(_elem714)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16527,8 +16550,8 @@ class MhotelInfoDetail:
     if self.shotel_detail is not None:
       oprot.writeFieldBegin('shotel_detail', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_detail))
-      for iter706 in self.shotel_detail:
-        iter706.write(oprot)
+      for iter715 in self.shotel_detail:
+        iter715.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -16589,11 +16612,11 @@ class GetInvAndInstantConfirmResponse:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_detail = []
-          (_etype710, _size707) = iprot.readListBegin()
-          for _i711 in xrange(_size707):
-            _elem712 = MhotelInfoDetail()
-            _elem712.read(iprot)
-            self.mhotel_detail.append(_elem712)
+          (_etype719, _size716) = iprot.readListBegin()
+          for _i720 in xrange(_size716):
+            _elem721 = MhotelInfoDetail()
+            _elem721.read(iprot)
+            self.mhotel_detail.append(_elem721)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16620,8 +16643,8 @@ class GetInvAndInstantConfirmResponse:
     if self.mhotel_detail is not None:
       oprot.writeFieldBegin('mhotel_detail', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_detail))
-      for iter713 in self.mhotel_detail:
-        iter713.write(oprot)
+      for iter722 in self.mhotel_detail:
+        iter722.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_code is not None:
@@ -16784,11 +16807,11 @@ class GetBasePrice4NbRequest:
       if fid == 1:
         if ftype == TType.LIST:
           self.hotel_base_price_request = []
-          (_etype717, _size714) = iprot.readListBegin()
-          for _i718 in xrange(_size714):
-            _elem719 = HotelBasePriceRequest()
-            _elem719.read(iprot)
-            self.hotel_base_price_request.append(_elem719)
+          (_etype726, _size723) = iprot.readListBegin()
+          for _i727 in xrange(_size723):
+            _elem728 = HotelBasePriceRequest()
+            _elem728.read(iprot)
+            self.hotel_base_price_request.append(_elem728)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -16840,8 +16863,8 @@ class GetBasePrice4NbRequest:
     if self.hotel_base_price_request is not None:
       oprot.writeFieldBegin('hotel_base_price_request', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.hotel_base_price_request))
-      for iter720 in self.hotel_base_price_request:
-        iter720.write(oprot)
+      for iter729 in self.hotel_base_price_request:
+        iter729.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.payment_type is not None:
@@ -17147,11 +17170,11 @@ class RatePlanBasePrice:
       elif fid == 2:
         if ftype == TType.LIST:
           self.base_price = []
-          (_etype724, _size721) = iprot.readListBegin()
-          for _i725 in xrange(_size721):
-            _elem726 = BasePrice()
-            _elem726.read(iprot)
-            self.base_price.append(_elem726)
+          (_etype733, _size730) = iprot.readListBegin()
+          for _i734 in xrange(_size730):
+            _elem735 = BasePrice()
+            _elem735.read(iprot)
+            self.base_price.append(_elem735)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17172,8 +17195,8 @@ class RatePlanBasePrice:
     if self.base_price is not None:
       oprot.writeFieldBegin('base_price', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.base_price))
-      for iter727 in self.base_price:
-        iter727.write(oprot)
+      for iter736 in self.base_price:
+        iter736.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -17234,11 +17257,11 @@ class SRoomBasePrice:
       elif fid == 2:
         if ftype == TType.LIST:
           self.rateplan_base_price = []
-          (_etype731, _size728) = iprot.readListBegin()
-          for _i732 in xrange(_size728):
-            _elem733 = RatePlanBasePrice()
-            _elem733.read(iprot)
-            self.rateplan_base_price.append(_elem733)
+          (_etype740, _size737) = iprot.readListBegin()
+          for _i741 in xrange(_size737):
+            _elem742 = RatePlanBasePrice()
+            _elem742.read(iprot)
+            self.rateplan_base_price.append(_elem742)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17259,8 +17282,8 @@ class SRoomBasePrice:
     if self.rateplan_base_price is not None:
       oprot.writeFieldBegin('rateplan_base_price', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.rateplan_base_price))
-      for iter734 in self.rateplan_base_price:
-        iter734.write(oprot)
+      for iter743 in self.rateplan_base_price:
+        iter743.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -17321,11 +17344,11 @@ class SHotelBasePrice:
       elif fid == 2:
         if ftype == TType.LIST:
           self.sroom_base_price = []
-          (_etype738, _size735) = iprot.readListBegin()
-          for _i739 in xrange(_size735):
-            _elem740 = SRoomBasePrice()
-            _elem740.read(iprot)
-            self.sroom_base_price.append(_elem740)
+          (_etype747, _size744) = iprot.readListBegin()
+          for _i748 in xrange(_size744):
+            _elem749 = SRoomBasePrice()
+            _elem749.read(iprot)
+            self.sroom_base_price.append(_elem749)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17346,8 +17369,8 @@ class SHotelBasePrice:
     if self.sroom_base_price is not None:
       oprot.writeFieldBegin('sroom_base_price', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.sroom_base_price))
-      for iter741 in self.sroom_base_price:
-        iter741.write(oprot)
+      for iter750 in self.sroom_base_price:
+        iter750.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -17408,11 +17431,11 @@ class MHotelBasePrice:
       elif fid == 2:
         if ftype == TType.LIST:
           self.shotel_base_price = []
-          (_etype745, _size742) = iprot.readListBegin()
-          for _i746 in xrange(_size742):
-            _elem747 = SHotelBasePrice()
-            _elem747.read(iprot)
-            self.shotel_base_price.append(_elem747)
+          (_etype754, _size751) = iprot.readListBegin()
+          for _i755 in xrange(_size751):
+            _elem756 = SHotelBasePrice()
+            _elem756.read(iprot)
+            self.shotel_base_price.append(_elem756)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17433,8 +17456,8 @@ class MHotelBasePrice:
     if self.shotel_base_price is not None:
       oprot.writeFieldBegin('shotel_base_price', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_base_price))
-      for iter748 in self.shotel_base_price:
-        iter748.write(oprot)
+      for iter757 in self.shotel_base_price:
+        iter757.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -17493,11 +17516,11 @@ class GetBasePrice4NbResponse:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_base_price = []
-          (_etype752, _size749) = iprot.readListBegin()
-          for _i753 in xrange(_size749):
-            _elem754 = MHotelBasePrice()
-            _elem754.read(iprot)
-            self.mhotel_base_price.append(_elem754)
+          (_etype761, _size758) = iprot.readListBegin()
+          for _i762 in xrange(_size758):
+            _elem763 = MHotelBasePrice()
+            _elem763.read(iprot)
+            self.mhotel_base_price.append(_elem763)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17524,8 +17547,8 @@ class GetBasePrice4NbResponse:
     if self.mhotel_base_price is not None:
       oprot.writeFieldBegin('mhotel_base_price', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_base_price))
-      for iter755 in self.mhotel_base_price:
-        iter755.write(oprot)
+      for iter764 in self.mhotel_base_price:
+        iter764.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_code is not None:
@@ -17875,10 +17898,10 @@ class SearchRequest:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_ids = []
-          (_etype759, _size756) = iprot.readListBegin()
-          for _i760 in xrange(_size756):
-            _elem761 = iprot.readI64()
-            self.mhotel_ids.append(_elem761)
+          (_etype768, _size765) = iprot.readListBegin()
+          for _i769 in xrange(_size765):
+            _elem770 = iprot.readI64()
+            self.mhotel_ids.append(_elem770)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17941,20 +17964,20 @@ class SearchRequest:
       elif fid == 13:
         if ftype == TType.LIST:
           self.supplier_type = []
-          (_etype765, _size762) = iprot.readListBegin()
-          for _i766 in xrange(_size762):
-            _elem767 = iprot.readI32()
-            self.supplier_type.append(_elem767)
+          (_etype774, _size771) = iprot.readListBegin()
+          for _i775 in xrange(_size771):
+            _elem776 = iprot.readI32()
+            self.supplier_type.append(_elem776)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 14:
         if ftype == TType.LIST:
           self.online_search_type = []
-          (_etype771, _size768) = iprot.readListBegin()
-          for _i772 in xrange(_size768):
-            _elem773 = iprot.readI32()
-            self.online_search_type.append(_elem773)
+          (_etype780, _size777) = iprot.readListBegin()
+          for _i781 in xrange(_size777):
+            _elem782 = iprot.readI32()
+            self.online_search_type.append(_elem782)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -17986,10 +18009,10 @@ class SearchRequest:
       elif fid == 22:
         if ftype == TType.LIST:
           self.codes = []
-          (_etype777, _size774) = iprot.readListBegin()
-          for _i778 in xrange(_size774):
-            _elem779 = iprot.readI32()
-            self.codes.append(_elem779)
+          (_etype786, _size783) = iprot.readListBegin()
+          for _i787 in xrange(_size783):
+            _elem788 = iprot.readI32()
+            self.codes.append(_elem788)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18032,10 +18055,10 @@ class SearchRequest:
       elif fid == 30:
         if ftype == TType.LIST:
           self.bed_type = []
-          (_etype783, _size780) = iprot.readListBegin()
-          for _i784 in xrange(_size780):
-            _elem785 = iprot.readI32()
-            self.bed_type.append(_elem785)
+          (_etype792, _size789) = iprot.readListBegin()
+          for _i793 in xrange(_size789):
+            _elem794 = iprot.readI32()
+            self.bed_type.append(_elem794)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18108,11 +18131,11 @@ class SearchRequest:
       elif fid == 44:
         if ftype == TType.LIST:
           self.mhotel_attrs = []
-          (_etype789, _size786) = iprot.readListBegin()
-          for _i790 in xrange(_size786):
-            _elem791 = MHotelAttr()
-            _elem791.read(iprot)
-            self.mhotel_attrs.append(_elem791)
+          (_etype798, _size795) = iprot.readListBegin()
+          for _i799 in xrange(_size795):
+            _elem800 = MHotelAttr()
+            _elem800.read(iprot)
+            self.mhotel_attrs.append(_elem800)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18169,11 +18192,11 @@ class SearchRequest:
       elif fid == 55:
         if ftype == TType.LIST:
           self.promotion_black_list = []
-          (_etype795, _size792) = iprot.readListBegin()
-          for _i796 in xrange(_size792):
-            _elem797 = PromotionBlackList()
-            _elem797.read(iprot)
-            self.promotion_black_list.append(_elem797)
+          (_etype804, _size801) = iprot.readListBegin()
+          for _i805 in xrange(_size801):
+            _elem806 = PromotionBlackList()
+            _elem806.read(iprot)
+            self.promotion_black_list.append(_elem806)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18185,42 +18208,42 @@ class SearchRequest:
       elif fid == 57:
         if ftype == TType.LIST:
           self.filter_conditions = []
-          (_etype801, _size798) = iprot.readListBegin()
-          for _i802 in xrange(_size798):
-            _elem803 = FilterCondition()
-            _elem803.read(iprot)
-            self.filter_conditions.append(_elem803)
+          (_etype810, _size807) = iprot.readListBegin()
+          for _i811 in xrange(_size807):
+            _elem812 = FilterCondition()
+            _elem812.read(iprot)
+            self.filter_conditions.append(_elem812)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 58:
         if ftype == TType.LIST:
           self.return_assemble = []
-          (_etype807, _size804) = iprot.readListBegin()
-          for _i808 in xrange(_size804):
-            _elem809 = iprot.readI32()
-            self.return_assemble.append(_elem809)
+          (_etype816, _size813) = iprot.readListBegin()
+          for _i817 in xrange(_size813):
+            _elem818 = iprot.readI32()
+            self.return_assemble.append(_elem818)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 59:
         if ftype == TType.LIST:
           self.hong_bao_records = []
-          (_etype813, _size810) = iprot.readListBegin()
-          for _i814 in xrange(_size810):
-            _elem815 = HongbaoRecord()
-            _elem815.read(iprot)
-            self.hong_bao_records.append(_elem815)
+          (_etype822, _size819) = iprot.readListBegin()
+          for _i823 in xrange(_size819):
+            _elem824 = HongbaoRecord()
+            _elem824.read(iprot)
+            self.hong_bao_records.append(_elem824)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 60:
         if ftype == TType.LIST:
           self.return_assemble_product = []
-          (_etype819, _size816) = iprot.readListBegin()
-          for _i820 in xrange(_size816):
-            _elem821 = iprot.readI32()
-            self.return_assemble_product.append(_elem821)
+          (_etype828, _size825) = iprot.readListBegin()
+          for _i829 in xrange(_size825):
+            _elem830 = iprot.readI32()
+            self.return_assemble_product.append(_elem830)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18264,11 +18287,11 @@ class SearchRequest:
       elif fid == 68:
         if ftype == TType.LIST:
           self.group_info = []
-          (_etype825, _size822) = iprot.readListBegin()
-          for _i826 in xrange(_size822):
-            _elem827 = GroupInfo()
-            _elem827.read(iprot)
-            self.group_info.append(_elem827)
+          (_etype834, _size831) = iprot.readListBegin()
+          for _i835 in xrange(_size831):
+            _elem836 = GroupInfo()
+            _elem836.read(iprot)
+            self.group_info.append(_elem836)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18295,10 +18318,10 @@ class SearchRequest:
       elif fid == 73:
         if ftype == TType.LIST:
           self.cooperation_type = []
-          (_etype831, _size828) = iprot.readListBegin()
-          for _i832 in xrange(_size828):
-            _elem833 = iprot.readI32()
-            self.cooperation_type.append(_elem833)
+          (_etype840, _size837) = iprot.readListBegin()
+          for _i841 in xrange(_size837):
+            _elem842 = iprot.readI32()
+            self.cooperation_type.append(_elem842)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18330,20 +18353,20 @@ class SearchRequest:
       elif fid == 104:
         if ftype == TType.LIST:
           self.pre_pay_hotel_level_filter = []
-          (_etype837, _size834) = iprot.readListBegin()
-          for _i838 in xrange(_size834):
-            _elem839 = iprot.readI32()
-            self.pre_pay_hotel_level_filter.append(_elem839)
+          (_etype846, _size843) = iprot.readListBegin()
+          for _i847 in xrange(_size843):
+            _elem848 = iprot.readI32()
+            self.pre_pay_hotel_level_filter.append(_elem848)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 105:
         if ftype == TType.LIST:
           self.cash_pay_hotel_level_filter = []
-          (_etype843, _size840) = iprot.readListBegin()
-          for _i844 in xrange(_size840):
-            _elem845 = iprot.readI32()
-            self.cash_pay_hotel_level_filter.append(_elem845)
+          (_etype852, _size849) = iprot.readListBegin()
+          for _i853 in xrange(_size849):
+            _elem854 = iprot.readI32()
+            self.cash_pay_hotel_level_filter.append(_elem854)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18356,10 +18379,10 @@ class SearchRequest:
       elif fid == 107:
         if ftype == TType.LIST:
           self.promotion_percentage_range = []
-          (_etype849, _size846) = iprot.readListBegin()
-          for _i850 in xrange(_size846):
-            _elem851 = iprot.readDouble()
-            self.promotion_percentage_range.append(_elem851)
+          (_etype858, _size855) = iprot.readListBegin()
+          for _i859 in xrange(_size855):
+            _elem860 = iprot.readDouble()
+            self.promotion_percentage_range.append(_elem860)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18371,10 +18394,10 @@ class SearchRequest:
       elif fid == 109:
         if ftype == TType.LIST:
           self.privilege_return_assemble = []
-          (_etype855, _size852) = iprot.readListBegin()
-          for _i856 in xrange(_size852):
-            _elem857 = iprot.readI32()
-            self.privilege_return_assemble.append(_elem857)
+          (_etype864, _size861) = iprot.readListBegin()
+          for _i865 in xrange(_size861):
+            _elem866 = iprot.readI32()
+            self.privilege_return_assemble.append(_elem866)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -18386,11 +18409,11 @@ class SearchRequest:
       elif fid == 111:
         if ftype == TType.MAP:
           self.exclusive_discount_detail = {}
-          (_ktype859, _vtype860, _size858 ) = iprot.readMapBegin()
-          for _i862 in xrange(_size858):
-            _key863 = iprot.readI64()
-            _val864 = iprot.readI32()
-            self.exclusive_discount_detail[_key863] = _val864
+          (_ktype868, _vtype869, _size867 ) = iprot.readMapBegin()
+          for _i871 in xrange(_size867):
+            _key872 = iprot.readI64()
+            _val873 = iprot.readI32()
+            self.exclusive_discount_detail[_key872] = _val873
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -18412,17 +18435,17 @@ class SearchRequest:
       elif fid == 115:
         if ftype == TType.MAP:
           self.biddingRanks4Ebk = {}
-          (_ktype866, _vtype867, _size865 ) = iprot.readMapBegin()
-          for _i869 in xrange(_size865):
-            _key870 = iprot.readI32()
-            _val871 = []
-            (_etype875, _size872) = iprot.readListBegin()
-            for _i876 in xrange(_size872):
-              _elem877 = cm.ttypes.BiddingRankInfo()
-              _elem877.read(iprot)
-              _val871.append(_elem877)
+          (_ktype875, _vtype876, _size874 ) = iprot.readMapBegin()
+          for _i878 in xrange(_size874):
+            _key879 = iprot.readI32()
+            _val880 = []
+            (_etype884, _size881) = iprot.readListBegin()
+            for _i885 in xrange(_size881):
+              _elem886 = cm.ttypes.BiddingRankInfo()
+              _elem886.read(iprot)
+              _val880.append(_elem886)
             iprot.readListEnd()
-            self.biddingRanks4Ebk[_key870] = _val871
+            self.biddingRanks4Ebk[_key879] = _val880
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -18439,8 +18462,8 @@ class SearchRequest:
     if self.mhotel_ids is not None:
       oprot.writeFieldBegin('mhotel_ids', TType.LIST, 1)
       oprot.writeListBegin(TType.I64, len(self.mhotel_ids))
-      for iter878 in self.mhotel_ids:
-        oprot.writeI64(iter878)
+      for iter887 in self.mhotel_ids:
+        oprot.writeI64(iter887)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.booking_datetime is not None:
@@ -18490,15 +18513,15 @@ class SearchRequest:
     if self.supplier_type is not None:
       oprot.writeFieldBegin('supplier_type', TType.LIST, 13)
       oprot.writeListBegin(TType.I32, len(self.supplier_type))
-      for iter879 in self.supplier_type:
-        oprot.writeI32(iter879)
+      for iter888 in self.supplier_type:
+        oprot.writeI32(iter888)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.online_search_type is not None:
       oprot.writeFieldBegin('online_search_type', TType.LIST, 14)
       oprot.writeListBegin(TType.I32, len(self.online_search_type))
-      for iter880 in self.online_search_type:
-        oprot.writeI32(iter880)
+      for iter889 in self.online_search_type:
+        oprot.writeI32(iter889)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.promotion_type is not None:
@@ -18524,8 +18547,8 @@ class SearchRequest:
     if self.codes is not None:
       oprot.writeFieldBegin('codes', TType.LIST, 22)
       oprot.writeListBegin(TType.I32, len(self.codes))
-      for iter881 in self.codes:
-        oprot.writeI32(iter881)
+      for iter890 in self.codes:
+        oprot.writeI32(iter890)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_noinv_or_noprice_product is not None:
@@ -18559,8 +18582,8 @@ class SearchRequest:
     if self.bed_type is not None:
       oprot.writeFieldBegin('bed_type', TType.LIST, 30)
       oprot.writeListBegin(TType.I32, len(self.bed_type))
-      for iter882 in self.bed_type:
-        oprot.writeI32(iter882)
+      for iter891 in self.bed_type:
+        oprot.writeI32(iter891)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.list_product_info is not None:
@@ -18618,8 +18641,8 @@ class SearchRequest:
     if self.mhotel_attrs is not None:
       oprot.writeFieldBegin('mhotel_attrs', TType.LIST, 44)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_attrs))
-      for iter883 in self.mhotel_attrs:
-        iter883.write(oprot)
+      for iter892 in self.mhotel_attrs:
+        iter892.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_has_allbuyroom_hotel is not None:
@@ -18665,8 +18688,8 @@ class SearchRequest:
     if self.promotion_black_list is not None:
       oprot.writeFieldBegin('promotion_black_list', TType.LIST, 55)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_black_list))
-      for iter884 in self.promotion_black_list:
-        iter884.write(oprot)
+      for iter893 in self.promotion_black_list:
+        iter893.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_has_memberbenefits_hotel is not None:
@@ -18676,29 +18699,29 @@ class SearchRequest:
     if self.filter_conditions is not None:
       oprot.writeFieldBegin('filter_conditions', TType.LIST, 57)
       oprot.writeListBegin(TType.STRUCT, len(self.filter_conditions))
-      for iter885 in self.filter_conditions:
-        iter885.write(oprot)
+      for iter894 in self.filter_conditions:
+        iter894.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_assemble is not None:
       oprot.writeFieldBegin('return_assemble', TType.LIST, 58)
       oprot.writeListBegin(TType.I32, len(self.return_assemble))
-      for iter886 in self.return_assemble:
-        oprot.writeI32(iter886)
+      for iter895 in self.return_assemble:
+        oprot.writeI32(iter895)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.hong_bao_records is not None:
       oprot.writeFieldBegin('hong_bao_records', TType.LIST, 59)
       oprot.writeListBegin(TType.STRUCT, len(self.hong_bao_records))
-      for iter887 in self.hong_bao_records:
-        iter887.write(oprot)
+      for iter896 in self.hong_bao_records:
+        iter896.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_assemble_product is not None:
       oprot.writeFieldBegin('return_assemble_product', TType.LIST, 60)
       oprot.writeListBegin(TType.I32, len(self.return_assemble_product))
-      for iter888 in self.return_assemble_product:
-        oprot.writeI32(iter888)
+      for iter897 in self.return_assemble_product:
+        oprot.writeI32(iter897)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.booking_menu is not None:
@@ -18732,8 +18755,8 @@ class SearchRequest:
     if self.group_info is not None:
       oprot.writeFieldBegin('group_info', TType.LIST, 68)
       oprot.writeListBegin(TType.STRUCT, len(self.group_info))
-      for iter889 in self.group_info:
-        iter889.write(oprot)
+      for iter898 in self.group_info:
+        iter898.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.request_type is not None:
@@ -18755,8 +18778,8 @@ class SearchRequest:
     if self.cooperation_type is not None:
       oprot.writeFieldBegin('cooperation_type', TType.LIST, 73)
       oprot.writeListBegin(TType.I32, len(self.cooperation_type))
-      for iter890 in self.cooperation_type:
-        oprot.writeI32(iter890)
+      for iter899 in self.cooperation_type:
+        oprot.writeI32(iter899)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_has_resale_hotel is not None:
@@ -18782,15 +18805,15 @@ class SearchRequest:
     if self.pre_pay_hotel_level_filter is not None:
       oprot.writeFieldBegin('pre_pay_hotel_level_filter', TType.LIST, 104)
       oprot.writeListBegin(TType.I32, len(self.pre_pay_hotel_level_filter))
-      for iter891 in self.pre_pay_hotel_level_filter:
-        oprot.writeI32(iter891)
+      for iter900 in self.pre_pay_hotel_level_filter:
+        oprot.writeI32(iter900)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.cash_pay_hotel_level_filter is not None:
       oprot.writeFieldBegin('cash_pay_hotel_level_filter', TType.LIST, 105)
       oprot.writeListBegin(TType.I32, len(self.cash_pay_hotel_level_filter))
-      for iter892 in self.cash_pay_hotel_level_filter:
-        oprot.writeI32(iter892)
+      for iter901 in self.cash_pay_hotel_level_filter:
+        oprot.writeI32(iter901)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.order_by_user_credit_filter is not None:
@@ -18800,8 +18823,8 @@ class SearchRequest:
     if self.promotion_percentage_range is not None:
       oprot.writeFieldBegin('promotion_percentage_range', TType.LIST, 107)
       oprot.writeListBegin(TType.DOUBLE, len(self.promotion_percentage_range))
-      for iter893 in self.promotion_percentage_range:
-        oprot.writeDouble(iter893)
+      for iter902 in self.promotion_percentage_range:
+        oprot.writeDouble(iter902)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_price_range_statistic is not None:
@@ -18811,8 +18834,8 @@ class SearchRequest:
     if self.privilege_return_assemble is not None:
       oprot.writeFieldBegin('privilege_return_assemble', TType.LIST, 109)
       oprot.writeListBegin(TType.I32, len(self.privilege_return_assemble))
-      for iter894 in self.privilege_return_assemble:
-        oprot.writeI32(iter894)
+      for iter903 in self.privilege_return_assemble:
+        oprot.writeI32(iter903)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_exclusive_hotel_info is not None:
@@ -18822,9 +18845,9 @@ class SearchRequest:
     if self.exclusive_discount_detail is not None:
       oprot.writeFieldBegin('exclusive_discount_detail', TType.MAP, 111)
       oprot.writeMapBegin(TType.I64, TType.I32, len(self.exclusive_discount_detail))
-      for kiter895,viter896 in self.exclusive_discount_detail.items():
-        oprot.writeI64(kiter895)
-        oprot.writeI32(viter896)
+      for kiter904,viter905 in self.exclusive_discount_detail.items():
+        oprot.writeI64(kiter904)
+        oprot.writeI32(viter905)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.return_new_botao_member_product is not None:
@@ -18842,11 +18865,11 @@ class SearchRequest:
     if self.biddingRanks4Ebk is not None:
       oprot.writeFieldBegin('biddingRanks4Ebk', TType.MAP, 115)
       oprot.writeMapBegin(TType.I32, TType.LIST, len(self.biddingRanks4Ebk))
-      for kiter897,viter898 in self.biddingRanks4Ebk.items():
-        oprot.writeI32(kiter897)
-        oprot.writeListBegin(TType.STRUCT, len(viter898))
-        for iter899 in viter898:
-          iter899.write(oprot)
+      for kiter906,viter907 in self.biddingRanks4Ebk.items():
+        oprot.writeI32(kiter906)
+        oprot.writeListBegin(TType.STRUCT, len(viter907))
+        for iter908 in viter907:
+          iter908.write(oprot)
         oprot.writeListEnd()
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
@@ -19013,11 +19036,11 @@ class SearchResponse:
       elif fid == 2:
         if ftype == TType.LIST:
           self.hotels_detail = []
-          (_etype903, _size900) = iprot.readListBegin()
-          for _i904 in xrange(_size900):
-            _elem905 = MHotelDetail()
-            _elem905.read(iprot)
-            self.hotels_detail.append(_elem905)
+          (_etype912, _size909) = iprot.readListBegin()
+          for _i913 in xrange(_size909):
+            _elem914 = MHotelDetail()
+            _elem914.read(iprot)
+            self.hotels_detail.append(_elem914)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19029,22 +19052,22 @@ class SearchResponse:
       elif fid == 4:
         if ftype == TType.LIST:
           self.promotion_group = []
-          (_etype909, _size906) = iprot.readListBegin()
-          for _i910 in xrange(_size906):
-            _elem911 = PromotionGroup()
-            _elem911.read(iprot)
-            self.promotion_group.append(_elem911)
+          (_etype918, _size915) = iprot.readListBegin()
+          for _i919 in xrange(_size915):
+            _elem920 = PromotionGroup()
+            _elem920.read(iprot)
+            self.promotion_group.append(_elem920)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 5:
         if ftype == TType.LIST:
           self.debug_response = []
-          (_etype915, _size912) = iprot.readListBegin()
-          for _i916 in xrange(_size912):
-            _elem917 = DebugResponse()
-            _elem917.read(iprot)
-            self.debug_response.append(_elem917)
+          (_etype924, _size921) = iprot.readListBegin()
+          for _i925 in xrange(_size921):
+            _elem926 = DebugResponse()
+            _elem926.read(iprot)
+            self.debug_response.append(_elem926)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19076,8 +19099,8 @@ class SearchResponse:
     if self.hotels_detail is not None:
       oprot.writeFieldBegin('hotels_detail', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.hotels_detail))
-      for iter918 in self.hotels_detail:
-        iter918.write(oprot)
+      for iter927 in self.hotels_detail:
+        iter927.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.search_id is not None:
@@ -19087,15 +19110,15 @@ class SearchResponse:
     if self.promotion_group is not None:
       oprot.writeFieldBegin('promotion_group', TType.LIST, 4)
       oprot.writeListBegin(TType.STRUCT, len(self.promotion_group))
-      for iter919 in self.promotion_group:
-        iter919.write(oprot)
+      for iter928 in self.promotion_group:
+        iter928.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.debug_response is not None:
       oprot.writeFieldBegin('debug_response', TType.LIST, 5)
       oprot.writeListBegin(TType.STRUCT, len(self.debug_response))
-      for iter920 in self.debug_response:
-        iter920.write(oprot)
+      for iter929 in self.debug_response:
+        iter929.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.common_conf is not None:
@@ -19171,10 +19194,10 @@ class MetaMhotel:
       elif fid == 2:
         if ftype == TType.LIST:
           self.shotel_id = []
-          (_etype924, _size921) = iprot.readListBegin()
-          for _i925 in xrange(_size921):
-            _elem926 = iprot.readI32()
-            self.shotel_id.append(_elem926)
+          (_etype933, _size930) = iprot.readListBegin()
+          for _i934 in xrange(_size930):
+            _elem935 = iprot.readI32()
+            self.shotel_id.append(_elem935)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19195,8 +19218,8 @@ class MetaMhotel:
     if self.shotel_id is not None:
       oprot.writeFieldBegin('shotel_id', TType.LIST, 2)
       oprot.writeListBegin(TType.I32, len(self.shotel_id))
-      for iter927 in self.shotel_id:
-        oprot.writeI32(iter927)
+      for iter936 in self.shotel_id:
+        oprot.writeI32(iter936)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -19268,11 +19291,11 @@ class GetBaseRatePlanDRRGiftRequest:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel = []
-          (_etype931, _size928) = iprot.readListBegin()
-          for _i932 in xrange(_size928):
-            _elem933 = MetaMhotel()
-            _elem933.read(iprot)
-            self.mhotel.append(_elem933)
+          (_etype940, _size937) = iprot.readListBegin()
+          for _i941 in xrange(_size937):
+            _elem942 = MetaMhotel()
+            _elem942.read(iprot)
+            self.mhotel.append(_elem942)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19314,8 +19337,8 @@ class GetBaseRatePlanDRRGiftRequest:
     if self.mhotel is not None:
       oprot.writeFieldBegin('mhotel', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel))
-      for iter934 in self.mhotel:
-        iter934.write(oprot)
+      for iter943 in self.mhotel:
+        iter943.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.payment_type is not None:
@@ -19585,11 +19608,11 @@ class MetaHotelInfo:
       elif fid == 2:
         if ftype == TType.LIST:
           self.hotel_booking_rule_list = []
-          (_etype938, _size935) = iprot.readListBegin()
-          for _i939 in xrange(_size935):
-            _elem940 = MetaHotelBookingRule()
-            _elem940.read(iprot)
-            self.hotel_booking_rule_list.append(_elem940)
+          (_etype947, _size944) = iprot.readListBegin()
+          for _i948 in xrange(_size944):
+            _elem949 = MetaHotelBookingRule()
+            _elem949.read(iprot)
+            self.hotel_booking_rule_list.append(_elem949)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19620,8 +19643,8 @@ class MetaHotelInfo:
     if self.hotel_booking_rule_list is not None:
       oprot.writeFieldBegin('hotel_booking_rule_list', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.hotel_booking_rule_list))
-      for iter941 in self.hotel_booking_rule_list:
-        iter941.write(oprot)
+      for iter950 in self.hotel_booking_rule_list:
+        iter950.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.week_end_start is not None:
@@ -19712,20 +19735,20 @@ class MetaProductInfo:
       elif fid == 3:
         if ftype == TType.LIST:
           self.drr_ids = []
-          (_etype945, _size942) = iprot.readListBegin()
-          for _i946 in xrange(_size942):
-            _elem947 = iprot.readI32()
-            self.drr_ids.append(_elem947)
+          (_etype954, _size951) = iprot.readListBegin()
+          for _i955 in xrange(_size951):
+            _elem956 = iprot.readI32()
+            self.drr_ids.append(_elem956)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 4:
         if ftype == TType.LIST:
           self.gift_ids = []
-          (_etype951, _size948) = iprot.readListBegin()
-          for _i952 in xrange(_size948):
-            _elem953 = iprot.readI32()
-            self.gift_ids.append(_elem953)
+          (_etype960, _size957) = iprot.readListBegin()
+          for _i961 in xrange(_size957):
+            _elem962 = iprot.readI32()
+            self.gift_ids.append(_elem962)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19755,15 +19778,15 @@ class MetaProductInfo:
     if self.drr_ids is not None:
       oprot.writeFieldBegin('drr_ids', TType.LIST, 3)
       oprot.writeListBegin(TType.I32, len(self.drr_ids))
-      for iter954 in self.drr_ids:
-        oprot.writeI32(iter954)
+      for iter963 in self.drr_ids:
+        oprot.writeI32(iter963)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.gift_ids is not None:
       oprot.writeFieldBegin('gift_ids', TType.LIST, 4)
       oprot.writeListBegin(TType.I32, len(self.gift_ids))
-      for iter955 in self.gift_ids:
-        oprot.writeI32(iter955)
+      for iter964 in self.gift_ids:
+        oprot.writeI32(iter964)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.invoice_mode is not None:
@@ -19836,22 +19859,22 @@ class MetaRoomTypeInfo:
       elif fid == 2:
         if ftype == TType.LIST:
           self.hotel_booking_rule_list = []
-          (_etype959, _size956) = iprot.readListBegin()
-          for _i960 in xrange(_size956):
-            _elem961 = MetaHotelBookingRule()
-            _elem961.read(iprot)
-            self.hotel_booking_rule_list.append(_elem961)
+          (_etype968, _size965) = iprot.readListBegin()
+          for _i969 in xrange(_size965):
+            _elem970 = MetaHotelBookingRule()
+            _elem970.read(iprot)
+            self.hotel_booking_rule_list.append(_elem970)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.LIST:
           self.products = []
-          (_etype965, _size962) = iprot.readListBegin()
-          for _i966 in xrange(_size962):
-            _elem967 = MetaProductInfo()
-            _elem967.read(iprot)
-            self.products.append(_elem967)
+          (_etype974, _size971) = iprot.readListBegin()
+          for _i975 in xrange(_size971):
+            _elem976 = MetaProductInfo()
+            _elem976.read(iprot)
+            self.products.append(_elem976)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -19872,15 +19895,15 @@ class MetaRoomTypeInfo:
     if self.hotel_booking_rule_list is not None:
       oprot.writeFieldBegin('hotel_booking_rule_list', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.hotel_booking_rule_list))
-      for iter968 in self.hotel_booking_rule_list:
-        iter968.write(oprot)
+      for iter977 in self.hotel_booking_rule_list:
+        iter977.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.products is not None:
       oprot.writeFieldBegin('products', TType.LIST, 3)
       oprot.writeListBegin(TType.STRUCT, len(self.products))
-      for iter969 in self.products:
-        iter969.write(oprot)
+      for iter978 in self.products:
+        iter978.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -20048,11 +20071,11 @@ class MetaPrePayInfo:
       elif fid == 15:
         if ftype == TType.MAP:
           self.rule_values = {}
-          (_ktype971, _vtype972, _size970 ) = iprot.readMapBegin()
-          for _i974 in xrange(_size970):
-            _key975 = iprot.readString()
-            _val976 = iprot.readString()
-            self.rule_values[_key975] = _val976
+          (_ktype980, _vtype981, _size979 ) = iprot.readMapBegin()
+          for _i983 in xrange(_size979):
+            _key984 = iprot.readString()
+            _val985 = iprot.readString()
+            self.rule_values[_key984] = _val985
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -20125,9 +20148,9 @@ class MetaPrePayInfo:
     if self.rule_values is not None:
       oprot.writeFieldBegin('rule_values', TType.MAP, 15)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.rule_values))
-      for kiter977,viter978 in self.rule_values.items():
-        oprot.writeString(kiter977)
-        oprot.writeString(viter978)
+      for kiter986,viter987 in self.rule_values.items():
+        oprot.writeString(kiter986)
+        oprot.writeString(viter987)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -20487,11 +20510,11 @@ class MetaVouchInfo:
       elif fid == 13:
         if ftype == TType.MAP:
           self.rule_values = {}
-          (_ktype980, _vtype981, _size979 ) = iprot.readMapBegin()
-          for _i983 in xrange(_size979):
-            _key984 = iprot.readString()
-            _val985 = iprot.readString()
-            self.rule_values[_key984] = _val985
+          (_ktype989, _vtype990, _size988 ) = iprot.readMapBegin()
+          for _i992 in xrange(_size988):
+            _key993 = iprot.readString()
+            _val994 = iprot.readString()
+            self.rule_values[_key993] = _val994
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -20561,9 +20584,9 @@ class MetaVouchInfo:
     if self.rule_values is not None:
       oprot.writeFieldBegin('rule_values', TType.MAP, 13)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.rule_values))
-      for kiter986,viter987 in self.rule_values.items():
-        oprot.writeString(kiter986)
-        oprot.writeString(viter987)
+      for kiter995,viter996 in self.rule_values.items():
+        oprot.writeString(kiter995)
+        oprot.writeString(viter996)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.endDate is not None:
@@ -20980,44 +21003,44 @@ class MetaRatePlanBaseInfo:
       elif fid == 18:
         if ftype == TType.LIST:
           self.add_value_policy_list = []
-          (_etype991, _size988) = iprot.readListBegin()
-          for _i992 in xrange(_size988):
-            _elem993 = MetaAddValuePolicyInfo()
-            _elem993.read(iprot)
-            self.add_value_policy_list.append(_elem993)
+          (_etype1000, _size997) = iprot.readListBegin()
+          for _i1001 in xrange(_size997):
+            _elem1002 = MetaAddValuePolicyInfo()
+            _elem1002.read(iprot)
+            self.add_value_policy_list.append(_elem1002)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 19:
         if ftype == TType.LIST:
           self.rate_plan_pre_pay_rule_list = []
-          (_etype997, _size994) = iprot.readListBegin()
-          for _i998 in xrange(_size994):
-            _elem999 = MetaPrePayInfo()
-            _elem999.read(iprot)
-            self.rate_plan_pre_pay_rule_list.append(_elem999)
+          (_etype1006, _size1003) = iprot.readListBegin()
+          for _i1007 in xrange(_size1003):
+            _elem1008 = MetaPrePayInfo()
+            _elem1008.read(iprot)
+            self.rate_plan_pre_pay_rule_list.append(_elem1008)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 20:
         if ftype == TType.LIST:
           self.rate_plan_vouch_rule_list = []
-          (_etype1003, _size1000) = iprot.readListBegin()
-          for _i1004 in xrange(_size1000):
-            _elem1005 = MetaVouchInfo()
-            _elem1005.read(iprot)
-            self.rate_plan_vouch_rule_list.append(_elem1005)
+          (_etype1012, _size1009) = iprot.readListBegin()
+          for _i1013 in xrange(_size1009):
+            _elem1014 = MetaVouchInfo()
+            _elem1014.read(iprot)
+            self.rate_plan_vouch_rule_list.append(_elem1014)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 21:
         if ftype == TType.LIST:
           self.rateplan_relation_add_value = []
-          (_etype1009, _size1006) = iprot.readListBegin()
-          for _i1010 in xrange(_size1006):
-            _elem1011 = MetaAddValueInfoSimple()
-            _elem1011.read(iprot)
-            self.rateplan_relation_add_value.append(_elem1011)
+          (_etype1018, _size1015) = iprot.readListBegin()
+          for _i1019 in xrange(_size1015):
+            _elem1020 = MetaAddValueInfoSimple()
+            _elem1020.read(iprot)
+            self.rateplan_relation_add_value.append(_elem1020)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -21107,29 +21130,29 @@ class MetaRatePlanBaseInfo:
     if self.add_value_policy_list is not None:
       oprot.writeFieldBegin('add_value_policy_list', TType.LIST, 18)
       oprot.writeListBegin(TType.STRUCT, len(self.add_value_policy_list))
-      for iter1012 in self.add_value_policy_list:
-        iter1012.write(oprot)
+      for iter1021 in self.add_value_policy_list:
+        iter1021.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.rate_plan_pre_pay_rule_list is not None:
       oprot.writeFieldBegin('rate_plan_pre_pay_rule_list', TType.LIST, 19)
       oprot.writeListBegin(TType.STRUCT, len(self.rate_plan_pre_pay_rule_list))
-      for iter1013 in self.rate_plan_pre_pay_rule_list:
-        iter1013.write(oprot)
+      for iter1022 in self.rate_plan_pre_pay_rule_list:
+        iter1022.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.rate_plan_vouch_rule_list is not None:
       oprot.writeFieldBegin('rate_plan_vouch_rule_list', TType.LIST, 20)
       oprot.writeListBegin(TType.STRUCT, len(self.rate_plan_vouch_rule_list))
-      for iter1014 in self.rate_plan_vouch_rule_list:
-        iter1014.write(oprot)
+      for iter1023 in self.rate_plan_vouch_rule_list:
+        iter1023.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.rateplan_relation_add_value is not None:
       oprot.writeFieldBegin('rateplan_relation_add_value', TType.LIST, 21)
       oprot.writeListBegin(TType.STRUCT, len(self.rateplan_relation_add_value))
-      for iter1015 in self.rateplan_relation_add_value:
-        iter1015.write(oprot)
+      for iter1024 in self.rateplan_relation_add_value:
+        iter1024.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.rate_plan_room_type_id is not None:
@@ -21291,11 +21314,11 @@ class MetaDRRInfo:
       elif fid == 11:
         if ftype == TType.MAP:
           self.ruleValues = {}
-          (_ktype1017, _vtype1018, _size1016 ) = iprot.readMapBegin()
-          for _i1020 in xrange(_size1016):
-            _key1021 = iprot.readString()
-            _val1022 = iprot.readString()
-            self.ruleValues[_key1021] = _val1022
+          (_ktype1026, _vtype1027, _size1025 ) = iprot.readMapBegin()
+          for _i1029 in xrange(_size1025):
+            _key1030 = iprot.readString()
+            _val1031 = iprot.readString()
+            self.ruleValues[_key1030] = _val1031
           iprot.readMapEnd()
         else:
           iprot.skip(ftype)
@@ -21357,9 +21380,9 @@ class MetaDRRInfo:
     if self.ruleValues is not None:
       oprot.writeFieldBegin('ruleValues', TType.MAP, 11)
       oprot.writeMapBegin(TType.STRING, TType.STRING, len(self.ruleValues))
-      for kiter1023,viter1024 in self.ruleValues.items():
-        oprot.writeString(kiter1023)
-        oprot.writeString(viter1024)
+      for kiter1032,viter1033 in self.ruleValues.items():
+        oprot.writeString(kiter1032)
+        oprot.writeString(viter1033)
       oprot.writeMapEnd()
       oprot.writeFieldEnd()
     if self.room_type_ids is not None:
@@ -21595,11 +21618,11 @@ class MetaHotelGiftModel:
       elif fid == 3:
         if ftype == TType.LIST:
           self.relation_date_list = []
-          (_etype1028, _size1025) = iprot.readListBegin()
-          for _i1029 in xrange(_size1025):
-            _elem1030 = MetaHotelGiftRelationDate()
-            _elem1030.read(iprot)
-            self.relation_date_list.append(_elem1030)
+          (_etype1037, _size1034) = iprot.readListBegin()
+          for _i1038 in xrange(_size1034):
+            _elem1039 = MetaHotelGiftRelationDate()
+            _elem1039.read(iprot)
+            self.relation_date_list.append(_elem1039)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -21659,8 +21682,8 @@ class MetaHotelGiftModel:
     if self.relation_date_list is not None:
       oprot.writeFieldBegin('relation_date_list', TType.LIST, 3)
       oprot.writeListBegin(TType.STRUCT, len(self.relation_date_list))
-      for iter1031 in self.relation_date_list:
-        iter1031.write(oprot)
+      for iter1040 in self.relation_date_list:
+        iter1040.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.is_all_product_related is not None:
@@ -21769,44 +21792,44 @@ class MetaSHotelBaseRpDrrGift:
       elif fid == 2:
         if ftype == TType.LIST:
           self.room_base_infos = []
-          (_etype1035, _size1032) = iprot.readListBegin()
-          for _i1036 in xrange(_size1032):
-            _elem1037 = MetaRoomTypeInfo()
-            _elem1037.read(iprot)
-            self.room_base_infos.append(_elem1037)
+          (_etype1044, _size1041) = iprot.readListBegin()
+          for _i1045 in xrange(_size1041):
+            _elem1046 = MetaRoomTypeInfo()
+            _elem1046.read(iprot)
+            self.room_base_infos.append(_elem1046)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 3:
         if ftype == TType.LIST:
           self.ratePlans = []
-          (_etype1041, _size1038) = iprot.readListBegin()
-          for _i1042 in xrange(_size1038):
-            _elem1043 = MetaRatePlanBaseInfo()
-            _elem1043.read(iprot)
-            self.ratePlans.append(_elem1043)
+          (_etype1050, _size1047) = iprot.readListBegin()
+          for _i1051 in xrange(_size1047):
+            _elem1052 = MetaRatePlanBaseInfo()
+            _elem1052.read(iprot)
+            self.ratePlans.append(_elem1052)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 4:
         if ftype == TType.LIST:
           self.drrs = []
-          (_etype1047, _size1044) = iprot.readListBegin()
-          for _i1048 in xrange(_size1044):
-            _elem1049 = MetaDRRInfo()
-            _elem1049.read(iprot)
-            self.drrs.append(_elem1049)
+          (_etype1056, _size1053) = iprot.readListBegin()
+          for _i1057 in xrange(_size1053):
+            _elem1058 = MetaDRRInfo()
+            _elem1058.read(iprot)
+            self.drrs.append(_elem1058)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
       elif fid == 5:
         if ftype == TType.LIST:
           self.gifts = []
-          (_etype1053, _size1050) = iprot.readListBegin()
-          for _i1054 in xrange(_size1050):
-            _elem1055 = MetaHotelGiftModel()
-            _elem1055.read(iprot)
-            self.gifts.append(_elem1055)
+          (_etype1062, _size1059) = iprot.readListBegin()
+          for _i1063 in xrange(_size1059):
+            _elem1064 = MetaHotelGiftModel()
+            _elem1064.read(iprot)
+            self.gifts.append(_elem1064)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -21827,29 +21850,29 @@ class MetaSHotelBaseRpDrrGift:
     if self.room_base_infos is not None:
       oprot.writeFieldBegin('room_base_infos', TType.LIST, 2)
       oprot.writeListBegin(TType.STRUCT, len(self.room_base_infos))
-      for iter1056 in self.room_base_infos:
-        iter1056.write(oprot)
+      for iter1065 in self.room_base_infos:
+        iter1065.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.ratePlans is not None:
       oprot.writeFieldBegin('ratePlans', TType.LIST, 3)
       oprot.writeListBegin(TType.STRUCT, len(self.ratePlans))
-      for iter1057 in self.ratePlans:
-        iter1057.write(oprot)
+      for iter1066 in self.ratePlans:
+        iter1066.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.drrs is not None:
       oprot.writeFieldBegin('drrs', TType.LIST, 4)
       oprot.writeListBegin(TType.STRUCT, len(self.drrs))
-      for iter1058 in self.drrs:
-        iter1058.write(oprot)
+      for iter1067 in self.drrs:
+        iter1067.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.gifts is not None:
       oprot.writeFieldBegin('gifts', TType.LIST, 5)
       oprot.writeListBegin(TType.STRUCT, len(self.gifts))
-      for iter1059 in self.gifts:
-        iter1059.write(oprot)
+      for iter1068 in self.gifts:
+        iter1068.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     oprot.writeFieldStop()
@@ -21918,11 +21941,11 @@ class MetaMHotelBaseRpDrrGift:
       if fid == 1:
         if ftype == TType.LIST:
           self.shotel_detail = []
-          (_etype1063, _size1060) = iprot.readListBegin()
-          for _i1064 in xrange(_size1060):
-            _elem1065 = MetaSHotelBaseRpDrrGift()
-            _elem1065.read(iprot)
-            self.shotel_detail.append(_elem1065)
+          (_etype1072, _size1069) = iprot.readListBegin()
+          for _i1073 in xrange(_size1069):
+            _elem1074 = MetaSHotelBaseRpDrrGift()
+            _elem1074.read(iprot)
+            self.shotel_detail.append(_elem1074)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -21944,8 +21967,8 @@ class MetaMHotelBaseRpDrrGift:
     if self.shotel_detail is not None:
       oprot.writeFieldBegin('shotel_detail', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.shotel_detail))
-      for iter1066 in self.shotel_detail:
-        iter1066.write(oprot)
+      for iter1075 in self.shotel_detail:
+        iter1075.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.mhotel_id is not None:
@@ -22008,11 +22031,11 @@ class GetBaseRatePlanDRRGiftResponse:
       if fid == 1:
         if ftype == TType.LIST:
           self.mhotel_detail = []
-          (_etype1070, _size1067) = iprot.readListBegin()
-          for _i1071 in xrange(_size1067):
-            _elem1072 = MetaMHotelBaseRpDrrGift()
-            _elem1072.read(iprot)
-            self.mhotel_detail.append(_elem1072)
+          (_etype1079, _size1076) = iprot.readListBegin()
+          for _i1080 in xrange(_size1076):
+            _elem1081 = MetaMHotelBaseRpDrrGift()
+            _elem1081.read(iprot)
+            self.mhotel_detail.append(_elem1081)
           iprot.readListEnd()
         else:
           iprot.skip(ftype)
@@ -22039,8 +22062,8 @@ class GetBaseRatePlanDRRGiftResponse:
     if self.mhotel_detail is not None:
       oprot.writeFieldBegin('mhotel_detail', TType.LIST, 1)
       oprot.writeListBegin(TType.STRUCT, len(self.mhotel_detail))
-      for iter1073 in self.mhotel_detail:
-        iter1073.write(oprot)
+      for iter1082 in self.mhotel_detail:
+        iter1082.write(oprot)
       oprot.writeListEnd()
       oprot.writeFieldEnd()
     if self.return_code is not None:
