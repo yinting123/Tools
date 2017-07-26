@@ -22,10 +22,10 @@ from dynamic_search.ttypes import *
 from dsservice.DSServiceProxy import Client
 
 # HOST = '192.168.233.17'
-# HOST = '192.168.233.2'
+HOST = '192.168.233.2'
 # HOST = '192.168.35.17'
 # HOST = '192.168.35.30'
-HOST = '192.168.233.83'
+# HOST = '192.168.233.83'
 # HOST = '192.168.35.17'
 # HOST = '192.168.35.21'
 # HOST = 'goodsservicenb.vip.elong.com'
@@ -192,6 +192,87 @@ class VerifyPrice():
     def __init__(self):
         return
 
+class SearchCanBook(object):
+    def __init__(self):
+        pass
+    def build_message(self,hotels,CI,CO):
+        req = InnerSearchRequest()
+        req_cb = DSSSearchCanBookRequest()
+        req_cb.mhotel_ids = hotels
+        req_cb.return_mhotel_ids = hotels
+
+        req.inner_search_type = 1
+
+        # hotelAttr
+        req.hotel_attr = HotelAttribute()
+        req.hotel_attr.return_no_product_hotel = 1
+        req.hotel_attr.price_sub_coupon = 1
+        req.hotel_attr.facility_ids = []
+
+        # productAttr
+        req.product_attr = ProductAttribute()
+        req.product_attr.return_shopper_product = True
+        req.product_attr.return_has_resale_hotel = 1
+        req.product_attr.use_day_promotion = 1
+        req.product_attr.return_noinv_or_noprice_product = 1
+        req.product_attr.stay_date = StayDate()
+        req.product_attr.stay_date.check_in = int(time.time()) + 86400 * CI
+        req.product_attr.stay_date.check_out = int(time.time()) + 86400 * CO
+
+        # geoAttr
+        req.geo_attr = GeoAttribute()
+        req.geo_attr.region_id = 101
+
+        # pageAttr
+        req.page_rank_attr = PageRankAttribute()
+        req.page_rank_attr.page_index = 0
+        req.page_rank_attr.page_size = 100
+
+        # callerAttr
+        req.caller_attr = CallerAttribute()
+        req.caller_attr.ip = "192.168.1.1"
+        req.caller_attr.onlydebug = 1
+        req.caller_attr.request_origin = 3  # 3为APP
+
+        # customerAttr
+        req.customer_attr = CustomerAttribute()
+        req.customer_attr.proxy_id = 'AP0011563'  # 'AP0011563'# 'AP0011893'# 'AP0048611'
+        req.customer_attr.order_id = 50008  # 5999 60001  50008
+        req.customer_attr.member_level = 7
+
+        # returnAttr
+        req.return_attr = ReturnAttribute()
+        req.return_attr.return_static_info_level = 1
+        req.return_attr.return_products = 1
+        req.return_attr.return_rateplan_info = 1
+        req.return_attr.return_hotel_static_info = 1
+        req.return_attr.return_hotel_id_only = 0
+
+        # userInfo
+        req.user_info = UserInfo()
+        req.user_info.geo_info = GeoInfo()
+
+        req.rec_attr = RecommendAttribute()
+        req.rec_attr.rec_result = True
+
+        return req,req_cb
+
+    def create_connection(self):
+        print ("HOST:", HOST, "port:", PORT)
+        socket = TSocket.TSocket(HOST, PORT)
+        transport = TTransport.TFramedTransport(socket)
+        protocol = TCompactProtocol.TCompactProtocol(transport)
+        client = Client(protocol)
+        return transport, client
+
+    def process(self,ids,ci,co):
+        req1,req2 = self.build_message(ids,ci,co)
+        print req1, req2
+        tranport, client = self.create_connection()
+        tranport.open()
+        res = client.SearchCanBook(req1,req2)
+        tranport.close()
+        print res
 
 def check_v(ret):
     ret = ret.response
@@ -203,6 +284,7 @@ def check_v(ret):
     # result.ShowRatePlan()
     result.Product()
     result.promotionCash()
+
     # result.service_product()
     # result.Product()
     print '\033[35m===\033[0m' * 10
@@ -437,6 +519,7 @@ def  process(id,CI,CO,type):
         # req.inner_search_type = 4
         # print "request:\n",req
         print req.inner_search_type
+        print req_v5
         ret = client.SearchInner2(req, req_v5)
         check_v(ret)
         transport.close()

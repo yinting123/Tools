@@ -18,8 +18,8 @@ from ShowResult import *
 
 # HOST = "sa-mapi.vip.elong.com"
 # HOST = "172.21.27.25"
-# HOST = "10.39.18.58"
-HOST = "192.168.233.17"
+HOST = "10.39.18.58"
+# HOST = "192.168.233.17"
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.83"
 # HOST = "192.168.233.2"
@@ -45,8 +45,9 @@ def check_v(ret, str):
     # fp.close()
     show = ShowResult(req,ret)
     if req.inner_search_type == 1:
-        show.service_product()
-        show.statics()
+        # show.service_product()
+        # show.statics()
+        show.hotelFlag()
         # show.Product()
         # show.hasMajia()
         # show.minPrice()
@@ -86,7 +87,7 @@ def build_message(id,CI,CO,type):
     # req.hotel_attr.return_assemble.append(0)
     # req.hotel_attr.return_assemble.append(1)
     # req.hotel_attr.return_assemble.append(2)
-    # req.hotel_attr.return_assemble.append(3)
+    req.hotel_attr.return_assemble.append(3)
     # req.hotel_attr.return_assemble.append(4)
     # req.hotel_attr.return_assemble.append(5)
     # req.hotel_attr.return_assemble.append(6)
@@ -125,8 +126,8 @@ def build_message(id,CI,CO,type):
     req.product_attr.cooperation_type = []
     req.product_attr.promotion_black_list = []
     black_list = PromotionBlackList()
-    black_list.promotion_type = 1
-    req.product_attr.promotion_black_list.append(black_list)
+    black_list.promotion_type = 18
+    # req.product_attr.promotion_black_list.append(black_list)
 
 
     #  11：发票模式  12：转让房  13：钟点房  14：闪住  15：信用住
@@ -142,9 +143,9 @@ def build_message(id,CI,CO,type):
     req.product_attr.use_day_promotion = 1
     req.product_attr.return_noinv_or_noprice_product = 1
     #eq.product_attr.return_has_memberbenefits_hotel = 1
-    #eq.product_attr.list_product_info = ListProductInfo()
-    #eq.product_attr.list_product_info.return_min_price_product = 11
-    #req.product_attr.list_product_info.need_sorted_top_product =1
+    req.product_attr.list_product_info = ListProductInfo()
+    req.product_attr.list_product_info.top_product_num = 100
+    # req.product_attr.list_product_info.need_sorted_top_product =1
 
     req.product_attr.stay_date = StayDate()
     req.product_attr.stay_date.check_in = int(time.time())+86400*CI
@@ -214,19 +215,7 @@ def build_message(id,CI,CO,type):
 
     ft = FormatTime()
     req.customer_attr.request_origin = 3
-    # req.customer_attr.booking_date = ft.SetTimeToday('03:00:00')  # 2016-11-25 01:00:01
-    # req.customer_attr.booking_date = ft.SetTimeToday('05:00:00')  # 2016-11-25 01:00:01
 
-    # req.customer_attr.booking_date = 1480006801  # 2016-11-25 01:00:01
-    # req.customer_attr.booking_date = 1480010399  # 2016-11-25 01:59:59
-    # req.customer_attr.booking_date = 1480010400  # 2016-11-25 02:00:00
-    # req.customer_attr.booking_date = 1480010401  # 2016-11-25 02:00:01
-    # req.customer_attr.booking_date = 1480006860  # 2016-11-25 16:00:01
-    # req.customer_attr.booking_date = 1480071601  # 2016-11-25 19:00:01
-    # req.customer_attr.booking_date = 1480075199  # 2016-11-25 19:59:59
-    # req.customer_attr.booking_date = 1480071599  # 2016-11-25 18:59:59
-    # req.customer_attr.booking_date = 1480075200  # 2016-11-25 20:00:00
-    # req.customer_attr.booking_date = 1480075201  # 2016-11-25 20:00:01
 
 
     #req.customer_attr.proxy_id= 'AP0000202'#'AP0011893'#'ZD'
@@ -268,8 +257,8 @@ def build_message(id,CI,CO,type):
     # ===========================
     ## 信用住参数
             # 产品、酒店筛选
-    # req.hotel_attr.return_assemble = []
-    # req.hotel_attr.return_assemble.append(7)
+    req.hotel_attr.return_assemble = []
+    # req.hotel_attr.return_assemble.append(3)
     # req.hotel_attr.return_assemble.append(8)
 
             # 信用住 请求参数
@@ -286,7 +275,7 @@ def build_message(id,CI,CO,type):
     req.product_attr.discount_method = 3
     req.product_attr.half_discount_promotion = 3
             # 转让房 吐出转让房 不参与®
-    req.product_attr.return_has_resale_hotel = 1
+    # req.product_attr.return_has_resale_hotel = 1
 
 
     ##红包
@@ -296,8 +285,7 @@ def build_message(id,CI,CO,type):
         # 红包 3-9
         # tag  0:普通  1：专享   1000：满返
     hong_bao_records = HongbaoRecord()
-    # hong_bao_records.record_id =
-    # hong_bao_records.recharge_type =
+
     hong_bao_records.tag = 0
     hong_bao_records.face_value = 30
     hong_bao_records.valid_date = "2017-12-27 12:00:00"
@@ -312,11 +300,6 @@ def build_message(id,CI,CO,type):
 
     # req.product_attr.hong_bao_records.append(hong_bao_records)
 
-    # hongbao end
-    # ===========================
-
-    # req.product_attr.return_hotel_ticket_product = True
-    # req.product_attr.return_new_botao_member_product = True#False #True
 
         # 列表、详情
     if type == 1:

@@ -23,7 +23,8 @@ hotelFlag = {1:"botao可用",2:"",3:"",4:"",5:"担保",6:"手机专享",7:"coupo
              10:"买断",11:"满减",12:"confirm",13:"最大折扣",14:"会员优惠",15:"五折",16:"N折起",
              17:"铂涛会员价",18:"活动打标",19:"钟点房",1019:"转让房",1020:"中大网视促销",
              1021:"闪住",1022:"信用住",1023:"微信专享",1024:"微信钱包新客N折",
-             1025:"铂涛新会员",1026:"APP新客",1027:"景酒"}
+             1025:"铂涛新会员",1026:"APP新客",1027:"景酒",1028:"主动马甲",1029:"被动马甲",
+             1030:"返现增强"}
 
 
 statics = {1:"可定",2:"尾房",3:"红包",4:"周边",5:"五折",6:"买断",7:"总数",
@@ -31,6 +32,7 @@ statics = {1:"可定",2:"尾房",3:"红包",4:"周边",5:"五折",6:"买断",7:"
            20:"被动马甲",21:"马甲数",22:""
            }
 
+dateType = {1:"预定日期",2:"入住日期",3:"在店日期"}
 
 class ShowResult:
 
@@ -130,13 +132,8 @@ class ShowResult:
 
 
     def Product(self):
-        # print 'common_conf:\n',self.result.common_conf.wechat_for_new_user_promotion_ids
-        # print 'common_conf:\n',json.dumps(self.result.cities_common_conf[101],default=lambda o:o.__dict__)
+        # print "common_conf\n",json.dumps(self.result.cities_common_conf,default=lambda o:o.__dict__)
         print '\033[35m***\033[0m'*10
-        # if type == "sa":
-        #     pass
-        # elif type == "service":
-        #     self.result = self.result.response
         for detail in self.result.hotels_details:
             count = 0
 
@@ -156,17 +153,6 @@ class ShowResult:
                 print "mroom_name :", room.mroom_name
                 for product in room.products:
                     # rp = product.rateplan
-                    # for addition in rp.additions:
-                    #     if addition.addition_id == 11:、
-                    # if room.mroomtype_id == 1163 and product.rateplan.settlement_type == 1:
-                    # if product.rateplan.rateplan_id == 8266523 and product.sroomtype_id == 3:
-                    #     and product.room_num_status != 3:
-                    # if product.derivative_type == 0:
-                    #     if product.rateplan.rateplan_id in (30501015,):
-                    #     if room.mroomtype_id == 8:
-                    # if product.shotel_id == 30501015 and \
-                    #     product.sroomtype_id == 1 and \
-                    #     # product.rateplan.rateplan_id == 416 :
                     # if product.derivative_type in (1,3,5,7):  #马甲
                     # if product.derivative_type in (2,3,6,7,813,814):  #中央价
                     # if product.derivative_type in (4,5,6,7):  #预付定价
@@ -178,24 +164,26 @@ class ShowResult:
                             print "     supplier_id: ", product.supplier_id
                             print "     sroom_id:",product.sroomtype_id
                             print "     supplier_name: ", product.supplier_name
+                            print "     id: ",product.id
                             print "         rp_id: ",product.rateplan.rateplan_id
                             print "         rp_name: ",product.rateplan.rateplan_name_cn
                             print "         支付方式: ",settlement[product.rateplan.settlement_type]
                             print "         产品类型: ",productType[product.derivative_type]
+                            print "         转让房:",product.is_resale_product
                             print "         立即确认: ", product.is_freesale, "     数量：", product.freesale_num
                             print "         景酒：", product.is_hotel_ticket_product
                             print "         门票信息：", product.hotel_ticket_product
                             print "         是否二手房: ",product.is_resale_product
                             print "         二手房原卖价: ",product.resale_product_original_price
                             print "         马甲ID: ",product.majia_id
-                            print "         product_flag:",product.product_flag
+                            print "         \033[31mproduct_flag:\033[0m",product.product_flag
+                            print "         \033[31mmin_check:\033[0m",product.rateplan.min_checkin_rooms
                             print "         booking_channel:",product.rateplan.booking_channel
                             print "         sell_channel:",product.rateplan.sell_channel
                             print "         customer_level:",product.rateplan.customer_level
                             print "         cooperation_type:",product.cooperation_type
                             print "         shopper产品:",product.is_shopper_product
-                            self.hasAddition(product.rateplan,8)
-                            self.credictProduct(product)
+                            print "         relation:\n",product.relations
 
                             print "         inv-status: ", ip_status[product.room_num_status]
                             print "         price-status: ",ip_status[product.price.price_status]
@@ -205,13 +193,16 @@ class ShowResult:
                             print "         -----  价格  -----"
                             for p in product.price.day_prices:
                                 print "         ", p.date, "  ", p.sale_cost, "  ", p.sale_price_with_drr, "  ",p.currency,"    ",p.sale_price_with_drr_sub_coupon
+                            print "         -----------------"
                             print "         -----  促销  -----"
                             for dmt in product.day_marketing_promotions:
                                 print "         ",dmt.date
                                 for dmtd in dmt.day_marketing_promotion:
                                     print "         ",dmtd.promotion_type,"     ",dmtd.upper_limit,\
                                         "       "
-                            print
+                            print "         -----------------"
+                            self.hasAddition(product.rateplan, 8)
+                            self.credictProduct(product)
                             print "\033[31m     ===============\033[0m"
             print "============= \n  直连酒店个数 %s \n============= "%count
             self.hotelFlag()
@@ -284,14 +275,15 @@ class ShowResult:
         print "             =========================================="
 
     def cashCommission(self,product):
-        print "========  现付佣金   ========"
+        print "             ========  现付佣金   ========"
         print "%-15s%-18s%-30s%-25s%s"%("sign_type","cost_point","hotel_service_point",\
                 "total_point","commission_value")
         print "%-15s%-18s%-30s%-25s%s"%(product.sign_type,product.cost_point,\
                 product.hotel_service_point,product.total_point,product.commission_value)
-        print "=="*55
+        print "             ","=="*55
 
     def promotionCash(self):
+        """促销最大最小值统计"""
         for detail in self.result.hotels_details:
             # print detail
             if detail.promotion_stats is not None:
@@ -302,71 +294,21 @@ class ShowResult:
                     print '---------------------'
 
     def CancleRule(self,rp):
+        """取消规则"""
         for info in rp.prepay_infos:
-            if info.rule_type == 1:
-                print '\033[34m         取消规则：不可取消\033[0m'
-            else:
-                print '\033[34m         取消规则：允许取消\033[0m'
-
-    def price(self,product):
-        """
-        """
-        price = product.price;
-        print "         \033[31m----------   price  ----------\033[0m"
-        print "         price-status: ",price.price_status;
-        for d_price in price.day_prices:
-
-            print "         date: ",d_price.date;
-            print "         status: ",d_price.status;
-            print "         currency: ",d_price.currency;
-            print "         %-12s%-12s%-12s%-13s%-13s%-13s%-8s%-8s%-11s%-8s%-10s%-10s"\
-                  %("gen_cost_o",\
-                    "gen_sale_o",\
-                    "gen_sale",\
-                                \
-                    "week_cost_o",\
-                    "week_sale_o",\
-                    "week_sale",\
-                                \
-                    "cost",\
-                    "sale",\
-                    "drr价_o",\
-                    "drr",\
-                    "返后","sub")
-            print "         %-12s%-12s%-12s%-13s%-13s%-13s%-8s%-8s%-10s%-8s%-7s%-8s"\
-                  %(d_price.gen_sale_cost_origin,\
-                    d_price.general_price_origin,\
-                    d_price.gen_sale_price,\
-                                            \
-                    d_price.weekend_sale_cost_origin,\
-                    d_price.weekend_price_origin,\
-                    d_price.weekend_sale_price,\
-                                    \
-                    d_price.sale_cost,\
-                    d_price.sale_price,\
-                    d_price.sale_price_with_drr_origin,\
-                    d_price.sale_price_with_drr,\
-                    d_price.sale_price_with_drr_sub_coupon,\
-                    (d_price.sale_price_with_drr - d_price.sale_price_with_drr_sub_coupon ))
-            print '         佣金:',d_price.sale_price_with_drr - d_price.sale_cost
-            # print "general_price_origin: ",d_price.general_price_origin;
-            # print "gen_sale_cost_origin: ",d_price.gen_sale_cost_origin;
-            # print "gen_sale_price: ",d_price.gen_sale_price;
-            #
-            # print "weekend_sale_cost_origin: ",d_price.weekend_sale_cost_origin;
-            # print "weekend_sale_price: ",d_price.weekend_sale_price;
-            # print "weekend_price_origin: ",d_price.weekend_price_origin;
-            #
-            # print "sale_cost: ",d_price.sale_cost;
-            # print "sale_price: ",d_price.sale_price;
-            #
-            # print "sale_price_with_drr: ",d_price.sale_price_with_drr;
-            # print "sale_price_with_drr_origin: ",d_price.sale_price_with_drr_origin;
-            # print "sale_price_with_drr_sub_coupon: ",d_price.sale_price_with_drr_sub_coupon;
-
-            print "         \033[31m-------------------------------------\033[0m"
+            print "             rp_id:",info.rateplan_id
+            print "             start_date:",info.start_date
+            print "             end_date:",info.end_date
+            print "             date_type:",dateType[info.date_type]
+            print "             is_week_effective:",info.is_week_effective
+            print "             arrive_start_time:",info.arrive_start_time
+            print "             arrive_end_time:",info.arrive_end_time
+            print "             room_count:",info.room_count
+            print "             money_type:",{1:"首晚房费",2:"全额担保"}[info.money_type]
+            print "             rule_type:",{1:"允许取消",2:"不允许取消"}[info.rule_type]
 
     def updateInvSecond(self):
+        """库存秒级"""
         for detail in self.result.hotels_details:
             for room in detail.room_types:
                 for product in room.products:
@@ -466,7 +408,6 @@ class ShowResult:
             print 'limit1:',sbr.limit1
             print 'limit2:',sbr.limit2
         print '\033[33m-------  shotel_booking_rule  ------- \033[0m'
-            # print sbr
 
     def shotel_invoice_info(self):
         for detail in self.result.hotels_details:
@@ -502,36 +443,6 @@ class ShowResult:
     def resaleRoom(self,product):
         print "is_resale_product: ",product.is_resale_product
         print "order_id: ",product.order_id
-
-    def ProductRank(self):
-        print "############################"
-        print "#			                #"
-        print "#	    产品排序	            #"
-        print "#			                #"
-        print "############################"
-
-        global breakfast
-        count=0
-        breakfast = 0
-        print "product_count: ",self.result.hotels_detail[0].product_count
-        print "product_can_be_showed: ",self.result.hotels_detail[0].product_can_be_showed
-        print "grandson: ",self.result.grandson
-        print "============================="
-        for detail in self.result.hotels_detail:
-            for room in detail.room_types:
-                print "mroomtype_id :" ,room.mroomtype_id
-                print "mroom_name :",room.mroom_name
-                for product in room.products:
-                    rp = product.rateplan
-                    settlement = rp.settlement_type
-                    print "shotel_id :",product.shotel_id
-                    print "sroom_id :",product.sroomtype_id
-                    print "rp_id :",rp.rateplan_id
-                    print "rp_name :",rp.rateplan_name
-                    print "支付方式 :"
-                    print "早餐类型 :"
-                    print "是否艺龙 :"
-                    print "weight :",product.weight
 
     def onlineSearch(self):
         print "############################"
@@ -581,38 +492,39 @@ class ShowResult:
                     print "====================="
 
     def statics(self):
-        # for detail in self.result.hotels_details:
-        #     for flag in detail.hotel_flag:
-        #         if flag.flag_type == 1028 and flag.effective:
-        #             flash += 1
-        #             hotels_f.append(detail.mhotel_id)
-        #         if flag.flag_type == 1022 and flag.effective:
-        #             credit += 1
-        #             hotels_c.append(detail.mhotel_id)
-        # print "景酒酒店：%s\n 闪住共:%s家"%(hotels_f,flash)
-        # print "信用住酒店：%s\n 信用住共:%s家"%(hotels_c,credit)
-
+        """酒店静态统计信息"""
         static = self.result.statistics
-        # print static
-        # print statics.keys()
-        # print static
-        # return
         for item in static.static_count:
             if item.id in statics.keys():
                 print item.id,"     ",statics[item.id],"       ",item.num
 
     def hotelFlag(self):
-            #打标
+        """酒店打标"""
+        # print self.result
         print "\033[35m*******hotel_flag*******\033[0m"
         print "name             flag_type        effective      uplimit     high_sub"
         if self.result.hotels_details[0].hotel_flag:
-            for hotel_flag in self.result.hotels_details[0].hotel_flag :
-                if hotel_flag.effective == True:
-                    print "%-22s%-18s%-18s%-10s%-10s"%(hotelFlag[hotel_flag.flag_type],
-                                                     hotel_flag.flag_type,hotel_flag.effective,
-                                                     hotel_flag.upper_limit,hotel_flag.high_sub)
-        # for i in range(len(show)):
-        #     print "%-15s%-15s%-10s"%(show[i][0],show[i][1],show[i][2])
+            for hotel_detail in self.result.hotels_details:
+                print hotel_detail.mhotel_id
+                for hotel_flag in hotel_detail.hotel_flag:
+                    if hotel_flag.effective == True:
+                        if hotelFlag.has_key(hotel_flag.flag_type):
+                            pass
+                        else:
+                            hotelFlag[hotel_flag.flag_type] = ''
+                        print "%-22s%-18s%-18s%-10s%-10s"%(hotelFlag[hotel_flag.flag_type],
+                                                         hotel_flag.flag_type,hotel_flag.effective,
+                                                         hotel_flag.upper_limit,hotel_flag.high_sub)
+                print "=================="
+            # for hotel_flag in self.result.hotels_details[0].hotel_flag :
+            #     if hotel_flag.effective == True:
+            #         if hotelFlag.has_key(hotel_flag.flag_type):
+            #             pass
+            #         else:
+            #             hotelFlag[hotel_flag.flag_type] = ''
+            #         print "%-22s%-18s%-18s%-10s%-10s"%(hotelFlag[hotel_flag.flag_type],
+            #                                          hotel_flag.flag_type,hotel_flag.effective,
+            #                                          hotel_flag.upper_limit,hotel_flag.high_sub)
 
     def DebugPromotion(self):
         for d_detail in self.result.debug_response:
@@ -807,8 +719,28 @@ class ShowDSResult():
         print "产品数 ： " ,count
 
 
+class CanBookResult():
+    def __init__(self,res):
+        self.res = res
 
+    def show(self):
+        self.showHotelDetail()
+        pass
 
+    def showStatus(self):
+        print "code:%s\n msg:%s" %(self.res.status.code)
+
+    def showStatics(self):
+        print "static count "
+        print "id       num         all_num"
+        for i in self.res.statistics.static_count:
+            print "%-10s%-10s%-10s" %(i.id, i.num, i.all_num)
+
+    def showHotelDetail(self):
+        print "hotelDetail "
+        for i in self.res.hotel_book_detail:
+            print "mhotel_id:",i.mhotel_id
+            print "     is_can_book",i.is_can_booking
 
 
 

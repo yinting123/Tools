@@ -24,12 +24,13 @@ from dsservice.DSServiceProxy import Client
 
 
 HOST = '192.168.233.17'
+HOST = '192.168.233.83'
 PORT = 5400
 
 
 def check_v(ret):
-
-    print ret
+    canBook= CanBookResult(ret)
+    canBook.show()
 
 
 def build_req(id,CI,CO):
@@ -275,7 +276,7 @@ def  process(id,CI,CO):
         client = Client(protocol)
         transport.open()
         req,req_v5 = build_req(id, CI, CO)
-        req = build_message(id,CI,CO)
+        req = build_message(id,CI,CO,1)
         ret = client.SearchCanBook(req, req_v5)
         check_v(ret)
         transport.close()

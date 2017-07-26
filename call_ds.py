@@ -20,8 +20,8 @@ from gen.dynamic_search.ProductSearchService import Client
 # HOST = "10.39.18.58"
 # HOST = "sa-mapi.vip.elong.com"
 # HOST = "192.168.35.30"  #——shard_2
-# HOST = "192.168.233.17"
-HOST = "10.66.3.73"
+HOST = "192.168.233.17"
+# HOST = "10.66.3.73"
 # HOST = "192.168.35.30"    #——shard_3
 # HOST = "192.168.210.52"
 # HOST = "192.168.233.2"
@@ -107,6 +107,10 @@ def build_message(id,ci,co,type):
         hotels = MHotelAttr()
         hotels.mhotel_id = id
         request.mhotel_attrs.append(hotels)
+
+        request.search_type = 3
+        request.search_days_type = 2
+        request.return_shopper_product = True
 
 
         list_codes = [43,1,2,3,4,5,6,7,8,9,10,11,28,33,34,35,36,37,38,40,41,42]

@@ -2,34 +2,95 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e99fff7b-c1c6-4b5f-b4fd-c9a9c62bd1ca" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/Hotel/test_list_promotion_amount.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/Product/test_drr_detail.py" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/test/test_majiaFilter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res1" afterPath="$PROJECT_DIR$/res1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Tools.iml" afterPath="$PROJECT_DIR$/.idea/Tools.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/test/test_resaleroom_origin_sale.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:02:40.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:03:54.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:04:39.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:06:32.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:06:55.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:11:28.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:11:50.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:12:08.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:13:06.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:13:40.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:18:03.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_18:21:45.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_19:40:17.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_19:54:03.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_19:54:59.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_19:55:22.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-22_20:05:31.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_09:56:26.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:04:05.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:04:50.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:05:13.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:05:57.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:10:08.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:11:34.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:18:22.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:23:14.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-23_10:24:38.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2016-12-26_09:59:16.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-01-12_14:32:13.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-01-12_14:32:25.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_10:07:25.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_10:08:16.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_10:19:06.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_10:24:28.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_10:30:36.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_10:31:07.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_11:06:30.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_11:15:16.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_11:19:58.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-03-20_11:28:31.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/report/result_2017-06-22_15:55:05.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/TestHTMLRunner/HTMLTestRunner.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/TestHTMLRunner/TestHTMLRunner.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/TestHTMLRunner/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/TSCons.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/TSerialization.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/Thrift.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/protocol/TBase.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/protocol/TBinaryProtocol.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/protocol/TCompactProtocol.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/protocol/TProtocol.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/protocol/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/protocol/fastbinary.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/server/THttpServer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/server/TNonblockingServer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/server/TProcessPoolServer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/server/TServer.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/server/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/THttpClient.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/TSSLSocket.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/TSocket.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/TTransport.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/TTwisted.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/TZlibTransport.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/thrift/transport/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/readLog.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShowResult.py" afterPath="$PROJECT_DIR$/ShowResult.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call_ds.py" afterPath="$PROJECT_DIR$/call_ds.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call_sa.py" afterPath="$PROJECT_DIR$/call_sa.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call_service.py" afterPath="$PROJECT_DIR$/call_service.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/call_service_CanBook.py" afterPath="$PROJECT_DIR$/call_service_CanBook.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen-py/dynamic_search/ttypes.py" afterPath="$PROJECT_DIR$/gen-py/dynamic_search/ttypes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface/Base/dynamic_search.thrift" afterPath="$PROJECT_DIR$/interface/Base/dynamic_search.thrift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface/dynamic_search.thrift" afterPath="$PROJECT_DIR$/interface/dynamic_search.thrift" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/interface/gen-py/dynamic_search/ttypes.py" afterPath="$PROJECT_DIR$/interface/gen-py/dynamic_search/ttypes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/data" afterPath="$PROJECT_DIR$/data/data" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res" afterPath="$PROJECT_DIR$/res" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/Format_time.py" afterPath="$PROJECT_DIR$/utils/Format_time.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/sql/data/product_promotion.txt" afterPath="$PROJECT_DIR$/tools/sql/data/product_promotion.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/sql/sqlFile/product_promotion.sql" afterPath="$PROJECT_DIR$/tools/sql/sqlFile/product_promotion.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/.idea/goods_autotest.iml" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/.idea/goods_autotest.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/.idea/modules.xml" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/Hotel/test_wechat_newUser.py" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/Hotel/test_wechat_newUser.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_credit_live_list.py" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_credit_live_list.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_majiaFilter.py" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_majiaFilter.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/cm/ttypes.py" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/third_lib/interface/gen-py/cm/ttypes.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/DsSearchProduct.py" afterPath="$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/DsSearchProduct.py" />
     </list>
-    <list id="2d95d914-66dc-488e-89a9-d810399abf94" name="New changelist" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rateplan/res" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/rateplan/res1" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list id="2d95d914-66dc-488e-89a9-d810399abf94" name="New changelist" comment="" />
     <ignored path="Tools.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -41,9 +102,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Tools$main.coverage" NAME="main Coverage Results" MODIFIED="1496715204359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Tools$main.coverage" NAME="main Coverage Results" MODIFIED="1501071091658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Tools$Unittest_CreditLive_test_credit_list.coverage" NAME="Unittest CreditLive.test_credit_list Coverage Results" MODIFIED="1496653910930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter" />
     <SUITE FILE_PATH="coverage/Tools$Unittests_in_CreditLive.coverage" NAME="Unittests in CreditLive Coverage Results" MODIFIED="1496653653081" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter" />
+    <SUITE FILE_PATH="coverage/Tools$Redis.coverage" NAME="Redis Coverage Results" MODIFIED="1500017929394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dataBase" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -54,11 +116,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="204" column="33" selection-start-line="204" selection-start-column="33" selection-end-line="204" selection-end-column="33" />
+            <state relative-caret-position="104">
+              <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -67,87 +129,55 @@
       <file leaf-file-name="call_sa.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/call_sa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+            <state relative-caret-position="73">
+              <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="call_service.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/call_service.py">
+      <file leaf-file-name="ShowResult.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ShowResult.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="326">
+              <caret line="520" column="20" selection-start-line="520" selection-start-column="20" selection-end-line="520" selection-end-column="20" />
               <folding>
-                <element signature="e#917#2663#0" expanded="false" />
-                <element signature="e#2692#4360#0" expanded="false" />
-                <element signature="e#4428#5256#0" expanded="false" />
+                <element signature="e#1281#1865#0" expanded="false" />
+                <element signature="e#1916#1995#0" expanded="false" />
+                <element signature="e#2041#2078#0" expanded="false" />
+                <element signature="e#2123#2159#0" expanded="false" />
+                <element signature="e#2205#2391#0" expanded="false" />
+                <element signature="e#2432#3757#0" expanded="false" />
+                <element signature="e#3796#4663#0" expanded="false" />
+                <element signature="e#9790#12208#0" expanded="false" />
+                <element signature="e#12256#12787#0" expanded="false" />
+                <element signature="e#12835#13227#0" expanded="false" />
+                <element signature="e#13266#13680#0" expanded="false" />
+                <element signature="e#13719#14455#0" expanded="false" />
+                <element signature="e#14496#15116#0" expanded="false" />
+                <element signature="e#15153#15656#0" expanded="false" />
+                <element signature="e#15699#16616#0" expanded="false" />
+                <element signature="e#16653#17070#0" expanded="false" />
+                <element signature="e#17113#17674#0" expanded="false" />
+                <element signature="e#17717#18150#0" expanded="false" />
+                <element signature="e#18202#18971#0" expanded="false" />
+                <element signature="e#19016#19320#0" expanded="false" />
+                <element signature="e#19363#19560#0" expanded="false" />
+                <element signature="e#19601#19680#0" expanded="false" />
+                <element signature="e#19717#20191#0" expanded="false" />
+                <element signature="e#20235#20332#0" expanded="false" />
+                <element signature="e#20370#22710#0" expanded="false" />
+                <element signature="e#22743#22954#0" expanded="false" />
+                <element signature="e#24612#25693#0" expanded="false" />
+                <element signature="e#25728#25994#0" expanded="false" />
+                <element signature="e#26034#26211#0" expanded="false" />
+                <element signature="e#26239#36498#0" expanded="false" />
+                <element signature="e#36528#37142#0" expanded="false" />
+                <element signature="e#36604#36639#0" expanded="false" />
+                <element signature="e#36675#36723#0" expanded="false" />
+                <element signature="e#36760#36939#0" expanded="false" />
+                <element signature="e#36980#37142#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="verify_price.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/verify_price.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="diff.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/diff.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-              <folding>
-                <element signature="e#1063#1303#0" expanded="false" />
-                <element signature="e#2295#3696#0" expanded="false" />
-                <element signature="e#3775#4118#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_credit_live_list.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_credit_live_list.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="82" column="38" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="diff_conf.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/conf/diff_conf.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="program.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/services/program.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thriftclient.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/thriftclient.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-95">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,12 +191,17 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/utils/Format_time.py" />
-        <option value="$PROJECT_DIR$/call_service_CanBook.py" />
         <option value="$PROJECT_DIR$/interface/Base/dynamic_search.thrift" />
-        <option value="$PROJECT_DIR$/call_sa.py" />
         <option value="$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_credit_live_list.py" />
+        <option value="$PROJECT_DIR$/call_service_CanBook.py" />
+        <option value="$PROJECT_DIR$/data/data" />
+        <option value="$PROJECT_DIR$/tools/sql/sqlFile/product_promotion.sql" />
+        <option value="$PROJECT_DIR$/call_ds.py" />
+        <option value="$PROJECT_DIR$/tools/sql/data/product_promotion.txt" />
         <option value="$PROJECT_DIR$/call_service.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/call_sa.py" />
+        <option value="$PROJECT_DIR$/ShowResult.py" />
       </list>
     </option>
   </component>
@@ -177,10 +212,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="y" value="-1057" />
-    <option name="width" value="1529" />
-    <option name="height" value="944" />
+    <option name="y" value="23" />
+    <option name="width" value="1400" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -207,6 +241,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -221,14 +257,26 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="goods_autotest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goods_autotest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="conf" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,6 +284,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../workAbout" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="sqlserv&#9;null&#9;null&#10;showre&#9;FILE&#9;file:///Users/user/Documents/project/PycharmProjects/myself/gitHub/Tools/ShowResult.py&#10;call&#9;FILE&#9;file:///Users/user/Documents/project/PycharmProjects/myself/gitHub/Tools/call_ds.py&#10;red&#9;FILE&#9;file:///Users/user/Documents/project/PycharmProjects/myself/gitHub/Tools/dataBase/Redis.py&#10;canboo&#9;FILE&#9;file:///Users/user/Documents/project/PycharmProjects/myself/gitHub/Tools/call_service_CanBook.py&#10;call_service&#9;FILE&#9;file:///Users/user/Documents/project/PycharmProjects/myself/gitHub/Tools/call_service.py&#10;servi&#9;FILE&#9;file:///Users/user/Documents/project/PycharmProjects/myself/gitHub/Tools/call_service.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -306,6 +355,24 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Redis" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/dataBase" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Tools" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataBase/Redis.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -516,21 +583,26 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.main" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest CreditLive.test_credit_list" />
       <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in CreditLive" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Redis" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="4">
         <item index="0" class="java.lang.String" itemvalue="Python.main" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest CreditLive.test_credit_list" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in CreditLive" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Redis" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest CreditLive.test_credit_list" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in CreditLive" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -572,18 +644,18 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="-1057" width="1529" height="944" extended-state="0" />
+    <frame x="0" y="23" width="1400" height="877" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14593141" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17673048" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5653753" sideWeight="0.5023537" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.91172594" sideWeight="0.51104563" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292978" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4636804" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4818402" sideWeight="0.49764627" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.76811594" sideWeight="0.48895434" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3535109" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6389987" sideWeight="0.48969072" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39951575" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -612,10 +684,124 @@
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="75" column="6" selection-start-line="75" selection-start-column="6" selection-end-line="75" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#887#2633#0" expanded="false" />
+            <element signature="e#2662#4359#0" expanded="false" />
+            <element signature="e#5298#5566#0" expanded="false" />
+            <element signature="e#6126#6180#0" expanded="false" />
+            <element signature="e#8446#8714#0" expanded="false" />
+            <element signature="e#8757#8988#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_sa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_sa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding>
+            <element signature="e#887#2633#0" expanded="false" />
+            <element signature="e#2662#4359#0" expanded="false" />
+            <element signature="e#5298#5566#0" expanded="false" />
+            <element signature="e#6126#6180#0" expanded="false" />
+            <element signature="e#8446#8714#0" expanded="false" />
+            <element signature="e#8757#8988#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/verify_price.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1862">
+          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/diff.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_credit_live_list.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1558">
+          <caret line="82" column="38" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/conf/diff_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/services/program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1083">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/thriftclient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -629,17 +815,13 @@
         <state relative-caret-position="494">
           <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
-            <element signature="e#917#2663#0" expanded="false" />
-            <element signature="e#2692#4360#0" expanded="false" />
-            <element signature="e#4428#5256#0" expanded="false" />
+            <element signature="e#887#2633#0" expanded="false" />
+            <element signature="e#2662#4359#0" expanded="false" />
+            <element signature="e#5298#5566#0" expanded="false" />
+            <element signature="e#6126#6180#0" expanded="false" />
+            <element signature="e#8446#8714#0" expanded="false" />
+            <element signature="e#8757#8988#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/call_service_CanBook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -664,51 +846,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/call_sa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/verify_price.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/thriftclient.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-95">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/services/program.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/conf/diff_conf.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/services/diff_hotel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="46" column="22" selection-start-line="46" selection-start-column="22" selection-end-line="46" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,10 +857,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="251">
           <caret line="149" column="66" selection-start-line="149" selection-start-column="66" selection-end-line="149" selection-end-column="66" />
-          <folding>
-            <element signature="e#8681#8951#0" expanded="false" />
-            <element signature="e#9005#10535#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/verify_price.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -727,39 +871,204 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="305">
           <caret line="74" column="41" selection-start-line="74" selection-start-column="41" selection-end-line="74" selection-end-column="41" />
-          <folding>
-            <element signature="e#1063#1303#0" expanded="false" />
-            <element signature="e#2295#3696#0" expanded="false" />
-            <element signature="e#3775#4118#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/services/program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="65" column="53" selection-start-line="65" selection-start-column="53" selection-end-line="65" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/utils/thriftclient.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/case/HotelFilter/test_credit_live_list.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="82" column="38" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
+        <state relative-caret-position="-1036">
+          <caret line="30" column="119" selection-start-line="30" selection-start-column="119" selection-end-line="30" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thrift/transport/TSocket.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_service_CanBook.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="267" column="25" selection-start-line="267" selection-start-column="25" selection-end-line="267" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataBase/Redis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res" />
+    <entry file="file://$PROJECT_DIR$/utils/tt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="0" column="433" selection-start-line="0" selection-start-column="433" selection-end-line="0" selection-end-column="433" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/sql/Sqlserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-247">
+          <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/sql/sqlFile/product_promotion.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/sql/sqlFile/promotion_inc.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_ds.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="99" column="25" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/sql/conf/MsqConf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/sql/data/product_promotion.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/conf/log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/conf/diff_conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../workAbout/goods_autotest/conf/log_conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1297">
+          <caret line="86" column="8" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/call_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="32" />
+        <state relative-caret-position="-2698">
+          <caret line="141" column="31" selection-start-line="141" selection-start-column="31" selection-end-line="141" selection-end-column="31" />
           <folding>
-            <element signature="e#917#2663#0" expanded="false" />
-            <element signature="e#2692#4360#0" expanded="false" />
-            <element signature="e#4428#5256#0" expanded="false" />
+            <element signature="e#887#2633#0" expanded="false" />
+            <element signature="e#2662#4359#0" expanded="false" />
+            <element signature="e#5298#5566#0" expanded="false" />
+            <element signature="e#6126#6180#0" expanded="false" />
+            <element signature="e#8446#8714#0" expanded="false" />
+            <element signature="e#8757#8988#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="204" column="33" selection-start-line="204" selection-start-column="33" selection-end-line="204" selection-end-column="33" />
+        <state relative-caret-position="104">
+          <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/call_sa.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="89" column="44" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ShowResult.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="520" column="20" selection-start-line="520" selection-start-column="20" selection-end-line="520" selection-end-column="20" />
+          <folding>
+            <element signature="e#1281#1865#0" expanded="false" />
+            <element signature="e#1916#1995#0" expanded="false" />
+            <element signature="e#2041#2078#0" expanded="false" />
+            <element signature="e#2123#2159#0" expanded="false" />
+            <element signature="e#2205#2391#0" expanded="false" />
+            <element signature="e#2432#3757#0" expanded="false" />
+            <element signature="e#3796#4663#0" expanded="false" />
+            <element signature="e#9790#12208#0" expanded="false" />
+            <element signature="e#12256#12787#0" expanded="false" />
+            <element signature="e#12835#13227#0" expanded="false" />
+            <element signature="e#13266#13680#0" expanded="false" />
+            <element signature="e#13719#14455#0" expanded="false" />
+            <element signature="e#14496#15116#0" expanded="false" />
+            <element signature="e#15153#15656#0" expanded="false" />
+            <element signature="e#15699#16616#0" expanded="false" />
+            <element signature="e#16653#17070#0" expanded="false" />
+            <element signature="e#17113#17674#0" expanded="false" />
+            <element signature="e#17717#18150#0" expanded="false" />
+            <element signature="e#18202#18971#0" expanded="false" />
+            <element signature="e#19016#19320#0" expanded="false" />
+            <element signature="e#19363#19560#0" expanded="false" />
+            <element signature="e#19601#19680#0" expanded="false" />
+            <element signature="e#19717#20191#0" expanded="false" />
+            <element signature="e#20235#20332#0" expanded="false" />
+            <element signature="e#20370#22710#0" expanded="false" />
+            <element signature="e#22743#22954#0" expanded="false" />
+            <element signature="e#24612#25693#0" expanded="false" />
+            <element signature="e#25728#25994#0" expanded="false" />
+            <element signature="e#26034#26211#0" expanded="false" />
+            <element signature="e#26239#36498#0" expanded="false" />
+            <element signature="e#36528#37142#0" expanded="false" />
+            <element signature="e#36604#36639#0" expanded="false" />
+            <element signature="e#36675#36723#0" expanded="false" />
+            <element signature="e#36760#36939#0" expanded="false" />
+            <element signature="e#36980#37142#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

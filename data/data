@@ -1,1 +1,18 @@
-{"from":"huajiang.local","logId":"4237c35f-d6e9-4664-9778-a3c2d77697db","realRequest":{"messageList":[{"createOrderTime":1490686334911,"hotelId":"90649089","onLineSearchType":0,"priceDetails":[{"currencyType":"RMB","endDate":17283,"priceMode":1,"startDate":17281,"totalCost":2739580,"totalCostOrigin":2739580,"totalPrice":3424000,"totalPriceOrigin":3424000,"version":1490602532},{"currencyType":"RMB","endDate":17283,"priceMode":1,"startDate":17281,"totalCost":70,"totalCostOrigin":70,"totalPrice":3424000,"totalPriceOrigin":3424000,"version":1490602545}],"rateplanId":"5392118","roomId":"0006","traceId":"7315115d-dabd-40ee-84e2-c3ecb7cd48f9"}],"traceId":"59b8b360-c792-4521-b74e-20713a9a916c"}}
+酒店数据
+
+灰度数据
+--------------------------
+信用住酒店
+马甲酒店
+
+
+--------------------------
+
+
+测试环境
+shopper酒店         50401025
+升房产品             40101030
+N折产品              30101023
+
+
+
